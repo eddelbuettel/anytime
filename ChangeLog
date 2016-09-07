@@ -1,5 +1,8 @@
 2016-09-06  Dirk Eddelbuettel  <edd@debian.org>
 
+	* R/anytime.R: Front-end R function testing for Date or POSIXt
+	before dispatching to C++-based converter
+
 	* DESCRIPTION (Package): First commit, using a set of files which
 	originated with the RcppBDT package
 
