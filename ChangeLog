@@ -1,0 +1,5 @@
+2016-09-06  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Package): First commit, using a set of files which
+	originated with the RcppBDT package
+
