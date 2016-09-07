@@ -30,7 +30,7 @@ namespace bt = boost::posix_time;
 const std::locale formats[] = {
     std::locale(std::locale::classic(), new bt::time_input_facet("%Y-%m-%d %H:%M:%S%f")),
     std::locale(std::locale::classic(), new bt::time_input_facet("%Y/%m/%d %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%m%d %H%M%S%f")),
+    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%m%dT%H%M%S%F")),
     std::locale(std::locale::classic(), new bt::time_input_facet("%m/%d/%Y %H:%M:%S%f")),
     std::locale(std::locale::classic(), new bt::time_input_facet("%m-%d-%Y %H:%M:%S%f")),
     std::locale(std::locale::classic(), new bt::time_input_facet("%d.%m.%Y %H:%M:%S%f")),
@@ -92,14 +92,19 @@ double stringToTime(const std::string s) {
 
         // seconds sincr epoch (in local time) -- misses DST adjustment
         bt::time_duration tdiff = pt - local_timet_start;
+        //Rcpp::Rcout << "tdiff is " << tdiff << std::endl;
+        //Rcpp::Rcout << "pt is " << pt << std::endl;
 
         // hack-ish: go back to struct tm to use its tm_isdst field
         time_t secsSinceEpoch = tdiff.total_seconds();
         struct tm* localAsTm = localtime(&secsSinceEpoch);
-
+        //Rcpp::Rcout << "Adj is " << localAsTm->tm_isdst << std::endl;
+        
         // Define BOOST_DATE_TIME_POSIX_TIME_STD_CONFIG to use nanoseconds
         // (and then use diff.total_nanoseconds()/1.0e9;  instead)
-        // note dst correction here
+        //
+        // note dst correction here -- needed as UTC offset is correct but does not
+        // contain the additional DST adjustment
         return tdiff.total_microseconds()/1.0e6 - localAsTm->tm_isdst*60*60;
     }
 }
@@ -196,7 +201,12 @@ Rcpp::NumericVector anytime_cpp(SEXP x, std::string tz = "UTC") {
 
 
 //' This function uses the Boost Date_Time library to parse
-//' datetimes from strings. It returns a vector of \code{POSIXct}
+//' datetimes from strings formatted in the standard ISO format
+//' \sQuote{YYYY-MM-DD HH:MM:SS} (with optional trailing fractional
+//' seconds). No other format is tried, see \code{\link{anytime}} for
+//' general approaches. 
+//'
+//' The function returns a vector of \code{POSIXct}
 //' objects. These represent dates and time as (possibly
 //' fractional) seconds since the \sQuote{epoch} of January 1, 1970.
 //' A timezone can be set, if none is supplied \sQuote{UTC} is set.
@@ -261,14 +271,19 @@ Rcpp::NumericVector charToPOSIXct(Rcpp::CharacterVector sv, std::string tz = "UT
 // }
 
 
-//' This function uses the Boost Date_Time library to parse
-//' datetimes from strings. It returns a vector of \code{POSIXct}
+//' This function uses the \code{strptime} function to parse
+//' datetimes from strings in the standard ISO format
+//' \sQuote{YYYY-MM-DD HH:MM:SS} (without trailing fractional
+//' seconds). No other format is tried, see \code{\link{anytime}} for
+//' general approaches.
+//' 
+//' This function returns a vector of \code{POSIXct}
 //' objects. These represent dates and time as (possibly
 //' fractional) seconds since the \sQuote{epoch} of January 1, 1970.
 //' A timezone can be set, if none is supplied \sQuote{UTC} is set.
 //'
 //' A single standard ISO format \sQuote{YYYY-MM-DD HH:MM:SS} is tried.
-//' See the function //' \code{\link{anytime_cpp}} for more general input format,
+//' See the function //' \code{\link{anytime}} for more general input format,
 //' and \code{\link{charToPOSIXct}} for character conversion.
 //'
 //' This function is for comparison only and uses the C library function

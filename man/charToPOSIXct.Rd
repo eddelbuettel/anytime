@@ -17,12 +17,17 @@ A vector of \sQuote{POSIXct} elements.
 }
 \description{
 This function uses the Boost Date_Time library to parse
-datetimes from strings. It returns a vector of \code{POSIXct}
+datetimes from strings formatted in the standard ISO format
+\sQuote{YYYY-MM-DD HH:MM:SS} (with optional trailing fractional
+seconds). No other format is tried, see \code{\link{anytime}} for
+general approaches.
+}
+\details{
+The function returns a vector of \code{POSIXct}
 objects. These represent dates and time as (possibly
 fractional) seconds since the \sQuote{epoch} of January 1, 1970.
 A timezone can be set, if none is supplied \sQuote{UTC} is set.
-}
-\details{
+
 A single standard ISO format \sQuote{YYYY-MM-DD HH:MM:SS} (with
 optional trailing fractional seconds) is tried.  In the case of
 parsing failure a \code{NA} value is returned. See the function

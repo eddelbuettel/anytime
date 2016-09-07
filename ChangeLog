@@ -1,3 +1,9 @@
+2016-09-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp: Updated and expanded help texts
+	* man/cToPOSIXct.Rd: Ditto
+	* man/charToPOSIXct.Rd: Ditto
+
 2016-09-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/anytime.R: Front-end R function testing for Date or POSIXt
