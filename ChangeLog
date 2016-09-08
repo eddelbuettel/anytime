@@ -1,6 +1,10 @@
 2016-09-08  Dirk Eddelbuettel  <edd@debian.org>
 
-	* src/anytime.cpp (charToPOSIXct): Defensive assignment for string
+	* src/anytime.cpp (charToPOSIXct): Defensive assignment for
+	string, no longer export;
+	(cToPOSIXct): no longer exported
+	* man/charToPOSIXct.Rd: Removed
+	* man/cToPOSIXct.Rd: Ditto
 
 2016-09-07  Dirk Eddelbuettel  <edd@debian.org>
 

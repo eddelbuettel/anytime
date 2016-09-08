@@ -1,3 +1,4 @@
-exportPattern("^[[:alpha:]]+")
+export("anytime")
+export("anytime_cpp")
 importFrom(Rcpp, evalCpp)
 useDynLib(anytime)

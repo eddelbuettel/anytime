@@ -17,27 +17,3 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// charToPOSIXct
-Rcpp::NumericVector charToPOSIXct(Rcpp::CharacterVector sv, std::string tz);
-RcppExport SEXP anytime_charToPOSIXct(SEXP svSEXP, SEXP tzSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< Rcpp::CharacterVector >::type sv(svSEXP);
-    Rcpp::traits::input_parameter< std::string >::type tz(tzSEXP);
-    rcpp_result_gen = Rcpp::wrap(charToPOSIXct(sv, tz));
-    return rcpp_result_gen;
-END_RCPP
-}
-// cToPOSIXct
-Rcpp::NumericVector cToPOSIXct(Rcpp::CharacterVector sv, std::string tz);
-RcppExport SEXP anytime_cToPOSIXct(SEXP svSEXP, SEXP tzSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< Rcpp::CharacterVector >::type sv(svSEXP);
-    Rcpp::traits::input_parameter< std::string >::type tz(tzSEXP);
-    rcpp_result_gen = Rcpp::wrap(cToPOSIXct(sv, tz));
-    return rcpp_result_gen;
-END_RCPP
-}
