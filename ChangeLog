@@ -4,6 +4,8 @@
 	* man/cToPOSIXct.Rd: Ditto
 	* man/charToPOSIXct.Rd: Ditto
 
+	* tests/simpleTests.R: Some first (and simple) tests
+
 2016-09-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/anytime.R: Front-end R function testing for Date or POSIXt
