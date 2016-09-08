@@ -1,3 +1,7 @@
+2016-09-08  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (charToPOSIXct): Defensive assignment for string
+
 2016-09-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp: Updated and expanded help texts

@@ -1,11 +1,11 @@
 Package: anytime
 Type: Package
-Title: Anything to POSIXct Converter
+Title: Anything to 'POSIXct' Converter
 Version: 0.0.1
 Author: Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
-Description: Convert input in character, integer, or numeric form into POSIXct
- object, using one of a number of predefined formats, and relying on Boost
+Description: Convert input in character, integer, or numeric form into 'POSIXct'
+ objects, using one of a number of predefined formats, and relying on Boost
  facilities for date and time parsing.
 License: GPL (>= 2)
 Encoding: UTF-8

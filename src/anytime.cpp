@@ -243,7 +243,8 @@ Rcpp::NumericVector charToPOSIXct(Rcpp::CharacterVector sv, std::string tz = "UT
                                   new bt::time_input_facet("%Y-%m-%d %H:%M:%S%F"));
 
     for (int i=0; i<n; i++) {
-        std::istringstream is(std::string(sv[i]));
+        std::string val(sv[i]);
+        std::istringstream is(val);
         is.imbue(fmt);
         is >> pt;
         bt::time_duration diff = pt - timet_start;
