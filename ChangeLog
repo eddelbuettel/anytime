@@ -1,8 +1,12 @@
+2016-09-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .travis.yml: Added, using run.sh from Travis CI
+
 2016-09-08  Dirk Eddelbuettel  <edd@debian.org>
 
-	* src/anytime.cpp (charToPOSIXct): Defensive assignment for
-	string, no longer export;
-	(cToPOSIXct): no longer exported
+	* src/anytime.cpp (cToPOSIXct): no longer exported;
+	(charToPOSIXct): Safer assignment for string, no longer export;
+
 	* man/charToPOSIXct.Rd: Removed
 	* man/cToPOSIXct.Rd: Ditto
 
