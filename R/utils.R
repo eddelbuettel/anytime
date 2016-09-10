@@ -1,0 +1,4 @@
+
+getTZ <- function() {
+    .pkgenv$tz
+}

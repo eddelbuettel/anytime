@@ -1,3 +1,12 @@
+2016-09-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/init.R (.onLoad): Use Sys.timezone(), and gettz::gettz() if
+	available and needed, to gather and cache timezone value
+
+	* R/utils.R (getTZ): New helper function to get cached TZ value
+
+	* R/anytime.R (anytime): Use getTZ() to get default value
+
 2016-09-09  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .travis.yml: Added, using run.sh from Travis CI

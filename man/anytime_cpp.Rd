@@ -7,7 +7,7 @@
 \usage{
 anytime_cpp(x, tz = "UTC")
 
-anytime(x, tz = Sys.getenv("TZ", unset = "UTC"))
+anytime(x, tz = getTZ())
 }
 \arguments{
 \item{x}{A vector of type character, integer or numeric with

@@ -1,6 +1,6 @@
 
 ##' @rdname anytime_cpp
-anytime <- function(x, tz=Sys.getenv("TZ", unset="UTC")) {
+anytime <- function(x, tz=getTZ()) {
 
     if (inherits(x, "POSIXt")) {
         return(as.POSIXct(x, tz=tz))
