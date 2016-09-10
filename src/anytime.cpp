@@ -37,7 +37,7 @@ const std::locale formats[] = {
 
     std::locale(std::locale::classic(), new bt::time_input_facet("%Y-%b-%d %H:%M:%S%f")),
     std::locale(std::locale::classic(), new bt::time_input_facet("%Y/%b/%d %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%b%d %H%M%S%f")),
+    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%b%d %H%M%S%F")),
     std::locale(std::locale::classic(), new bt::time_input_facet("%b/%d/%Y %H:%M:%S%f")),
     std::locale(std::locale::classic(), new bt::time_input_facet("%b-%d-%Y %H:%M:%S%f")),
     std::locale(std::locale::classic(), new bt::time_input_facet("%d.%b.%Y %H:%M:%S%f")),
@@ -53,7 +53,7 @@ const std::locale formats[] = {
     std::locale(std::locale::classic(), new bt::time_input_facet("%a %b %d %H:%M:%S%F %Y")),
 
     std::locale(std::locale::classic(), new bt::time_input_facet("%Y-%m-%d")),
-    // will not work std::locale(std::locale::classic(), new bt::time_input_facet("%Y%m%d")),
+    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%m%d")),
     std::locale(std::locale::classic(), new bt::time_input_facet("%m/%d/%Y")),
     std::locale(std::locale::classic(), new bt::time_input_facet("%m-%d-%Y")),
 

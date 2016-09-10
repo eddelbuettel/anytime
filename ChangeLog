@@ -9,6 +9,8 @@
 
 	* tests/simpleTests.R: Use getTZ(), some extensions
 
+	* src/anytime.cpp (]): small tweak
+
 2016-09-09  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .travis.yml: Added, using run.sh from Travis CI
