@@ -9,7 +9,9 @@
 
 	* tests/simpleTests.R: Use getTZ(), some extensions
 
-	* src/anytime.cpp (]): small tweak
+	* src/anytime.cpp: small tweaks to formats
+
+	* README.md: Added
 
 2016-09-09  Dirk Eddelbuettel  <edd@debian.org>
 
