@@ -1,14 +1,22 @@
 
 options(digits.secs=6)
 
+## normal use:  Sys.setenv(TZ=anytime:::getTZ())
+## to make tests reproducible, set a TZ
 library(anytime)
-Sys.setenv(TZ=anytime:::getTZ())
+Sys.setenv(TZ="America/Chicago")
 
 ## Dates: Integer
 anytime(20160101L + 0:2)
 
 ## Dates: Numeric
 anytime(20160101 + 0:2)
+
+## Dates: Factor
+anytime(as.factor(20160101 + 0:2))
+
+## Dates: Ordered
+anytime(as.ordered(20160101 + 0:2))
 
 ## Dates: Character
 anytime(as.character(20160101 + 0:2))

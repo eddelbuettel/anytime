@@ -1,0 +1,76 @@
+
+R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+> options(digits.secs=6)
+> 
+> ## normal use:  Sys.setenv(TZ=anytime:::getTZ())
+> ## to make tests reproducible, set a TZ
+> library(anytime)
+> Sys.setenv(TZ="America/Chicago")
+> 
+> ## Dates: Integer
+> anytime(20160101L + 0:2)
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+> 
+> ## Dates: Numeric
+> anytime(20160101 + 0:2)
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+> 
+> ## Dates: Factor
+> anytime(as.factor(20160101 + 0:2))
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+> 
+> ## Dates: Ordered
+> anytime(as.ordered(20160101 + 0:2))
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+>  
+> ## Dates: Character
+> anytime(as.character(20160101 + 0:2))
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+> 
+> ## Dates: alternate formats
+> anytime(c("20160101", "2016/01/02", "2016-01-03"))
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+> 
+> ## Datetime: ISO with/without fractional seconds
+> anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"))
+[1] "2016-01-01 10:11:12.000000 CST" "2016-01-01 10:11:12.345678 CST"
+> 
+> ## Datetime: ISO alternate (?) with 'T' separator
+> anytime(c("20160101T101112", "20160101T101112.345678"))
+[1] "2016-01-01 10:11:12.000000 CST" "2016-01-01 10:11:12.345678 CST"
+> 
+> ## Datetime: textual month formats
+> anytime(c("2016-Sep-01 10:11:12", "Sep/01/2016 10:11:12", "Sep-01-2016 10:11:12"))
+[1] "2016-09-01 10:11:12 CDT" "2016-09-01 10:11:12 CDT"
+[3] "2016-09-01 10:11:12 CDT"
+> 
+> ## Datetime: Mixed format (cf http://stackoverflow.com/questions/39259184)
+> anytime(c("Thu Sep 01 10:11:12 2016", "Thu Sep 01 10:11:12.345678 2016"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> 
+> ## Datetime: pre/post DST
+> anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"))
+[1] "2016-01-31 12:13:14 CST" "2016-08-31 12:13:14 CDT"
+> anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"), tz="UTC")  # important: catches change
+[1] "2016-01-31 18:13:14 UTC" "2016-08-31 17:13:14 UTC"
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  0.272   0.012   0.278 

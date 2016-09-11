@@ -2,6 +2,9 @@
 
 	* R/anytime.R (anytime): Support factors on input
 
+	* tests/simpleTests.R: Expanded
+	* tests/simpleTests.Rout.save: Added for proper comparison
+
 2016-09-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/init.R (.onLoad): Use Sys.timezone(), and gettz::gettz() if
