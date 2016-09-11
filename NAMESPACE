@@ -1,4 +1,5 @@
-export("anytime")
-export("anytime_cpp")
+export("anytime",
+       "anytime_cpp",
+       "anydate")
 importFrom(Rcpp, evalCpp)
-useDynLib(anytime)
+useDynLib(anytime, .registration=TRUE)

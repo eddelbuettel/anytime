@@ -139,10 +139,11 @@ Rcpp::NumericVector anytime_impl(const Rcpp::Vector<RTYPE>& sv,
     return pv;
 }
 
-//' This function uses the Boost Date_Time library to parse
-//' datetimes (and dates) from strings, integers or even numeric values
-//' (which are cast to strings internall). It returns a vector of
-//' \code{POSIXct} objects. These represent dates and time as (possibly
+//' These function use the Boost Date_Time library to parse
+//' datetimes (and dates) from strings, integers, factors or even numeric values
+//' (which are cast to strings internall). They return a vector of
+//' \code{POSIXct} objects (or \code{Date} objects in the case of \code{anydate}).
+//' \code{POSIXct} objects represent dates and time as (possibly
 //' fractional) seconds since the \sQuote{epoch} of January 1, 1970.
 //' A timezone can be set, if none is supplied \sQuote{UTC} is set.
 //'
@@ -161,14 +162,16 @@ Rcpp::NumericVector anytime_impl(const Rcpp::Vector<RTYPE>& sv,
 //' @param x A vector of type character, integer or numeric with
 //' date(time) expressions to be parsed and converted.
 //' @param tz A string with the timezone, defaults to \sQuote{UTC} if unset
-//' @return A vector of \sQuote{POSIXct} elements.
+//' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
+//' a vector of \code{Date} objects.
+//' @seealso \code{\link{anytime-package}}
 //' @author Dirk Eddelbuettel
 //' @examples
-//' ## See the source code (hah!) for a full list of formats
+//' ## See the source code for a full list of formats, and the
+//' ## or the reference in help('anytime-package') for details
 //' times <- c("2004-03-21 12:45:33.123456",
 //'           "2004/03/21 12:45:33.123456",
 //'           "20040321 124533.123456",
-//'           "21.03.2004 12:45:33.123456",
 //'           "03/21/2004 12:45:33.123456",
 //'           "03-21-2004 12:45:33.123456",
 //'           "2004-03-21",
@@ -176,7 +179,8 @@ Rcpp::NumericVector anytime_impl(const Rcpp::Vector<RTYPE>& sv,
 //'           "03/21/2004",
 //'           "03-21-2004",
 //'           "20010101")
-//' anytime_cpp(times)
+//' anytime(times)
+//' anydate(times)
 // [[Rcpp::export]]
 Rcpp::NumericVector anytime_cpp(SEXP x, std::string tz = "UTC") {
     if (Rcpp::is<Rcpp::CharacterVector>(x)) {
@@ -201,125 +205,3 @@ Rcpp::NumericVector anytime_cpp(SEXP x, std::string tz = "UTC") {
     }
 }
 
-
-// ' This function uses the Boost Date_Time library to parse
-// ' datetimes from strings formatted in the standard ISO format
-// ' \sQuote{YYYY-MM-DD HH:MM:SS} (with optional trailing fractional
-// ' seconds). No other format is tried, see \code{\link{anytime}} for
-// ' general approaches.
-// '
-// ' The function returns a vector of \code{POSIXct}
-// ' objects. These represent dates and time as (possibly
-// ' fractional) seconds since the \sQuote{epoch} of January 1, 1970.
-// ' A timezone can be set, if none is supplied \sQuote{UTC} is set.
-// '
-// ' A single standard ISO format \sQuote{YYYY-MM-DD HH:MM:SS} (with
-// ' optional trailing fractional seconds) is tried.  In the case of
-// ' parsing failure a \code{NA} value is returned. See the function
-// ' \code{\link{anytime_cpp}} for more general input format
-// '
-// ' Fractional seconds are supported as well.  As R itself only supports
-// ' microseconds, the Boost compile-time option for nano-second resolution
-// ' has not been enabled.
-// '
-// ' @title Parse POSIXct objects from character variables
-// ' @param sv A vector of type character with datetime expressions
-// ' in ISO format to be parsed and converted.
-// ' @param tz A string with the timezone, defaults to \sQuote{UTC} if unset
-// ' @return A vector of \sQuote{POSIXct} elements.
-// ' @author Dirk Eddelbuettel
-// ' @examples
-// ' times <- c("2004-03-21 12:45:33.123456",
-// '           "2004-03-21 12:45:34")
-// ' charToPOSIXct(times)
-// [ [ Rcpp::export ] ]
-Rcpp::NumericVector charToPOSIXct(Rcpp::CharacterVector sv, std::string tz = "UTC") {
-    int n = sv.size();
-    Rcpp::NumericVector pv(n);
-    pv.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
-    pv.attr("tzone") = tz;
-
-    const bt::ptime timet_start(boost::gregorian::date(1970,1,1));
-    bt::ptime pt;
-    std::locale fmt = std::locale(std::locale::classic(),
-                                  new bt::time_input_facet("%Y-%m-%d %H:%M:%S%F"));
-
-    for (int i=0; i<n; i++) {
-        std::string val(sv[i]);
-        std::istringstream is(val);
-        is.imbue(fmt);
-        is >> pt;
-        bt::time_duration diff = pt - timet_start;
-
-        pv[i] = diff.total_microseconds()/1.0e6;
-    }
-    return pv;
-}
-
-// The next function uses the non-stream-based parsing in Boost Date_Time
-// and requires _linking_ with -lboost_date_time which makes the (otherwise
-// header-only) build more complicate
-// // [ [ Rcpp::export ] ]
-// Rcpp::DatetimeVector charToPOSIXctNS(Rcpp::CharacterVector sv) {
-//     int n = sv.size();
-//     Rcpp::DatetimeVector pv(n);
-
-//     const bt::ptime timet_start(boost::gregorian::date(1970,1,1));
-//     for (int i=0; i<n; i++) {
-//         bt::ptime pt = bt::time_from_string(std::string(sv[i]));
-//         bt::time_duration diff = pt - timet_start;
-//         pv[i] = diff.total_microseconds()/1.0e6;
-//     }
-//     return pv;
-// }
-
-
-// ' This function uses the \code{strptime} function to parse
-// ' datetimes from strings in the standard ISO format
-// ' \sQuote{YYYY-MM-DD HH:MM:SS} (without trailing fractional
-// ' seconds). No other format is tried, see \code{\link{anytime}} for
-// ' general approaches.
-// '
-// ' This function returns a vector of \code{POSIXct}
-// ' objects. These represent dates and time as (possibly
-// ' fractional) seconds since the \sQuote{epoch} of January 1, 1970.
-// ' A timezone can be set, if none is supplied \sQuote{UTC} is set.
-// '
-// ' A single standard ISO format \sQuote{YYYY-MM-DD HH:MM:SS} is tried.
-// ' See the function // ' \code{\link{anytime}} for more general input format,
-// ' and \code{\link{charToPOSIXct}} for character conversion.
-// '
-// ' This function is for comparison only and uses the C library function
-// ' \code{strptime} which does \emph{not} work for sub-second entries.
-// '
-// ' @title Parse POSIXct objects from character variables
-// ' @param sv A vector of type character with datetime expressions
-// ' in ISO format to be parsed and converted.
-// ' @param tz A string with the timezone, defaults to \sQuote{UTC} if unset
-// ' @return A vector of \sQuote{POSIXct} elements.
-// ' @author Dirk Eddelbuettel
-// ' @examples
-// ' times <- c("2004-03-21 12:45:33.123456",
-// '           "2004-03-21 12:45:34")
-// ' cToPOSIXct(times)
-// [ [ Rcpp::export ] ]
-Rcpp::NumericVector cToPOSIXct(Rcpp::CharacterVector sv, std::string tz = "UTC") {
-    // TODO: make the R-internal strptime accessible
-    int n = sv.size();
-    Rcpp::NumericVector pv(n);
-    pv.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
-    pv.attr("tzone") = tz;
-
-    for (int i=0; i<n; i++) {
-        const char *s = sv[i];
-        struct tm tm;
-        strptime(s, "%Y-%d-%m %H:%M:%S", &tm);
-        time_t t = mktime(&tm);
-        pv[i] = t;
-    }
-    return pv;
-}
-
-
-// mkPt <- function(x, tz=Sys.getenv("TZ", unset="UTC")) anytime(x, tz=tz)
-// mkDt <- function(x, tz=Sys.getenv("TZ", unset="UTC")) as.Date(anytime(x, tz=tz))

@@ -1,8 +1,14 @@
 2016-09-11  Dirk Eddelbuettel  <edd@debian.org>
 
-	* src/anytime.cpp: Extended format list, corrected one special case
+	* R/anytime.R (anydate): New function reducing to Date
 
 	* R/anytime.R (anytime): Support factors on input
+
+	* src/anytime.cpp: Extended format list, corrected one special case,
+	document 'anydate' and add roxygen alias, remove some unused code
+	useful only for comparison
+
+	* NAMESPACE: Export anydate
 
 	* tests/simpleTests.R: Expanded
 	* tests/simpleTests.Rout.save: Added for proper comparison

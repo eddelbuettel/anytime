@@ -20,3 +20,8 @@ anytime <- function(x, tz=getTZ()) {
 
     anytime_cpp(x, tz=tz)
 }
+
+##' @rdname anytime_cpp
+anydate <- function(x, tz=getTZ()) {
+    as.Date(anytime(x=x, tz=tz))
+}
