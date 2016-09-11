@@ -7,6 +7,8 @@
 	* tests/simpleTests.R: Expanded
 	* tests/simpleTests.Rout.save: Added for proper comparison
 
+	* tests/allFormats.R: Added test of all formats
+
 	* man/anytime-package.Rd: Rewritten and expanded
 
 2016-09-10  Dirk Eddelbuettel  <edd@debian.org>
