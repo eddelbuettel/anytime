@@ -14,5 +14,9 @@ anytime <- function(x, tz=getTZ()) {
         return(as.POSIXct(x))
     }
 
+    if (inherits(x, "factor")) {
+        x <- as.character(x)
+    }
+
     anytime_cpp(x, tz=tz)
 }
