@@ -1,5 +1,7 @@
 2016-09-11  Dirk Eddelbuettel  <edd@debian.org>
 
+	* src/anytime.cpp: Extended format list, corrected one special case
+
 	* R/anytime.R (anytime): Support factors on input
 
 	* tests/simpleTests.R: Expanded
