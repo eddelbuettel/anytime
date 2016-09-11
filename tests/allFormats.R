@@ -1,10 +1,6 @@
 options(digits.secs=6)
 
-## normal use:  Sys.setenv(TZ=anytime:::getTZ())
-## to make tests reproducible, set a TZ
 library(anytime)
-Sys.setenv(TZ="America/Chicago")
-
 
 anytime(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678"))
 anytime(c("2016/09/01 10:11:12", "2016/09/01 10:11:12.345678"))
