@@ -5,6 +5,8 @@
 	* tests/simpleTests.R: Expanded
 	* tests/simpleTests.Rout.save: Added for proper comparison
 
+	* man/anytime-package.Rd: Rewritten and expanded
+
 2016-09-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/init.R (.onLoad): Use Sys.timezone(), and gettz::gettz() if

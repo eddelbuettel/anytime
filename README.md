@@ -1,4 +1,4 @@
-## anytime
+### anytime ###
 
 Anything to 'POSIXct' Converter
 
@@ -8,19 +8,23 @@ R excels at computing with dates, and times.  Using _typed_ representation for y
 recommended not only because of the functionality offered but also because of the added safety
 stemming from proper representation.
 
-But there is a small nuisance cost in interactive work as well as in programming. I must have told
-`as.POSIXct()` about a million times that the origin is (of course) the
+But there is a small nuisance cost in interactive work as well as in programming. Users must have
+told `as.POSIXct()` about a million times that the origin is (of course) the
 [epoch](https://en.wikipedia.org/wiki/Unix_time). Do we really have to say it a million more times?
-Similarly, when parsing dates that are _somewhat_ in YYYYMMDD format, do I really need to bother
-converting from integer (some colleagues like that form) or numeric (why not) or character with one
-of dozen separators and/or month forms: YYYY-MM-DD, YYYY/MM/DD, YYYYMMDD, YYYY-mon-DD and so on?
+Similarly, when parsing dates that are _some form_ of YYYYMMDD format, do we really have to manually
+convert from `integer` or `numeric` or `factor` or `ordered` to character? Having one of several
+common separators and/or date / time month forms (YYYY-MM-DD, YYYY/MM/DD, YYYYMMDD, YYYY-mon-DD and
+so on, with or without times), do we really need a format string? Or could a smart converter
+function do this?
 
-So I had been meaning to write a _general purpose_ converter returning a proper `POSIXct` (or
-`Date`) object nomatter the input (provided it was somewhat parseable). `anytime()` is that converter.
+`anytime()` aims to be that _general purpose_ converter returning a proper `POSIXct` (or `Date`)
+object nomatter the input (provided it was somewhat parseable), relying on
+[Boost date_time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html) for the (efficient,
+performant) conversion.
 
 ### Examples
 
-#### From Integer or Numeric
+#### From Integer or Numeric or Factor or Ordered
 
 ```r
 R> library(anytime)
@@ -35,6 +39,13 @@ R> ## numeric
 R> anytime(20160101 + 0:2)
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
 R>
+R> ## factor
+R> anytime(as.factor(20160101 + 0:2))
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+R>
+R> ## ordered
+R> anytime(as.ordered(20160101 + 0:2))
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
 ```
 
 #### Character: Simple
