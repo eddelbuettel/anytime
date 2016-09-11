@@ -2,3 +2,4 @@
 ^\.Rproj\.user$
 ^notes.txt
 ^\.travis.yml
+^tests/.*\.Rout.save

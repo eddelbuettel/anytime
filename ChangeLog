@@ -18,6 +18,9 @@
 
 	* man/anytime-package.Rd: Rewritten and expanded
 
+	* .Rbuildignore: Do not include *.Rout.save files as default format
+	method will fall back to local time which we cannot override
+
 2016-09-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/init.R (.onLoad): Use Sys.timezone(), and gettz::gettz() if
