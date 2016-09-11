@@ -1,0 +1,96 @@
+
+R Under development (unstable) (2016-09-08 r71225) -- "Unsuffered Consequences"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> options(digits.secs=6)
+> 
+> ## normal use:  Sys.setenv(TZ=anytime:::getTZ())
+> ## to make tests reproducible, set a TZ
+> library(anytime)
+> Sys.setenv(TZ="America/Chicago")
+> 
+> 
+> anytime(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("2016/09/01 10:11:12", "2016/09/01 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("20160901 101112",     "20160901 101112.345678"))     
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("20160901 10:11:12",   "20160901 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("09/01/2016 10:11:12", "09/01/2016 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("09-01-2016 10:11:12", "09-01-2016 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> # anytime(c("01.09.2016 10:11:12", "01.09.2016 10:11:12.345678")) # European format gets confused to m/d/y
+> 
+> cat("\n")
+
+> anytime(c("2016-Sep-01 10:11:12", "2016-Sep-01 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("2016/Sep/01 10:11:12", "2016/Sep/01 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("2016Sep01 101112",     "2016Sep01 101112.345678"))   
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("2016Sep01 10:11:12",   "2016Sep01 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("Sep/01/2016 10:11:12", "Sep/01/2016 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("Sep-01-2016 10:11:12", "Sep-01-2016 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("01.Sep.2016 10:11:12", "01.Sep.2016 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> 
+> cat("\n")
+
+> anytime(c("2016-September-01 10:11:12", "2016-September-01 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("2016/September/01 10:11:12", "2016/September/01 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("2016September01 101112",     "2016September01 101112.345678"))   #
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("2016September01 10:11:12",   "2016September01 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("September/01/2016 10:11:12", "September/01/2016 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("September-01-2016 10:11:12", "September-01-2016 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> anytime(c("01.September.2016 10:11:12", "01.September.2016 10:11:12.345678"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> 
+> cat("\n")
+
+> anytime(c("Thu Sep 01 10:11:12 2016", "Thu Sep 01 10:11:12.345678 2016"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+> 
+> cat("\n")
+
+> anytime(c("2016-09-01", "20160901", "09/01/2016", "09-01-2016"))
+[1] "2016-09-01 CDT" "2016-09-01 CDT" "2016-09-01 CDT" "2016-09-01 CDT"
+> 
+> cat("\n")
+
+> anytime(c("2016-Sep-01", "2016Sep01", "Sep/01/2016", "Sep-01-2016"))
+[1] "2016-09-01 CDT" "2016-09-01 CDT" "2016-09-01 CDT" "2016-09-01 CDT"
+> 
+> cat("\n")
+
+> anytime(c("2016-September-01", "2016September01", "September/01/2016", "September-01-2016"))
+[1] "2016-09-01 CDT" "2016-09-01 CDT" "2016-09-01 CDT" "2016-09-01 CDT"
+> 
+> proc.time()
+   user  system elapsed 
+  0.532   0.012   0.537 

@@ -8,6 +8,7 @@
 	* tests/simpleTests.Rout.save: Added for proper comparison
 
 	* tests/allFormats.R: Added test of all formats
+	* tests/simpleTests.Rout.save: Added for proper comparison
 
 	* man/anytime-package.Rd: Rewritten and expanded
 
