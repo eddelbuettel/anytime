@@ -6,7 +6,7 @@
 
 	* src/anytime.cpp: Extended format list, corrected one special case,
 	document 'anydate' and add roxygen alias, remove some unused code
-	useful only for comparison
+	useful only for comparison, added Notes: section with some caveats
 
 	* NAMESPACE: Export anydate
 

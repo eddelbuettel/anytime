@@ -20,6 +20,21 @@
 #' microseconds, the Boost compile-time option for nano-second resolution
 #' has not been enabled.
 #'
+#' @section Notes:
+#' The (internal) conversion to (fractional) seconds since the epoch is
+#' relative to the locatime of this system, and therefore not completely
+#' independent of the settings of the local system. This is to strike a
+#' balance between ease of use and functionality.  A more-full featured
+#' conversion could be possibly be added with support for arbitrary
+#' reference times, but this is (at least) currently outside the scope of
+#' this package. See the \pkg{RcppTZ} package which offers some
+#' timezone-shifting and differencing functionality.
+#'
+#' Times and timezones can be tricky. This package offers a heuristic approach,
+#' it is likely that some input formats may not be parsed, or worse, be parsed
+#' incorrectly. This is not quite a \href{https://xkcd.com/327/}{Bobby Tables}
+#' situation but care must always be taken with user-supplied input.  
+#'
 #' @title Parse POSIXct objects from input data
 #' @param x A vector of type character, integer or numeric with
 #' date(time) expressions to be parsed and converted.
