@@ -1,5 +1,7 @@
 2016-09-12  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Release 0.0.1
+
 	* DESCRIPTION (URL, BugReports): Added
 
 	* src/anytime.cpp (anytime_cpp): Remove roxygen chunk
