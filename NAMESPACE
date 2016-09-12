@@ -1,5 +1,4 @@
 export("anytime",
-       "anytime_cpp",
        "anydate")
 importFrom(Rcpp, evalCpp)
 useDynLib(anytime, .registration=TRUE)

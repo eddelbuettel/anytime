@@ -1,3 +1,13 @@
+2016-09-12  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (URL, BugReports): Added
+
+	* src/anytime.cpp (anytime_cpp): Remove roxygen chunk
+	* R/anytime.R (anytime): Add roxygen chunk
+	* man/anytime.Rd: New file (replacing man/anytime_cpp.Rd)
+
+	* NAMESPACE: Do not export anytime_cpp
+
 2016-09-11  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/anytime.R (anydate): New function reducing to Date
@@ -6,7 +16,7 @@
 
 	* src/anytime.cpp: Extended format list, corrected one special case,
 	document 'anydate' and add roxygen alias, remove some unused code
-	useful only for comparison, added Notes: section with some caveats
+	useful only for comparison, added Notesrcp: section with some caveats
 
 	* NAMESPACE: Export anydate
 
