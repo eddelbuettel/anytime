@@ -1,3 +1,7 @@
+2016-09-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Add badges and CRAN installation note
+
 2016-09-12  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.0.1

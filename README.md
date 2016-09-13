@@ -1,6 +1,6 @@
-### anytime ###
+## anytime [![Build Status](https://travis-ci.org/eddelbuettel/anytime.svg)](https://travis-ci.org/eddelbuettel/anytime) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html) [![CRAN](http://www.r-pkg.org/badges/version/anytime)](https://cran.r-project.org/package=anytime) [![Downloads](http://cranlogs.r-pkg.org/badges/anytime?color=brightgreen)](http://www.r-pkg.org/pkg/anytime)
 
-Anything to 'POSIXct' Converter
+Anything to 'POSIXct' or 'Date' Converter
 
 ### Motivation
 
@@ -20,7 +20,7 @@ function do this?
 `anytime()` aims to be that _general purpose_ converter returning a proper `POSIXct` (or `Date`)
 object nomatter the input (provided it was somewhat parseable), relying on
 [Boost date_time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html) for the (efficient,
-performant) conversion.
+performant) conversion. `anytime()` is an additional wrapper returning a `Date` object instead.
 
 ### Examples
 
@@ -114,7 +114,16 @@ rely on [Rcpp](http://dirk.eddelbuettel.com/code/rcpp.html) for a seamless C++ i
 
 ### Status
 
-Works as expected. Not yet uploaded to CRAN.
+Works as expected. A few extensions planned.
+
+### Installation
+
+The package is now on [CRAN](https://cran.r-project.org) and can be installed
+via a standard
+
+```r
+R> install.package("anytime")
+```
 
 ### Author
 
