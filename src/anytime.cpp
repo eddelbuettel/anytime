@@ -88,7 +88,7 @@ public:
                                           new bt::time_input_facet(sformats[i])));
         }
     }
-    void addFormat(const std::string txt) {
+    void addFormat(const char *txt) {
         formats.insert(formats.begin(), txt);
         locales.insert(locales.begin(), std::locale(std::locale::classic(),
                                                     new bt::time_input_facet(txt)));
@@ -111,7 +111,7 @@ double stringToTime(const std::string s) {
     // loop over formats and try them til one fits
     for (size_t i=0; pt == ptbase && i < timeformats.getN(); ++i) {
         std::istringstream is(s);
-        //bRcpp::Rcout << timeformats.getFormat(i) << std::endl;
+        //Rcpp::Rcout << i << " " << timeformats.getFormat(i) << std::endl;
         is.imbue(timeformats.getLocale(i));
         is >> pt;
     }
@@ -196,16 +196,18 @@ Rcpp::NumericVector anytime_cpp(SEXP x, std::string tz = "UTC") {
 //' The time and date parsing and conversion relies on trying a (given
 //' and fixed) number of timeformats. The format used is the one employed
 //' by the underlying implementation of the Boost date_time library.
-//' 
+//'
 //' @title Functions to retrieve (or set) formats used for parsing dates.
-//' @param fmt A character value in the form understood by Boost date_time
-//' @return Nothing in the case of \code{addFormat}; a character vector of
+//' @param fmts A vector of character values in the form understood by Boost
+//' date_time
+//' @return Nothing in the case of \code{addFormats}; a character vector of
 //' formats in the case of \code{getFormats}
 //' @seealso \code{\link{anytime-package}} and references therein
 //' @author Dirk Eddelbuettel
 //' @examples
 //'   getFormats()
-//'   addFormat("%d %b %y")   # two-digit date [not recommended], textual month
+//'   addFormats(c("%d %b %y",      # two-digit date [not recommended], textual month
+//'                "%a %b %d %Y"))  # weekday weeknumber four-digit year
 // [[Rcpp::export]]
 std::vector<std::string> getFormats() {
     return timeformats.getFormats();
@@ -213,6 +215,9 @@ std::vector<std::string> getFormats() {
 
 //' @rdname getFormats
 // [[Rcpp::export]]
-void addFormat(std::string fmt) {
-    timeformats.addFormat(fmt);
+void addFormats(Rcpp::CharacterVector fmt) {
+    for (int i = 0 ; i < fmt.size(); i++) {
+        //Rcpp::Rcout  << fmt[i] << std::endl;
+        timeformats.addFormat(fmt[i]);
+    }
 }

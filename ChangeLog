@@ -3,7 +3,7 @@
 	* NAMESPACE: Make getFormats() and addFormat() public
 
 	* src/anytime.cpp: Added documentation for new functions getFormats()
-	and addFormat()
+	and addFormats()
 	* man/getFormats.Rd: Ditto
 
 	* inst/NEWS.Rd: Added

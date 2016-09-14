@@ -8,6 +8,8 @@
     \item Refactored to use a simple class wrapped around two
     vector with (string) formats and locales; this allow for adding formats;
     also adds accessor for formats (\ghpr{4})
+    \item New function \code{addFormats()} and \code{getFormats()}
+    \item Relaxed one tests which showed problems on some platforms
   }
 }
 

@@ -27,13 +27,13 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// addFormat
-void addFormat(std::string fmt);
-RcppExport SEXP anytime_addFormat(SEXP fmtSEXP) {
+// addFormats
+void addFormats(Rcpp::CharacterVector fmt);
+RcppExport SEXP anytime_addFormats(SEXP fmtSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< std::string >::type fmt(fmtSEXP);
-    addFormat(fmt);
+    Rcpp::traits::input_parameter< Rcpp::CharacterVector >::type fmt(fmtSEXP);
+    addFormats(fmt);
     return R_NilValue;
 END_RCPP
 }
