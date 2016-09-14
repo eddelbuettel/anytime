@@ -1,3 +1,7 @@
+2016-09-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tests/validate.R: Loosen test removing stopifnot
+
 2016-09-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Rolled to (interim) version 0.0.1.1
