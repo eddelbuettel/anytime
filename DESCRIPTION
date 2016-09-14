@@ -12,7 +12,7 @@ URL: http://dirk.eddelbuettel.com/code/anytime.html
 BugReports: https://github.com/eddelbuettel/anytime/issues
 License: GPL (>= 2)
 Encoding: UTF-8
-Imports: Rcpp (>= 0.12.6)
+Imports: Rcpp
 LinkingTo: Rcpp, BH
 Suggests: gettz
 RoxygenNote: 5.0.1

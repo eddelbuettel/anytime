@@ -1,10 +1,14 @@
 2016-09-14  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Imports): Relax min. version costraint on Rcpp
+
 	* NAMESPACE: Make getFormats() and addFormat() public
 
 	* src/anytime.cpp: Added documentation for new functions getFormats()
 	and addFormats()
 	* man/getFormats.Rd: Ditto
+
+	* man/anytime-package.Rd: Mention getFormats() and addFormats()
 
 	* inst/NEWS.Rd: Added
 

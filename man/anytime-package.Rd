@@ -32,7 +32,9 @@
   Conversion is done by looping over a fixed set of formats until a
   matching one is found, or returning an error if none is found.  The
   current set of conversion formulae is accessible in the
-  \href{https://github.com/eddelbuettel/anytime/blob/master/src/anytime.cpp#L30-L70}{source code}.
+  \href{https://github.com/eddelbuettel/anytime/blob/master/src/anytime.cpp#L30-L72}{source code},
+  and can now also be accessed in R via \code{getFormats()}. Formats can
+  be added via the \code{addFormats()} function.
 
   Details on the Boost date format symbols are provided by the
   \href{http://www.boost.org/doc/libs/1_61_0/doc/html/date_time/date_time_io.html#date_time.format_flags}{Boost
