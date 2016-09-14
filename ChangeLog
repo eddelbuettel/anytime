@@ -1,5 +1,10 @@
 2016-09-13  Dirk Eddelbuettel  <edd@debian.org>
 
+	* src/anytime.cpp: Refactored so that formats are now simple
+	string kept in vector (from which locales are built in the ctor of
+	a simple container class); now new formats can be added (at the
+	front); formats get be retrieved as well
+
 	* README.md: Add badges and CRAN installation note
 
 2016-09-12  Dirk Eddelbuettel  <edd@debian.org>

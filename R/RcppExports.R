@@ -5,3 +5,11 @@ anytime_cpp <- function(x, tz = "UTC") {
     .Call('anytime_anytime_cpp', PACKAGE = 'anytime', x, tz)
 }
 
+getFormats <- function() {
+    .Call('anytime_getFormats', PACKAGE = 'anytime')
+}
+
+addFormat <- function(fmt) {
+    invisible(.Call('anytime_addFormat', PACKAGE = 'anytime', fmt))
+}
+
