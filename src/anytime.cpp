@@ -198,7 +198,7 @@ Rcpp::NumericVector anytime_cpp(SEXP x, std::string tz = "UTC") {
 //' by the underlying implementation of the Boost date_time library.
 //'
 //' @title Functions to retrieve (or set) formats used for parsing dates.
-//' @param fmts A vector of character values in the form understood by Boost
+//' @param fmt A vector of character values in the form understood by Boost
 //' date_time
 //' @return Nothing in the case of \code{addFormats}; a character vector of
 //' formats in the case of \code{getFormats}

@@ -10,7 +10,7 @@ getFormats()
 addFormats(fmt)
 }
 \arguments{
-\item{fmts}{A vector of character values in the form understood by Boost
+\item{fmt}{A vector of character values in the form understood by Boost
 date_time}
 }
 \value{
