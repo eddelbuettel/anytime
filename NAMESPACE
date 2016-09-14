@@ -1,4 +1,6 @@
 export("anytime",
-       "anydate")
+       "anydate",
+       "getFormats",
+       "addFormat")
 importFrom(Rcpp, evalCpp)
 useDynLib(anytime, .registration=TRUE)

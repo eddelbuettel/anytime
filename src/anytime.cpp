@@ -72,8 +72,9 @@ const std::string sformats[] = {
 };
 const size_t nsformats = sizeof(sformats)/sizeof(sformats[0]);
 
-
-// this was lines 30 to 73
+// somewhat simplistic C++ class -- but enough to allow us to hold (and hide)
+// two vectors of (string) formats and locale using the strings -- so that users
+// can retrieve the strings, and add to them
 class TimeFormats {
 private:
     std::vector<std::string> formats;
@@ -192,11 +193,25 @@ Rcpp::NumericVector anytime_cpp(SEXP x, std::string tz = "UTC") {
     }
 }
 
+//' The time and date parsing and conversion relies on trying a (given
+//' and fixed) number of timeformats. The format used is the one employed
+//' by the underlying implementation of the Boost date_time library.
+//' 
+//' @title Functions to retrieve (or set) formats used for parsing dates.
+//' @param fmt A character value in the form understood by Boost date_time
+//' @return Nothing in the case of \code{addFormat}; a character vector of
+//' formats in the case of \code{getFormats}
+//' @seealso \code{\link{anytime-package}} and references therein
+//' @author Dirk Eddelbuettel
+//' @examples
+//'   getFormats()
+//'   addFormat("%d %b %y")   # two-digit date [not recommended], textual month
 // [[Rcpp::export]]
 std::vector<std::string> getFormats() {
     return timeformats.getFormats();
 }
 
+//' @rdname getFormats
 // [[Rcpp::export]]
 void addFormat(std::string fmt) {
     timeformats.addFormat(fmt);
