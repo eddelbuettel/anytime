@@ -27,51 +27,78 @@
 
 namespace bt = boost::posix_time;
 
-const std::locale formats[] = {
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y-%m-%d %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y/%m/%d %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%m%d %H%M%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%m%d %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%m/%d/%Y %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%m-%d-%Y %H:%M:%S%f")),
-    // std::locale(std::locale::classic(), new bt::time_input_facet("%d.%m.%Y %H:%M:%S%f")),
+const std::string sformats[] = {
+    "%Y-%m-%d %H:%M:%S%f",
+    "%Y/%m/%d %H:%M:%S%f",
+    "%Y%m%d %H%M%S%f",
+    "%Y%m%d %H:%M:%S%f",
+    "%m/%d/%Y %H:%M:%S%f",
+    "%m-%d-%Y %H:%M:%S%f",
+    // "%d.%m.%Y %H:%M:%S%f",
 
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y-%b-%d %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y/%b/%d %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%b%d %H%M%S%F")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%b%d %H:%M:%S%F")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%b/%d/%Y %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%b-%d-%Y %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%d.%b.%Y %H:%M:%S%f")),
+    "%Y-%b-%d %H:%M:%S%f",
+    "%Y/%b/%d %H:%M:%S%f",
+    "%Y%b%d %H%M%S%F",
+    "%Y%b%d %H:%M:%S%F",
+    "%b/%d/%Y %H:%M:%S%f",
+    "%b-%d-%Y %H:%M:%S%f",
+    "%d.%b.%Y %H:%M:%S%f",
 
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y-%B-%d %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y/%B/%d %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%B%d %H%M%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%B%d %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%B/%d/%Y %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%B-%d-%Y %H:%M:%S%f")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%d.%B.%Y %H:%M:%S%f")),
+    "%Y-%B-%d %H:%M:%S%f",
+    "%Y/%B/%d %H:%M:%S%f",
+    "%Y%B%d %H%M%S%f",
+    "%Y%B%d %H:%M:%S%f",
+    "%B/%d/%Y %H:%M:%S%f",
+    "%B-%d-%Y %H:%M:%S%f",
+    "%d.%B.%Y %H:%M:%S%f",
 
     // see http://stackoverflow.com/questions/39259184/formatting-dates-with-r for next one
-    std::locale(std::locale::classic(), new bt::time_input_facet("%a %b %d %H:%M:%S%F %Y")),
+    "%a %b %d %H:%M:%S%F %Y",
 
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y-%m-%d")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%m%d")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%m/%d/%Y")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%m-%d-%Y")),
+    "%Y-%m-%d",
+    "%Y%m%d",
+    "%m/%d/%Y",
+    "%m-%d-%Y",
 
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y-%b-%d")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%b%d")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%b/%d/%Y")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%b-%d-%Y")),
+    "%Y-%b-%d",
+    "%Y%b%d",
+    "%b/%d/%Y",
+    "%b-%d-%Y",
 
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y-%B-%d")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%Y%B%d")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%B/%d/%Y")),
-    std::locale(std::locale::classic(), new bt::time_input_facet("%B-%d-%Y"))
-
+    "%Y-%B-%d",
+    "%Y%B%d",
+    "%B/%d/%Y",
+    "%B-%d-%Y"
 };
-const size_t nformats = sizeof(formats)/sizeof(formats[0]);
+const size_t nsformats = sizeof(sformats)/sizeof(sformats[0]);
+
+
+// this was lines 30 to 73
+class TimeFormats {
+private:
+    std::vector<std::string> formats;
+    std::vector<std::locale> locales;
+public:
+    TimeFormats() {
+        for (size_t i=0; i<nsformats; i++) {
+            //Rcpp::Rcout << i << std::endl;
+            formats.push_back(sformats[i]);
+            locales.push_back(std::locale(std::locale::classic(),
+                                          new bt::time_input_facet(sformats[i])));
+        }
+    }
+    void addFormat(const std::string txt) {
+        formats.insert(formats.begin(), txt);
+        locales.insert(locales.begin(), std::locale(std::locale::classic(),
+                                                    new bt::time_input_facet(txt)));
+    };
+    std::locale getLocale(int i) { return locales[i]; }
+    std::string getFormat(int i) { return formats[i]; }
+    size_t getN() { return formats.size(); }
+    std::vector<std::string> getFormats() { return formats; }
+};
+
+static TimeFormats timeformats;
 
 double stringToTime(const std::string s) {
 
@@ -81,9 +108,10 @@ double stringToTime(const std::string s) {
     bt::ptime pt, ptbase;
 
     // loop over formats and try them til one fits
-    for (size_t i=0; pt == ptbase && i < nformats; ++i) {
+    for (size_t i=0; pt == ptbase && i < timeformats.getN(); ++i) {
         std::istringstream is(s);
-        is.imbue(formats[i]);
+        //bRcpp::Rcout << timeformats.getFormat(i) << std::endl;
+        is.imbue(timeformats.getLocale(i));
         is >> pt;
     }
 
@@ -164,3 +192,12 @@ Rcpp::NumericVector anytime_cpp(SEXP x, std::string tz = "UTC") {
     }
 }
 
+// [[Rcpp::export]]
+std::vector<std::string> getFormats() {
+    return timeformats.getFormats();
+}
+
+// [[Rcpp::export]]
+void addFormat(std::string fmt) {
+    timeformats.addFormat(fmt);
+}

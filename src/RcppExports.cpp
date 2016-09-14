@@ -17,3 +17,23 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// getFormats
+std::vector<std::string> getFormats();
+RcppExport SEXP anytime_getFormats() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(getFormats());
+    return rcpp_result_gen;
+END_RCPP
+}
+// addFormat
+void addFormat(std::string fmt);
+RcppExport SEXP anytime_addFormat(SEXP fmtSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type fmt(fmtSEXP);
+    addFormat(fmt);
+    return R_NilValue;
+END_RCPP
+}
