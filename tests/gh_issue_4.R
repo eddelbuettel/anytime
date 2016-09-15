@@ -1,0 +1,8 @@
+Sys.setenv("TZ"="Australia/Sydney")
+library(anytime)
+anydate(20150101)
+anydate("2015/01/01")
+anytime(20150101)
+anytime("2015/01/01")
+anydate("2015/01/01", tz="CET")
+anydate("2015/01/01", tz="Australia/Sydney")

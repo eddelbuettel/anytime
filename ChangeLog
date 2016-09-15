@@ -1,5 +1,7 @@
 2016-09-14  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Roll minor version and date
+
 	* DESCRIPTION (Imports): Relax min. version costraint on Rcpp
 
 	* NAMESPACE: Make getFormats() and addFormat() public
@@ -13,6 +15,10 @@
 	* inst/NEWS.Rd: Added
 
 	* tests/validate.R: Loosen test removing stopifnot
+
+	* R/anytime.R (anydate): Call as.POSIXlt() before calling as.Date()
+	to ensure all sub-components of the tm structure are set (GH #4)
+	* tests/gh_issue_4.R: test case
 
 2016-09-13  Dirk Eddelbuettel  <edd@debian.org>
 

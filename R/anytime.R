@@ -100,5 +100,5 @@ anytime <- function(x, tz=getTZ()) {
 
 ##' @rdname anytime
 anydate <- function(x, tz=getTZ()) {
-    as.Date(anytime(x=x, tz=tz))
+    as.Date(as.POSIXlt(anytime(x=x, tz=tz)))
 }
