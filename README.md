@@ -114,7 +114,7 @@ rely on [Rcpp](http://dirk.eddelbuettel.com/code/rcpp.html) for a seamless C++ i
 
 ### Status
 
-Works as expected. A few extensions planned.
+Should work as expected. 
 
 ### Installation
 
