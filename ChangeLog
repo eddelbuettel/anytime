@@ -2,6 +2,7 @@
 
 	* src/anytime.cpp (testFormat): Added (non-exported) helper function
 	to test one format on one input (and timezone)
+	(ptToDouble): Factored function now called from two places
 
 2016-09-15  Dirk Eddelbuettel  <edd@debian.org>
 
