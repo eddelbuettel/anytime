@@ -37,3 +37,16 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// testFormat
+Rcpp::NumericVector testFormat(const std::string fmt, const std::string s, const std::string tz);
+RcppExport SEXP anytime_testFormat(SEXP fmtSEXP, SEXP sSEXP, SEXP tzSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const std::string >::type fmt(fmtSEXP);
+    Rcpp::traits::input_parameter< const std::string >::type s(sSEXP);
+    Rcpp::traits::input_parameter< const std::string >::type tz(tzSEXP);
+    rcpp_result_gen = Rcpp::wrap(testFormat(fmt, s, tz));
+    return rcpp_result_gen;
+END_RCPP
+}
