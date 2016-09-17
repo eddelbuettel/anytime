@@ -221,3 +221,50 @@ void addFormats(Rcpp::CharacterVector fmt) {
         timeformats.addFormat(fmt[i]);
     }
 }
+
+
+// [[Rcpp::export]]
+Rcpp::NumericVector testFormat(const std::string fmt, const std::string s, const std::string tz = "") {
+    
+    //This local adjustor depends on the machine TZ settings-- highly dangerous!
+    typedef boost::date_time::c_local_adjustor<bt::ptime> local_adj;
+    
+    bt::ptime pt, ptbase;
+
+    std::istringstream is(s);
+    std::locale loc = std::locale(std::locale::classic(), new bt::time_input_facet(fmt));
+                                               
+    is.imbue(loc);
+    is >> pt;
+
+    double timeval = NAN;
+    
+    if (pt == ptbase) {
+        timeval = NAN;
+    } else {
+        const bt::ptime timet_start(boost::gregorian::date(1970,1,1));
+        const bt::ptime local_timet_start = local_adj::utc_to_local(timet_start);
+
+        // seconds sincr epoch (in local time) -- misses DST adjustment
+        bt::time_duration tdiff = pt - local_timet_start;
+        //Rcpp::Rcout << "tdiff is " << tdiff << std::endl;
+        //Rcpp::Rcout << "pt is " << pt << std::endl;
+
+        // hack-ish: go back to struct tm to use its tm_isdst field
+        time_t secsSinceEpoch = tdiff.total_seconds();
+        struct tm* localAsTm = localtime(&secsSinceEpoch);
+        //Rcpp::Rcout << "Adj is " << localAsTm->tm_isdst << std::endl;
+
+        // Define BOOST_DATE_TIME_POSIX_TIME_STD_CONFIG to use nanoseconds
+        // (and then use diff.total_nanoseconds()/1.0e9;  instead)
+        //
+        // note dst correction here -- needed as UTC offset is correct but does not
+        // contain the additional DST adjustment
+        timeval = tdiff.total_microseconds()/1.0e6 - localAsTm->tm_isdst*60*60;
+    }
+    Rcpp::NumericVector pv(1);
+    pv(0) = timeval;
+    pv.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
+    pv.attr("tzone") = tz;
+    return pv;
+}
