@@ -122,7 +122,7 @@ The package is now on [CRAN](https://cran.r-project.org) and can be installed
 via a standard
 
 ```r
-R> install.package("anytime")
+R> install.packages("anytime")
 ```
 
 ### Author
