@@ -126,7 +126,15 @@ double ptToDouble(const bt::ptime & pt) {
     //
     // note dst correction here -- needed as UTC offset is correct but does not
     // contain the additional DST adjustment
-    return tdiff.total_microseconds()/1.0e6 - localAsTm->tm_isdst*60*60;
+    double totsec = tdiff.total_microseconds()/1.0e6, dstadj = 0;
+#if defined(_WIN32)
+    if (totsec > 0) {           // on Windows, for dates before 1970-01-01: segfault
+        dstadj = localAsTm->tm_isdst*60*60;
+    }
+#else
+    dstadj = localAsTm->tm_isdst*60*60;
+#endif
+    return totsec - dstadj;
 }
 
 // given a string with a (date)time object, try all formats til we parse one
@@ -235,7 +243,7 @@ Rcpp::NumericVector testFormat(const std::string fmt, const std::string s, const
 
     std::istringstream is(s);
     std::locale loc = std::locale(std::locale::classic(), new bt::time_input_facet(fmt));
-                                               
+    
     is.imbue(loc);
     is >> pt;
 
