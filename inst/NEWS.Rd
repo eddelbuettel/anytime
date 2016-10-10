@@ -3,6 +3,14 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in Rcpp version 0.0.3 (2016-10-xx)}{
+  \itemize{
+    \item Added (non-exported) helper function testFormat()
+    \item Do not access tm_isdst on Windows for dates before the epoch
+    (issue ticket \ghit{12}) 
+  }
+}
+
 \section{Changes in Rcpp version 0.0.2 (2016-09-15)}{
   \itemize{
     \item Refactored to use a simple class wrapped around two vector

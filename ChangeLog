@@ -1,3 +1,12 @@
+2016-10-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (ptToDouble): Do not access tm_isdst on Windows for
+	dates earlier than the epoch (bug report #12)
+
+2016-10-08  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .travis.yml (install): Added
+
 2016-09-17  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (testFormat): Added (non-exported) helper function
