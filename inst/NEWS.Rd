@@ -3,11 +3,11 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in Rcpp version 0.0.3 (2016-10-xx)}{
+\section{Changes in Rcpp version 0.0.3 (2016-10-13)}{
   \itemize{
     \item Added (non-exported) helper function testFormat()
     \item Do not access tm_isdst on Windows for dates before the epoch
-    (issue ticket \ghit{12}) 
+    (pull request \ghpr{13} fixing issue \ghit{12}); added test as well
   }
 }
 
