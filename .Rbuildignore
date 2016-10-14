@@ -3,3 +3,4 @@
 ^notes.txt
 ^\.travis.yml
 ^tests/.*\.Rout.save
+^local

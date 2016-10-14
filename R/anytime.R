@@ -44,13 +44,19 @@
 ##' balance between ease of use and functionality.  A more-full featured
 ##' conversion could be possibly be added with support for arbitrary
 ##' reference times, but this is (at least) currently outside the scope of
-##' this package. See the \pkg{RcppTZ} package which offers some
+##' this package. See the \pkg{RcppCCTZ} package which offers some
 ##' timezone-shifting and differencing functionality.
 ##'
 ##' Times and timezones can be tricky. This package offers a heuristic approach,
 ##' it is likely that some input formats may not be parsed, or worse, be parsed
 ##' incorrectly. This is not quite a \href{https://xkcd.com/327/}{Bobby Tables}
-##' situation but care must always be taken with user-supplied input.  
+##' situation but care must always be taken with user-supplied input.
+##'
+##' @section Operating System Impact:
+##' On Windows systems, accessing the timezone-offset flag on dates or tumes
+##' before January 1, 1970, can lead to a crash. Therefore, the lookup of
+##' for those dates and times has been disabled.  It should not afffect dates,
+##' but may affect datetime objects.
 ##'
 ##' @title Parse POSIXct objects from input data
 ##' @param x A vector of type character, integer or numeric with
