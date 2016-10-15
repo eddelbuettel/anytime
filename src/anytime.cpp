@@ -167,14 +167,32 @@ template <int RTYPE>
 Rcpp::NumericVector anytime_impl(const Rcpp::Vector<RTYPE>& sv,
                                  const std::string& tz = "UTC") {
 
+    // step one: create a results vector, and class it as POSIXct
     int n = sv.size();
     Rcpp::NumericVector pv(n);
     pv.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
     pv.attr("tzone") = tz;
 
+    // step two: loop over input, cast each element to string and then convert
     for (int i=0; i<n; i++) {
-        std::string s = boost::lexical_cast<std::string>(sv[i]);
-        //Rcpp::Rcout << sv[i] << " -- " << s << std::endl;
+
+        // if we do not explicit assign to int, double or string then clang
+        // flags a UBSAN error (which was the case for release 0.0.1 to 0.0.3)
+        std::string s = "";
+        SEXP sx = Rcpp::wrap(sv[i]);
+        switch (TYPEOF(sx)) {
+        case INTSXP:
+            s = boost::lexical_cast<std::string>(Rcpp::as<int>(sx));
+            break;
+        case REALSXP:
+            s = boost::lexical_cast<std::string>(Rcpp::as<double>(sx));
+            break;
+        case CHARSXP:
+            s = Rcpp::as<std::string>(sx);
+            break;
+        default:
+            Rcpp::stop("Type not supported");
+        }
 
         // Boost Date_Time gets the 'YYYYMMDD' format wrong, even
         // when given as an explicit argument. So we need to test here.
@@ -185,6 +203,9 @@ Rcpp::NumericVector anytime_impl(const Rcpp::Vector<RTYPE>& sv,
         } else if (l == 8) {    // turn YYYYMMDD into YYYY/MM/DD
             s = s.substr(0, 4) + "/" + s.substr(4, 2) + "/" + s.substr(6,2);
         }
+
+        // Given the string, convert to a POSIXct using an interim double
+        // of fractional seconds since the epoch
         pv[i] = stringToTime(s);
     }
     return pv;
