@@ -163,18 +163,24 @@ double stringToTime(const std::string s) {
     return (pt == ptbase) ? NAN : ptToDouble(pt);
 }
 
-template <int RTYPE>
-Rcpp::NumericVector anytime_impl(const Rcpp::Vector<RTYPE>& sv,
-                                 const std::string& tz = "UTC") {
+template <class T, int RTYPE>
+Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
+                                  const std::string& tz = "UTC") {
 
-    int n = sv.size();
+    // step one: create a results vector, and class it as POSIXct
+    int n = sxpvec.size();
     Rcpp::NumericVector pv(n);
     pv.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
     pv.attr("tzone") = tz;
 
+    // step two: loop over input, cast each element to string and then convert
     for (int i=0; i<n; i++) {
-        std::string s = boost::lexical_cast<std::string>(sv[i]);
-        //Rcpp::Rcout << sv[i] << " -- " << s << std::endl;
+
+        // if we do not explicit assign to int, double or string then clang
+        // flags a UBSAN error (which was the case for release 0.0.1 to 0.0.3)
+        // but with templating to T this is straightforward enough
+        T val = sxpvec[i];
+        std::string s = boost::lexical_cast<std::string>(val);
 
         // Boost Date_Time gets the 'YYYYMMDD' format wrong, even
         // when given as an explicit argument. So we need to test here.
@@ -185,18 +191,23 @@ Rcpp::NumericVector anytime_impl(const Rcpp::Vector<RTYPE>& sv,
         } else if (l == 8) {    // turn YYYYMMDD into YYYY/MM/DD
             s = s.substr(0, 4) + "/" + s.substr(4, 2) + "/" + s.substr(6,2);
         }
+
+        // Given the string, convert to a POSIXct using an interim double
+        // of fractional seconds since the epoch
         pv[i] = stringToTime(s);
     }
     return pv;
 }
 
-
 // [[Rcpp::export]]
 Rcpp::NumericVector anytime_cpp(SEXP x, std::string tz = "UTC") {
+
     if (Rcpp::is<Rcpp::CharacterVector>(x)) {
-        return anytime_impl<STRSXP>(x, tz);
+        return convertToTime<const char*, STRSXP>(x, tz);
+        
     } else if (Rcpp::is<Rcpp::IntegerVector>(x)) {
-        return anytime_impl<INTSXP>(x, tz);
+        return convertToTime<int, INTSXP>(x, tz);
+
     } else if (Rcpp::is<Rcpp::NumericVector>(x)) {
         // here we have two cases: either we are an int like
         // 200150315 'mistakenly' cast to numeric, or we actually
@@ -204,11 +215,12 @@ Rcpp::NumericVector anytime_cpp(SEXP x, std::string tz = "UTC") {
         Rcpp::NumericVector v(x);
         if (v[0] < 21990101) {  // somewhat arbitrary cuttoff
             // actual integer date notation: convert to string and parse
-            return anytime_impl<REALSXP>(x, tz);
+            return convertToTime<double, REALSXP>(x, tz);
         } else {
             // we think it is a numeric time, so treat it as one
             return x;
         }
+        
     } else {
         Rcpp::stop("Unsupported Type");
         return R_NilValue;//not reached

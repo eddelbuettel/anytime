@@ -1,0 +1,2 @@
+
+rm -f src/*.o src/*.so src/*.dylib src/*~ *~
