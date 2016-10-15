@@ -6,7 +6,7 @@
 \section{Changes in anytime version 0.0.4 (2016-xx-yy)}{
   \itemize{
     \item Before converting via \code{lexical_cast}, assign to atomic
-    type to avoid an UBSAN issue (\ghit{14})
+    type via template logic to avoid an UBSAN issue (\ghit{14})
   }
 }
 
