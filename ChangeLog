@@ -1,3 +1,10 @@
+2016-10-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (sformats[]]): Add several new date(time) formats
+	of the 14OCT2016 variety, with and without hours/minutes
+
+	* tests/allFormats.R: Add new tests as well
+
 2016-10-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.0.3

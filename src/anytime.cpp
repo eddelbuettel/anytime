@@ -44,6 +44,11 @@ const std::string sformats[] = {
     "%b-%d-%Y %H:%M:%S%f",
     "%d.%b.%Y %H:%M:%S%f",
 
+    "%d%b%Y %H%M%S",
+    "%d%b%Y %H:%M:%S",    
+    "%d-%b-%Y %H%M%S",
+    "%d-%b-%Y %H:%M:%S",    
+
     "%Y-%B-%d %H:%M:%S%f",
     "%Y/%B/%d %H:%M:%S%f",
     "%Y%B%d %H%M%S%f",
@@ -51,7 +56,7 @@ const std::string sformats[] = {
     "%B/%d/%Y %H:%M:%S%f",
     "%B-%d-%Y %H:%M:%S%f",
     "%d.%B.%Y %H:%M:%S%f",
-
+    
     // see http://stackoverflow.com/questions/39259184/formatting-dates-with-r for next one
     "%a %b %d %H:%M:%S%F %Y",
 
@@ -65,10 +70,14 @@ const std::string sformats[] = {
     "%b/%d/%Y",
     "%b-%d-%Y",
 
+    "%d%b%Y"
+    "%d-%b-%Y"
+
     "%Y-%B-%d",
     "%Y%B%d",
     "%B/%d/%Y",
     "%B-%d-%Y"
+
 };
 const size_t nsformats = sizeof(sformats)/sizeof(sformats[0]);
 
