@@ -200,7 +200,7 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
 }
 
 // [[Rcpp::export]]
-Rcpp::NumericVector anytime_cpp(SEXP x, std::string tz = "UTC") {
+Rcpp::NumericVector anytime_cpp(SEXP x, const std::string& tz = "UTC") {
 
     if (Rcpp::is<Rcpp::CharacterVector>(x)) {
         return convertToTime<const char*, STRSXP>(x, tz);

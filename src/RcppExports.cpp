@@ -6,13 +6,13 @@
 using namespace Rcpp;
 
 // anytime_cpp
-Rcpp::NumericVector anytime_cpp(SEXP x, std::string tz);
+Rcpp::NumericVector anytime_cpp(SEXP x, const std::string& tz);
 RcppExport SEXP anytime_anytime_cpp(SEXP xSEXP, SEXP tzSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< SEXP >::type x(xSEXP);
-    Rcpp::traits::input_parameter< std::string >::type tz(tzSEXP);
+    Rcpp::traits::input_parameter< const std::string& >::type tz(tzSEXP);
     rcpp_result_gen = Rcpp::wrap(anytime_cpp(x, tz));
     return rcpp_result_gen;
 END_RCPP
