@@ -1,10 +1,15 @@
+2016-10-17  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/init.R (.onLoad): Also test for NA to invoke gettz, and test for
+	NA and NULL before using fallback of UTC (with warning)
+
 2016-10-15  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (convertToTime): Templated conversion avoids UBSAN
 	on a temporary object created from SEXP; renamed from anytime_impl
 
 	* cleanup: New helper script
-	
+
 2016-10-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (sformats[]]): Add several new date(time) formats

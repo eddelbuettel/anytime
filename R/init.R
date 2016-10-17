@@ -30,14 +30,14 @@
 
     ## if this didn't work (we had a case with a bad
     ## /etc/localtime) and if gettz is available, use it
-    if (!isTRUE(nzchar(tz))) {
+    if (!isTRUE(nzchar(tz)) || is.na(tz)) {
         if (requireNamespace("gettz", quietly=TRUE)) {
             tz <- gettz::gettz()
         }
     }
 
     ## if there is still nothing, use UTC
-    if (!isTRUE(nzchar(tz))) {
+    if (!isTRUE(nzchar(tz)) || is.na(tz) || is.null(tz)) {
         warning("No TZ information found. Falling back to UTC.")
         tz <- "UTC"
     }

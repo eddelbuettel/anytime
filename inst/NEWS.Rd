@@ -7,6 +7,7 @@
   \itemize{
     \item Before converting via \code{lexical_cast}, assign to atomic
     type via template logic to avoid an UBSAN issue (\ghit{14})
+    \item More robust initialization also considering NA.
   }
 }
 
