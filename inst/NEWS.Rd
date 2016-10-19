@@ -3,12 +3,16 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.0.4 (2016-xx-yy)}{
+\section{Changes in anytime version 0.0.4 (2016-10-xx)}{
   \itemize{
     \item Before converting via \code{lexical_cast}, assign to atomic
-    type via template logic to avoid an UBSAN issue (\ghit{14})
-    \item More robust initialization also considering NA.
+    type via template logic to avoid an UBSAN issue (PR \ghpr{15}
+    closing issue \ghit{14})
+    \item More robust initialization also coping with non-finite values
+    such as \code{NA}, \code{NaN} and \code{Inf} which all return \code{NA}.
     \item More robust processing of non-finite input, returning NA.
+    \item Allow numeric \code{POSIXt} representation on input, also
+    creating proper \code{POSIXct} (or, if requested, \code{Date})
   }
 }
 

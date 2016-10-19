@@ -223,7 +223,9 @@ Rcpp::NumericVector anytime_cpp(SEXP x, const std::string& tz = "UTC") {
             return convertToTime<double, REALSXP>(x, tz);
         } else {
             // we think it is a numeric time, so treat it as one
-            return x;
+            v.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
+            v.attr("tzone") = tz;
+            return v;
         }
         
     } else {

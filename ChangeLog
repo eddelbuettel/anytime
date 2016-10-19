@@ -1,3 +1,10 @@
+2016-10-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (anytime_cpp): Also recognise as.numeric()
+	conversions of POSIXt objects
+
+	* tests/allFormats.R: Additional tests
+
 2016-10-17  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (convertToTime): Process non-finite values as well
