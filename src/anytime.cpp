@@ -182,19 +182,24 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
         T val = sxpvec[i];
         std::string s = boost::lexical_cast<std::string>(val);
 
-        // Boost Date_Time gets the 'YYYYMMDD' format wrong, even
-        // when given as an explicit argument. So we need to test here.
-        // While we're at it, may as well test for obviously wrong data.
-        int l = s.size();
-        if (l < 8) { 	        // too short
-            Rcpp::stop("Inadmissable input: %s", s);
-        } else if (l == 8) {    // turn YYYYMMDD into YYYY/MM/DD
-            s = s.substr(0, 4) + "/" + s.substr(4, 2) + "/" + s.substr(6,2);
-        }
+        if (s == "NA") {
+            pv[i] = NA_REAL;
+            
+        } else {
+            // Boost Date_Time gets the 'YYYYMMDD' format wrong, even
+            // when given as an explicit argument. So we need to test here.
+            // While we're at it, may as well test for obviously wrong data.
+            int l = s.size();
+            if (l < 8) { 	        // too short
+                Rcpp::stop("Inadmissable input: %s", s);
+            } else if (l == 8) {    // turn YYYYMMDD into YYYY/MM/DD
+                s = s.substr(0, 4) + "/" + s.substr(4, 2) + "/" + s.substr(6,2);
+            }
 
-        // Given the string, convert to a POSIXct using an interim double
-        // of fractional seconds since the epoch
-        pv[i] = stringToTime(s);
+            // Given the string, convert to a POSIXct using an interim double
+            // of fractional seconds since the epoch
+            pv[i] = stringToTime(s);
+        }
     }
     return pv;
 }

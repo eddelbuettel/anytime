@@ -1,5 +1,8 @@
 2016-10-17  Dirk Eddelbuettel  <edd@debian.org>
 
+	* src/anytime.cpp (convertToTime): Process non-finite values as well
+	and return NA
+
 	* R/init.R (.onLoad): Also test for NA to invoke gettz, and test for
 	NA and NULL before using fallback of UTC (with warning)
 
