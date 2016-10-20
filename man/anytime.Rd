@@ -57,12 +57,26 @@ incorrectly. This is not quite a \href{https://xkcd.com/327/}{Bobby Tables}
 situation but care must always be taken with user-supplied input.
 }
 
+\section{Issues}{
+
+
+The Boost Date_Time library cannot parse single digit months or
+days. So while \sQuote{2016/09/02} works (as expected),
+\sQuote{2016/9/2} will not. Other non-standard formats may also
+fail.
+
+The is a known issue (discussed at length in issue tick 5) where
+Australian times are off by an hour. This seems to affect only
+Windows, not Linux.
+}
+
 \section{Operating System Impact}{
 
-On Windows systems, accessing the timezone-offset flag on dates or tumes
-before January 1, 1970, can lead to a crash. Therefore, the lookup of
-for those dates and times has been disabled.  It should not afffect dates,
-but may affect datetime objects.
+On Windows systems, accessing the \code{isdst} flag on dates or times
+before January 1, 1970, can lead to a crash. Therefore, the lookup of this
+value has been disabled for those dates and times, which could therefore be
+off by an hour (the common value that needs to be correctect).
+It should not afffect dates, but may affect datetime objects.
 }
 \examples{
 ## See the source code for a full list of formats, and the

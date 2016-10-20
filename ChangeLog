@@ -3,7 +3,13 @@
 	* src/anytime.cpp (anytime_cpp): Also recognise as.numeric()
 	conversions of POSIXt objects
 
+	* R/anytime.R: Expand manual page text with section on Issues, correct
+	working on Notes.
+	* man/anytime.Rd: Ditto
+
 	* tests/allFormats.R: Additional tests
+
+	* README.md: Reformated code display slightly
 
 2016-10-17  Dirk Eddelbuettel  <edd@debian.org>
 

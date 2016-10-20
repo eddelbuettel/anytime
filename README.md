@@ -27,61 +27,60 @@ performant) conversion. `anytime()` is an additional wrapper returning a `Date` 
 #### From Integer or Numeric or Factor or Ordered
 
 ```r
-R> library(anytime)
-R> options(digits.secs=6)                ## for fractional seconds below
-R> Sys.setenv(TZ=anytime:::getTZ())      ## helper function to try to get TZ
-R>
-R> ## integer    
-R> anytime(20160101L + 0:2)
+library(anytime)
+options(digits.secs=6)                ## for fractional seconds below
+Sys.setenv(TZ=anytime:::getTZ())      ## helper function to try to get TZ
+
+## integer    
+anytime(20160101L + 0:2)
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
-R> 
-R> ## numeric
-R> anytime(20160101 + 0:2)
+ 
+## numeric
+anytime(20160101 + 0:2)
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
-R>
-R> ## factor
-R> anytime(as.factor(20160101 + 0:2))
+
+## factor
+anytime(as.factor(20160101 + 0:2))
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
-R>
-R> ## ordered
-R> anytime(as.ordered(20160101 + 0:2))
+
+## ordered
+anytime(as.ordered(20160101 + 0:2))
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
 ```
 
 #### Character: Simple
 
 ```r
-R> ## Dates: Character
-R> anytime(as.character(20160101 + 0:2))
+## Dates: Character
+anytime(as.character(20160101 + 0:2))
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
-R>
-R> ## Dates: alternate formats
-R> anytime(c("20160101", "2016/01/02", "2016-01-03"))
+
+## Dates: alternate formats
+anytime(c("20160101", "2016/01/02", "2016-01-03"))
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
-R>
 ```
 
 #### Character: ISO
 
 ```r
-R> ## Datetime: ISO with/without fractional seconds
-R> anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"))
+## Datetime: ISO with/without fractional seconds
+anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"))
 [1] "2016-01-01 10:11:12.000000 CST" "2016-01-01 10:11:12.345678 CST"
-R>
-R> ## Datetime: ISO alternate (?) with 'T' separator  
-R> anytime(c("20160101T101112", "20160101T101112.345678"))
+
+## Datetime: ISO alternate (?) with 'T' separator  
+anytime(c("20160101T101112", "20160101T101112.345678"))
 [1] "2016-01-01 10:11:12.000000 CST" "2016-01-01 10:11:12.345678 CST"
 ```
 
 #### Character: Textual month formats
 
 ```r
-R> ## ISO style 
-R> anytime(c("2016-Sep-01 10:11:12", "Sep/01/2016 10:11:12", "Sep-01-2016 10:11:12"))
+## ISO style 
+anytime(c("2016-Sep-01 10:11:12", "Sep/01/2016 10:11:12", "Sep-01-2016 10:11:12"))
 [1] "2016-09-01 10:11:12 CDT" "2016-09-01 10:11:12 CDT" "2016-09-01 10:11:12 CDT"
-R>
-R> ## Datetime: Mixed format (cf http://stackoverflow.com/questions/39259184)
-R> anytime(c("Thu Sep 01 10:11:12 2016", "Thu Sep 01 10:11:12.345678 2016"))
+
+## Datetime: Mixed format (cf http://stackoverflow.com/questions/39259184)
+anytime(c("Thu Sep 01 10:11:12 2016", "Thu Sep 01 10:11:12.345678 2016"))
 [1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
 ```
 
@@ -95,10 +94,10 @@ itself).
 
 
 ```r
-R> ## Datetime: pre/post DST
-R> anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"))
+## Datetime: pre/post DST
+anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"))
 [1] "2016-01-31 12:13:14 CST" "2016-08-31 12:13:14 CDT"
-R> anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"), tz="UTC")  # important: catches change
+anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"), tz="UTC")  # important: catches change
 [1] "2016-01-31 18:13:14 UTC" "2016-08-31 17:13:14 UTC"
 ```
 
@@ -122,7 +121,7 @@ The package is now on [CRAN](https://cran.r-project.org) and can be installed
 via a standard
 
 ```r
-R> install.packages("anytime")
+install.packages("anytime")
 ```
 
 ### Author
