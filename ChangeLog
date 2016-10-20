@@ -1,3 +1,7 @@
+2016-10-20  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.0.4
+
 2016-10-19  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (anytime_cpp): Also recognise as.numeric()
