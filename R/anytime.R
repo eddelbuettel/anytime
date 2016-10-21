@@ -62,7 +62,7 @@
 ##' The is a known issue (discussed at length in issue tick 5) where
 ##' Australian times are off by an hour. This seems to affect only
 ##' Windows, not Linux.
-##' 
+##'
 ##' @section Operating System Impact:
 ##' On Windows systems, accessing the \code{isdst} flag on dates or times
 ##' before January 1, 1970, can lead to a crash. Therefore, the lookup of this
@@ -74,7 +74,9 @@
 ##' @param x A vector of type character, integer or numeric with
 ##' date(time) expressions to be parsed and converted.
 ##' @param tz A string with the timezone, defaults to \sQuote{UTC} if unset
-##' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
+##' @param asUTC A logical value indicating if parsing should be to UTC; default
+##' is false implying localtime.
+##' ##' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
 ##' a vector of \code{Date} objects.
 ##' @seealso \code{\link{anytime-package}}
 ##' @references This StackOverflow answer provided the initial idea:
@@ -95,7 +97,7 @@
 ##'           "20010101")
 ##' anytime(times)
 ##' anydate(times)
-anytime <- function(x, tz=getTZ()) {
+anytime <- function(x, tz=getTZ(), asUTC=FALSE) {
 
     if (inherits(x, "POSIXt")) {
         return(as.POSIXct(x, tz=tz))
@@ -113,10 +115,20 @@ anytime <- function(x, tz=getTZ()) {
         x <- as.character(x)
     }
 
-    anytime_cpp(x, tz=tz)
+    anytime_cpp(x, tz=tz, asUTC=asUTC)
 }
 
 ##' @rdname anytime
-anydate <- function(x, tz=getTZ()) {
-    as.Date(as.POSIXlt(anytime(x=x, tz=tz)))
+anydate <- function(x, tz=getTZ(), asUTC=asUTC) {
+    as.Date(as.POSIXlt(anytime(x=x, tz=tz, asUTC=asUTC)))
+}
+
+##' @rdname anytime
+utctime <- function(x, tz=getTZ()) {
+    anytime(x=x, tz=tz, asUTC=TRUE)
+}
+
+##' @rdname anytime
+utcdate <- function(x, tz=getTZ()) {
+    as.Date(as.POSIXlt(utctime(x=x, tz=tz)))
 }

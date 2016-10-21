@@ -3,21 +3,28 @@
 \name{anytime}
 \alias{anydate}
 \alias{anytime}
+\alias{utcdate}
+\alias{utctime}
 \title{Parse POSIXct objects from input data}
 \usage{
-anytime(x, tz = getTZ())
+anytime(x, tz = getTZ(), asUTC = FALSE)
 
-anydate(x, tz = getTZ())
+anydate(x, tz = getTZ(), asUTC = asUTC)
+
+utctime(x, tz = getTZ())
+
+utcdate(x, tz = getTZ())
 }
 \arguments{
 \item{x}{A vector of type character, integer or numeric with
 date(time) expressions to be parsed and converted.}
 
 \item{tz}{A string with the timezone, defaults to \sQuote{UTC} if unset}
-}
-\value{
-A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
-a vector of \code{Date} objects.
+
+\item{asUTC}{A logical value indicating if parsing should be to UTC; default
+is false implying localtime.
+##' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
+a vector of \code{Date} objects.}
 }
 \description{
 These function use the Boost Date_Time library to parse

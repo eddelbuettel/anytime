@@ -1,3 +1,14 @@
+2016-10-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (anytime_cpp): New option asUTC (defaulting to
+	false) which governs whether parsing is as localtime or UTC
+	(ptToDoubleUTC): New UTC conversion of ptime to double
+	(stringToTime): Dispatch to either ptToDouble or ptToDoubleUTC
+
+	* R/anytime.R (anytime): Document new option asUTC;
+	add and document new callers utctime() and utcdate()
+	* man/anytime.Rd: Document new options and functions
+
 2016-10-20  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.0.4
