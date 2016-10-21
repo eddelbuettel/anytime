@@ -119,7 +119,7 @@ anytime <- function(x, tz=getTZ(), asUTC=FALSE) {
 }
 
 ##' @rdname anytime
-anydate <- function(x, tz=getTZ(), asUTC=asUTC) {
+anydate <- function(x, tz=getTZ(), asUTC=FALSE) {
     as.Date(as.POSIXlt(anytime(x=x, tz=tz, asUTC=asUTC)))
 }
 

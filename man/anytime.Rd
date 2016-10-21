@@ -9,7 +9,7 @@
 \usage{
 anytime(x, tz = getTZ(), asUTC = FALSE)
 
-anydate(x, tz = getTZ(), asUTC = asUTC)
+anydate(x, tz = getTZ(), asUTC = FALSE)
 
 utctime(x, tz = getTZ())
 
