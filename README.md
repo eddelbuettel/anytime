@@ -18,9 +18,9 @@ so on, with or without times), do we really need a format string? Or could a sma
 function do this?
 
 `anytime()` aims to be that _general purpose_ converter returning a proper `POSIXct` (or `Date`)
-object nomatter the input (provided it was somewhat parseable), relying on
+object no matter the input (provided it was somewhat parseable), relying on
 [Boost date_time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html) for the (efficient,
-performant) conversion. `anytime()` is an additional wrapper returning a `Date` object instead.
+performant) conversion. `anydate()` is an additional wrapper returning a `Date` object instead.
 
 ### Examples
 
