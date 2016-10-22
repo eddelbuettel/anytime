@@ -22,14 +22,16 @@ date(time) expressions to be parsed and converted.}
 \item{tz}{A string with the timezone, defaults to \sQuote{UTC} if unset}
 
 \item{asUTC}{A logical value indicating if parsing should be to UTC; default
-is false implying localtime.
-##' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
-a vector of \code{Date} objects.}
+is false implying localtime.}
+}
+\value{
+A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
+a vector of \code{Date} objects.
 }
 \description{
 These function use the Boost Date_Time library to parse
 datetimes (and dates) from strings, integers, factors or even numeric values
-(which are cast to strings internall). They return a vector of
+(which are cast to strings internally). They return a vector of
 \code{POSIXct} objects (or \code{Date} objects in the case of \code{anydate}).
 \code{POSIXct} objects represent dates and time as (possibly
 fractional) seconds since the \sQuote{epoch} of January 1, 1970.
@@ -90,8 +92,8 @@ ticket 11}) for more.
 On Windows systems, accessing the \code{isdst} flag on dates or times
 before January 1, 1970, can lead to a crash. Therefore, the lookup of this
 value has been disabled for those dates and times, which could therefore be
-off by an hour (the common value that needs to be correctect).
-It should not afffect dates, but may affect datetime objects.
+off by an hour (the common value that needs to be corrected).
+It should not affect dates, but may affect datetime objects.
 }
 \examples{
 ## See the source code for a full list of formats, and the
