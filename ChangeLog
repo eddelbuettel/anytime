@@ -1,3 +1,11 @@
+2016-10-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* NAMESPACE: Adding utctime() and utcdate() to export()
+
+	* R/anytime.R: Expanded documentation in Notes section (also
+	merging the Issues section in)
+	* man/anytime.Rd: Ditto
+
 2016-10-21  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (anytime_cpp): New option asUTC (defaulting to

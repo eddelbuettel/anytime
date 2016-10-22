@@ -3,6 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in anytime version 0.0.5 (2016-xx-yy)}{
+  \itemize{
+    \item New functions \code{utctime()} and \code{utcdate()} where
+    added to parse input as coordinated universal time.
+  }
+}
+
 \section{Changes in anytime version 0.0.4 (2016-10-20)}{
   \itemize{
     \item Before converting via \code{lexical_cast}, assign to atomic
