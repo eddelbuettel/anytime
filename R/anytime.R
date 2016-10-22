@@ -38,31 +38,41 @@
 ##' has not been enabled.
 ##'
 ##' @section Notes:
-##' The (internal) conversion to (fractional) seconds since the epoch is
+##' By default, the (internal) conversion to (fractional) seconds since the epoch is
 ##' relative to the locatime of this system, and therefore not completely
 ##' independent of the settings of the local system. This is to strike a
 ##' balance between ease of use and functionality.  A more-full featured
 ##' conversion could be possibly be added with support for arbitrary
 ##' reference times, but this is (at least) currently outside the scope of
 ##' this package. See the \pkg{RcppCCTZ} package which offers some
-##' timezone-shifting and differencing functionality.
+##' timezone-shifting and differencing functionality. As of version 0.0.5 one
+##' can also parse relative to UTC avoiding the localtime issue,
 ##'
 ##' Times and timezones can be tricky. This package offers a heuristic approach,
 ##' it is likely that some input formats may not be parsed, or worse, be parsed
 ##' incorrectly. This is not quite a \href{https://xkcd.com/327/}{Bobby Tables}
 ##' situation but care must always be taken with user-supplied input.
 ##'
-##' @section Issues:
-##'
 ##' The Boost Date_Time library cannot parse single digit months or
 ##' days. So while \sQuote{2016/09/02} works (as expected),
 ##' \sQuote{2016/9/2} will not. Other non-standard formats may also
 ##' fail.
 ##'
-##' The is a known issue (discussed at length in issue tick 5) where
-##' Australian times are off by an hour. This seems to affect only
-##' Windows, not Linux.
-##' 
+##' The is a known issue (discussed at length in
+##' \href{https://github.com/eddelbuettel/anytime/issues/5}{issue
+##' ticket 5}) where Australian times are off by an hour. This seems
+##' to affect only Windows, not Linux.
+##'
+##' When given a vector, R will coerce it to the type of the first
+##' element. Should that be \code{NA}, surprising things can
+##' happen: \code{c(NA, Sys.Date())} forces both values to
+##' \code{numeric} and the date will not be parsed correctly (as its
+##' integer value becomes numeric before our code sees it). On the
+##' other hand, \code{c(Sys.Date(), NA)} works as expected parsing as
+##' type Date with one missing value. See
+##' \href{https://github.com/eddelbuettel/anytime/issues/11}{issue
+##' ticket 11}) for more.
+##'
 ##' @section Operating System Impact:
 ##' On Windows systems, accessing the \code{isdst} flag on dates or times
 ##' before January 1, 1970, can lead to a crash. Therefore, the lookup of this
@@ -74,7 +84,9 @@
 ##' @param x A vector of type character, integer or numeric with
 ##' date(time) expressions to be parsed and converted.
 ##' @param tz A string with the timezone, defaults to \sQuote{UTC} if unset
-##' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
+##' @param asUTC A logical value indicating if parsing should be to UTC; default
+##' is false implying localtime.
+##' ##' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
 ##' a vector of \code{Date} objects.
 ##' @seealso \code{\link{anytime-package}}
 ##' @references This StackOverflow answer provided the initial idea:
@@ -95,7 +107,7 @@
 ##'           "20010101")
 ##' anytime(times)
 ##' anydate(times)
-anytime <- function(x, tz=getTZ()) {
+anytime <- function(x, tz=getTZ(), asUTC=FALSE) {
 
     if (inherits(x, "POSIXt")) {
         return(as.POSIXct(x, tz=tz))
@@ -113,10 +125,20 @@ anytime <- function(x, tz=getTZ()) {
         x <- as.character(x)
     }
 
-    anytime_cpp(x, tz=tz)
+    anytime_cpp(x, tz=tz, asUTC=asUTC)
 }
 
 ##' @rdname anytime
-anydate <- function(x, tz=getTZ()) {
-    as.Date(as.POSIXlt(anytime(x=x, tz=tz)))
+anydate <- function(x, tz=getTZ(), asUTC=FALSE) {
+    as.Date(as.POSIXlt(anytime(x=x, tz=tz, asUTC=asUTC)))
+}
+
+##' @rdname anytime
+utctime <- function(x, tz=getTZ()) {
+    anytime(x=x, tz=tz, asUTC=TRUE)
+}
+
+##' @rdname anytime
+utcdate <- function(x, tz=getTZ()) {
+    as.Date(as.POSIXlt(utctime(x=x, tz=tz)))
 }
