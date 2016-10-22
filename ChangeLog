@@ -3,8 +3,11 @@
 	* NAMESPACE: Adding utctime() and utcdate() to export()
 
 	* R/anytime.R: Expanded documentation in Notes section (also
-	merging the Issues section in)
+	merging the Issues section in); expand documentation of the tz
+	argument; expanded examples
 	* man/anytime.Rd: Ditto
+
+	* R/utils.R (setTZ): New (unexported) helper function
 
 2016-10-21  Dirk Eddelbuettel  <edd@debian.org>
 

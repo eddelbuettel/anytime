@@ -81,9 +81,18 @@
 ##' It should not affect dates, but may affect datetime objects.
 ##'
 ##' @title Parse POSIXct objects from input data
-##' @param x A vector of type character, integer or numeric with
-##' date(time) expressions to be parsed and converted.
-##' @param tz A string with the timezone, defaults to \sQuote{UTC} if unset
+##' @param x A vector of type character, integer or numeric with date(time) 
+##' expressions to be parsed and converted.
+##' @param tz A string with the timezone, defaults to the result of the (internal) 
+##' \code{getTZ} function if unset. The \code{getTZ} function returns the timezone
+##' values stored in local package environment, and set at package load time. Also 
+##' note that this argument applies to the \emph{output}: the returned object will
+##' have this timezone set. The timezone is \emph{not} used for the parsing which 
+##' will always be to localtime, or to UTC is the \code{asUTC} variable is set (as 
+##' it is in the related functions \code{link{utctime}} amd \code{\link{utcdate}}).
+##' So one can think of the argument as \sQuote{shift parsed time object to this
+##' timezone}. This is similar to what \code{format()} in base R does, but our
+##' return value is still a \code{POSIXt} object instead of a character value.
 ##' @param asUTC A logical value indicating if parsing should be to UTC; default
 ##' is false implying localtime.
 ##' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
@@ -107,6 +116,15 @@
 ##'           "20010101")
 ##' anytime(times)
 ##' anydate(times)
+##' utctime(times)
+##' utcdate(times)
+##'
+##' ## show effect of tz argument
+##' anytime("2001-02-03 04:05:06")
+##' ## adjust parsed time to given TZ argument
+##' anytime("2001-02-03 04:05:06", tz="America/Los_Angeles")
+##' ## somewhat equvalent base R functionality
+##' format(anytime("2001-02-03 04:05:06"), tz="America/Los_Angeles")
 anytime <- function(x, tz=getTZ(), asUTC=FALSE) {
 
     if (inherits(x, "POSIXt")) {
