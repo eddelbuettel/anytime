@@ -3,6 +3,8 @@
 	* src/anytime.cpp (sformats[]): New format for RFC 822 style date
 	* tests/allFormats.R: New test
 
+	* tests/validate.R: Added test for utcparse via stopifnot()
+
 2016-10-22  Dirk Eddelbuettel  <edd@debian.org>
 
 	* NAMESPACE: Adding utctime() and utcdate() to export()

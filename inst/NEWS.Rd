@@ -5,8 +5,11 @@
 
 \section{Changes in anytime version 0.0.5 (2016-xx-yy)}{
   \itemize{
-    \item New functions \code{utctime()} and \code{utcdate()} where
-    added to parse input as coordinated universal time.
+    \item New functions \code{utctime()} and \code{utcdate()} were
+    added to parse input as coordinated universal time; the
+    functionality is also available in \code{anytime()} and
+    \code{anydate()} via a new argument \code{asUTC}
+    \item Documentation and tests have been expanded
   }
 }
 
@@ -44,7 +47,6 @@
     all \code{POSIXlt} components are set (\ghpr{6} fixing \ghit{5}).
   }
 }
-
 
 \section{Changes in anytime version 0.0.1 (2016-09-12)}{
   \itemize{
