@@ -60,6 +60,9 @@ const std::string sformats[] = {
     // see http://stackoverflow.com/questions/39259184/formatting-dates-with-r for next one
     "%a %b %d %H:%M:%S%F %Y",
 
+    // see RFC 822 and standard Unix use eg mail headers (but no TZ or UTC offset on input :-/ )
+    "%a %d %b %Y %H:%M:%S%F", 
+    
     "%Y-%m-%d",
     "%Y%m%d",
     "%m/%d/%Y",
