@@ -81,14 +81,14 @@
 ##' It should not affect dates, but may affect datetime objects.
 ##'
 ##' @title Parse POSIXct objects from input data
-##' @param x A vector of type character, integer or numeric with date(time) 
+##' @param x A vector of type character, integer or numeric with date(time)
 ##' expressions to be parsed and converted.
-##' @param tz A string with the timezone, defaults to the result of the (internal) 
+##' @param tz A string with the timezone, defaults to the result of the (internal)
 ##' \code{getTZ} function if unset. The \code{getTZ} function returns the timezone
-##' values stored in local package environment, and set at package load time. Also 
+##' values stored in local package environment, and set at package load time. Also
 ##' note that this argument applies to the \emph{output}: the returned object will
-##' have this timezone set. The timezone is \emph{not} used for the parsing which 
-##' will always be to localtime, or to UTC is the \code{asUTC} variable is set (as 
+##' have this timezone set. The timezone is \emph{not} used for the parsing which
+##' will always be to localtime, or to UTC is the \code{asUTC} variable is set (as
 ##' it is in the related functions \code{link{utctime}} amd \code{\link{utcdate}}).
 ##' So one can think of the argument as \sQuote{shift parsed time object to this
 ##' timezone}. This is similar to what \code{format()} in base R does, but our
@@ -159,4 +159,12 @@ utctime <- function(x, tz=getTZ()) {
 ##' @rdname anytime
 utcdate <- function(x, tz=getTZ()) {
     as.Date(as.POSIXlt(utctime(x=x, tz=tz)))
+}
+
+testFormat <- function(fmt, s, tz="") {
+    if (isRStudio()) {
+        warning("This function cannot run reliably inside of RStudio; possibly a Boost interaction.")
+        return(NA)
+    }
+    testFormat_impl(fmt, s, tz=tz)
 }

@@ -22,6 +22,7 @@
 
 .onLoad <- function(libname, pkgname) {
 
+    ## -- Task one: set a timezone value
     tz <- NULL
 
     ## Sys.timezone() queries enviroment variable TZ
@@ -43,5 +44,16 @@
     }
 
     assign("tz", tz, envir=.pkgenv)
+
+
+
+    ## -- Task two: see if we are inside RStudio
+    isRStudio <- FALSE
+
+    if (Sys.getenv("RSTUDIO", unset="0") == "1") {
+        isRStudio <- TRUE
+    }
+
+    assign("isRStudio", isRStudio, envir=.pkgenv)
 
 }

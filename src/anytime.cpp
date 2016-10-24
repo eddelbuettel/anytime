@@ -285,7 +285,9 @@ void addFormats(Rcpp::CharacterVector fmt) {
 
 
 // [[Rcpp::export]]
-Rcpp::NumericVector testFormat(const std::string fmt, const std::string s, const std::string tz = "") {
+Rcpp::NumericVector testFormat_impl(const std::string fmt,
+                                    const std::string s,
+                                    const std::string tz = "") {
     
     bt::ptime pt, ptbase;
 

@@ -29,7 +29,7 @@ addFormats <- function(fmt) {
     invisible(.Call('anytime_addFormats', PACKAGE = 'anytime', fmt))
 }
 
-testFormat <- function(fmt, s, tz = "") {
-    .Call('anytime_testFormat', PACKAGE = 'anytime', fmt, s, tz)
+testFormat_impl <- function(fmt, s, tz = "") {
+    .Call('anytime_testFormat_impl', PACKAGE = 'anytime', fmt, s, tz)
 }
 
