@@ -25,3 +25,7 @@ getTZ <- function() {
 setTZ <- function(tz) {
     assign("tz", tz, envir=.pkgenv)
 }
+
+isRStudio <- function() {
+    .pkgenv$isRStudio
+}
