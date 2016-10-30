@@ -168,3 +168,11 @@ testFormat <- function(fmt, s, tz="") {
     }
     testFormat_impl(fmt, s, tz=tz)
 }
+
+testOutput <- function(fmt, s) {
+    if (isRStudio()) {
+        warning("This function cannot run reliably inside of RStudio; possibly a Boost interaction.")
+        return(NA)
+    }
+    testOutput_impl(fmt, s)
+}

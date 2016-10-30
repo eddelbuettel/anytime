@@ -1,3 +1,8 @@
+2016-10-30  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/anytime.R (testOutput): New simple (unexported) string output function
+	* src/anytime.cpp (testOutput_impl): Implementation
+
 2016-10-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version): Rolled version and date

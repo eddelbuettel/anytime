@@ -51,3 +51,15 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// testOutput_impl
+std::string testOutput_impl(const std::string fmt, const std::string s);
+RcppExport SEXP anytime_testOutput_impl(SEXP fmtSEXP, SEXP sSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const std::string >::type fmt(fmtSEXP);
+    Rcpp::traits::input_parameter< const std::string >::type s(sSEXP);
+    rcpp_result_gen = Rcpp::wrap(testOutput_impl(fmt, s));
+    return rcpp_result_gen;
+END_RCPP
+}

@@ -306,3 +306,20 @@ Rcpp::NumericVector testFormat_impl(const std::string fmt,
     
     return pv;
 }
+
+// [[Rcpp::export]]
+std::string testOutput_impl(const std::string fmt,
+                            const std::string s) {
+
+    // doing anything with an actual output _format_ requires a timezone
+    // for which we need to load timezone information _from the Boost file_
+    // which we generally do not have -- though RcppBDT ships it
+    bt::ptime pt;
+    std::istringstream is(s);
+    std::locale inloc = std::locale(std::locale::classic(), new bt::time_input_facet(fmt));
+    is.imbue(inloc);
+    is >> pt;
+    std::ostringstream os;
+    os << pt;
+    return os.str();
+}

@@ -33,3 +33,7 @@ testFormat_impl <- function(fmt, s, tz = "") {
     .Call('anytime_testFormat_impl', PACKAGE = 'anytime', fmt, s, tz)
 }
 
+testOutput_impl <- function(fmt, s) {
+    .Call('anytime_testOutput_impl', PACKAGE = 'anytime', fmt, s)
+}
+
