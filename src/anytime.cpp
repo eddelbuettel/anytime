@@ -27,6 +27,8 @@
 
 namespace bt = boost::posix_time;
 
+static bool debug = false;
+
 const std::string sformats[] = {
     "%Y-%m-%d %H:%M:%S%f",
     "%Y/%m/%d %H:%M:%S%f",
@@ -180,6 +182,27 @@ double stringToTime(const std::string s, const bool asUTC=false) {
         return ptToDouble(pt);
 }
 
+// helper to peel off first two tokens, if any, of a string
+// use to do two things:
+//  i)  split yyyymmdd hhmmss[.fff] into date and time parts
+//  ii) for time part, split possible fractional seconds off
+void stringSplitter(/*const*/ std::string & in, const char split,
+                    std::string & tok1, std::string& tok2) {
+
+    char *txt = const_cast<char*>(in.c_str());
+    tok1 = tok2 = "";
+
+    char *token = std::strtok(txt, &split);
+    if (token != NULL) {
+        tok1 = token;
+        token = std::strtok(NULL, &split);
+        if (token != NULL) {
+            tok2 = token;
+        }
+    }
+    if (debug) Rcpp::Rcout << "In: " << in << " out: " << tok1 << " and " << tok2 << std::endl;
+}
+
 template <class T, int RTYPE>
 Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
                                   const std::string& tz = "UTC",
@@ -202,53 +225,35 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
         
         if (s == "NA") {
             pv[i] = NA_REAL;
-            
         } else {
-            Rcpp::Rcout << "s: " << s << std::endl;
 
-            std::string one = "", two = "", three = "";
-            char *txt = const_cast<char*>(s.c_str());
-            char *token = std::strtok(txt, " ");
-            if (token != NULL) {
-                one = token;
-                if (one.size() == 8) {
-                    one = one.substr(0, 4) + "-" + one.substr(4, 2) + "-" + one.substr(6,2);
-                }
-                token = std::strtok(NULL, " ");
-                if (token != NULL) {
-                    two = token;
-                    token = std::strtok(NULL, ".");
-                    if (token != NULL) {
-                        three = token;
-                    }
-                    if (two.size() == 6) {
-                        two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
-                    } else if (two.size() == 4) {
-                        two = two.substr(0, 2) + ":" + two.substr(2, 2);
-                    }
-                    s = one + " " + two;
-                    if (three != "") {
-                        s = s + "." + three;
-                    }
-                } else {
-                    s = one;
-                }
-            }
-            Rcpp::Rcout << "s: " << s
-                        << " one: " << one
-                        << " two: " << two << " "
-                        << " three: " << three << std::endl;
-            
             // Boost Date_Time gets the 'YYYYMMDD' format wrong, even
             // when given as an explicit argument. So we need to test here.
             // While we're at it, may as well test for obviously wrong data.
-            int l = s.size();
-            if (l < 8) { 	        // too short
-                Rcpp::stop("Inadmissable input: %s", s);
-            } else if (l == 8) {    // turn YYYYMMDD into YYYY/MM/DD
-                s = s.substr(0, 4) + "/" + s.substr(4, 2) + "/" + s.substr(6,2);
+            std::string one = "", two = "", three = "", inp;
+            stringSplitter(s, ' ', one, two);
+            if (one.size() == 8) {
+                one = one.substr(0, 4) + "-" + one.substr(4, 2) + "-" + one.substr(6,2);
             }
+            inp = two;
 
+            // The 'YYYYMMDD' format can of course be follow by either
+            // 'HHMMSS' or 'HHMM' or 'HHMMSS.fffffff' so we cover these cases
+            stringSplitter(inp, '.', two, three);
+            if (two.size() == 6) {
+                two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
+            } else if (two.size() == 4) {
+                two = two.substr(0, 2) + ":" + two.substr(2, 2);
+            }
+            s = one + " " + two;
+            if (three != "") {
+                s = s + "." + three;
+            }
+            if (debug) Rcpp::Rcout << "s: " << s
+                                   << " one: " << one
+                                   << " two: " << two << " "
+                                   << " three: " << three << std::endl;
+            
             // Given the string, convert to a POSIXct using an interim double
             // of fractional seconds since the epoch
             pv[i] = stringToTime(s, asUTC);

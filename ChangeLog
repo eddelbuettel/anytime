@@ -1,3 +1,8 @@
+2016-11-04  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (convertToTime): Add logic to cope with the extended
+	'yyyymmdd hhmm[ss[.fff]]' format which needs treatment before parsing
+
 2016-10-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/anytime.R (testOutput): New simple (unexported) string output function
