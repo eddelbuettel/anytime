@@ -199,11 +199,46 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
         // but with templating to T this is straightforward enough
         T val = sxpvec[i];
         std::string s = boost::lexical_cast<std::string>(val);
-
+        
         if (s == "NA") {
             pv[i] = NA_REAL;
             
         } else {
+            Rcpp::Rcout << "s: " << s << std::endl;
+
+            std::string one = "", two = "", three = "";
+            char *txt = const_cast<char*>(s.c_str());
+            char *token = std::strtok(txt, " ");
+            if (token != NULL) {
+                one = token;
+                if (one.size() == 8) {
+                    one = one.substr(0, 4) + "-" + one.substr(4, 2) + "-" + one.substr(6,2);
+                }
+                token = std::strtok(NULL, " ");
+                if (token != NULL) {
+                    two = token;
+                    token = std::strtok(NULL, ".");
+                    if (token != NULL) {
+                        three = token;
+                    }
+                    if (two.size() == 6) {
+                        two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
+                    } else if (two.size() == 4) {
+                        two = two.substr(0, 2) + ":" + two.substr(2, 2);
+                    }
+                    s = one + " " + two;
+                    if (three != "") {
+                        s = s + "." + three;
+                    }
+                } else {
+                    s = one;
+                }
+            }
+            Rcpp::Rcout << "s: " << s
+                        << " one: " << one
+                        << " two: " << two << " "
+                        << " three: " << three << std::endl;
+            
             // Boost Date_Time gets the 'YYYYMMDD' format wrong, even
             // when given as an explicit argument. So we need to test here.
             // While we're at it, may as well test for obviously wrong data.
