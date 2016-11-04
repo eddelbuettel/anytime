@@ -8,8 +8,12 @@
     \item New functions \code{utctime()} and \code{utcdate()} were
     added to parse input as coordinated universal time; the
     functionality is also available in \code{anytime()} and
-    \code{anydate()} via a new argument \code{asUTC}
-    \item Documentation and tests have been expanded
+    \code{anydate()} via a new argument \code{asUTC} (PR \ghpr{22})
+    \item New (date)time format for RFC822-alike dates.
+    \item Documentation and tests have been expanded; typos corrected
+    \item New (unexported) helper functions \code{setTZ}, \code{testOutput}
+    \item The \code{testFormat} (and \code{testOutput}) functions cannot
+    be called under RStudio (PR \ghpr{27} fixing issue \ghit{25})
   }
 }
 
