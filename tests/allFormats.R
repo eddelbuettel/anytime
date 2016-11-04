@@ -52,3 +52,6 @@ anytime(c("2016-September-01", "2016September01", "September/01/2016", "Septembe
 
 cat("\n")
 anytime(c(NA, NaN, Inf, as.numeric(as.POSIXct("2016-09-01 10:11:12"))))
+
+cat("\n")
+anytime(c("20160911", "20160911 1011", "20160911 101112", "20160911 101112.345678"))

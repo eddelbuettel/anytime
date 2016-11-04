@@ -2,6 +2,7 @@
 
 	* src/anytime.cpp (convertToTime): Add logic to cope with the extended
 	'yyyymmdd hhmm[ss[.fff]]' format which needs treatment before parsing
+	* tests/allFormats.R: Added tests
 
 2016-10-30  Dirk Eddelbuettel  <edd@debian.org>
 
