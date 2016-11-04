@@ -203,6 +203,17 @@ void stringSplitter(/*const*/ std::string & in, const char split,
     if (debug) Rcpp::Rcout << "In: " << in << " out: " << tok1 << " and " << tok2 << std::endl;
 }
 
+// yes, we could use regular expression -- but then we'd either be C++11 or would
+// require an additional library with header / linking requirement (incl boost regex)
+bool isLengthEightAndAllDigits(const std::string& s) {
+    bool res = s.size() == 8;
+    size_t i = 0;
+    while (res && i < 8 && s[i] > '0' && s[i] < ':') {
+        i++;
+    }
+    return res;
+}
+
 template <class T, int RTYPE>
 Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
                                   const std::string& tz = "UTC",
@@ -232,27 +243,28 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
             // While we're at it, may as well test for obviously wrong data.
             std::string one = "", two = "", three = "", inp;
             stringSplitter(s, ' ', one, two);
-            if (one.size() == 8) {
+            if (isLengthEightAndAllDigits(one)) {
                 one = one.substr(0, 4) + "-" + one.substr(4, 2) + "-" + one.substr(6,2);
-            }
-            inp = two;
 
-            // The 'YYYYMMDD' format can of course be follow by either
-            // 'HHMMSS' or 'HHMM' or 'HHMMSS.fffffff' so we cover these cases
-            stringSplitter(inp, '.', two, three);
-            if (two.size() == 6) {
-                two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
-            } else if (two.size() == 4) {
-                two = two.substr(0, 2) + ":" + two.substr(2, 2);
+                inp = two;
+
+                // The 'YYYYMMDD' format can of course be follow by either
+                // 'HHMMSS' or 'HHMM' or 'HHMMSS.fffffff' so we cover these cases
+                stringSplitter(inp, '.', two, three);
+                if (two.size() == 6) {
+                    two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
+                } else if (two.size() == 4) {
+                    two = two.substr(0, 2) + ":" + two.substr(2, 2);
+                }
+                s = one + " " + two;
+                if (three != "") {
+                    s = s + "." + three;
+                }
+                if (debug) Rcpp::Rcout << "s: " << s
+                                       << " one: " << one
+                                       << " two: " << two << " "
+                                       << " three: " << three << std::endl;
             }
-            s = one + " " + two;
-            if (three != "") {
-                s = s + "." + three;
-            }
-            if (debug) Rcpp::Rcout << "s: " << s
-                                   << " one: " << one
-                                   << " two: " << two << " "
-                                   << " three: " << three << std::endl;
             
             // Given the string, convert to a POSIXct using an interim double
             // of fractional seconds since the epoch
