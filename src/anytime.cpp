@@ -208,7 +208,8 @@ void stringSplitter(/*const*/ std::string & in, const char split,
 bool isLengthEightAndAllDigits(const std::string& s) {
     bool res = s.size() == 8;
     size_t i = 0;
-    while (res && i < 8 && s[i] > '0' && s[i] < ':') {
+    while (res && i < 8) {
+        res = res && s[i] >= '0' && s[i] <= '9';
         i++;
     }
     return res;
@@ -237,12 +238,12 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
         if (s == "NA") {
             pv[i] = NA_REAL;
         } else {
-
+            if (debug) Rcpp::Rcout << "before tests: " << s << std::endl;
             // Boost Date_Time gets the 'YYYYMMDD' format wrong, even
             // when given as an explicit argument. So we need to test here.
             // While we're at it, may as well test for obviously wrong data.
-            std::string one = "", two = "", three = "", inp;
-            stringSplitter(s, ' ', one, two);
+            std::string one = "", two = "", three = "", inp = s;
+            stringSplitter(inp, ' ', one, two);
             if (isLengthEightAndAllDigits(one)) {
                 one = one.substr(0, 4) + "-" + one.substr(4, 2) + "-" + one.substr(6,2);
 
@@ -265,6 +266,7 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
                                        << " two: " << two << " "
                                        << " three: " << three << std::endl;
             }
+            if (debug) Rcpp::Rcout << "before parse: " << s << std::endl;
             
             // Given the string, convert to a POSIXct using an interim double
             // of fractional seconds since the epoch
@@ -374,4 +376,10 @@ std::string testOutput_impl(const std::string fmt,
     std::ostringstream os;
     os << pt;
     return os.str();
+}
+
+// [[Rcpp::export]]
+bool setDebug(const bool mode) {
+    debug = mode;
+    return debug;
 }

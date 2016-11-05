@@ -63,3 +63,14 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// setDebug
+bool setDebug(const bool mode);
+RcppExport SEXP anytime_setDebug(SEXP modeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const bool >::type mode(modeSEXP);
+    rcpp_result_gen = Rcpp::wrap(setDebug(mode));
+    return rcpp_result_gen;
+END_RCPP
+}
