@@ -46,10 +46,10 @@ const std::string sformats[] = {
     "%b-%d-%Y %H:%M:%S%f",
     "%d.%b.%Y %H:%M:%S%f",
 
-    "%d%b%Y %H%M%S",
-    "%d%b%Y %H:%M:%S",    
-    "%d-%b-%Y %H%M%S",
-    "%d-%b-%Y %H:%M:%S",    
+    "%d%b%Y %H%M%S%f",
+    "%d%b%Y %H:%M:%S%f",
+    "%d-%b-%Y %H%M%S%f",
+    "%d-%b-%Y %H:%M:%S%f",
 
     "%Y-%B-%d %H:%M:%S%f",
     "%Y/%B/%d %H:%M:%S%f",
