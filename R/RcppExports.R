@@ -37,3 +37,7 @@ testOutput_impl <- function(fmt, s) {
     .Call('anytime_testOutput_impl', PACKAGE = 'anytime', fmt, s)
 }
 
+setDebug <- function(mode) {
+    .Call('anytime_setDebug', PACKAGE = 'anytime', mode)
+}
+

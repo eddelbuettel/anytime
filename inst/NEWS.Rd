@@ -9,11 +9,19 @@
     added to parse input as coordinated universal time; the
     functionality is also available in \code{anytime()} and
     \code{anydate()} via a new argument \code{asUTC} (PR \ghpr{22})
-    \item New (date)time format for RFC822-alike dates.
+    \item New (date)time format for RFC822-alike dates, and expanded
+    more existing datetime formats to all support fractional seconds
+    \item Extended functionality to support not only \sQuote{YYYYMMDD}
+    (without a separator, and not covered by Boost) but also with
+    \sQuote{HHMM}, \sQuote{HHMMSS} and \sQuote{HHMMSS.ffffff}
     \item Documentation and tests have been expanded; typos corrected
-    \item New (unexported) helper functions \code{setTZ}, \code{testOutput}
+    \item New (unexported) helper functions \code{setTZ},
+    \code{testOutput}, \code{setDebug}
     \item The \code{testFormat} (and \code{testOutput}) functions cannot
     be called under RStudio (PR \ghpr{27} fixing issue \ghit{25})
+    \item Two functions are now protected from being called from within
+    RStudio to avoid interactions which we suspect stem from concurrent
+    use of two different (compiled) Boost versions
   }
 }
 
