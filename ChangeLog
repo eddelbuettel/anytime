@@ -1,7 +1,8 @@
 2016-11-05  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (sformats[]): Add fractional seconds to four more
-	datetimes; (isLengthEightAndAllDigits): Another refinement;
+	datetimes, also add one missing format;
+	(isAtLeastGivenLengthAndAllDigits): Another refinement, and generalized;
 	(setDebug): add simple debug routine
 
 2016-11-04  Dirk Eddelbuettel  <edd@debian.org>

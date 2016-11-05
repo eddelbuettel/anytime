@@ -33,6 +33,7 @@ const std::string sformats[] = {
     "%Y-%m-%d %H:%M:%S%f",
     "%Y/%m/%d %H:%M:%S%f",
     "%Y%m%d %H%M%S%f",
+    "%Y-%m-%d %H%M%S%f",
     "%Y%m%d %H:%M:%S%f",
     "%m/%d/%Y %H:%M:%S%f",
     "%m-%d-%Y %H:%M:%S%f",
@@ -205,8 +206,8 @@ void stringSplitter(/*const*/ std::string & in, const char split,
 
 // yes, we could use regular expression -- but then we'd either be C++11 or would
 // require an additional library with header / linking requirement (incl boost regex)
-bool isLengthEightAndAllDigits(const std::string& s) {
-    bool res = s.size() == 8;
+bool isAtLeastGivenLengthAndAllDigits(const std::string& s, const unsigned int n) {
+    bool res = s.size() >= n;
     size_t i = 0;
     while (res && i < 8) {
         res = res && s[i] >= '0' && s[i] <= '9';
@@ -244,23 +245,30 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
             // While we're at it, may as well test for obviously wrong data.
             std::string one = "", two = "", three = "", inp = s;
             stringSplitter(inp, ' ', one, two);
-            if (isLengthEightAndAllDigits(one)) {
+            if (isAtLeastGivenLengthAndAllDigits(one, 8)) {
                 one = one.substr(0, 4) + "-" + one.substr(4, 2) + "-" + one.substr(6,2);
 
-                inp = two;
+                if ((two.size()==5 || two.size() >= 8) &&          // if we have hh:mm or hh:mm:ss[.ffffff]
+                    !isAtLeastGivenLengthAndAllDigits(two, 6)) {  // and it is not hhmmss
+                    three = "";                         // do nothing, three remains ""
+                } else {
+                    inp = two;
 
-                // The 'YYYYMMDD' format can of course be follow by either
-                // 'HHMMSS' or 'HHMM' or 'HHMMSS.fffffff' so we cover these cases
-                stringSplitter(inp, '.', two, three);
-                if (two.size() == 6) {
-                    two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
-                } else if (two.size() == 4) {
-                    two = two.substr(0, 2) + ":" + two.substr(2, 2);
+                    // The 'YYYYMMDD' format can of course be followed by either
+                    // 'HHMMSS' or 'HHMM' or 'HHMMSS.fffffff' so we cover these cases
+                    stringSplitter(inp, '.', two, three);
+                    if (two.size() == 6) {
+                        two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
+                    } else if (two.size() == 4) {
+                        two = two.substr(0, 2) + ":" + two.substr(2, 2);
+                    }
                 }
+                
                 s = one + " " + two;
                 if (three != "") {
                     s = s + "." + three;
                 }
+                    
                 if (debug) Rcpp::Rcout << "s: " << s
                                        << " one: " << one
                                        << " two: " << two << " "
