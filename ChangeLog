@@ -1,12 +1,14 @@
 2016-11-06  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Release 0.1.0
+
 	* src/anytime.cpp (sformats[]): Remove one redundant entry present
 	twice, move one entry to related entries
 	(convertToTime): Another special case treatment for hhmmss
 
 	* tests/allFormats.R: Align with current formats
 
-2016-11-5   Bob Jansen <bobjansen@gmail.com>
+2016-11-05  Bob Jansen <bobjansen@gmail.com>
 
 	* src/anytime.cpp (sformats[]): Add one 'no-separator' format
 

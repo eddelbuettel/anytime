@@ -3,25 +3,28 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.0.5 (2016-xx-yy)}{
+\section{Changes in anytime version 0.1.0 (2016-11-06)}{
   \itemize{
     \item New functions \code{utctime()} and \code{utcdate()} were
     added to parse input as coordinated universal time; the
     functionality is also available in \code{anytime()} and
     \code{anydate()} via a new argument \code{asUTC} (PR \ghpr{22})
     \item New (date)time format for RFC822-alike dates, and expanded
-    more existing datetime formats to all support fractional seconds
+    existing datetime formats to all support fractional seconds (PR
+    \ghpr{21}) 
     \item Extended functionality to support not only \sQuote{YYYYMMDD}
     (without a separator, and not covered by Boost) but also with
-    \sQuote{HHMM}, \sQuote{HHMMSS} and \sQuote{HHMMSS.ffffff}
+    \sQuote{HHMM}, \sQuote{HHMMSS} and \sQuote{HHMMSS.ffffff} (PR
+    \ghpr{30} fixing issue \ghit{29})
+    \item Extended functionality to support \sQuote{HHMMSS[.ffffff]}
+    following other date formats.
     \item Documentation and tests have been expanded; typos corrected
     \item New (unexported) helper functions \code{setTZ},
     \code{testOutput}, \code{setDebug}
     \item The \code{testFormat} (and \code{testOutput}) functions cannot
-    be called under RStudio (PR \ghpr{27} fixing issue \ghit{25})
-    \item Two functions are now protected from being called from within
-    RStudio to avoid interactions which we suspect stem from concurrent
-    use of two different (compiled) Boost versions
+    be called under RStudio (PR \ghpr{27} fixing issue \ghit{25}).
+    \item More robust support for non-finite values such as \code{NA},
+    \code{NaN} or \code{Inf} (Fixing issue \ghit{16})
   }
 }
 
