@@ -31,9 +31,9 @@ static bool debug = false;
 
 const std::string sformats[] = {
     "%Y-%m-%d %H:%M:%S%f",
+    "%Y-%m-%d %H%M%S%f",
     "%Y/%m/%d %H:%M:%S%f",
     "%Y%m%d %H%M%S%f",
-    "%Y-%m-%d %H%M%S%f",
     "%Y%m%d %H:%M:%S%f",
     "%m/%d/%Y %H:%M:%S%f",
     "%m-%d-%Y %H:%M:%S%f",
@@ -45,9 +45,8 @@ const std::string sformats[] = {
     "%Y%b%d %H:%M:%S%F",
     "%b/%d/%Y %H:%M:%S%f",
     "%b-%d-%Y %H:%M:%S%f",
-    "%d-%b-%Y %H%M%S%f",
-    "%d.%b.%Y %H:%M:%S%f",
 
+    "%d.%b.%Y %H:%M:%S%f",
     "%d%b%Y %H%M%S%f",
     "%d%b%Y %H:%M:%S%f",
     "%d-%b-%Y %H%M%S%f",
@@ -210,10 +209,11 @@ void stringSplitter(/*const*/ std::string & in, const char split,
 bool isAtLeastGivenLengthAndAllDigits(const std::string& s, const unsigned int n) {
     bool res = s.size() >= n;
     size_t i = 0;
-    while (res && i < 8) {
+    while (res && i < n) {
         res = res && s[i] >= '0' && s[i] <= '9';
         i++;
     }
+    if (debug) Rcpp::Rcout << "s: " << s << " len: " << s.size() << " res: " << res << std::endl;
     return res;
 }
 
@@ -274,7 +274,15 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
                                        << " one: " << one
                                        << " two: " << two << " "
                                        << " three: " << three << std::endl;
+            } else if (isAtLeastGivenLengthAndAllDigits(two, 6)) {
+                if (two.size() == 6) {
+                    two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
+                }
+                s = one + " " + two;
+            } else {
+                if (debug) Rcpp::Rcout << "One: " << one << " " << "two: " << two << std::endl;
             }
+            
             if (debug) Rcpp::Rcout << "before parse: " << s << std::endl;
             
             // Given the string, convert to a POSIXct using an interim double

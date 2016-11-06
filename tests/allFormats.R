@@ -3,6 +3,7 @@ options(digits.secs=6, width=70)
 library(anytime)
 
 anytime(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678"))
+anytime(c("2016-09-01 101112",   "2016-09-01 101112.345678"))
 anytime(c("2016/09/01 10:11:12", "2016/09/01 10:11:12.345678"))
 anytime(c("20160901 101112",     "20160901 101112.345678"))
 anytime(c("20160901 10:11:12",   "20160901 10:11:12.345678"))
@@ -17,6 +18,8 @@ anytime(c("2016Sep01 101112",     "2016Sep01 101112.345678"))
 anytime(c("2016Sep01 10:11:12",   "2016Sep01 10:11:12.345678"))
 anytime(c("Sep/01/2016 10:11:12", "Sep/01/2016 10:11:12.345678"))
 anytime(c("Sep-01-2016 10:11:12", "Sep-01-2016 10:11:12.345678"))
+
+cat("\n")
 anytime(c("01.Sep.2016 10:11:12", "01.Sep.2016 10:11:12.345678"))
 anytime(c("01Sep2016 101112",     "01Sep2016 101112.345678"))
 anytime(c("01Sep2016 10:11:12",   "01Sep2016 10:11:12.345678"))
@@ -50,8 +53,8 @@ anytime(c("01SEP2016", "01-Sep-2016"))
 cat("\n")
 anytime(c("2016-September-01", "2016September01", "September/01/2016", "September-01-2016"))
 
-cat("\n")
+cat("\n")                               # special case of non-finite NA reals
 anytime(c(NA, NaN, Inf, as.numeric(as.POSIXct("2016-09-01 10:11:12"))))
 
-cat("\n")
+cat("\n")                               # special case of no separators
 anytime(c("20160911", "20160911 1011", "20160911 101112", "20160911 101112.345678"))
