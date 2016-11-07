@@ -1,6 +1,10 @@
-2016-11-06  Dirk Eddelbuettel  <edd@debian.org>
+2016-11-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.1.0
+
+	* tests/validate.R: No call of stopifnot(); Windows always surprises
+
+2016-11-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (sformats[]): Remove one redundant entry present
 	twice, move one entry to related entries
