@@ -5,6 +5,16 @@
 
 \section{Changes in anytime version 0.1.0 (2016-11-06)}{
   \itemize{
+    \item Both \code{anydate()} and \code{utcdate()} no longer attempt
+    to convert an input value that is already of type `Date`.
+    \item The internal string splitter is now more defensive about the
+    input argument which makes the operation more robust. Thanks ot Bob
+    Jansen for the heads-up bug report.
+  }
+}
+
+\section{Changes in anytime version 0.1.0 (2016-11-06)}{
+  \itemize{
     \item New functions \code{utctime()} and \code{utcdate()} were
     added to parse input as coordinated universal time; the
     functionality is also available in \code{anytime()} and
