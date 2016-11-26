@@ -15,4 +15,4 @@ anytime:::testFormat("%Y", "2016-09-01") # ISO format
 addFormats("%Y")
 getFormats()
 
-anytime("NA")
+anytime:::setTZ("America/Chicago")

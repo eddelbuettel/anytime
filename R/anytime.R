@@ -162,17 +162,17 @@ utcdate <- function(x, tz=getTZ()) {
 }
 
 testFormat <- function(fmt, s, tz="") {
-    if (isRStudio()) {
+    if (isRStudio()) {				#nocov start
         warning("This function cannot run reliably inside of RStudio; possibly a Boost interaction.")
         return(NA)
     }
     testFormat_impl(fmt, s, tz=tz)
-}
+}						#nocov end
 
 testOutput <- function(fmt, s) {
-    if (isRStudio()) {
+    if (isRStudio()) {				#nocov start
         warning("This function cannot run reliably inside of RStudio; possibly a Boost interaction.")
         return(NA)
     }
     testOutput_impl(fmt, s)
-}
+}						#nocov end
