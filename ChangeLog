@@ -1,6 +1,7 @@
 2016-11-26  Dirk Eddelbuettel  <edd@debian.org>
 
 	* tests/utilities.R: Gaming coverage metrics by adding more calls
+	* tests/allFormats.R: Ditto
 
 2016-11-25  Dirk Eddelbuettel  <edd@debian.org>
 

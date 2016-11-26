@@ -165,14 +165,14 @@ testFormat <- function(fmt, s, tz="") {
     if (isRStudio()) {				#nocov start
         warning("This function cannot run reliably inside of RStudio; possibly a Boost interaction.")
         return(NA)
-    }
+    }						#nocov end
     testFormat_impl(fmt, s, tz=tz)
-}						#nocov end
+}						
 
 testOutput <- function(fmt, s) {
     if (isRStudio()) {				#nocov start
         warning("This function cannot run reliably inside of RStudio; possibly a Boost interaction.")
         return(NA)
-    }
+    }						#nocov end
     testOutput_impl(fmt, s)
-}						#nocov end
+}
