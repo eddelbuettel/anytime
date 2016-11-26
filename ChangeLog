@@ -1,3 +1,10 @@
+2016-11-25  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .travis.yml (after_success): Added call to covr::codecov()
+	* .codecov.yml (comment): Added
+	* .Rbuildignore: Exclude .codecov.yml
+	* README.md: Added badge for Codecov
+
 2016-11-19  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/anytime.R (anydate,utcdate): Check for input of class Date
