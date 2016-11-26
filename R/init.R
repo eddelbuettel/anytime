@@ -20,7 +20,7 @@
 
 .pkgenv <- new.env(parent = emptyenv())
 
-.onLoad <- function(libname, pkgname) {
+.onLoad <- function(libname, pkgname) { 	#nocov start
 
     ## -- Task one: set a timezone value
     tz <- NULL
@@ -56,4 +56,4 @@
 
     assign("isRStudio", isRStudio, envir=.pkgenv)
 
-}
+}						#nocov end

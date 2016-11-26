@@ -21,11 +21,13 @@ script:
 after_failure:
   - ./run.sh dump_logs
 
+after_success:
+  - ./run.sh coverage
+   
 notifications:
   email:
     on_success: change
     on_failure: change
 
     
-
 
