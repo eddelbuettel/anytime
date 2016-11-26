@@ -1,9 +1,13 @@
+2016-11-26  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tests/utilities.R: Gaming coverage metrics by adding more calls
+
 2016-11-25  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .travis.yml (after_success): Launch coverage analysis
 	* .codecov.yml (comment): Added
 	* .Rbuildignore: Exclude .codecov.yml
-	* README.md: Added badge for Codecov
+	* README.md: Added code coverage badge
 
 2016-11-19  Dirk Eddelbuettel  <edd@debian.org>
 

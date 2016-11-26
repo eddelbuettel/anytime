@@ -271,10 +271,9 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
                     s = s + "." + three;
                 }
                     
-                if (debug) Rcpp::Rcout << "s: " << s
-                                       << " one: " << one
-                                       << " two: " << two << " "
-                                       << " three: " << three << std::endl;
+                if (debug) Rcpp::Rcout << "s: " << s << " one: " << one << " two: ";
+                if (debug) Rcpp::Rcout << two << " " << " three: " << three << std::endl;
+               
             } else if (isAtLeastGivenLengthAndAllDigits(two, 6)) {
                 if (two.size() == 6) {
                     two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
