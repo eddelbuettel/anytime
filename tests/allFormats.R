@@ -64,4 +64,4 @@ anytime("NA") 				# String NA
 anytime(Sys.time())                     # POSIXt pass-through
 anytime(Sys.Date())			# Date pass-through
 utcdate(Sys.Date())                     # Date pass-through
-anytime(TRUE)                           # tickles unsupported type
+try(anytime(TRUE))                      # tickles unsupported type -- and exception, hence try()
