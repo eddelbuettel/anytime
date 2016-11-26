@@ -1,6 +1,6 @@
 2016-11-25  Dirk Eddelbuettel  <edd@debian.org>
 
-	* .travis.yml (after_success): Added call to covr::codecov()
+	* .travis.yml (after_success): Launch coverage analysis
 	* .codecov.yml (comment): Added
 	* .Rbuildignore: Exclude .codecov.yml
 	* README.md: Added badge for Codecov

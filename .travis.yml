@@ -22,9 +22,7 @@ after_failure:
   - ./run.sh dump_logs
 
 after_success:
-   # r-cran-covr is available in the Rutter PPAs we know about
-   - ./run.sh install_aptget r-cran-covr        
-   - R -e 'covr::codecov()'
+  - ./run.sh coverage
    
 notifications:
   email:
