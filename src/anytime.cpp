@@ -320,7 +320,11 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         }
         
     } else {
-        Rcpp::stop("Unsupported Type");
+#if RCPP_DEV_VERSION >= RcppDevVersion(0,12,8,1)
+        Rcpp::stop("Unsupported Type");	// bug in 0.12.{7,8}; only Rcpp 0.12.8.1 or later
+#else
+        throw std::invalid_argument("Unsupported Type");
+#endif        
         return R_NilValue;//not reached
     }
 }
