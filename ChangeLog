@@ -1,3 +1,7 @@
+2016-11-27  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.1.1
+
 2016-11-26  Dirk Eddelbuettel  <edd@debian.org>
 
 	* tests/utilities.R: Gaming coverage metrics by adding more calls
@@ -5,7 +9,7 @@
 
 	* src/anytime.cpp (anytime_cpp): Condition use of Rcpp::stop() on
 	having Rcpp 0.12.8.1 or later as 0.12.7 and 0.12.8 had a bug tickled
-	under older g++ versions such as Ubuntu 14.04 one used by Travis CI 
+	under older g++ versions such as Ubuntu 14.04 one used by Travis CI
 
 2016-11-25  Dirk Eddelbuettel  <edd@debian.org>
 
