@@ -189,10 +189,10 @@ double stringToTime(const std::string s, const bool asUTC=false) {
 // use to do two things:
 //  i)  split yyyymmdd hhmmss[.fff] into date and time parts
 //  ii) for time part, split possible fractional seconds off
-void stringSplitter(const std::string & in, const char split,
+void stringSplitter(const std::string & in, const std::string spliton,
                     std::string & tok1, std::string& tok2) {
     std::vector<std::string> splitvec;
-    boost::split(splitvec,in, boost::is_any_of(" "), boost::token_compress_on);
+    boost::split(splitvec, in, boost::is_any_of(spliton), boost::token_compress_on);
     tok1 = splitvec[0];
     tok2 = splitvec.size() > 1 ? splitvec[1] : "";
     if (debug) Rcpp::Rcout << "In: " << in << " out: " << tok1 << " and " << tok2 << std::endl;
@@ -239,7 +239,7 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
             // when given as an explicit argument. So we need to test here.
             // While we're at it, may as well test for obviously wrong data.
             std::string one = "", two = "", three = "", inp = s;
-            stringSplitter(inp, ' ', one, two);
+            stringSplitter(inp, " ", one, two);
             if (isAtLeastGivenLengthAndAllDigits(one, 8)) {
                 one = one.substr(0, 4) + "-" + one.substr(4, 2) + "-" + one.substr(6,2);
 
@@ -251,7 +251,7 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
 
                     // The 'YYYYMMDD' format can of course be followed by either
                     // 'HHMMSS' or 'HHMM' or 'HHMMSS.fffffff' so we cover these cases
-                    stringSplitter(inp, '.', two, three);
+                    stringSplitter(inp, ".", two, three);
                     if (two.size() == 6) {
                         two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
                     } else if (two.size() == 4) {

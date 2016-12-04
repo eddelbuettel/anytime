@@ -1,3 +1,13 @@
+2016-12-04  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll format and date
+
+	* src/anytime.cpp (stringSplitter): Correct small oversight and split
+	on actual 'spliton' argument
+
+	* tests/gh_issue_33.R: Added to test most issue GH issue
+	* tests/allFormats.R: Minor edit
+
 2016-12-03  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (stringSplitter): Split string with
