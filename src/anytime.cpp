@@ -23,6 +23,8 @@
 #include <boost/date_time/local_time_adjustor.hpp>
 #include <boost/date_time/c_local_time_adjustor.hpp>
 #include <boost/lexical_cast.hpp>
+#include <boost/algorithm/string/classification.hpp>
+#include <boost/algorithm/string/split.hpp>
 #include <Rcpp.h>
 
 namespace bt = boost::posix_time;
@@ -189,19 +191,10 @@ double stringToTime(const std::string s, const bool asUTC=false) {
 //  ii) for time part, split possible fractional seconds off
 void stringSplitter(const std::string & in, const char split,
                     std::string & tok1, std::string& tok2) {
-
-    std::string cp = in;        // make another copy to keep input string alone
-    char *txt = const_cast<char*>(cp.c_str());
-    tok1 = tok2 = "";
-
-    char *token = std::strtok(txt, &split);
-    if (token != NULL) {
-        tok1 = token;
-        token = std::strtok(NULL, &split);
-        if (token != NULL) {
-            tok2 = token;
-        }
-    }
+    std::vector<std::string> splitvec;
+    boost::split(splitvec,in, boost::is_any_of(" "), boost::token_compress_on);
+    tok1 = splitvec[0];
+    tok2 = splitvec.size() > 1 ? splitvec[1] : "";
     if (debug) Rcpp::Rcout << "In: " << in << " out: " << tok1 << " and " << tok2 << std::endl;
 }
 
