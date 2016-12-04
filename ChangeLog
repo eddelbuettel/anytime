@@ -1,3 +1,9 @@
+2016-12-03  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (stringSplitter): Split string with
+	boost::algorithm instead of strtok which appears to fail on 64-bit
+	windows.
+
 2016-11-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.1.1
