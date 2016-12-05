@@ -397,3 +397,17 @@ bool setDebug(const bool mode) {
     debug = mode;
     return debug;
 }
+
+// [[Rcpp::export]]
+std::vector<std::string> format(Rcpp::NumericVector x) {
+    std::vector<std::string> z(x.size());
+    for (int i=0; i<x.size(); i++) {
+        Rcpp::Datetime d(x[i]);
+#if RCPP_NEW_DATE_DATETIME_VECTORS && RCPP_DEV_VERSION >= RcppDevVersion(0,12,8,1)
+        z[i] = d.format();
+#else
+        z[i] = "";
+#endif        
+    }
+    return z;
+}

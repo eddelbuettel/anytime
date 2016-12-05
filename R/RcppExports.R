@@ -41,3 +41,7 @@ setDebug <- function(mode) {
     .Call('anytime_setDebug', PACKAGE = 'anytime', mode)
 }
 
+format <- function(x) {
+    .Call('anytime_format', PACKAGE = 'anytime', x)
+}
+
