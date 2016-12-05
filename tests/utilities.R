@@ -16,3 +16,6 @@ addFormats("%Y")
 getFormats()
 
 anytime:::setTZ("America/Chicago")
+
+anytime:::format(s)
+
