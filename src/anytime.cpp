@@ -204,7 +204,7 @@ void stringSplitter(const std::string & in, const std::string spliton,
 // yes, we could use regular expression -- but then we'd either be C++11 or would
 // require an additional library with header / linking requirement (incl boost regex)
 bool isAtLeastGivenLengthAndAllDigits(const std::string& s, const unsigned int n) {
-    bool res = (s.size() >= n) && ba::all(s, ba::is_digit());
+    bool res = s.size() >= n && ba::all(s.substr(0, n), ba::is_digit());
     if (debug) Rcpp::Rcout << "s: " << s << " len: " << s.size() << " res: " << res << std::endl;
     return res;
 }
