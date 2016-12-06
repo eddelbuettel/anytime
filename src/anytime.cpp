@@ -24,10 +24,13 @@
 #include <boost/date_time/c_local_time_adjustor.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/algorithm/string/classification.hpp>
+#include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/split.hpp>
+
 #include <Rcpp.h>
 
 namespace bt = boost::posix_time;
+namespace ba = boost::algorithm;
 
 static bool debug = false;
 
@@ -201,12 +204,7 @@ void stringSplitter(const std::string & in, const std::string spliton,
 // yes, we could use regular expression -- but then we'd either be C++11 or would
 // require an additional library with header / linking requirement (incl boost regex)
 bool isAtLeastGivenLengthAndAllDigits(const std::string& s, const unsigned int n) {
-    bool res = s.size() >= n;
-    size_t i = 0;
-    while (res && i < n) {
-        res = res && s[i] >= '0' && s[i] <= '9';
-        i++;
-    }
+    bool res = (s.size() >= n) && ba::all(s, ba::is_digit());
     if (debug) Rcpp::Rcout << "s: " << s << " len: " << s.size() << " res: " << res << std::endl;
     return res;
 }
@@ -403,7 +401,7 @@ std::vector<std::string> format(Rcpp::NumericVector x) {
     std::vector<std::string> z(x.size());
     for (int i=0; i<x.size(); i++) {
         Rcpp::Datetime d(x[i]);
-#if RCPP_DEV_VERSION >= RcppDevVersion(0,12,8,1)
+#if RCPP_DEV_VERSION >= RcppDevVersion(0,12,8,2)
         z[i] = d.format();
 #else
         z[i] = "";

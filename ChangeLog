@@ -1,7 +1,13 @@
+2016-12-06  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (isAtLeastGivenLengthAndAllDigits): Simplified
+	using Boost classification and predicate use
+
 2016-12-05  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (format): Condition only on Rcpp version
-	* tests/utilities.R: Call anytime:::format() 
+
+	* tests/utilities.R: Call anytime:::format()
 
 2016-12-04  Dirk Eddelbuettel  <edd@debian.org>
 
