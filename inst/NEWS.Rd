@@ -3,6 +3,14 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+section{Changes in anytime version 0.1.2 (2016-12-13)}{
+  \itemize{
+    \item The (internal) string processing and splitting now uses Boost
+    algorithm functions which avoids a (bizarre) bug on Windows.
+    \item Test coverage was increased.
+  }
+}
+ 
 \section{Changes in anytime version 0.1.1 (2016-11-27)}{
   \itemize{
     \item Both \code{anydate()} and \code{utcdate()} no longer attempt

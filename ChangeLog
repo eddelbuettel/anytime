@@ -1,3 +1,7 @@
+2016-12-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.1.2 
+
 2016-12-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (isAtLeastGivenLengthAndAllDigits): Simplified
@@ -16,7 +20,7 @@
 	* src/anytime.cpp (stringSplitter): Correct small oversight and split
 	on actual 'spliton' argument
 
-	* tests/gh_issue_33.R: Added to test most issue GH issue
+	* tests/gh_issue_33.R: Added to test most of GH issue
 	* tests/allFormats.R: Minor edit
 
 2016-12-03  Dirk Eddelbuettel  <edd@debian.org>
