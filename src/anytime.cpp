@@ -70,6 +70,10 @@ const std::string sformats[] = {
 
     // see RFC 822 and standard Unix use eg mail headers (but no TZ or UTC offset on input :-/ )
     "%a %d %b %Y %H:%M:%S%F", 
+
+    // See the Boost documentation, tz specifications (%q %Q %z %Z) are _ignored_ on input
+    // http://www.boost.org/doc/libs/1_62_0/doc/html/date_time/date_time_io.html#date_time.time_input_facet
+    "%Y-%m-%d %H:%M:%S%Z",      
     
     "%Y-%m-%d",
     "%Y%m%d",

@@ -3,6 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in anytime version 0.1.3 (2017-xx-yy)}{
+  \itemize{
+    \item ISO 8601 is now recognised, but the timezone information is
+    not parsed by Boost Date_Time (PR \ghpr{38} closing \ghit{37}) 
+  }
+}
+
 \section{Changes in anytime version 0.1.2 (2016-12-13)}{
   \itemize{
     \item The (internal) string processing and splitting now uses Boost
