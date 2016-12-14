@@ -41,6 +41,11 @@ anytime(c("Thu Sep 01 10:11:12 2016", "Thu Sep 01 10:11:12.345678 2016"))
 cat("\n")
 anytime(c("Thu 01 Sep 2016 10:11:12", "Thu 01 Sep 2016 10:11:12.345678"))
 
+cat("\n") # ISO 8601 variants, note that TZ field is always ignored, see Boost documentation
+anytime(c("2016-09-01T10:11:12-05:00", "2016-09-01T10:11:12.345678-05:00"))
+anytime(c("2016-09-01T10:11:12-0500",  "2016-09-01T10:11:12.345678-0500"))
+anytime(c("2016-09-01T10:11:12 CDT",   "2016-09-01T10:11:12.345678 CDT"))
+
 cat("\n")
 anytime(c("2016-09-01", "20160901", "09/01/2016", "09-01-2016"))
 
