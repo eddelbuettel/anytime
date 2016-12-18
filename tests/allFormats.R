@@ -64,10 +64,11 @@ anytime(c(NA, NaN, Inf, as.numeric(as.POSIXct("2016-09-01 10:11:12"))))
 cat("\n")                               # special case of no separators
 anytime(c("20160911", "20160911 1011", "20160911 101112", "20160911 101112.345678"))
 
-
+cat("\n")
 anytime("NA") 				# String NA
 anytime(Sys.time())                     # POSIXt pass-through
-anytime(Sys.Date())			# Date pass-through
+utctime(Sys.time())                     # POSIXt pass-through (doesn't do anything different for numeric input)
+anydate(Sys.Date())			# Date pass-through
 utcdate(Sys.Date())                     # Date pass-through
 
 cat("Next call will tickle exception\n")
