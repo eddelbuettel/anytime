@@ -141,8 +141,8 @@ double ptToDouble(const bt::ptime & pt, const bool asDate=false) {
     //Rcpp::Rcout << "pt is " << pt << std::endl;
 
     if (asDate) {
-        ///Rcpp::Rcout << "days " << pt.date().day_number() - timet_start.date().day_number() << std::endl;
-        return pt.date().day_number() - timet_start.date().day_number();
+        if (debug) Rcpp::Rcout << "days " << pt.date().day_number() - timet_start.date().day_number() << std::endl;
+        return static_cast<double>(pt.date().day_number()) - static_cast<double>(timet_start.date().day_number());
     }
     
     // hack-ish: go back to struct tm to use its tm_isdst field
@@ -171,7 +171,7 @@ double ptToDoubleUTC(const bt::ptime & pt, const bool asDate=false) {
     const bt::ptime timet_start(boost::gregorian::date(1970,1,1));
 
     if (asDate) {
-        return pt.date().day_number() - timet_start.date().day_number();
+        return static_cast<double>(pt.date().day_number()) - static_cast<double>(timet_start.date().day_number());
     }
     
     bt::time_duration tdiff = pt - timet_start;
