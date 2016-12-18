@@ -158,7 +158,7 @@ utctime <- function(x, tz=getTZ()) {
 
 ##' @rdname anytime
 utcdate <- function(x, tz=getTZ()) {
-    if (inherits(x, "Date")) x else anytime_cpp(x=x, tz=tz, asUTC=TRUE)
+    if (inherits(x, "Date")) x else anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE)
 }
 
 testFormat <- function(fmt, s, tz="") {
