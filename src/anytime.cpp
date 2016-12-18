@@ -321,16 +321,13 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         // 200150315 'mistakenly' cast to numeric, or we actually
         // are a proper large numeric (ie as.numeric(Sys.time())
         Rcpp::NumericVector v(x);
-        if (v[0] < 21990101) {  // somewhat arbitrary cuttoff
+        if (v[0] <= 29991231) {  // somewhat arbitrary cuttoff
             // actual integer date notation: convert to string and parse
             return convertToTime<double, REALSXP>(x, tz, asUTC, asDate);
         } else {
             // we think it is a numeric time, so treat it as one
-            if (asDate) {
-                v.attr("class") = Rcpp::CharacterVector::create("Date");
-            } else {
-                v.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
-            }
+            // we don't really think these could be dates
+            v.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
             v.attr("tzone") = asUTC ? "UTC" : tz;
             return v;
         }
