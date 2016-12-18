@@ -70,6 +70,11 @@ anytime(Sys.time())                     # POSIXt pass-through
 utctime(Sys.time())                     # POSIXt pass-through (doesn't do anything different for numeric input)
 anydate(Sys.Date())			# Date pass-through
 utcdate(Sys.Date())                     # Date pass-through
+anytime(Sys.Date())                     # oddball
+utctime(Sys.Date())                     # oddball, same result, tz does not enter
+
+anydate(20160901)
+utcdate(20160901)
 
 cat("Next call will tickle exception\n")
 try(anytime(TRUE))                      # tickles unsupported type -- and exception, hence try()

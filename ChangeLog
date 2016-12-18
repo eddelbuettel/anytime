@@ -11,7 +11,7 @@
 	* R/anytime.R (anydate): Now calls anytime_cpp with asDate=TRUE
 	(utcdate): Idem
 
-	* tests/allFormats.R: Minor fix
+	* tests/allFormats.R: Minor fix, additional call
 
 2016-12-14  Dirk Eddelbuettel  <edd@debian.org>
 
