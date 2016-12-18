@@ -127,7 +127,7 @@ static TimeFormats timeformats;
 
 // given a ptime object, return (fractional) seconds since epoch
 // account for localtime, and also account for dst
-double ptToDouble(const bt::ptime & pt) {
+double ptToDouble(const bt::ptime & pt, const bool asDate=false) {
 
     //This local adjustor depends on the machine TZ settings-- highly dangerous!
     typedef boost::date_time::c_local_adjustor<bt::ptime> local_adj;
@@ -140,6 +140,11 @@ double ptToDouble(const bt::ptime & pt) {
     //Rcpp::Rcout << "tdiff is " << tdiff << std::endl;
     //Rcpp::Rcout << "pt is " << pt << std::endl;
 
+    if (asDate) {
+        ///Rcpp::Rcout << "days " << pt.date().day_number() - timet_start.date().day_number() << std::endl;
+        return pt.date().day_number() - timet_start.date().day_number();
+    }
+    
     // hack-ish: go back to struct tm to use its tm_isdst field
     time_t secsSinceEpoch = tdiff.total_seconds();
     struct tm* localAsTm = localtime(&secsSinceEpoch);
@@ -162,8 +167,13 @@ double ptToDouble(const bt::ptime & pt) {
 }
 
 // given a ptime object, return (fractional) seconds since epoch -- at UTC
-double ptToDoubleUTC(const bt::ptime & pt) {
+double ptToDoubleUTC(const bt::ptime & pt, const bool asDate=false) {
     const bt::ptime timet_start(boost::gregorian::date(1970,1,1));
+
+    if (asDate) {
+        return pt.date().day_number() - timet_start.date().day_number();
+    }
+    
     bt::time_duration tdiff = pt - timet_start;
     double totsec = tdiff.total_microseconds()/1.0e6;
     return totsec;
@@ -172,7 +182,7 @@ double ptToDoubleUTC(const bt::ptime & pt) {
 
 // given a string with a (date)time object, try all formats til we parse one
 // conversion of ptime object to double done by ptToDouble()
-double stringToTime(const std::string s, const bool asUTC=false) {
+double stringToTime(const std::string s, const bool asUTC=false, const bool asDate=false) {
 
     bt::ptime pt, ptbase;
 
@@ -185,11 +195,12 @@ double stringToTime(const std::string s, const bool asUTC=false) {
     }
 
     if (pt == ptbase) return NA_REAL; // NA for non-parsed dates
-
-    if (asUTC)
-        return ptToDoubleUTC(pt);
-    else
-        return ptToDouble(pt);
+                    
+    if (asUTC) {
+        return ptToDoubleUTC(pt, asDate);
+    } else {
+        return ptToDouble(pt, asDate);
+    }
 }
 
 // helper to peel off first two tokens, if any, of a string
@@ -216,12 +227,17 @@ bool isAtLeastGivenLengthAndAllDigits(const std::string& s, const unsigned int n
 template <class T, int RTYPE>
 Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
                                   const std::string& tz = "UTC",
-                                  const bool asUTC = false) {
+                                  const bool asUTC = false,
+                                  const bool asDate = false) {
 
     // step one: create a results vector, and class it as POSIXct
     int n = sxpvec.size();
     Rcpp::NumericVector pv(n);
-    pv.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
+    if (asDate) {
+        pv.attr("class") = Rcpp::CharacterVector::create("Date");
+    } else {
+        pv.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
+    }
     pv.attr("tzone") = tz;
 
     // step two: loop over input, cast each element to string and then convert
@@ -282,7 +298,7 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
             
             // Given the string, convert to a POSIXct using an interim double
             // of fractional seconds since the epoch
-            pv[i] = stringToTime(s, asUTC);
+            pv[i] = stringToTime(s, asUTC, asDate);
         }
     }
     return pv;
@@ -291,13 +307,14 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
 // [[Rcpp::export]]
 Rcpp::NumericVector anytime_cpp(SEXP x,
                                 const std::string& tz = "UTC",
-                                const bool asUTC = false) {
+                                const bool asUTC = false,
+                                const bool asDate = false) {
 
     if (Rcpp::is<Rcpp::CharacterVector>(x)) {
-        return convertToTime<const char*, STRSXP>(x, tz, asUTC);
+        return convertToTime<const char*, STRSXP>(x, tz, asUTC, asDate);
         
     } else if (Rcpp::is<Rcpp::IntegerVector>(x)) {
-        return convertToTime<int, INTSXP>(x, tz, asUTC);
+        return convertToTime<int, INTSXP>(x, tz, asUTC, asDate);
 
     } else if (Rcpp::is<Rcpp::NumericVector>(x)) {
         // here we have two cases: either we are an int like
@@ -306,10 +323,14 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         Rcpp::NumericVector v(x);
         if (v[0] < 21990101) {  // somewhat arbitrary cuttoff
             // actual integer date notation: convert to string and parse
-            return convertToTime<double, REALSXP>(x, tz, asUTC);
+            return convertToTime<double, REALSXP>(x, tz, asUTC, asDate);
         } else {
             // we think it is a numeric time, so treat it as one
-            v.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
+            if (asDate) {
+                v.attr("class") = Rcpp::CharacterVector::create("Date");
+            } else {
+                v.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
+            }
             v.attr("tzone") = asUTC ? "UTC" : tz;
             return v;
         }

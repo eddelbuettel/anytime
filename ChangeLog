@@ -1,3 +1,11 @@
+2016-12-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (anytime_cpp): New option asDate
+	(convertToTime): Idem
+	(stringToTime): Idem
+	(ptToDoubleUTC): Idem
+	(ptToDouble): Idem
+
 2016-12-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (sformats[]): Add ISO8601 format
