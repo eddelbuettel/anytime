@@ -13,6 +13,8 @@
 
 	* tests/allFormats.R: Minor fix, additional call
 
+	* tests/bulkTest.R (fullEx): New bulk formatting test
+
 2016-12-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (sformats[]): Add ISO8601 format
