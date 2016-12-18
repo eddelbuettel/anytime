@@ -5,3 +5,4 @@
 ^tests/.*\.Rout.save
 ^local
 ^\.codecov\.yml$
+tests/bulkTest.R

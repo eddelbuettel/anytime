@@ -148,7 +148,7 @@ anytime <- function(x, tz=getTZ(), asUTC=FALSE) {
 
 ##' @rdname anytime
 anydate <- function(x, tz=getTZ(), asUTC=FALSE) {
-    if (inherits(x, "Date")) x else as.Date(as.POSIXlt(anytime(x=x, tz=tz, asUTC=asUTC)))
+    if (inherits(x, "Date")) x else anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE)
 }
 
 ##' @rdname anytime
@@ -158,7 +158,7 @@ utctime <- function(x, tz=getTZ()) {
 
 ##' @rdname anytime
 utcdate <- function(x, tz=getTZ()) {
-    if (inherits(x, "Date")) x else as.Date(as.POSIXlt(utctime(x=x, tz=tz)))
+    if (inherits(x, "Date")) x else anytime_cpp(x=x, tz=tz, asUTC=TRUE)
 }
 
 testFormat <- function(fmt, s, tz="") {
