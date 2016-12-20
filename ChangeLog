@@ -1,6 +1,7 @@
 2016-12-19  Dirk Eddelbuettel  <edd@debian.org>
 
 	* tests/bulkTest.R: Improved testing for POSIXct and Date
+	* tests/gh_issue_12.R: Additional testing
 
 2016-12-18  Dirk Eddelbuettel  <edd@debian.org>
 
