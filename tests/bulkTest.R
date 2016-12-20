@@ -1,8 +1,11 @@
 
+## we still have weird issues with some timezones so some testing needed
+## and while Boost Date_Time instantiates the formats relative to a locale
+## it remains tricky to change TZ on the fly
 
 library(anytime)
 
-## we still have weird issues with some timezones so some testing needed
+verbose <- FALSE
 
 tzvec <- c(                             # courtesy of CCTZ
     "Africa/Abidjan",
@@ -589,16 +592,27 @@ tzvec <- c(                             # courtesy of CCTZ
     "Zulu"
 )
 
-fullEx <- function(tstr) {
+fullPOSIXctEx <- function(tstr) {
     for (tz in tzvec) {
         ## for anytime, the returned POSIXct object has the 'target' timezone (default is local)
         at <- format(   anytime(tstr, tz=tz)        )
         ## for as.POSIXct, we give tz when we format
         pt <- format(as.POSIXct(tstr       ), tz=tz)
-        cat(at, " -- ", pt, " -- ", tz, "\n")
+        if (verbose) cat(at, " -- ", pt, " -- ", tz, "\n")
         stopifnot(all.equal(at, pt))
     }
 }
 
-fullEx("2016-07-11 12:13:14")           # test summer
-fullEx("2016-01-11 12:13:14")           # and winter
+fullDateEx <- function(tstr) {
+    for (tz in tzvec) {
+        at <- format(anydate(tstr))
+        pt <- format(as.Date(tstr))
+        if (verbose) cat(at, " -- ", pt, " -- ", tz, "\n")
+        stopifnot(all.equal(at, pt))
+    }
+}
+
+fullPOSIXctEx("2016-07-11 12:13:14")           # test summer
+fullPOSIXctEx("2016-01-11 12:13:14")           # and winter
+fullDateEx("2016-01-01 00:00:00")
+fullDateEx("2016-07-01 00:00:00")

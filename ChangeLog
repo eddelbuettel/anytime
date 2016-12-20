@@ -1,3 +1,7 @@
+2016-12-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tests/bulkTest.R: Improved testing for POSIXct and Date
+
 2016-12-18  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version and date
