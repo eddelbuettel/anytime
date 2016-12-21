@@ -5,8 +5,14 @@
 
 \section{Changes in anytime version 0.1.3 (2017-xx-yy)}{
   \itemize{
-    \item ISO 8601 is now recognised, but the timezone information is
-    not parsed by Boost Date_Time (PR \ghpr{38} closing \ghit{37}) 
+    \item Conversion to dates is now more robust thanks to improved
+    internal processing (PR \ghpr{39} closing \ghit{36})
+    \item The ISO 8601 format is now recognised, however the timezone
+    information is not parsed by Boost Date_Time (which is a known
+    upstream limitation) (PR \ghpr{38} closing \ghit{37})
+    \item The 'allFormats.R' test script was significantly strengthened
+    \item A new 'bulkTest.R' test script was added testing parsing
+    against what R returns
   }
 }
 
