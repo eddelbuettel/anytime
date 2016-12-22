@@ -1,6 +1,7 @@
 2016-12-21  Dirk Eddelbuettel  <edd@debian.org>
 
-	* tests/gh_issue_5.R: More tests
+	* tests/simpleTests.R: More tests
+	* tests/gh_issue_5.R: Idem
 
 2016-12-20  Dirk Eddelbuettel  <edd@debian.org>
 
