@@ -148,7 +148,14 @@ anytime <- function(x, tz=getTZ(), asUTC=FALSE) {
 
 ##' @rdname anytime
 anydate <- function(x, tz=getTZ(), asUTC=FALSE) {
-    if (inherits(x, "Date")) x else anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE)
+    ## input is Date, pass through
+    if (inherits(x, "Date")) return(x)
+    ## otherwise call anytime_cpp
+    d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE)
+    ## one code path could result in POSIXct, if so convert
+    if (inherits(d, "POSIXt")) d <- as.Date(d)
+    ## return result
+    d
 }
 
 ##' @rdname anytime
@@ -158,7 +165,14 @@ utctime <- function(x, tz=getTZ()) {
 
 ##' @rdname anytime
 utcdate <- function(x, tz=getTZ()) {
-    if (inherits(x, "Date")) x else anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE)
+    ## input is Date, pass through
+    if (inherits(x, "Date")) return(x)
+    ## otherwise call anytime_cpp
+    d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE)
+    ## one code path could result in POSIXct, if so convert
+    if (inherits(d, "POSIXt")) d <- as.Date(d)
+    ## return result
+    d
 }
 
 testFormat <- function(fmt, s, tz="") {
@@ -167,7 +181,7 @@ testFormat <- function(fmt, s, tz="") {
         return(NA)
     }						#nocov end
     testFormat_impl(fmt, s, tz=tz)
-}						
+}
 
 testOutput <- function(fmt, s) {
     if (isRStudio()) {				#nocov start
