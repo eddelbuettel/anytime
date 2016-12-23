@@ -21,6 +21,27 @@ iso8601 <- function(pt) {
     invisible(NULL)
 }
 
+#' Format a Datatime object according to RFC 2822
+#'
+#' RFC 3339 is a standard for date and time representation covering
+#' the weekday, date, time (including possible fractional seconds) and
+#' a timezone offset.  It is described in TODO
+#'
+#' @param pt A Datetime object
+#'
+#' @return A character object
+#' @examples
+#' rfc2822(anytime("2016-09-01 10:11:12.123456"))
+#' rfc2822(anydate("2016-Sep-01"))
+rfc2822 <- function(pt) {
+    if (inherits(pt, "POSIXt"))
+        return(format.POSIXct(pt, "%a, %d %b %Y %H:%M:%OS %z"))
+    else if (inherits(pt, "Date"))
+        return(format.Date(pt, "%a, %d %b %Y"))
+
+    warning("Inapplicable object: ", pt)
+    invisible(NULL)
+}
 
 #' Format a Datatime object according to RFC 3339
 #'

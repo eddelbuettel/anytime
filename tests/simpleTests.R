@@ -48,6 +48,10 @@ iso8601(anytime("2016-Sep-01 10:11:12"))
 iso8601(anydate("2016-Sep-01"))
 iso8601("this won't work")
 
+rfc2822(anytime("2016-Sep-01 10:11:12"))
+rfc2822(anydate("2016-Sep-01"))
+rfc2822("this won't work")
+
 rfc3339(anytime("2016-Sep-01 10:11:12"))
 rfc3339(anydate("2016-Sep-01"))
 rfc3339("this won't work")
