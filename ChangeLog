@@ -1,3 +1,14 @@
+2016-12-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/formats.R (iso8601, rfc3339): New helper functions
+
+	* man/iso8601.Rd: New documentation
+	* man/rfc3339.Rd: Ditto
+
+	* NAMESPACE: Exporting new functions
+
+	* tests/simpleTests.R: New simple tests
+
 2016-12-22  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/anytime.R (anydate, utcdate): Ensure Date object is returned
