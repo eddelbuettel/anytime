@@ -1,5 +1,7 @@
 2016-12-23  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Date, Version): Roll minor version
+
 	* R/formats.R (iso8601, rfc3339): New helper functions
 
 	* man/iso8601.Rd: New documentation
