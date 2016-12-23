@@ -2,10 +2,9 @@
 
 	* DESCRIPTION (Date, Version): Roll minor version
 
-	* R/formats.R (iso8601, rfc3339): New helper functions
+	* R/formats.R (iso8601, rfc2822, rfc3339): New helper functions
 
-	* man/iso8601.Rd: New documentation
-	* man/rfc3339.Rd: Ditto
+	* man/iso8601.Rd: New documentation for the new functions
 
 	* NAMESPACE: Exporting new functions
 
