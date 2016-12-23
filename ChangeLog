@@ -11,6 +11,8 @@
 
 	* tests/simpleTests.R: New simple tests
 
+	* tests/gh_issue_5.R: Skip two tests if on Windows
+
 2016-12-22  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/anytime.R (anydate, utcdate): Ensure Date object is returned
