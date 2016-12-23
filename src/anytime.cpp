@@ -311,9 +311,11 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
                                 const bool asDate = false) {
 
     if (Rcpp::is<Rcpp::CharacterVector>(x)) {
+        // already a character -- so parse from character and convert
         return convertToTime<const char*, STRSXP>(x, tz, asUTC, asDate);
         
     } else if (Rcpp::is<Rcpp::IntegerVector>(x)) {
+        // use lexical cast to convert an int to character -- then parse and convert
         return convertToTime<int, INTSXP>(x, tz, asUTC, asDate);
 
     } else if (Rcpp::is<Rcpp::NumericVector>(x)) {
@@ -322,11 +324,14 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         // are a proper large numeric (ie as.numeric(Sys.time())
         Rcpp::NumericVector v(x);
         if (v[0] <= 29991231) {  // somewhat arbitrary cuttoff
-            // actual integer date notation: convert to string and parse
+            // actual integer date notation: convert to string via lexical cast
+            // and then parse that string as usual
             return convertToTime<double, REALSXP>(x, tz, asUTC, asDate);
         } else {
-            // we think it is a numeric time, so treat it as one
-            // we don't really think these could be dates
+            // so here we are a large number -- which we could just assign
+            // as use a numeric representation, but then there is the asDate case
+            // but that gets covered on the R side in anydate() _ utcdate()
+            // so we can simply convert this here
             v.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
             v.attr("tzone") = asUTC ? "UTC" : tz;
             return v;
