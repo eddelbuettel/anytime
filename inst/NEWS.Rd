@@ -3,14 +3,20 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.1.3 (2017-xx-yy)}{
+\section{Changes in anytime version 0.2.0 (2016-12-24)}{
   \itemize{
+    \item Added (exported) helper functions iso8601(), rfc2822() and
+    rfc3339() to format date(time) objects according to standards
     \item Conversion to dates is now more robust thanks to improved
     internal processing (PR \ghpr{39} closing \ghit{36})
     \item The ISO 8601 format is now recognised, however the timezone
     information is not parsed by Boost Date_Time (which is a known
     upstream limitation) (PR \ghpr{38} closing \ghit{37})
     \item The 'allFormats.R' test script was significantly strengthened
+    (\ghpr{40})
+    \item Test scripts like 'simpleTests.R' have as also been
+    strengthened (\ghpr{41}); on Windows and in one file two tests need
+    to be skipped.
     \item A new 'bulkTest.R' test script was added testing parsing
     against what R returns
   }
@@ -19,8 +25,10 @@
 \section{Changes in anytime version 0.1.2 (2016-12-13)}{
   \itemize{
     \item The (internal) string processing and splitting now uses Boost
-    algorithm functions which avoids a (bizarre) bug on Windows.
+    algorithm functions which avoids a (bizarre) bug on
+    Windows. (\ghit{33})
     \item Test coverage was increased.
+    
   }
 }
 
