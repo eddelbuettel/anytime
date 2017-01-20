@@ -1,3 +1,11 @@
+2016-12-24  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Date, Version): Release 0.2.0
+
+	* inst/NEWS.Rd: Finalized for release
+
+	* test/bulkTest.R: New set of tests
+
 2016-12-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Date, Version): Roll minor version
