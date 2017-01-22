@@ -1,3 +1,12 @@
+2017-01-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Date, Version): Roll minor version
+
+	* src/anytime.cpp (convertToTime): Use Rcpp's new Date(time)Vector
+
+	* DESCRIPTION: Vrsioned Imports and LinkingTo 'Rcpp (>= 0.12.9),
+	use versioned Depends 'R (>= 3.2.0) to ensure versioned LinkingTo
+
 2016-12-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Date, Version): Release 0.2.0
