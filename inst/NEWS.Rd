@@ -3,6 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in anytime version 0.2.1 (2017-xx-yy)}{
+  \itemize{
+    \item The new \code{DatetimeVector} class from \CRANpkg{Rcpp} is now
+    used, and proper versioned Depends: have been added.
+  }
+}
+
 \section{Changes in anytime version 0.2.0 (2016-12-24)}{
   \itemize{
     \item Added (exported) helper functions iso8601(), rfc2822() and
