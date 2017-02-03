@@ -1,7 +1,7 @@
 
 ## anytime: Use Boost Date_Time to convert date(time) data to POSIXt
 ##
-## Copyright (C) 2015 - 2016  Dirk Eddelbuettel
+## Copyright (C) 2015 - 2017  Dirk Eddelbuettel
 ##
 ## This file is part of anytime.
 ##
@@ -43,17 +43,12 @@
         tz <- "UTC"
     }
 
-    assign("tz", tz, envir=.pkgenv)
-
+    .pkgenv[["tz"]] <- tz
 
 
     ## -- Task two: see if we are inside RStudio
-    isRStudio <- FALSE
+    isRStudio <- if (Sys.getenv("RSTUDIO", unset="0") == "1") TRUE else FALSE
 
-    if (Sys.getenv("RSTUDIO", unset="0") == "1") {
-        isRStudio <- TRUE
-    }
-
-    assign("isRStudio", isRStudio, envir=.pkgenv)
+    .pkgenv[["isRStudio"]] <- isRStudio
 
 }						#nocov end
