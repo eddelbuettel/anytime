@@ -43,6 +43,12 @@ stopifnot(refPt == anytime(c("Thu Jan 01 10:11:12 2016", "Thu Jan 01 10:11:12.34
 anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"))
 anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"), tz="UTC")  # important: catches change
 
+## Datetime: factor and ordered (#44)
+refD <- as.Date("2016-09-01")
+stopifnot(refD == anydate(as.factor("2016-09-01")))
+stopifnot(refD == anydate(as.ordered("2016-09-01")))
+stopifnot(refD == utcdate(as.factor("2016-09-01")))
+stopifnot(refD == utcdate(as.ordered("2016-09-01")))
 
 iso8601(anytime("2016-Sep-01 10:11:12"))
 iso8601(anydate("2016-Sep-01"))

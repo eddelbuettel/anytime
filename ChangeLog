@@ -1,3 +1,15 @@
+2017-02-03  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+	* R/anytime.R (anydate, utcdate): Convert factor or ordered if needed
+
+	* tests/simpleTests.R: New tests for anydate(), utcdate() and factors
+
+	* R/init.R (.onLoad): Minor editing / refactoring
+
+	* .travis.yml (before_install): Use https for curl fetch
+
 2017-01-22  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Date, Version): Roll minor version

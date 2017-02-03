@@ -1,7 +1,7 @@
 
 ## anytime: Use Boost Date_Time to convert date(time) data to POSIXt
 ##
-## Copyright (C) 2015 - 2016  Dirk Eddelbuettel
+## Copyright (C) 2015 - 2017  Dirk Eddelbuettel
 ##
 ## This file is part of anytime.
 ##
@@ -150,10 +150,16 @@ anytime <- function(x, tz=getTZ(), asUTC=FALSE) {
 anydate <- function(x, tz=getTZ(), asUTC=FALSE) {
     ## input is Date, pass through
     if (inherits(x, "Date")) return(x)
+
+    ## input is factor or order, convert
+    if (inherits(x, "factor")) x <- as.character(x)
+
     ## otherwise call anytime_cpp
     d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE)
+
     ## one code path could result in POSIXct, if so convert
     if (inherits(d, "POSIXt")) d <- as.Date(d)
+
     ## return result
     d
 }
@@ -167,10 +173,16 @@ utctime <- function(x, tz=getTZ()) {
 utcdate <- function(x, tz=getTZ()) {
     ## input is Date, pass through
     if (inherits(x, "Date")) return(x)
+
+    ## input is factor or order, convert
+    if (inherits(x, "factor")) x <- as.character(x)
+
     ## otherwise call anytime_cpp
     d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE)
+
     ## one code path could result in POSIXct, if so convert
     if (inherits(d, "POSIXt")) d <- as.Date(d)
+
     ## return result
     d
 }
