@@ -6,7 +6,11 @@
 \section{Changes in anytime version 0.2.1 (2017-xx-yy)}{
   \itemize{
     \item The new \code{DatetimeVector} class from \CRANpkg{Rcpp} is now
-    used, and proper versioned Depends: have been added.
+    used, and proper versioned Depends: have been added
+    \item The \code{anydate} and \code{utcdate} functions convert again
+    from factor and ordered (closes \ghit{44})
+    \item The \code{.onLoad} functions was updated
+    \item The Travis setup uses https to fetch the run script
   }
 }
 
