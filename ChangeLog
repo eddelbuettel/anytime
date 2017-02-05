@@ -1,3 +1,10 @@
+2017-02-04  Dirk Eddelbuettel  <edd@max.eddelbuettel.com>
+
+	* src/anytime.cpp (sformats[]): Add format with to-be-skipped
+	timezone string now parsing 'Thu Sep 01 10:11:12 CDT 2016'
+
+	* tests/allFormats.R: Added test for new format
+
 2017-02-03  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version

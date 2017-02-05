@@ -54,6 +54,7 @@ Here, we use it to format datetimes and dates as single and compact strings.
 We return datetime object formatted as \sQuote{2016-09-01T10:11:12.123456-0500}
 and date object as \sQuote{2016-09-01}.
 }
+
 \examples{
 iso8601(anytime("2016-09-01 10:11:12.123456"))
 iso8601(anydate("2016-Sep-01"))
@@ -64,13 +65,12 @@ rfc2822(anydate("2016-Sep-01"))
 rfc3339(anytime("2016-09-01 10:11:12.123456"))
 rfc3339(anydate("2016-Sep-01"))
 }
-\author{
-Dirk Eddelbuettel
-}
 \references{
 \url{https://en.wikipedia.org/wiki/ISO_8601},
 \url{https://www.ietf.org/rfc/rfc2822.txt},
 \url{https://en.wikipedia.org/wiki/Email#Internet_Message_Format},
 \url{https://tools.ietf.org/html/rfc3339}
 }
-
+\author{
+Dirk Eddelbuettel
+}

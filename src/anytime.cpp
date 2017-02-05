@@ -76,6 +76,10 @@ const std::string sformats[] = {
     // See the Boost documentation, tz specifications (%q %Q %z %Z) are _ignored_ on input
     // http://www.boost.org/doc/libs/1_62_0/doc/html/date_time/date_time_io.html#date_time.time_input_facet
     "%Y-%m-%d %H:%M:%S%Z",      
+
+    // Issue 47: support formats like "Thu Jan 17 09:29:10 EST 2013" by ignoring the three-char TZ
+    // also support fractional seconds if present
+    "%a %b %d %H:%M:%S%F xxx %Y",
     
     "%Y-%m-%d",
     "%Y%m%d",

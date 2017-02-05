@@ -44,6 +44,8 @@ stopifnot(ref == format(anytime(c("2016-09-01T10:11:12 -05:00", "2016-09-01T10:1
 stopifnot(ref == format(anytime(c("2016-09-01T10:11:12 -0500",  "2016-09-01T10:11:12.345678-0500"))))
 stopifnot(ref == format(anytime(c("2016-09-01T10:11:12 CDT",   "2016-09-01T10:11:12.345678 CDT"))))
 
+stopifnot(ref == format(anytime(c("Thu Sep 01 10:11:12 CDT 2016", "Thu Sep 01 10:11:12.345678 CDT 2016"))))
+
 
 ref <- format(rep(as.Date("2016-09-01"), 4))
 stopifnot(ref == format(anytime(c("2016-09-01", "20160901", "09/01/2016", "09-01-2016"))))
