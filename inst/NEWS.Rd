@@ -3,7 +3,7 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.2.1 (2017-xx-yy)}{
+\section{Changes in anytime version 0.2.1 (2017-02-09)}{
   \itemize{
     \item The new \code{DatetimeVector} class from \CRANpkg{Rcpp} is now
     used, and proper versioned Depends: have been added (\ghpr{43})
