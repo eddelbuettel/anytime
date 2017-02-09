@@ -158,7 +158,7 @@ anydate <- function(x, tz=getTZ(), asUTC=FALSE) {
     d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE)
 
     ## one code path could result in POSIXct, if so convert
-    if (inherits(d, "POSIXt")) d <- as.Date(d)
+    if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)
 
     ## return result
     d
@@ -181,7 +181,7 @@ utcdate <- function(x, tz=getTZ()) {
     d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE)
 
     ## one code path could result in POSIXct, if so convert
-    if (inherits(d, "POSIXt")) d <- as.Date(d)
+    if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)
 
     ## return result
     d

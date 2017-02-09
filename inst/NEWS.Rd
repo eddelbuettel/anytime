@@ -10,8 +10,10 @@
     \item The \code{anydate} and \code{utcdate} functions convert again
     from factor and ordered (\ghpr{46} closing \ghit{44})
     \item A format similar to RFC 28122 but with additonal timezone text
-    can now be parsed (\ghpr{48) closing \ghit{47})
-    \item The \code{.onLoad} functions was updated
+    can now be parsed (\ghpr{48} closing \ghit{47})
+    \item Conversion from \code{POSIXt} to \code{Date} now also respect
+    the timezone (\ghpr{50} closing \ghit{49})
+    \item The internal \code{.onLoad} functions was updated
     \item The Travis setup uses https to fetch the run script
   }
 }
@@ -41,7 +43,7 @@
     algorithm functions which avoids a (bizarre) bug on
     Windows. (\ghit{33})
     \item Test coverage was increased.
-    
+
   }
 }
 
@@ -65,7 +67,7 @@
     \code{anydate()} via a new argument \code{asUTC} (PR \ghpr{22})
     \item New (date)time format for RFC822-alike dates, and expanded
     existing datetime formats to all support fractional seconds (PR
-    \ghpr{21}) 
+    \ghpr{21})
     \item Extended functionality to support not only \sQuote{YYYYMMDD}
     (without a separator, and not covered by Boost) but also with
     \sQuote{HHMM}, \sQuote{HHMMSS} and \sQuote{HHMMSS.ffffff} (PR
@@ -90,7 +92,7 @@
     \item More robust initialization and timezone information gathering.
     \item More robust processing of non-finite input also coping with
     non-finite values such as \code{NA}, \code{NaN} and \code{Inf} which
-    all return \code{NA} 
+    all return \code{NA}
     \item Allow numeric \code{POSIXt} representation on input, also
     creating proper \code{POSIXct} (or, if requested, \code{Date})
   }
