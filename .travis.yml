@@ -6,13 +6,6 @@ sudo: required
 
 dist: trusty
 
-env:
-  - TZ=Europe/Vienna
-  - TZ=Europe/London
-  - TZ='Europe/London'
-  - TZ=US/Pacific
-  - TZ=Etc/UTC
-
 before_install:
   - curl -OLs https://eddelbuettel.github.io/r-travis/run.sh && chmod 0755 run.sh
   # add our launchpad repo which has (inter alia) r-cran-gettz
