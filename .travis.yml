@@ -9,6 +9,7 @@ dist: trusty
 env:
   - TZ=Europe/Vienna
   - TZ=Europe/London
+  - TZ='Europe/London'
   - TZ=US/Pacific
   - TZ=Etc/UTC
 
