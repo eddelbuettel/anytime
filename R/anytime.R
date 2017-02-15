@@ -58,7 +58,7 @@
 ##' \sQuote{2016/9/2} will not. Other non-standard formats may also
 ##' fail.
 ##'
-##' The is a known issue (discussed at length in
+##' There is a known issue (discussed at length in
 ##' \href{https://github.com/eddelbuettel/anytime/issues/5}{issue
 ##' ticket 5}) where Australian times are off by an hour. This seems
 ##' to affect only Windows, not Linux.
