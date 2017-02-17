@@ -42,7 +42,9 @@ void oldschool(const std::string& s) {
     struct tm tm;
     strptime(s.c_str(), fmt, &tm);
     time_t t = mktime(&tm);
-    std::cout << "C library secs       : " << t << std::endl;
+    std::cout << "C library secs       : " << t << " "
+              << "secs off: " << tm.tm_gmtoff << " "
+              << "tmzone " << tm.tm_zone << std::endl;
 }
 
 int main(int argc, char *argv[]) {
