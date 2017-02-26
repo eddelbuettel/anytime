@@ -1,7 +1,11 @@
 2017-02-26  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (anytime_cpp): Convert large integer values in the range
-	POSIXct values as well
+	of POSIXct values as well (whereas before only eg 20101112L worked)
+	(setMaxIntAsYYYYMMDD): New (unexported but R-accessible) helper to
+	set the cutoff value, leaving default at 29991231
+
+	* tests/gh_issue_56.R: Added simple test script
 
 2017-02-09  Dirk Eddelbuettel  <edd@debian.org>
 

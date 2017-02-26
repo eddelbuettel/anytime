@@ -6,20 +6,20 @@
 \section{Changes in anytime version 0.2.2 (2017-xx-yy)}{
   \itemize{
     \item Address a corner case of integer-typed (large) values
-    corresponding to \code{POSIXct} time (Closes #56)
+    corresponding to \code{POSIXct} time (Closes \ghit{#56})
   }
 }
 
 \section{Changes in anytime version 0.2.1 (2017-02-09)}{
   \itemize{
     \item The new \code{DatetimeVector} class from \CRANpkg{Rcpp} is now
-    used, and proper versioned Depends: have been added (\ghpr{43})
+    used, and proper versioned Depends: have been added (PR \ghpr{43})
     \item The \code{anydate} and \code{utcdate} functions convert again
-    from factor and ordered (\ghpr{46} closing \ghit{44})
+    from factor and ordered (PR \ghpr{46} closing \ghit{44})
     \item A format similar to RFC 28122 but with additonal timezone text
-    can now be parsed (\ghpr{48} closing \ghit{47})
+    can now be parsed (PR \ghpr{48} closing \ghit{47})
     \item Conversion from \code{POSIXt} to \code{Date} now also respect
-    the timezone (\ghpr{50} closing \ghit{49})
+    the timezone (PR \ghpr{50} closing \ghit{49})
     \item The internal \code{.onLoad} functions was updated
     \item The Travis setup uses https to fetch the run script
   }

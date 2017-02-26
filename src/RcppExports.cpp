@@ -86,3 +86,14 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// setMaxIntAsYYYYMMDD
+int setMaxIntAsYYYYMMDD(const int val);
+RcppExport SEXP anytime_setMaxIntAsYYYYMMDD(SEXP valSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const int >::type val(valSEXP);
+    rcpp_result_gen = Rcpp::wrap(setMaxIntAsYYYYMMDD(val));
+    return rcpp_result_gen;
+END_RCPP
+}

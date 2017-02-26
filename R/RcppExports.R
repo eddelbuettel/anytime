@@ -45,3 +45,7 @@ format <- function(x) {
     .Call('anytime_format', PACKAGE = 'anytime', x)
 }
 
+setMaxIntAsYYYYMMDD <- function(val) {
+    .Call('anytime_setMaxIntAsYYYYMMDD', PACKAGE = 'anytime', val)
+}
+

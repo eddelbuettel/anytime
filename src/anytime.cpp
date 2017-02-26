@@ -34,7 +34,8 @@
 namespace bt = boost::posix_time;
 namespace ba = boost::algorithm;
 
-static bool debug = false;
+static bool debug = false;              // set to true (from R, see below) for debug messages 
+static int maxIntAsYYYYMMDD = 29991231; // cutoff values below which we treat ints as YYYYMMDD  
 
 const std::string sformats[] = {
     "%Y-%m-%d %H:%M:%S%f",
@@ -323,7 +324,7 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         // already a character -- so parse from character and convert
         return convertToTime<const char*, STRSXP>(x, tz, asUTC, asDate);
         
-    } else if (Rcpp::is<Rcpp::IntegerVector>(x) && INTEGER(x)[0] <= 29991231) {
+    } else if (Rcpp::is<Rcpp::IntegerVector>(x) && INTEGER(x)[0] <= maxIntAsYYYYMMDD) {
         // use lexical cast to convert an int to character -- then parse and convert
         return convertToTime<int, INTSXP>(x, tz, asUTC, asDate);
 
@@ -332,7 +333,7 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         // 200150315 'mistakenly' cast to numeric, or we actually
         // are a proper large numeric (ie as.numeric(Sys.time())
         Rcpp::DatetimeVector v(x, asUTC ? "UTC" : tz.c_str());
-        if (v[0] <= 29991231) {  // somewhat arbitrary cuttoff
+        if (v[0] <= maxIntAsYYYYMMDD) {  // somewhat arbitrary cuttoff
             // actual integer date notation: convert to string via lexical cast
             // and then parse that string as usual
             return convertToTime<double, REALSXP>(x, tz, asUTC, asDate);
@@ -436,4 +437,10 @@ std::vector<std::string> format(Rcpp::NumericVector x) {
 #endif        
     }
     return z;
+}
+
+// [[Rcpp::export]]
+int setMaxIntAsYYYYMMDD(const int val) {
+    maxIntAsYYYYMMDD = val;
+    return maxIntAsYYYYMMDD;
 }
