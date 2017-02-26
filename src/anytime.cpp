@@ -323,11 +323,11 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         // already a character -- so parse from character and convert
         return convertToTime<const char*, STRSXP>(x, tz, asUTC, asDate);
         
-    } else if (Rcpp::is<Rcpp::IntegerVector>(x)) {
+    } else if (Rcpp::is<Rcpp::IntegerVector>(x) && INTEGER(x)[0] <= 29991231) {
         // use lexical cast to convert an int to character -- then parse and convert
         return convertToTime<int, INTSXP>(x, tz, asUTC, asDate);
 
-    } else if (Rcpp::is<Rcpp::NumericVector>(x)) {
+    } else if (Rcpp::is<Rcpp::NumericVector>(x) || Rcpp::is<Rcpp::IntegerVector>(x)) {
         // here we have two cases: either we are an int like
         // 200150315 'mistakenly' cast to numeric, or we actually
         // are a proper large numeric (ie as.numeric(Sys.time())

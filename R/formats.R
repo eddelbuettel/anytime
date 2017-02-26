@@ -80,4 +80,3 @@ rfc3339 <- function(pt) {
     warning("Inapplicable object: ", pt)
     invisible(NULL)
 }
-
