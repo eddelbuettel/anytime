@@ -2,6 +2,9 @@
 
 	* src/anytime.cpp (convertToTime): Special case for Europe/London
 	post 1971-10-31 02:00
+	(setInitialTZ): New helper function to store initial setup time zone
+
+	* R/init.R (.onLoad): Register initial setup timezone used by Boost code
 
 	* tests/gh_issues_36_51.R: New illustration for #36 and #51
 

@@ -44,7 +44,7 @@
     }
 
     .pkgenv[["tz"]] <- tz
-
+    setInitialTZ(tz)
 
     ## -- Task two: see if we are inside RStudio
     isRStudio <- if (Sys.getenv("RSTUDIO", unset="0") == "1") TRUE else FALSE

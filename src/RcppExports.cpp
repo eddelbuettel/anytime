@@ -97,3 +97,13 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// setInitialTZ
+void setInitialTZ(std::string tz);
+RcppExport SEXP anytime_setInitialTZ(SEXP tzSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type tz(tzSEXP);
+    setInitialTZ(tz);
+    return R_NilValue;
+END_RCPP
+}

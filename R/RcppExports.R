@@ -49,3 +49,7 @@ setMaxIntAsYYYYMMDD <- function(val) {
     .Call('anytime_setMaxIntAsYYYYMMDD', PACKAGE = 'anytime', val)
 }
 
+setInitialTZ <- function(tz) {
+    invisible(.Call('anytime_setInitialTZ', PACKAGE = 'anytime', tz))
+}
+
