@@ -1,3 +1,10 @@
+2017-03-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (convertToTime): Special case for Europe/London
+	post 1971-10-31 02:00
+
+	* tests/gh_issues_36_51.R: New illustration for #36 and #51
+
 2017-02-26  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (anytime_cpp): Convert large integer values in the range
