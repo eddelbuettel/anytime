@@ -131,6 +131,7 @@ public:
 };
 
 static TimeFormats timeformats;
+static std::string setupTZ;
 
 // given a ptime object, return (fractional) seconds since epoch
 // account for localtime, and also account for dst
@@ -308,6 +309,15 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
             pv[i] = stringToTime(s, asUTC, asDate);
         }
     }
+    // There is an issue with datetime parsing under TZ=Europe/London, see eg #36 and #51
+    // We think this is caused by Boost but as we return to R for formating we need to adjust
+    if (setupTZ == "Europe/London") {					// #nocov start
+        //Rcpp::Rcerr << "Putzing\n";
+        const double cutoff = 57722400; // 1971-10-31 02:00:00 was a policy change
+        for (int i=0; i<pv.size(); i++) {
+            pv[i] = pv[i] + 3600 * (pv[i] >= cutoff);
+        }
+    }                                                                   // #nocov end
     if (asDate) {               // if we wanted Date types, set class
         pv.attr("class") = Rcpp::CharacterVector::create("Date");
     }
@@ -443,4 +453,9 @@ std::vector<std::string> format(Rcpp::NumericVector x) {
 int setMaxIntAsYYYYMMDD(const int val) {
     maxIntAsYYYYMMDD = val;
     return maxIntAsYYYYMMDD;
+}
+
+// [[Rcpp::export]]
+void setInitialTZ(std::string tz) {
+    setupTZ = tz;
 }
