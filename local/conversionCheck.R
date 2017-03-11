@@ -30,3 +30,16 @@ DT <- data.table(pt = round(runif(100000L,
 DT[, dt1 := ptime2string(pt)]
 DT[, pt2 := as.numeric(utctime(dt1))]
 DT[abs(pt2-pt)>1][,delta:=as.numeric(pt2-pt)][]
+
+
+## 1902 also works
+set.seed(1)
+DT <- data.table(pt = round(runif(10000L,
+                                  min=as.numeric(anytime("1902-01-01 00:00:00")),
+                                  max=as.numeric(anytime("2030-01-01 00:00:00")))),
+                 key="pt")
+DT[, dt1 := ptime2string(pt)]
+DT[, pt2 := as.numeric(utctime(dt1))]
+DT[abs(pt2-pt)>1][,delta:=as.numeric(pt2-pt)][]
+
+## before 1902 we need to protect against overflow
