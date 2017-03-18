@@ -61,3 +61,10 @@ rfc2822("this won't work")
 rfc3339(anytime("2016-Sep-01 10:11:12"))
 rfc3339(anydate("2016-Sep-01"))
 rfc3339("this won't work")
+
+## Datetime from (integer) Datetime
+stopifnot(anytime( as.integer(ref) ) == ref)
+
+## Date from (smaller) numeric
+stopifnot(anydate( as.numeric(refD) ) == refD)
+stopifnot(anytime( as.numeric(refD) ) == refD)

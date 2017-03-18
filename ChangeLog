@@ -1,3 +1,12 @@
+2017-03-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+	* src/anytime.cpp (anytime_cpp): Another special case covering
+	numeric values in the possible range of Dates now returned as Dates
+
+	* tests/simpleTests.R: Additional (simple) tests
+
 2017-03-05  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (convertToTime): Special case for Europe/London
