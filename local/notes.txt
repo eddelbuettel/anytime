@@ -1,0 +1,201 @@
+R> library(microbenchmark)
+R> res <- microbenchmark(Sys.timezone(), Sys.getenv("TZ"), times=5000)
+R> res
+Unit: microseconds
+             expr   min    lq    mean median     uq    max neval cld
+   Sys.timezone() 3.435 4.011 5.06204 4.4595 5.1055 34.115  5000   b
+ Sys.getenv("TZ") 1.371 1.713 2.30851 1.9090 2.2740 28.681  5000  a
+R> res <- microbenchmark(Sys.timezone(), Sys.getenv("TZ"), getOption("TZ", "UTC"), times=5000)
+R> res
+Unit: nanoseconds
+                   expr   min      lq     mean  median    uq     max neval cld
+         Sys.timezone()  2493  3663.5  4203.10  4094.0  4537   22483  5000  b
+       Sys.getenv("TZ")   983  1565.0  1879.33  1832.0  2102   11247  5000 a
+ getOption("TZ", "UTC") 41548 45492.5 51388.86 46342.5 54089 2150684  5000   c
+R> myenv <- new.env()
+R> assign("TZ", "America/Chicago", envir=myenv)
+R> myenv$TZ
+[1] "America/Chicago"
+R> myget <- function() myenv$TZ
+R> myget()
+[1] "America/Chicago"
+R> res <- microbenchmark(Sys.timezone(), Sys.getenv("TZ"), getOption("TZ", "UTC"), myget(), times=5000)
+R> res
+Unit: nanoseconds
+                   expr   min      lq      mean  median    uq     max neval  cld
+         Sys.timezone()  2473  3588.5  4422.613  4032.0  4559   30284  5000   c
+       Sys.getenv("TZ")   981  1549.0  2045.062  1836.0  2170   26156  5000  b
+ getOption("TZ", "UTC") 40979 45019.0 52572.225 46045.5 53766 2039019  5000    d
+                myget()   238   415.0   597.787   526.0   659   23957  5000 a
+R>
+
+
+
+R> library(microbenchmark)
+R> options(TZ=Sys.timezone())
+R> res <- microbenchmark(Sys.timezone(), Sys.getenv("TZ"), getOption("TZ", "UTC"), gettz::gettz(), anytime:::getTZ(), times=5000)
+R> res
+Unit: microseconds
+                   expr    min      lq     mean  median      uq      max neval   cld
+         Sys.timezone() 46.560 52.9340 56.47723 55.8925 58.1345  249.767  5000     e
+       Sys.getenv("TZ")  1.860  3.2330  3.93933  4.0790  4.5215   19.998  5000 a    
+ getOption("TZ", "UTC") 45.802 48.8930 52.65874 52.7080 54.0580 2671.459  5000    d 
+         gettz::gettz() 24.383 28.6040 32.55694 32.4070 34.3810 3376.530  5000   c  
+      anytime:::getTZ()  5.803  8.1025  9.67613 10.1900 10.8830   74.102  5000  b   
+R> 
+
+
+
+// [[Rcpp::export]]
+Rcpp::CharacterVector getFormats() {
+
+    Rcpp::CharacterVector v(nformats);
+
+    // loop over formats and try them til one fits
+    for (size_t i=0; i < nformats; ++i) {
+        //std::string s = formats[i];
+        //v[i] = s;
+        Rcpp::Rcout << std::use_facet<std::locale::classic>(formats[i]);
+    };
+    return v;
+}
+
+
+-------------------------------------------
+
+// ' This function uses the Boost Date_Time library to parse
+// ' datetimes from strings formatted in the standard ISO format
+// ' \sQuote{YYYY-MM-DD HH:MM:SS} (with optional trailing fractional
+// ' seconds). No other format is tried, see \code{\link{anytime}} for
+// ' general approaches.
+// '
+// ' The function returns a vector of \code{POSIXct}
+// ' objects. These represent dates and time as (possibly
+// ' fractional) seconds since the \sQuote{epoch} of January 1, 1970.
+// ' A timezone can be set, if none is supplied \sQuote{UTC} is set.
+// '
+// ' A single standard ISO format \sQuote{YYYY-MM-DD HH:MM:SS} (with
+// ' optional trailing fractional seconds) is tried.  In the case of
+// ' parsing failure a \code{NA} value is returned. See the function
+// ' \code{\link{anytime_cpp}} for more general input format
+// '
+// ' Fractional seconds are supported as well.  As R itself only supports
+// ' microseconds, the Boost compile-time option for nano-second resolution
+// ' has not been enabled.
+// '
+// ' @title Parse POSIXct objects from character variables
+// ' @param sv A vector of type character with datetime expressions
+// ' in ISO format to be parsed and converted.
+// ' @param tz A string with the timezone, defaults to \sQuote{UTC} if unset
+// ' @return A vector of \sQuote{POSIXct} elements.
+// ' @author Dirk Eddelbuettel
+// ' @examples
+// ' times <- c("2004-03-21 12:45:33.123456",
+// '           "2004-03-21 12:45:34")
+// ' charToPOSIXct(times)
+// [ [ Rcpp::export ] ]
+Rcpp::NumericVector charToPOSIXct(Rcpp::CharacterVector sv, std::string tz = "UTC") {
+    int n = sv.size();
+    Rcpp::NumericVector pv(n);
+    pv.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
+    pv.attr("tzone") = tz;
+
+    const bt::ptime timet_start(boost::gregorian::date(1970,1,1));
+    bt::ptime pt;
+    std::locale fmt = std::locale(std::locale::classic(),
+                                  new bt::time_input_facet("%Y-%m-%d %H:%M:%S%F"));
+
+    for (int i=0; i<n; i++) {
+        std::string val(sv[i]);
+        std::istringstream is(val);
+        is.imbue(fmt);
+        is >> pt;
+        bt::time_duration diff = pt - timet_start;
+
+        pv[i] = diff.total_microseconds()/1.0e6;
+    }
+    return pv;
+}
+
+// The next function uses the non-stream-based parsing in Boost Date_Time
+// and requires _linking_ with -lboost_date_time which makes the (otherwise
+// header-only) build more complicate
+// // [ [ Rcpp::export ] ]
+// Rcpp::DatetimeVector charToPOSIXctNS(Rcpp::CharacterVector sv) {
+//     int n = sv.size();
+//     Rcpp::DatetimeVector pv(n);
+
+//     const bt::ptime timet_start(boost::gregorian::date(1970,1,1));
+//     for (int i=0; i<n; i++) {
+//         bt::ptime pt = bt::time_from_string(std::string(sv[i]));
+//         bt::time_duration diff = pt - timet_start;
+//         pv[i] = diff.total_microseconds()/1.0e6;
+//     }
+//     return pv;
+// }
+
+
+// ' This function uses the \code{strptime} function to parse
+// ' datetimes from strings in the standard ISO format
+// ' \sQuote{YYYY-MM-DD HH:MM:SS} (without trailing fractional
+// ' seconds). No other format is tried, see \code{\link{anytime}} for
+// ' general approaches.
+// '
+// ' This function returns a vector of \code{POSIXct}
+// ' objects. These represent dates and time as (possibly
+// ' fractional) seconds since the \sQuote{epoch} of January 1, 1970.
+// ' A timezone can be set, if none is supplied \sQuote{UTC} is set.
+// '
+// ' A single standard ISO format \sQuote{YYYY-MM-DD HH:MM:SS} is tried.
+// ' See the function // ' \code{\link{anytime}} for more general input format,
+// ' and \code{\link{charToPOSIXct}} for character conversion.
+// '
+// ' This function is for comparison only and uses the C library function
+// ' \code{strptime} which does \emph{not} work for sub-second entries.
+// '
+// ' @title Parse POSIXct objects from character variables
+// ' @param sv A vector of type character with datetime expressions
+// ' in ISO format to be parsed and converted.
+// ' @param tz A string with the timezone, defaults to \sQuote{UTC} if unset
+// ' @return A vector of \sQuote{POSIXct} elements.
+// ' @author Dirk Eddelbuettel
+// ' @examples
+// ' times <- c("2004-03-21 12:45:33.123456",
+// '           "2004-03-21 12:45:34")
+// ' cToPOSIXct(times)
+// [ [ Rcpp::export ] ]
+Rcpp::NumericVector cToPOSIXct(Rcpp::CharacterVector sv, std::string tz = "UTC") {
+    // TODO: make the R-internal strptime accessible
+    int n = sv.size();
+    Rcpp::NumericVector pv(n);
+    pv.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
+    pv.attr("tzone") = tz;
+
+    for (int i=0; i<n; i++) {
+        const char *s = sv[i];
+        struct tm tm;
+        strptime(s, "%Y-%d-%m %H:%M:%S", &tm);
+        time_t t = mktime(&tm);
+        pv[i] = t;
+    }
+    return pv;
+}
+
+
+// mkPt <- function(x, tz=Sys.getenv("TZ", unset="UTC")) anytime(x, tz=tz)
+// mkDt <- function(x, tz=Sys.getenv("TZ", unset="UTC")) as.Date(anytime(x, tz=tz))
+
+
+
+
+-----------
+
+input <- "2016-09-01 10:11:12"
+tz <- "America/Chicago"
+
+output <- format(as.POSIXct(input, tz=tz), tz=tz)
+stopifnot(format(anytime(input, tz=tz), tz=tz) == output)
+
+tz <- "Europe/Berlin"
+output <- format(as.POSIXct(input, tz=tz), tz=tz)
+stopifnot(format(anytime(input)) == output)
