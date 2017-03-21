@@ -12,6 +12,9 @@
     \ghit{36} and \ghit{51}) 
     \item Address another corner case of numeric values corresponding to
     \code{Date} types which are now returned as \code{Date}
+    \item Added file \code{init.c} with calls to \code{R_registerRoutines()}
+    \code{and R_useDynamicSymbols()}; already used \code{.registration=TRUE}
+    in \code{useDynLib} in \code{NAMESPACE}
   }
 }
 
