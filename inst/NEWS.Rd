@@ -3,7 +3,7 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.2.2 (2017-03-yy)}{
+\section{Changes in anytime version 0.2.2 (2017-03-21)}{
   \itemize{
     \item Address corner case of integer-typed (large) values
     corresponding to \code{POSIXct} time (PR \ghpr{57} closing \ghit{#56})
