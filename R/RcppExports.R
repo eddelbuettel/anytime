@@ -46,7 +46,11 @@ format <- function(x) {
 }
 
 setMaxIntAsYYYYMMDD <- function(val) {
-    .Call('anytime_setMaxIntAsYYYYMMDD', PACKAGE = 'anytime', val)
+    invisible(.Call('anytime_setMaxIntAsYYYYMMDD', PACKAGE = 'anytime', val))
+}
+
+setMaxIntAsDate <- function(val) {
+    invisible(.Call('anytime_setMaxIntAsDate', PACKAGE = 'anytime', val))
 }
 
 setInitialTZ <- function(tz) {

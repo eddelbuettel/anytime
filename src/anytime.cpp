@@ -450,9 +450,13 @@ std::vector<std::string> format(Rcpp::NumericVector x) {
 }
 
 // [[Rcpp::export]]
-int setMaxIntAsYYYYMMDD(const int val) {
+void setMaxIntAsYYYYMMDD(const int val) {
     maxIntAsYYYYMMDD = val;
-    return maxIntAsYYYYMMDD;
+}
+
+// [[Rcpp::export]]
+void setMaxIntAsDate(const int val) {
+    maxIntAsDate = val;
 }
 
 // [[Rcpp::export]]

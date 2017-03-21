@@ -1,6 +1,11 @@
+2017-03-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (setMaxIntAsDate): Added setter accessible via :::
+	(setMaxIntAsYYYYMMDD): Made return type void
+
 2017-03-20  Dirk Eddelbuettel  <edd@debian.org>
 
-	* src/anytime.cpp (anytime_cpp): Minor refactoring 
+	* src/anytime.cpp (anytime_cpp): Minor refactoring
 
 2017-03-18  Dirk Eddelbuettel  <edd@debian.org>
 
