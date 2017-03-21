@@ -8,8 +8,14 @@ anytime(1483228800L)
 anytime(20170101L)
 anydate(20170101L)
 
-## these are (with the default cutoff of 29991231) interpreted as seconds-since-epoch
-res <- anytime:::setMaxIntAsYYYYMMDD(39991231L)
-anytime(30010203L)
-anydate(30010203L)
+## overflows on Windows, sadly
+if (.Platform$OS.type != "windows") {
+    ## these are (with the default cutoff of 29991231) interpreted as seconds-since-epoch
+    anytime:::setMaxIntAsYYYYMMDD(39991231L)
+    anytime(30010203L)
+    anydate(30010203L)
 
+    anytime:::setMaxIntAsDate(199999L)
+    anytime(199998)
+    anydate(199908)
+}

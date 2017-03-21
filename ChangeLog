@@ -2,7 +2,7 @@
 
 	* DESCRIPTION (Version, Date): Release 0.2.2
 
-	* src/init.c (R_init_RcppEigen): Call R_registerRoutines()
+	* src/init.c (R_init_anytime): Call R_registerRoutines()
 	and R_useDynamicSymbols()
 
 	* src/anytime.cpp (setMaxIntAsDate): Added setter accessible via :::
