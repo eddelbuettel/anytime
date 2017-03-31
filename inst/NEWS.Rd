@@ -3,6 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in anytime version 0.2.2 (2017-xx-yy)}{
+  \itemize{
+    \item RStudio versions 1.1.129 or later can run all functions
+    without fear of crashing due to a change in their use of Boost.
+  }
+}
+
 \section{Changes in anytime version 0.2.2 (2017-03-21)}{
   \itemize{
     \item Address corner case of integer-typed (large) values

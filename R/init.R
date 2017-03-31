@@ -46,8 +46,15 @@
     .pkgenv[["tz"]] <- tz
     setInitialTZ(tz)
 
-    ## -- Task two: see if we are inside RStudio
-    isRStudio <- if (Sys.getenv("RSTUDIO", unset="0") == "1") TRUE else FALSE
+    ## -- Task two: see if we are inside RStudio, now refined to
+    ##    also check if we are behind a minimally viable version
+    ##    as the daily builds with around 1.1.129 are safe due to
+    ##    an internal restructuring in how RStudio is built
+    isRStudio <- if (Sys.getenv("RSTUDIO", unset="0") == "1" &&
+                     exists("RStudio.Version") &&
+                     ## the following is evil but keeps R CMD check off our back
+                     eval(parse(text=paste("RStudio.Version()$Version",
+                                           ">=", "\"1.1.129\"")))) TRUE else FALSE
 
     .pkgenv[["isRStudio"]] <- isRStudio
 
