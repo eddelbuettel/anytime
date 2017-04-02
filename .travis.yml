@@ -13,7 +13,7 @@ before_install:
   - ./run.sh bootstrap
 
 install:
-  - ./run.sh install_aptget r-cran-rcpp r-cran-bh r-cran-gettz
+  - ./run.sh install_aptget r-cran-rcpp r-cran-bh r-cran-gettz r-cran-rapidatetime
 
 script:
   - ./run.sh run_tests

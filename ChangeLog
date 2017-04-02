@@ -7,6 +7,8 @@
 
 	* .editorconfig: Adding editorconfig supprt
 
+	* .travis.yml (install): Add r-cran-rapidatetime
+
 2017-03-31  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/init.R (.onLoad): The 'isRStudio' test has been refined to allow
