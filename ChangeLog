@@ -1,3 +1,12 @@
+2017-04-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Date, Version): Roll minor version
+
+	* src/anytime.cpp (r_anytime_cpp): Adding support for parsing
+	functionality from the C API for R via package RApiDatetime
+
+	* .editorconfig: Adding editorconfig supprt
+
 2017-03-31  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/init.R (.onLoad): The 'isRStudio' test has been refined to allow
@@ -467,4 +476,3 @@
 
 	* DESCRIPTION (Package): First commit, using a set of files which
 	originated with the RcppBDT package
-

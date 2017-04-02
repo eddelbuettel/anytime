@@ -116,3 +116,17 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// r_anytime_cpp
+Rcpp::NumericVector r_anytime_cpp(SEXP x, const std::string& tz, const bool asUTC, const bool asDate);
+RcppExport SEXP anytime_r_anytime_cpp(SEXP xSEXP, SEXP tzSEXP, SEXP asUTCSEXP, SEXP asDateSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type x(xSEXP);
+    Rcpp::traits::input_parameter< const std::string& >::type tz(tzSEXP);
+    Rcpp::traits::input_parameter< const bool >::type asUTC(asUTCSEXP);
+    Rcpp::traits::input_parameter< const bool >::type asDate(asDateSEXP);
+    rcpp_result_gen = Rcpp::wrap(r_anytime_cpp(x, tz, asUTC, asDate));
+    return rcpp_result_gen;
+END_RCPP
+}

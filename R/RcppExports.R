@@ -57,3 +57,7 @@ setInitialTZ <- function(tz) {
     invisible(.Call('anytime_setInitialTZ', PACKAGE = 'anytime', tz))
 }
 
+r_anytime_cpp <- function(x, tz = "UTC", asUTC = FALSE, asDate = FALSE) {
+    .Call('anytime_r_anytime_cpp', PACKAGE = 'anytime', x, tz, asUTC, asDate)
+}
+

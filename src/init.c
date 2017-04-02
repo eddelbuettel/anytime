@@ -3,13 +3,14 @@
 #include <stdlib.h> // for NULL
 #include <R_ext/Rdynload.h>
 
-/* FIXME: 
+/* FIXME:
    Check these declarations against the C/Fortran source code.
 */
 
 /* .Call calls */
 extern SEXP anytime_addFormats(SEXP);
 extern SEXP anytime_anytime_cpp(SEXP, SEXP, SEXP, SEXP);
+extern SEXP anytime_r_anytime_cpp(SEXP, SEXP, SEXP, SEXP);
 extern SEXP anytime_format(SEXP);
 extern SEXP anytime_getFormats();
 extern SEXP anytime_setDebug(SEXP);
@@ -22,6 +23,7 @@ extern SEXP anytime_testOutput_impl(SEXP, SEXP);
 static const R_CallMethodDef CallEntries[] = {
     {"anytime_addFormats",          (DL_FUNC) &anytime_addFormats,          1},
     {"anytime_anytime_cpp",         (DL_FUNC) &anytime_anytime_cpp,         4},
+    {"anytime_r_anytime_cpp",       (DL_FUNC) &anytime_r_anytime_cpp,       4},
     {"anytime_format",              (DL_FUNC) &anytime_format,              1},
     {"anytime_getFormats",          (DL_FUNC) &anytime_getFormats,          0},
     {"anytime_setDebug",            (DL_FUNC) &anytime_setDebug,            1},

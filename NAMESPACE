@@ -7,5 +7,6 @@ export("anytime",
        "iso8601",
        "rfc2822",
        "rfc3339")
-importFrom(Rcpp, evalCpp)
+importFrom("Rcpp", "evalCpp")
+import("RApiDatetime")
 useDynLib(anytime, .registration=TRUE)
