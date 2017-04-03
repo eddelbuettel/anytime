@@ -7,13 +7,13 @@
 \alias{utcdate}
 \title{Parse POSIXct objects from input data}
 \usage{
-anytime(x, tz = getTZ(), asUTC = FALSE)
+anytime(x, tz = getTZ(), asUTC = FALSE, useR = FALSE)
 
-anydate(x, tz = getTZ(), asUTC = FALSE)
+anydate(x, tz = getTZ(), asUTC = FALSE, useR = FALSE)
 
-utctime(x, tz = getTZ())
+utctime(x, tz = getTZ(), useR = FALSE)
 
-utcdate(x, tz = getTZ())
+utcdate(x, tz = getTZ(), useR = FALSE)
 }
 \arguments{
 \item{x}{A vector of type character, integer or numeric with date(time)
@@ -32,6 +32,9 @@ return value is still a \code{POSIXt} object instead of a character value.}
 
 \item{asUTC}{A logical value indicating if parsing should be to UTC; default
 is false implying localtime.}
+
+\item{useR}{A logical value indicating if conversion should be done via code
+from R (via package \pkg{RApiDatetime}) or via the Boost routines.}
 }
 \value{
 A vector of \code{POSIXct} elements, or, in the case of \code{anydate},

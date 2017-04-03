@@ -95,6 +95,8 @@
 ##' return value is still a \code{POSIXt} object instead of a character value.
 ##' @param asUTC A logical value indicating if parsing should be to UTC; default
 ##' is false implying localtime.
+##' @param useR A logical value indicating if conversion should be done via code
+##' from R (via package \pkg{RApiDatetime}) or via the Boost routines.
 ##' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
 ##' a vector of \code{Date} objects.
 ##' @seealso \code{\link{anytime-package}}
@@ -125,7 +127,7 @@
 ##' anytime("2001-02-03 04:05:06", tz="America/Los_Angeles")
 ##' ## somewhat equvalent base R functionality
 ##' format(anytime("2001-02-03 04:05:06"), tz="America/Los_Angeles")
-anytime <- function(x, tz=getTZ(), asUTC=FALSE) {
+anytime <- function(x, tz=getTZ(), asUTC=FALSE, useR=FALSE) {
 
     if (inherits(x, "POSIXt")) {
         return(as.POSIXct(x, tz=tz))
@@ -143,11 +145,11 @@ anytime <- function(x, tz=getTZ(), asUTC=FALSE) {
         x <- as.character(x)
     }
 
-    anytime_cpp(x, tz=tz, asUTC=asUTC)
+    anytime_cpp(x, tz=tz, asUTC=asUTC, useR=useR)
 }
 
 ##' @rdname anytime
-anydate <- function(x, tz=getTZ(), asUTC=FALSE) {
+anydate <- function(x, tz=getTZ(), asUTC=FALSE, useR=FALSE) {
     ## input is Date, pass through
     if (inherits(x, "Date")) return(x)
 
@@ -155,7 +157,7 @@ anydate <- function(x, tz=getTZ(), asUTC=FALSE) {
     if (inherits(x, "factor")) x <- as.character(x)
 
     ## otherwise call anytime_cpp
-    d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE)
+    d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR)
 
     ## one code path could result in POSIXct, if so convert
     if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)
@@ -165,12 +167,12 @@ anydate <- function(x, tz=getTZ(), asUTC=FALSE) {
 }
 
 ##' @rdname anytime
-utctime <- function(x, tz=getTZ()) {
-    anytime(x=x, tz=tz, asUTC=TRUE)
+utctime <- function(x, tz=getTZ(), useR=FALSE) {
+    anytime(x=x, tz=tz, asUTC=TRUE, useR=useR)
 }
 
 ##' @rdname anytime
-utcdate <- function(x, tz=getTZ()) {
+utcdate <- function(x, tz=getTZ(), useR=FALSE) {
     ## input is Date, pass through
     if (inherits(x, "Date")) return(x)
 
@@ -178,7 +180,7 @@ utcdate <- function(x, tz=getTZ()) {
     if (inherits(x, "factor")) x <- as.character(x)
 
     ## otherwise call anytime_cpp
-    d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE)
+    d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE, useR=useR)
 
     ## one code path could result in POSIXct, if so convert
     if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)
