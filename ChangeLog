@@ -1,3 +1,7 @@
+2017-04-15  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/init.R (.onLoad): Typo fix
+
 2017-04-02  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Date, Version): Roll minor version

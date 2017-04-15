@@ -53,7 +53,7 @@
     isRStudio <- if (Sys.getenv("RSTUDIO", unset="0") == "1" &&
                      exists("RStudio.Version") &&
                      ## the following is evil but keeps R CMD check off our back
-                     eval(parse(text=paste("RStudio.Version()$Version",
+                     eval(parse(text=paste("RStudio.Version()$version",
                                            ">=", "\"1.1.129\"")))) TRUE else FALSE
 
     .pkgenv[["isRStudio"]] <- isRStudio
