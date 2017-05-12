@@ -7,11 +7,13 @@
 \alias{utcdate}
 \title{Parse POSIXct objects from input data}
 \usage{
-anytime(x, tz = getTZ(), asUTC = FALSE, useR = FALSE)
+anytime(x, tz = getTZ(), asUTC = FALSE, useR = FALSE,
+  oldHeuristic = getOption("anytimeOldHeuristic", FALSE))
 
 anydate(x, tz = getTZ(), asUTC = FALSE, useR = FALSE)
 
-utctime(x, tz = getTZ(), useR = FALSE)
+utctime(x, tz = getTZ(), useR = FALSE,
+  oldHeuristic = getOption("anytimeOldHeuristic", FALSE))
 
 utcdate(x, tz = getTZ(), useR = FALSE)
 }
@@ -35,6 +37,12 @@ is false implying localtime.}
 
 \item{useR}{A logical value indicating if conversion should be done via code
 from R (via package \pkg{RApiDatetime}) or via the Boost routines.}
+
+\item{oldHeuristic}{Behave versions up to and including 0.2.2 did and interpret
+a numeric or integer value that could be seen as a YYYYMMDD as a date. If
+the default value \code{FALSE} is seen, then date offset for used for dates,
+and second offsets for datetimes. A default value can also be set via the
+\code{anytimeOldHeuristic} option.}
 }
 \value{
 A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
@@ -106,6 +114,21 @@ before January 1, 1970, can lead to a crash. Therefore, the lookup of this
 value has been disabled for those dates and times, which could therefore be
 off by an hour (the common value that needs to be corrected).
 It should not affect dates, but may affect datetime objects.
+}
+
+\section{Old Heuristic}{
+
+Up until version 0.2.2, numeric input small than an internal cutoff value
+was interpreted as a date, even if \code{anytime()} was called.  While
+convenient, it is also inconsistent as we otherwise take numeric values to
+be offsets to the epoch. Newer version are consistent: for \code{anydate}, a
+value is taken as \emph{date offset} relative to the epoch (of January 1, 1970).
+For \code{anytime}, it is taken as \emph{seconds offset}. So \code{anytime(60)}
+is one minute past the epoch, and \code{anydate(60)} is sixty days past it.
+The old behaviour can be enabled by setting the \code{oldHeuristic} argument to
+\code{anytime} (and \code{utctime} to \code{TRUE}.  Additionally, the default
+value can be set via \code{getOption("anytimeOldHeuristic")} which can be set
+to \code{TRUE} in startup file.
 }
 
 \examples{
