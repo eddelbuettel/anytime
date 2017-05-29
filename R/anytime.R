@@ -80,7 +80,21 @@
 ##' off by an hour (the common value that needs to be corrected).
 ##' It should not affect dates, but may affect datetime objects.
 ##'
-##' @title Parse POSIXct objects from input data
+##' @section Old Heuristic:
+##' Up until version 0.2.2, numeric input smaller than an internal cutoff value
+##' was interpreted as a date, even if \code{anytime()} was called.  While
+##' convenient, it is also inconsistent as we otherwise take numeric values to
+##' be offsets to the epoch. Newer version are consistent: for \code{anydate}, a
+##' value is taken as \emph{date offset} relative to the epoch (of January 1, 1970).
+##' For \code{anytime}, it is taken as \emph{seconds offset}. So \code{anytime(60)}
+##' is one minute past the epoch, and \code{anydate(60)} is sixty days past it.
+##' The old behaviour can be enabled by setting the \code{oldHeuristic} argument to
+##' \code{anytime} (and \code{utctime}) to \code{TRUE}.  Additionally, the default
+##' value can be set via \code{getOption("anytimeOldHeuristic")} which can be set
+##' to \code{TRUE} in startup file. Note that all other inputs such character,
+##' factor or ordered are not affected.
+##'
+##' @title Parse POSIXct or Date objects from input data
 ##' @param x A vector of type character, integer or numeric with date(time)
 ##' expressions to be parsed and converted.
 ##' @param tz A string with the timezone, defaults to the result of the (internal)
@@ -97,6 +111,11 @@
 ##' is false implying localtime.
 ##' @param useR A logical value indicating if conversion should be done via code
 ##' from R (via package \pkg{RApiDatetime}) or via the Boost routines.
+##' @param oldHeuristic Behave versions up to and including 0.2.2 did and interpret
+##' a numeric or integer value that could be seen as a YYYYMMDD as a date. If
+##' the default value \code{FALSE} is seen, then date offset for used for dates,
+##' and second offsets for datetimes. A default value can also be set via the
+##' \code{anytimeOldHeuristic} option.
 ##' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
 ##' a vector of \code{Date} objects.
 ##' @seealso \code{\link{anytime-package}}
@@ -127,7 +146,8 @@
 ##' anytime("2001-02-03 04:05:06", tz="America/Los_Angeles")
 ##' ## somewhat equvalent base R functionality
 ##' format(anytime("2001-02-03 04:05:06"), tz="America/Los_Angeles")
-anytime <- function(x, tz=getTZ(), asUTC=FALSE, useR=FALSE) {
+anytime <- function(x, tz=getTZ(), asUTC=FALSE, useR=FALSE,
+                    oldHeuristic=getOption("anytimeOldHeuristic", FALSE)) {
 
     if (inherits(x, "POSIXt")) {
         return(as.POSIXct(x, tz=tz))
@@ -145,7 +165,7 @@ anytime <- function(x, tz=getTZ(), asUTC=FALSE, useR=FALSE) {
         x <- as.character(x)
     }
 
-    anytime_cpp(x, tz=tz, asUTC=asUTC, useR=useR)
+    anytime_cpp(x, tz=tz, asUTC=asUTC, useR=useR, oldHeuristic=oldHeuristic)
 }
 
 ##' @rdname anytime
@@ -157,7 +177,7 @@ anydate <- function(x, tz=getTZ(), asUTC=FALSE, useR=FALSE) {
     if (inherits(x, "factor")) x <- as.character(x)
 
     ## otherwise call anytime_cpp
-    d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR)
+    d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
 
     ## one code path could result in POSIXct, if so convert
     if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)
@@ -167,8 +187,9 @@ anydate <- function(x, tz=getTZ(), asUTC=FALSE, useR=FALSE) {
 }
 
 ##' @rdname anytime
-utctime <- function(x, tz=getTZ(), useR=FALSE) {
-    anytime(x=x, tz=tz, asUTC=TRUE, useR=useR)
+utctime <- function(x, tz=getTZ(), useR=FALSE,
+                    oldHeuristic=getOption("anytimeOldHeuristic", FALSE)) {
+    anytime(x=x, tz=tz, asUTC=TRUE, useR=useR, oldHeuristic=oldHeuristic)
 }
 
 ##' @rdname anytime
@@ -180,7 +201,7 @@ utcdate <- function(x, tz=getTZ(), useR=FALSE) {
     if (inherits(x, "factor")) x <- as.character(x)
 
     ## otherwise call anytime_cpp
-    d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE, useR=useR)
+    d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
 
     ## one code path could result in POSIXct, if so convert
     if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)

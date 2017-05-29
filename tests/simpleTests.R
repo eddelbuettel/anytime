@@ -3,25 +3,32 @@ options(digits.secs=6)
 
 library(anytime)
 
-ref <- as.POSIXct(as.POSIXlt(format(as.Date("2016-01-01")+0:2)))
+refT <- as.POSIXct(as.POSIXlt(format(as.Date("2016-01-01")+0:2)))
+refD <- as.Date("2016-01-01")+0:2
 
 ## Dates: Integer
-stopifnot(ref == anytime(20160101L + 0:2))
+stopifnot(refD == anydate(20160101L + 0:2))
+stopifnot(refT == anytime(20160101L + 0:2, oldHeuristic=TRUE))
 
 ## Dates: Numeric
-stopifnot(ref == anytime(20160101 + 0:2))
+stopifnot(refD == anydate(20160101 + 0:2))
+stopifnot(refT == anytime(20160101 + 0:2, oldHeuristic=TRUE))
 
 ## Dates: Factor
-stopifnot(ref == anytime(as.factor(20160101 + 0:2)))
+stopifnot(refD == anydate(as.factor(20160101 + 0:2)))
+stopifnot(refT == anytime(as.factor(20160101 + 0:2)))
 
 ## Dates: Ordered
-stopifnot(ref == anytime(as.ordered(20160101 + 0:2)))
+stopifnot(refD == anydate(as.ordered(20160101 + 0:2)))
+stopifnot(refT == anytime(as.ordered(20160101 + 0:2)))
 
 ## Dates: Character
-stopifnot(ref == anytime(as.character(20160101 + 0:2)))
+stopifnot(refD == anydate(as.character(20160101 + 0:2)))
+stopifnot(refT == anytime(as.character(20160101 + 0:2)))
 
 ## Dates: alternate formats
-stopifnot(ref == anytime(c("20160101", "2016/01/02", "2016-01-03")))
+stopifnot(refD == anydate(c("20160101", "2016/01/02", "2016-01-03")))
+stopifnot(refT == anytime(c("20160101", "2016/01/02", "2016-01-03")))
 
 ## Datetime: ISO with/without fractional seconds
 refPt <- format(as.POSIXct(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"),
@@ -63,8 +70,8 @@ rfc3339(anydate("2016-Sep-01"))
 rfc3339("this won't work")
 
 ## Datetime from (integer) Datetime
-stopifnot(anytime( as.integer(ref) ) == ref)
+stopifnot(anytime( as.integer(refT) ) == refT)
 
 ## Date from (smaller) numeric
 stopifnot(anydate( as.numeric(refD) ) == refD)
-stopifnot(anytime( as.numeric(refD) ) == refD)
+stopifnot(anytime( as.numeric(refT) ) == refT)

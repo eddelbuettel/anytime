@@ -21,7 +21,7 @@ extern SEXP anytime_testOutput_impl(SEXP, SEXP);
 
 static const R_CallMethodDef CallEntries[] = {
     {"anytime_addFormats",          (DL_FUNC) &anytime_addFormats,          1},
-    {"anytime_anytime_cpp",         (DL_FUNC) &anytime_anytime_cpp,         5},
+    {"anytime_anytime_cpp",         (DL_FUNC) &anytime_anytime_cpp,         6},
     {"anytime_format",              (DL_FUNC) &anytime_format,              1},
     {"anytime_getFormats",          (DL_FUNC) &anytime_getFormats,          0},
     {"anytime_setDebug",            (DL_FUNC) &anytime_setDebug,            1},

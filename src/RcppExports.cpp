@@ -6,8 +6,8 @@
 using namespace Rcpp;
 
 // anytime_cpp
-Rcpp::NumericVector anytime_cpp(SEXP x, const std::string& tz, const bool asUTC, const bool asDate, const bool useR);
-RcppExport SEXP anytime_anytime_cpp(SEXP xSEXP, SEXP tzSEXP, SEXP asUTCSEXP, SEXP asDateSEXP, SEXP useRSEXP) {
+Rcpp::NumericVector anytime_cpp(SEXP x, const std::string& tz, const bool asUTC, const bool asDate, const bool useR, const bool oldHeuristic);
+RcppExport SEXP anytime_anytime_cpp(SEXP xSEXP, SEXP tzSEXP, SEXP asUTCSEXP, SEXP asDateSEXP, SEXP useRSEXP, SEXP oldHeuristicSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -16,7 +16,8 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< const bool >::type asUTC(asUTCSEXP);
     Rcpp::traits::input_parameter< const bool >::type asDate(asDateSEXP);
     Rcpp::traits::input_parameter< const bool >::type useR(useRSEXP);
-    rcpp_result_gen = Rcpp::wrap(anytime_cpp(x, tz, asUTC, asDate, useR));
+    Rcpp::traits::input_parameter< const bool >::type oldHeuristic(oldHeuristicSEXP);
+    rcpp_result_gen = Rcpp::wrap(anytime_cpp(x, tz, asUTC, asDate, useR, oldHeuristic));
     return rcpp_result_gen;
 END_RCPP
 }
