@@ -118,3 +118,22 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+
+static const R_CallMethodDef CallEntries[] = {
+    {"anytime_anytime_cpp", (DL_FUNC) &anytime_anytime_cpp, 6},
+    {"anytime_getFormats", (DL_FUNC) &anytime_getFormats, 0},
+    {"anytime_addFormats", (DL_FUNC) &anytime_addFormats, 1},
+    {"anytime_testFormat_impl", (DL_FUNC) &anytime_testFormat_impl, 3},
+    {"anytime_testOutput_impl", (DL_FUNC) &anytime_testOutput_impl, 2},
+    {"anytime_setDebug", (DL_FUNC) &anytime_setDebug, 1},
+    {"anytime_format", (DL_FUNC) &anytime_format, 1},
+    {"anytime_setMaxIntAsYYYYMMDD", (DL_FUNC) &anytime_setMaxIntAsYYYYMMDD, 1},
+    {"anytime_setMaxIntAsDate", (DL_FUNC) &anytime_setMaxIntAsDate, 1},
+    {"anytime_setInitialTZ", (DL_FUNC) &anytime_setInitialTZ, 1},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_anytime(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
+}

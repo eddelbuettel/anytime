@@ -12,6 +12,8 @@
     a global setting \code{getOption("anytimeOldHeuristic")}
     \item RStudio versions 1.1.129 or later can run all functions
     without fear of crashing due to a change in their use of Boost.
+    \item Replaced \code{init.c} with registration code inside of
+    \code{RcppExports.cpp} thanks to Rcpp 0.12.11.
   }
 }
 

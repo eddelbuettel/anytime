@@ -2,7 +2,7 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 anytime_cpp <- function(x, tz = "UTC", asUTC = FALSE, asDate = FALSE, useR = FALSE, oldHeuristic = FALSE) {
-    .Call('anytime_anytime_cpp', PACKAGE = 'anytime', x, tz, asUTC, asDate, useR, oldHeuristic)
+    .Call(anytime_anytime_cpp, x, tz, asUTC, asDate, useR, oldHeuristic)
 }
 
 #' The time and date parsing and conversion relies on trying a (given
@@ -21,39 +21,39 @@ anytime_cpp <- function(x, tz = "UTC", asUTC = FALSE, asDate = FALSE, useR = FAL
 #'   addFormats(c("%d %b %y",      # two-digit date [not recommended], textual month
 #'                "%a %b %d %Y"))  # weekday weeknumber four-digit year
 getFormats <- function() {
-    .Call('anytime_getFormats', PACKAGE = 'anytime')
+    .Call(anytime_getFormats)
 }
 
 #' @rdname getFormats
 addFormats <- function(fmt) {
-    invisible(.Call('anytime_addFormats', PACKAGE = 'anytime', fmt))
+    invisible(.Call(anytime_addFormats, fmt))
 }
 
 testFormat_impl <- function(fmt, s, tz = "") {
-    .Call('anytime_testFormat_impl', PACKAGE = 'anytime', fmt, s, tz)
+    .Call(anytime_testFormat_impl, fmt, s, tz)
 }
 
 testOutput_impl <- function(fmt, s) {
-    .Call('anytime_testOutput_impl', PACKAGE = 'anytime', fmt, s)
+    .Call(anytime_testOutput_impl, fmt, s)
 }
 
 setDebug <- function(mode) {
-    .Call('anytime_setDebug', PACKAGE = 'anytime', mode)
+    .Call(anytime_setDebug, mode)
 }
 
 format <- function(x) {
-    .Call('anytime_format', PACKAGE = 'anytime', x)
+    .Call(anytime_format, x)
 }
 
 setMaxIntAsYYYYMMDD <- function(val) {
-    invisible(.Call('anytime_setMaxIntAsYYYYMMDD', PACKAGE = 'anytime', val))
+    invisible(.Call(anytime_setMaxIntAsYYYYMMDD, val))
 }
 
 setMaxIntAsDate <- function(val) {
-    invisible(.Call('anytime_setMaxIntAsDate', PACKAGE = 'anytime', val))
+    invisible(.Call(anytime_setMaxIntAsDate, val))
 }
 
 setInitialTZ <- function(tz) {
-    invisible(.Call('anytime_setInitialTZ', PACKAGE = 'anytime', tz))
+    invisible(.Call(anytime_setInitialTZ, tz))
 }
 

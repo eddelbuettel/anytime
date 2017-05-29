@@ -1,3 +1,9 @@
+2017-05-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/RcppExports.cpp (R_init_anytime): Registration now here
+	* src/init.c: Deleted as calls now made in RcppExports.cpp
+	* R/RcppExports.R: Updated by Rcpp 0.12.11 as well
+
 2017-05-12  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp: Numeric input now always interpreted as offset
