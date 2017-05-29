@@ -3,8 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.2.2 (2017-xx-yy)}{
+\section{Changes in anytime version 0.3.0 (2017-xx-yy)}{
   \itemize{
+    \item Numeric input is now always an offset to epoch, with
+    \code{anytime()} using seconds, and \code{anydate()} using dates.
+    (\ghpr{65} fixing \ghit{63}).
+    \item Old behaviour can be re-enabled with an option also supporting
+    a global setting \code{getOption("anytimeOldHeuristic")}
     \item RStudio versions 1.1.129 or later can run all functions
     without fear of crashing due to a change in their use of Boost.
   }
@@ -16,7 +21,7 @@
     corresponding to \code{POSIXct} time (PR \ghpr{57} closing \ghit{#56})
     \item Add special case for \sQuote{Europe/London} and 31 Oct 1971
     BST change to avoid a one-hour offset error (\ghpr{58} fixing
-    \ghit{36} and \ghit{51}) 
+    \ghit{36} and \ghit{51})
     \item Address another corner case of numeric values corresponding to
     \code{Date} types which are now returned as \code{Date}
     \item Added file \code{init.c} with calls to \code{R_registerRoutines()}

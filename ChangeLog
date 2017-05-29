@@ -1,3 +1,14 @@
+2017-05-12  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp: Numeric input now always interpreted as offset
+	to epoch, with 'anytime()' and 'anydate()' working more consistently
+
+	* R/anytime.R: Document new 'oldHeuristic' option to re-enable old
+	behaviour.
+	* man/anytime.Rd: Idem
+
+	* tests/simpleTests.R: Adjust for new behaviour, ie use oldHeuristic=TRUE
+
 2017-04-15  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/init.R (.onLoad): Typo fix
