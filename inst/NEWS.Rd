@@ -3,7 +3,7 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.3.0 (2017-xx-yy)}{
+\section{Changes in anytime version 0.3.0 (2017-06-05)}{
   \itemize{
     \item Numeric input is now always an offset to epoch, with
     \code{anytime()} using seconds, and \code{anydate()} using dates.

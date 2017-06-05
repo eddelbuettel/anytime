@@ -1,5 +1,4 @@
-## anytime [![Build Status](https://travis-ci.org/eddelbuettel/anytime.svg)](https://travis-ci.org/eddelbuettel/anytime) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html) [![CRAN](http://www.r-pkg.org/badges/version/anytime)](https://cran.r-project.org/package=anytime) [![Downloads](http://cranlogs.r-pkg.org/badges/anytime?color=brightgreen)](http://www.r-pkg.org/pkg/anytime) [![Code Coverage](https://codecov.io/gh/eddelbuettel/anytime/graph/badge.svg)](https://codecov.io/gh/eddelbuettel/anytime)
-
+## anytime [![Build Status](https://travis-ci.org/eddelbuettel/anytime.svg)](https://travis-ci.org/eddelbuettel/anytime) [![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](http://www.gnu.org/licenses/gpl-2.0.html) [![CRAN](http://www.r-pkg.org/badges/version/anytime)](https://cran.r-project.org/package=anytime) [![Downloads](http://cranlogs.r-pkg.org/badges/anytime?color=brightgreen)](http://www.r-pkg.org/pkg/anytime) [![Code Coverage](https://codecov.io/gh/eddelbuettel/anytime/graph/badge.svg)](https://codecov.io/gh/eddelbuettel/anytime)
 
 Anything to 'POSIXct' or 'Date' Converter
 
@@ -32,10 +31,10 @@ library(anytime)
 options(digits.secs=6)                ## for fractional seconds below
 Sys.setenv(TZ=anytime:::getTZ())      ## helper function to try to get TZ
 
-## integer    
+## integer
 anytime(20160101L + 0:2)
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
- 
+
 ## numeric
 anytime(20160101 + 0:2)
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
@@ -68,7 +67,7 @@ anytime(c("20160101", "2016/01/02", "2016-01-03"))
 anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"))
 [1] "2016-01-01 10:11:12.000000 CST" "2016-01-01 10:11:12.345678 CST"
 
-## Datetime: ISO alternate (?) with 'T' separator  
+## Datetime: ISO alternate (?) with 'T' separator
 anytime(c("20160101T101112", "20160101T101112.345678"))
 [1] "2016-01-01 10:11:12.000000 CST" "2016-01-01 10:11:12.345678 CST"
 ```
@@ -76,7 +75,7 @@ anytime(c("20160101T101112", "20160101T101112.345678"))
 #### Character: Textual month formats
 
 ```r
-## ISO style 
+## ISO style
 anytime(c("2016-Sep-01 10:11:12", "Sep/01/2016 10:11:12", "Sep-01-2016 10:11:12"))
 [1] "2016-09-01 10:11:12 CDT" "2016-09-01 10:11:12 CDT" "2016-09-01 10:11:12 CDT"
 
@@ -114,7 +113,15 @@ rely on [Rcpp](http://dirk.eddelbuettel.com/code/rcpp.html) for a seamless C++ i
 
 ### Status
 
-Should work as expected. 
+Should work as expected.
+
+### Changes
+
+See the NEWS.Rd file on [CRAN](https://cran.r-project.org/package=anytime/news.html) or
+[GitHub](https://github.com/eddelbuettel/anytime/blob/master/inst/NEWS.Rd).  In particular, version 0.3.0 corrects
+an overly optimistic heuristic for integer or numeric arguments and now behaves more like R itself. Specifically,
+epoch offsets are interpreted as seconds for datetime objects, and days for date objects.  The prior behaviour can
+be restored with an option which also be be set globally, see the help page for details.
 
 ### Installation
 
