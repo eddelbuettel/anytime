@@ -3,6 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in anytime version 0.3.1 (unreleased)}{
+  \itemize{
+    \item Numeric input is now preserved rather than silently cast to
+    the return object type (\ghpr{69} fixing \ghit{68})
+  }
+}
+
 \section{Changes in anytime version 0.3.0 (2017-06-05)}{
   \itemize{
     \item Numeric input is now always an offset to epoch, with
