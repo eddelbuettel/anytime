@@ -434,11 +434,14 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         // already a character -- so parse from character and convert
         return convertToTime<const char*, STRSXP>(x, tz, asUTC, asDate, useR);
 
-    } else if ((Rcpp::is<Rcpp::NumericVector>(x) &&
-                asDate && REAL(x)[0]    <= maxIntAsDate) ||
-               (Rcpp::is<Rcpp::IntegerVector>(x) &&
-                asDate && INTEGER(x)[0] <= maxIntAsDate)) {
-        // if numeric or integer and below date cutoff, treat as (already numeric/int) date
+    } else if (Rcpp::is<Rcpp::NumericVector>(x) && asDate && REAL(x)[0] <= maxIntAsDate) {
+        // if numeric and below date cutoff, treat as (already numeric/int) date
+        // we clone first to ensure input is preserved
+        Rcpp::NumericVector z = Rcpp::clone(x);
+        return Rcpp::DateVector(z);
+
+    } else if (Rcpp::is<Rcpp::IntegerVector>(x) && asDate && INTEGER(x)[0] <= maxIntAsDate) {
+        // if integer and below date cutoff, treat as (already numeric/int) date
         return Rcpp::DateVector(x);
 
     } else if (Rcpp::is<Rcpp::IntegerVector>(x) &&
@@ -453,9 +456,17 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         // and then parse that string as usual
         return convertToTime<double, REALSXP>(x, tz, asUTC, asDate, useR);
 
-    } else if (Rcpp::is<Rcpp::NumericVector>(x) || Rcpp::is<Rcpp::IntegerVector>(x)) {
+    } else if (Rcpp::is<Rcpp::NumericVector>(x)) {
         // now we actually should have a proper large numeric (ie as.numeric(Sys.time())
         // so we can simply return as the already created Datetime vector
+        // we clone first to ensure input is preserved
+        Rcpp::NumericVector z = Rcpp::clone(x);
+        return Rcpp::DatetimeVector(z, asUTC ? "UTC" : tz.c_str());
+
+    } else if (Rcpp::is<Rcpp::IntegerVector>(x)) {
+        // now we actually should have a proper large numeric (ie as.numeric(Sys.time())
+        // so we can simply return as the already created Datetime vector
+        // no clone needed as integers get cast
         return Rcpp::DatetimeVector(x, asUTC ? "UTC" : tz.c_str());
 
     } else {
