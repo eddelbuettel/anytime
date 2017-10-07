@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // anytime_cpp
 Rcpp::NumericVector anytime_cpp(SEXP x, const std::string& tz, const bool asUTC, const bool asDate, const bool useR, const bool oldHeuristic);
-RcppExport SEXP anytime_anytime_cpp(SEXP xSEXP, SEXP tzSEXP, SEXP asUTCSEXP, SEXP asDateSEXP, SEXP useRSEXP, SEXP oldHeuristicSEXP) {
+RcppExport SEXP _anytime_anytime_cpp(SEXP xSEXP, SEXP tzSEXP, SEXP asUTCSEXP, SEXP asDateSEXP, SEXP useRSEXP, SEXP oldHeuristicSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -23,7 +23,7 @@ END_RCPP
 }
 // getFormats
 std::vector<std::string> getFormats();
-RcppExport SEXP anytime_getFormats() {
+RcppExport SEXP _anytime_getFormats() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -33,7 +33,7 @@ END_RCPP
 }
 // addFormats
 void addFormats(Rcpp::CharacterVector fmt);
-RcppExport SEXP anytime_addFormats(SEXP fmtSEXP) {
+RcppExport SEXP _anytime_addFormats(SEXP fmtSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::CharacterVector >::type fmt(fmtSEXP);
@@ -43,7 +43,7 @@ END_RCPP
 }
 // testFormat_impl
 Rcpp::NumericVector testFormat_impl(const std::string fmt, const std::string s, const std::string tz);
-RcppExport SEXP anytime_testFormat_impl(SEXP fmtSEXP, SEXP sSEXP, SEXP tzSEXP) {
+RcppExport SEXP _anytime_testFormat_impl(SEXP fmtSEXP, SEXP sSEXP, SEXP tzSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -56,7 +56,7 @@ END_RCPP
 }
 // testOutput_impl
 std::string testOutput_impl(const std::string fmt, const std::string s);
-RcppExport SEXP anytime_testOutput_impl(SEXP fmtSEXP, SEXP sSEXP) {
+RcppExport SEXP _anytime_testOutput_impl(SEXP fmtSEXP, SEXP sSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -68,7 +68,7 @@ END_RCPP
 }
 // setDebug
 bool setDebug(const bool mode);
-RcppExport SEXP anytime_setDebug(SEXP modeSEXP) {
+RcppExport SEXP _anytime_setDebug(SEXP modeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -79,7 +79,7 @@ END_RCPP
 }
 // format
 std::vector<std::string> format(Rcpp::NumericVector x);
-RcppExport SEXP anytime_format(SEXP xSEXP) {
+RcppExport SEXP _anytime_format(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -90,7 +90,7 @@ END_RCPP
 }
 // setMaxIntAsYYYYMMDD
 void setMaxIntAsYYYYMMDD(const int val);
-RcppExport SEXP anytime_setMaxIntAsYYYYMMDD(SEXP valSEXP) {
+RcppExport SEXP _anytime_setMaxIntAsYYYYMMDD(SEXP valSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const int >::type val(valSEXP);
@@ -100,7 +100,7 @@ END_RCPP
 }
 // setMaxIntAsDate
 void setMaxIntAsDate(const int val);
-RcppExport SEXP anytime_setMaxIntAsDate(SEXP valSEXP) {
+RcppExport SEXP _anytime_setMaxIntAsDate(SEXP valSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const int >::type val(valSEXP);
@@ -110,7 +110,7 @@ END_RCPP
 }
 // setInitialTZ
 void setInitialTZ(std::string tz);
-RcppExport SEXP anytime_setInitialTZ(SEXP tzSEXP) {
+RcppExport SEXP _anytime_setInitialTZ(SEXP tzSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type tz(tzSEXP);
@@ -120,16 +120,16 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"anytime_anytime_cpp", (DL_FUNC) &anytime_anytime_cpp, 6},
-    {"anytime_getFormats", (DL_FUNC) &anytime_getFormats, 0},
-    {"anytime_addFormats", (DL_FUNC) &anytime_addFormats, 1},
-    {"anytime_testFormat_impl", (DL_FUNC) &anytime_testFormat_impl, 3},
-    {"anytime_testOutput_impl", (DL_FUNC) &anytime_testOutput_impl, 2},
-    {"anytime_setDebug", (DL_FUNC) &anytime_setDebug, 1},
-    {"anytime_format", (DL_FUNC) &anytime_format, 1},
-    {"anytime_setMaxIntAsYYYYMMDD", (DL_FUNC) &anytime_setMaxIntAsYYYYMMDD, 1},
-    {"anytime_setMaxIntAsDate", (DL_FUNC) &anytime_setMaxIntAsDate, 1},
-    {"anytime_setInitialTZ", (DL_FUNC) &anytime_setInitialTZ, 1},
+    {"_anytime_anytime_cpp", (DL_FUNC) &_anytime_anytime_cpp, 6},
+    {"_anytime_getFormats", (DL_FUNC) &_anytime_getFormats, 0},
+    {"_anytime_addFormats", (DL_FUNC) &_anytime_addFormats, 1},
+    {"_anytime_testFormat_impl", (DL_FUNC) &_anytime_testFormat_impl, 3},
+    {"_anytime_testOutput_impl", (DL_FUNC) &_anytime_testOutput_impl, 2},
+    {"_anytime_setDebug", (DL_FUNC) &_anytime_setDebug, 1},
+    {"_anytime_format", (DL_FUNC) &_anytime_format, 1},
+    {"_anytime_setMaxIntAsYYYYMMDD", (DL_FUNC) &_anytime_setMaxIntAsYYYYMMDD, 1},
+    {"_anytime_setMaxIntAsDate", (DL_FUNC) &_anytime_setMaxIntAsDate, 1},
+    {"_anytime_setInitialTZ", (DL_FUNC) &_anytime_setInitialTZ, 1},
     {NULL, NULL, 0}
 };
 

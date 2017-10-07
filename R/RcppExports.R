@@ -2,7 +2,7 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 anytime_cpp <- function(x, tz = "UTC", asUTC = FALSE, asDate = FALSE, useR = FALSE, oldHeuristic = FALSE) {
-    .Call(anytime_anytime_cpp, x, tz, asUTC, asDate, useR, oldHeuristic)
+    .Call(`_anytime_anytime_cpp`, x, tz, asUTC, asDate, useR, oldHeuristic)
 }
 
 #' The time and date parsing and conversion relies on trying a (given
@@ -21,39 +21,39 @@ anytime_cpp <- function(x, tz = "UTC", asUTC = FALSE, asDate = FALSE, useR = FAL
 #'   addFormats(c("%d %b %y",      # two-digit date [not recommended], textual month
 #'                "%a %b %d %Y"))  # weekday weeknumber four-digit year
 getFormats <- function() {
-    .Call(anytime_getFormats)
+    .Call(`_anytime_getFormats`)
 }
 
 #' @rdname getFormats
 addFormats <- function(fmt) {
-    invisible(.Call(anytime_addFormats, fmt))
+    invisible(.Call(`_anytime_addFormats`, fmt))
 }
 
 testFormat_impl <- function(fmt, s, tz = "") {
-    .Call(anytime_testFormat_impl, fmt, s, tz)
+    .Call(`_anytime_testFormat_impl`, fmt, s, tz)
 }
 
 testOutput_impl <- function(fmt, s) {
-    .Call(anytime_testOutput_impl, fmt, s)
+    .Call(`_anytime_testOutput_impl`, fmt, s)
 }
 
 setDebug <- function(mode) {
-    .Call(anytime_setDebug, mode)
+    .Call(`_anytime_setDebug`, mode)
 }
 
 format <- function(x) {
-    .Call(anytime_format, x)
+    .Call(`_anytime_format`, x)
 }
 
 setMaxIntAsYYYYMMDD <- function(val) {
-    invisible(.Call(anytime_setMaxIntAsYYYYMMDD, val))
+    invisible(.Call(`_anytime_setMaxIntAsYYYYMMDD`, val))
 }
 
 setMaxIntAsDate <- function(val) {
-    invisible(.Call(anytime_setMaxIntAsDate, val))
+    invisible(.Call(`_anytime_setMaxIntAsDate`, val))
 }
 
 setInitialTZ <- function(tz) {
-    invisible(.Call(anytime_setInitialTZ, tz))
+    invisible(.Call(`_anytime_setInitialTZ`, tz))
 }
 
