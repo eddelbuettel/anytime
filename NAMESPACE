@@ -6,7 +6,10 @@ export("anytime",
        "utcdate",
        "iso8601",
        "rfc2822",
-       "rfc3339")
+       "rfc3339",
+       "assertDate",
+       "assertTime")
 importFrom("Rcpp", "evalCpp")
+importFrom("utils", "head")
 import("RApiDatetime")
 useDynLib(anytime, .registration=TRUE)

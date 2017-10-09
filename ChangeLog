@@ -2,6 +2,8 @@
 
 	* DESCRIPTION (Version, Date): Rolled minor version
 
+	* NAMESPACE: Export assertDate and assertTime
+
 	* tests/assertions.R: Added simple tests
 
 2017-10-07  Dirk Eddelbuettel  <edd@debian.org>
