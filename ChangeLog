@@ -1,3 +1,7 @@
+2017-10-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tests/simpleTests.R: Additional test for anydate from integer
+
 2017-10-08  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Rolled minor version
