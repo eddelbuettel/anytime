@@ -1,3 +1,9 @@
+2017-10-08  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Rolled minor version
+
+	* tests/assertions.R: Added simple tests
+
 2017-10-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* man/assertDate.Rd: Added documentation
