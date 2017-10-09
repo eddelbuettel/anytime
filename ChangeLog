@@ -1,3 +1,8 @@
+2017-10-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* man/assertDate.Rd: Added documentation
+	* tests/assertions.R (assertDate, assertTime): Idem
+
 2017-10-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/assertions.R (assertDate, assertTime): First drafts

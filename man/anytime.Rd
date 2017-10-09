@@ -5,7 +5,7 @@
 \alias{anydate}
 \alias{utctime}
 \alias{utcdate}
-\title{Parse POSIXct objects from input data}
+\title{Parse POSIXct or Date objects from input data}
 \usage{
 anytime(x, tz = getTZ(), asUTC = FALSE, useR = FALSE,
   oldHeuristic = getOption("anytimeOldHeuristic", FALSE))
@@ -118,7 +118,7 @@ It should not affect dates, but may affect datetime objects.
 
 \section{Old Heuristic}{
 
-Up until version 0.2.2, numeric input small than an internal cutoff value
+Up until version 0.2.2, numeric input smaller than an internal cutoff value
 was interpreted as a date, even if \code{anytime()} was called.  While
 convenient, it is also inconsistent as we otherwise take numeric values to
 be offsets to the epoch. Newer version are consistent: for \code{anydate}, a
@@ -126,9 +126,10 @@ value is taken as \emph{date offset} relative to the epoch (of January 1, 1970).
 For \code{anytime}, it is taken as \emph{seconds offset}. So \code{anytime(60)}
 is one minute past the epoch, and \code{anydate(60)} is sixty days past it.
 The old behaviour can be enabled by setting the \code{oldHeuristic} argument to
-\code{anytime} (and \code{utctime} to \code{TRUE}.  Additionally, the default
+\code{anytime} (and \code{utctime}) to \code{TRUE}.  Additionally, the default
 value can be set via \code{getOption("anytimeOldHeuristic")} which can be set
-to \code{TRUE} in startup file.
+to \code{TRUE} in startup file. Note that all other inputs such character,
+factor or ordered are not affected.
 }
 
 \examples{
