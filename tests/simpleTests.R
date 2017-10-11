@@ -79,3 +79,6 @@ stopifnot(anytime( as.numeric(refT) ) == refT)
 ## Date from (smaller) integer
 epochplusone <- as.Date("1971-01-01") + 0:2
 stopifnot(anydate(365L + 0:2) == epochplusone)
+
+## Format test
+stopifnot(yyyymmdd(refD) == format(refD, "%Y%m%d"))

@@ -4,6 +4,7 @@
 \alias{iso8601}
 \alias{rfc2822}
 \alias{rfc3339}
+\alias{yyyymmdd}
 \title{Format a Datetime object: ISO 8601, RFC 2822 or RFC 3339}
 \usage{
 iso8601(pt)
@@ -11,6 +12,8 @@ iso8601(pt)
 rfc2822(pt)
 
 rfc3339(pt)
+
+yyyymmdd(pt)
 }
 \arguments{
 \item{pt}{A \code{POSIXt} Datetime or a \code{Date} object}
@@ -55,6 +58,13 @@ We return datetime object formatted as \sQuote{2016-09-01T10:11:12.123456-0500}
 and date object as \sQuote{2016-09-01}.
 }
 
+\section{YYYYMMDD}{
+
+This is a truly terrible format which needs to die, but refuses to do so.  If you
+are unfortunate enough to be forced to interoperate with code expecting it, you
+can use this function. But it would be better to take a moment to rewrite such code.
+}
+
 \examples{
 iso8601(anytime("2016-09-01 10:11:12.123456"))
 iso8601(anydate("2016-Sep-01"))
@@ -64,6 +74,9 @@ rfc2822(anydate("2016-Sep-01"))
 
 rfc3339(anytime("2016-09-01 10:11:12.123456"))
 rfc3339(anydate("2016-Sep-01"))
+
+yyyymmdd(anytime("2016-09-01 10:11:12.123456"))
+yyyymmdd(anydate("2016-Sep-01"))
 }
 \references{
 \url{https://en.wikipedia.org/wiki/ISO_8601},

@@ -31,6 +31,11 @@
 #' We return datetime object formatted as \sQuote{2016-09-01T10:11:12.123456-0500}
 #' and date object as \sQuote{2016-09-01}.
 #'
+#' @section YYYYMMDD:
+#' This is a truly terrible format which needs to die, but refuses to do so.  If you
+#' are unfortunate enough to be forced to interoperate with code expecting it, you
+#' can use this function. But it would be better to take a moment to rewrite such code.
+#'
 #' @param pt A \code{POSIXt} Datetime or a \code{Date} object
 #'
 #' @return A character object formatted according to ISO 8601, RFC 2822 or RFC 3339
@@ -48,6 +53,9 @@
 #'
 #' rfc3339(anytime("2016-09-01 10:11:12.123456"))
 #' rfc3339(anydate("2016-Sep-01"))
+#'
+#' yyyymmdd(anytime("2016-09-01 10:11:12.123456"))
+#' yyyymmdd(anydate("2016-Sep-01"))
 iso8601 <- function(pt) {
     if (inherits(pt, "POSIXt"))
         return(format.POSIXct(as.POSIXct(pt), "%Y-%m-%d %H:%M:%S"))
@@ -79,4 +87,10 @@ rfc3339 <- function(pt) {
 
     warning("Inapplicable object: ", pt)
     invisible(NULL)
+}
+
+
+#' @rdname iso8601
+yyyymmdd <- function(pt) {
+    return(format.Date(assertDate(pt), "%Y%m%d"))
 }
