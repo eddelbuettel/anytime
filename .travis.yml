@@ -13,7 +13,7 @@ before_install:
   - ./run.sh bootstrap
 
 install:
-  - ./run.sh install_aptget r-cran-rcpp r-cran-bh r-cran-gettz r-cran-rapidatetime
+  - ./run.sh install_aptget r-cran-rcpp r-cran-bh r-cran-gettz r-cran-rapidatetime r-cran-pinp
 
 script:
   - ./run.sh run_tests
@@ -23,11 +23,8 @@ after_failure:
 
 after_success:
   - ./run.sh coverage
-   
+
 notifications:
   email:
     on_success: change
     on_failure: change
-
-    
-

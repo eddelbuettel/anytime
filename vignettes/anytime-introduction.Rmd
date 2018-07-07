@@ -1,0 +1,184 @@
+---
+title: |
+       | \pkg{anytime}: Easier Date and Time Conversion
+
+# Use letters for affiliations
+author:
+  - name: Dirk Eddelbuettel
+    affiliation: a
+address:
+  - code: a
+    address: Department of Statistics, University of Illinois, Urbana-Champaign, IL, USA
+
+# For footer text  TODO(fold into template, allow free form two-authors)
+lead_author_surname: Eddelbuettel
+
+# Place DOI URL or CRAN Package URL here
+doi: "https://cran.r-project.org/package=anytime"
+
+# Abstract
+abstract: |
+  The \pkg{anytime} package converts from a number of different input
+  variable types (integer, numeric, character, factor) and a number of
+  different input formats which are tried heuristally offering a powerful
+  and versatile date and time converter that (frequently) requires no
+  user input.
+
+# Font size of the document, values of 9pt (default), 10pt, 11pt and 12pt
+fontsize: 9pt
+
+# Optional: Force one-column layout, default is two-column
+one_column: true
+
+# Optional: Enables lineno mode, but only if one_column mode is also true
+#lineno: true
+
+# Optional: Enable one-sided layout, default is two-sided
+#one_sided: true
+
+# Optional: Enable section numbering, default is unnumbered
+#numbersections: true
+
+# Optional: Specify the depth of section number, default is 5
+#secnumdepth: 5
+
+# Optional: Skip inserting final break between acknowledgements, default is false
+skip_final_break: true
+
+# Optional: Bibliography
+bibliography: anytime
+
+# Optional: Enable a 'Draft' watermark on the document
+watermark: true
+
+# Customize footer, eg by referencing the vignette
+footer_contents: "anytime Vignette"
+
+# Produce a pinp document
+output:
+  pinp::pinp:
+    includes:
+      in_header: header.tex
+
+# Required: Vignette metadata for inclusion in a package.
+vignette: >
+  %\VignetteIndexEntry{anytime-introduction}
+  %\VignetteKeywords{anytime, date, datetime, conversion}
+  %\VignettePackage{anytime}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(collapse=TRUE)
+knitr::opts_chunk$set(cache=TRUE)
+options(width=66)
+library(anytime)
+Sys.setenv(TZ=anytime:::getTZ())  ## helper func
+```
+
+
+### Motivation
+
+R excels at computing with dates, and times.  Using _typed_
+representation for your data is highly recommended not only because of
+the functionality offered but also because of the added safety
+stemming from proper representation.
+
+But there is a small nuisance cost in interactive work as well as in
+programming. Users must have told `as.POSIXct()` about a million times
+that the origin is (of course) the
+[epoch](https://en.wikipedia.org/wiki/Unix_time). Do we really have to
+say it a million more times?  Similarly, when parsing dates that are
+_some form_ of YYYYMMDD format, do we really have to manually convert
+from `integer` or `numeric` or `factor` or `ordered` to character?
+Having one of several common separators and/or date / time month forms
+(YYYY-MM-DD, YYYY/MM/DD, YYYYMMDD, YYYY-mon-DD and so on, with or
+without times), do we really need a format string? Or could a smart
+converter function do this?
+
+`anytime()` aims to be that _general purpose_ converter returning a
+proper `POSIXct` (or `Date`) object no matter the input (provided it
+was somewhat parseable), relying on
+[Boost date_time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html)
+for the (efficient, performant) conversion. `anydate()` is an
+additional wrapper returning a `Date` object instead.
+
+### Examples
+
+#### From Integer or Numeric or Factor or Ordered
+
+```r
+library(anytime)
+options(digits.secs=6)                ## for fractional seconds below
+Sys.setenv(TZ=anytime:::getTZ())      ## helper function to try to get TZ
+
+## integer
+anytime(20160101L + 0:2)
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+
+## numeric
+anytime(20160101 + 0:2)
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+
+## factor
+anytime(as.factor(20160101 + 0:2))
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+
+## ordered
+anytime(as.ordered(20160101 + 0:2))
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+```
+
+#### Character: Simple
+
+```r
+## Dates: Character
+anytime(as.character(20160101 + 0:2))
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+
+## Dates: alternate formats
+anytime(c("20160101", "2016/01/02", "2016-01-03"))
+[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+```
+
+
+#### Character: ISO
+
+```r
+## Datetime: ISO with/without fractional seconds
+anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"))
+[1] "2016-01-01 10:11:12.000000 CST" "2016-01-01 10:11:12.345678 CST"
+
+## Datetime: ISO alternate (?) with 'T' separator
+anytime(c("20160101T101112", "20160101T101112.345678"))
+[1] "2016-01-01 10:11:12.000000 CST" "2016-01-01 10:11:12.345678 CST"
+```
+
+#### Character: Textual month formats
+
+```r
+## ISO style
+anytime(c("2016-Sep-01 10:11:12", "Sep/01/2016 10:11:12", "Sep-01-2016 10:11:12"))
+[1] "2016-09-01 10:11:12 CDT" "2016-09-01 10:11:12 CDT" "2016-09-01 10:11:12 CDT"
+
+## Datetime: Mixed format (cf http://stackoverflow.com/questions/39259184)
+anytime(c("Thu Sep 01 10:11:12 2016", "Thu Sep 01 10:11:12.345678 2016"))
+[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+```
+
+#### Character: Dealing with DST
+
+This shows an important aspect. When not working in localtime (by
+overriding to `UTC`) the _changing difference_ UTC is correctly
+covered (which the underlying
+[Boost Date_Time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html)
+library does not do by itself).
+
+
+```r
+## Datetime: pre/post DST
+anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"))
+[1] "2016-01-31 12:13:14 CST" "2016-08-31 12:13:14 CDT"
+anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"), tz="UTC")  # important: catches change
+[1] "2016-01-31 18:13:14 UTC" "2016-08-31 17:13:14 UTC"
+```
