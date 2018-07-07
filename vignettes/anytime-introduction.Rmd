@@ -28,7 +28,7 @@ abstract: |
 fontsize: 9pt
 
 # Optional: Force one-column layout, default is two-column
-one_column: true
+two_column: true
 
 # Optional: Enables lineno mode, but only if one_column mode is also true
 #lineno: true
@@ -71,7 +71,7 @@ vignette: >
 ```{r setup, include=FALSE}
 #knitr::opts_chunk$set(collapse=TRUE)
 knitr::opts_chunk$set(cache=TRUE)
-options(width=66)
+options(width=55)
 library(anytime)
 Sys.setenv(TZ=anytime:::getTZ())  ## helper func
 ```
@@ -109,24 +109,28 @@ additional wrapper returning a `Date` object instead.
 
 ```r
 library(anytime)
-options(digits.secs=6)                ## for fractional seconds below
-Sys.setenv(TZ=anytime:::getTZ())      ## helper function to try to get TZ
+options(digits.secs=6)           # fractional secs
+Sys.setenv(TZ=anytime:::getTZ()) # TZ helper
 
 ## integer
 anytime(20160101L + 0:2)
-[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+[1] "2016-01-01 CST" "2016-01-02 CST"
+[3] "2016-01-03 CST"
 
 ## numeric
 anytime(20160101 + 0:2)
-[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+[1] "2016-01-01 CST" "2016-01-02 CST"
+[3] "2016-01-03 CST"
 
 ## factor
 anytime(as.factor(20160101 + 0:2))
-[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+[1] "2016-01-01 CST" "2016-01-02 CST"
+[3] "2016-01-03 CST"
 
 ## ordered
 anytime(as.ordered(20160101 + 0:2))
-[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+[1] "2016-01-01 CST" "2016-01-02 CST"
+[3] "2016-01-03 CST"
 ```
 
 #### Character: Simple
@@ -134,11 +138,13 @@ anytime(as.ordered(20160101 + 0:2))
 ```r
 ## Dates: Character
 anytime(as.character(20160101 + 0:2))
-[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+[1] "2016-01-01 CST" "2016-01-02 CST"
+[3] "2016-01-03 CST"
 
 ## Dates: alternate formats
 anytime(c("20160101", "2016/01/02", "2016-01-03"))
-[1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
+[1] "2016-01-01 CST" "2016-01-02 CST"
+[3] "2016-01-03 CST"
 ```
 
 
@@ -146,24 +152,35 @@ anytime(c("20160101", "2016/01/02", "2016-01-03"))
 
 ```r
 ## Datetime: ISO with/without fractional seconds
-anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"))
-[1] "2016-01-01 10:11:12.000000 CST" "2016-01-01 10:11:12.345678 CST"
+anytime(c("2016-01-01 10:11:12",
+          "2016-01-01 10:11:12.345678"))
+[1] "2016-01-01 10:11:12.000000 CST"
+[2] "2016-01-01 10:11:12.345678 CST"
 
 ## Datetime: ISO alternate (?) with 'T' separator
-anytime(c("20160101T101112", "20160101T101112.345678"))
-[1] "2016-01-01 10:11:12.000000 CST" "2016-01-01 10:11:12.345678 CST"
+anytime(c("20160101T101112",
+          "20160101T101112.345678"))
+[1] "2016-01-01 10:11:12.000000 CST"
+[2] "2016-01-01 10:11:12.345678 CST"
 ```
 
 #### Character: Textual month formats
 
 ```r
 ## ISO style
-anytime(c("2016-Sep-01 10:11:12", "Sep/01/2016 10:11:12", "Sep-01-2016 10:11:12"))
-[1] "2016-09-01 10:11:12 CDT" "2016-09-01 10:11:12 CDT" "2016-09-01 10:11:12 CDT"
+anytime(c("2016-Sep-01 10:11:12",
+          "Sep/01/2016 10:11:12",
+          "Sep-01-2016 10:11:12"))
+[1] "2016-09-01 10:11:12 CDT"
+[2] "2016-09-01 10:11:12 CDT"
+[3] "2016-09-01 10:11:12 CDT"
 
-## Datetime: Mixed format (cf http://stackoverflow.com/questions/39259184)
-anytime(c("Thu Sep 01 10:11:12 2016", "Thu Sep 01 10:11:12.345678 2016"))
-[1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
+## Datetime: Mixed format
+## (cf http://stackoverflow.com/questions/39259184)
+anytime(c("Thu Sep 01 10:11:12 2016",
+          "Thu Sep 01 10:11:12.345678 2016"))
+[1] "2016-09-01 10:11:12.000000 CDT"
+[2] "2016-09-01 10:11:12.345678 CDT"
 ```
 
 #### Character: Dealing with DST
@@ -177,8 +194,26 @@ library does not do by itself).
 
 ```r
 ## Datetime: pre/post DST
-anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"))
-[1] "2016-01-31 12:13:14 CST" "2016-08-31 12:13:14 CDT"
-anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"), tz="UTC")  # important: catches change
-[1] "2016-01-31 18:13:14 UTC" "2016-08-31 17:13:14 UTC"
+anytime(c("2016-01-31 12:13:14",
+          "2016-08-31 12:13:14"))
+[1] "2016-01-31 12:13:14 CST"
+[2] "2016-08-31 12:13:14 CDT"
+## important: catches change
+anytime(c("2016-01-31 12:13:14",
+          "2016-08-31 12:13:14"), tz="UTC")
+[1] "2016-01-31 18:13:14 UTC"
+[2] "2016-08-31 17:13:14 UTC"
 ```
+
+
+### Technical Details
+
+The heavy lifting is done by a combination of
+[Boost lexical_cast](http://www.boost.org/doc/libs/1_61_0/doc/html/boost_lexical_cast.html)
+to go from _anything_ to string representation which is then parsed by
+[Boost Date_Time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html).
+We use the [BH package](http://dirk.eddelbuettel.com/code/bh.html)
+\citep{CRAN:BH} to access [Boost](http://www.boost.org), and rely on
+[Rcpp](http://dirk.eddelbuettel.com/code/rcpp.html)
+\citep{JSS:Rcpp,Eddelbuettel:2013} for a seamless C++ interface to
+and from [R](https://www.r-project.org).
