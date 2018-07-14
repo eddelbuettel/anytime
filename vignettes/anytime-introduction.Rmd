@@ -224,4 +224,11 @@ and from [R](https://www.r-project.org).
 - detail Boost use and parser
 - mention limits of that parser (no single digit day or month)
 - mention RApiDatetime use via useR=TRUE as well
-- figure out why codeblocks do not render compact in pinp
+- figure out why codeblocks do not render collapsed in pinp
+
+
+## Test
+
+```{r foo, collapse=TRUE, results="markup"}
+head(iris)
+```
