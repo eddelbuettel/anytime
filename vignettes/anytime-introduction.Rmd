@@ -74,7 +74,7 @@ knitr::opts_chunk$set(cache=FALSE)
 ```
 
 
-### Motivation
+# Motivation
 
 R excels at computing with dates, and times.  Using _typed_
 representation for your data is highly recommended not only because of
@@ -100,7 +100,7 @@ was somewhat parseable), relying on
 for the (efficient, performant) conversion. `anydate()` is an
 additional wrapper returning a `Date` object instead.
 
-### Examples
+# Examples
 
 We first set up the R environment and display for the examples that follow.
 
@@ -112,7 +112,7 @@ Sys.setenv(TZ=anytime:::getTZ()) # TZ helper
 ```
 
 
-#### From Integer or Numeric or Factor or Ordered
+## From Integer or Numeric or Factor or Ordered
 
 For the numeric date formats in the range of the (numeric) _yyyymmdd_, we use the `anydate()` function.
 
@@ -151,7 +151,7 @@ anytime(20160101 + 0:2, oldHeuristic=TRUE)
 ```
 
 
-### Factor or Ordered
+## Factor or Ordered
 
 Factor variables and their order variant are also supported directly.
 
@@ -163,7 +163,7 @@ anytime(as.factor(20160101 + 0:2))
 anytime(as.ordered(20160101 + 0:2))
 ```
 
-#### Character: Simple
+## Character: Simple
 
 Character input is supported in a variety of formats.  We first show simple formats.
 
@@ -176,7 +176,7 @@ anytime(c("20160101", "2016/01/02", "2016-01-03"))
 ```
 
 
-#### Character: ISO
+## Character: ISO
 
 ISO8661 date (and datetime) formats are supported too.
 
@@ -186,7 +186,7 @@ anytime(c("2016-01-01 10:11:12",
           "2016-01-01 10:11:12.345678"))
 ```
 
-#### Character: Textual month formats
+## Character: Textual month formats
 
 Date formats with month abbreviations are supported in a number of common orderings.
 
@@ -202,7 +202,7 @@ anytime(c("Thu Sep 01 10:11:12 2016",
           "Thu Sep 01 10:11:12.345678 2016"))
 ```
 
-#### Character: Dealing with DST
+## Character: Dealing with DST
 
 This shows an important aspect. When not working in localtime (by
 overriding to `UTC`) the _changing difference_ UTC is correctly
@@ -221,7 +221,7 @@ anytime(c("2016-01-31 12:13:14",
 ```
 
 
-### Technical Details
+# Technical Details
 
 The actual parsing and conversion is done by two [Boost](http://www.boost.org) libraries.
 First, [Boost
