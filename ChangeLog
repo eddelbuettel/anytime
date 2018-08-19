@@ -1,8 +1,18 @@
+2018-08-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tests/simpleTests.R: Added tests for anydate from POSIXt
+
+	* R/assertions.R: Add '#nocov' tags
+
+2018-08-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/anytime-introduction.Rmd: More content
+
 2018-07-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/anytime-introduction.Rmd: Initial commit
 	* DESCRIPTION (Suggests): Added 'knitr, rmarkdown, pinp'
-	* .travis.yml (install): Also install r-cran-pino and its imports
+	* .travis.yml (install): Also install r-cran-pinp and its imports
 
 2018-07-03  Dirk Eddelbuettel  <edd@debian.org>
 

@@ -82,3 +82,7 @@ stopifnot(anydate(365L + 0:2) == epochplusone)
 
 ## Format test
 stopifnot(yyyymmdd(refD) == format(refD, "%Y%m%d"))
+
+## Date from POSIXct
+stopifnot(anydate(refT) == as.Date(refT))
+stopifnot(utcdate(refT) == as.Date(refT))

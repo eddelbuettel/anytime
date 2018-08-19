@@ -15,8 +15,8 @@
 assertDate <- function(x) {
     y <- anydate(x)
     if (any(is.na(y)))
-        stop("Input data '", paste(as.character(head(x)),collapse=","),
-             "' cannot be expressed as Date type", call.=FALSE)
+        stop("Input data '", paste(as.character(head(x)),collapse=","),  #nocov
+             "' cannot be expressed as Date type", call.=FALSE)          #nocov
     invisible(y)
 }
 
@@ -24,7 +24,7 @@ assertDate <- function(x) {
 assertTime <- function(x) {
     y <- anytime(x)
     if (any(is.na(y)))
-        stop("Input data '", paste(as.character(head(x)),collapse=","),
-             "' cannot be expressed as POSIXct type", call.=FALSE)
+        stop("Input data '", paste(as.character(head(x)),collapse=","),  #nocov
+             "' cannot be expressed as POSIXct type", call.=FALSE)       #nocov
     invisible(y)
 }
