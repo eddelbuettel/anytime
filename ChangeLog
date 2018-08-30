@@ -4,6 +4,10 @@
 	* tests/bulkTest.R: Idem
 	* tests/simpleTests.R: Idem
 
+	* vignettes/anytime-introduction.Rmd: Vignette setup tweaks
+	* cleanup: Idem
+	* DESCRIPTION: Add VignetteBuilder: fields
+
 2018-08-29  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (r_stringToTime, anytime_cpp): Two uses each of

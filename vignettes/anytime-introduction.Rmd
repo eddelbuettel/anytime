@@ -58,8 +58,10 @@ footer_contents: "anytime Vignette"
 output:
   pinp::pinp:
     collapse: true
-    includes:
-      in_header: header.tex
+
+header-includes: >
+  \newcommand{\proglang}[1]{\textsf{#1}}
+  \newcommand{\pkg}[1]{\textbf{#1}}
 
 # Required: Vignette metadata for inclusion in a package.
 vignette: >

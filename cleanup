@@ -1,2 +1,5 @@
 
 rm -f src/*.o src/*.so src/*.dylib src/*~ *~
+
+rm -rf vignettes/auto/ vignettes/*.{log,aux,out,tex,blg,bbl,xwm} \
+   vignettes/pinp.cls vignettes/jss.bst
