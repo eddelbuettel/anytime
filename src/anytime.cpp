@@ -316,7 +316,9 @@ double r_stringToTime(const std::string s, const std::string tz,
     // loop over formats and try them til one fits
     for (size_t i=0; !done && i < nrformats; ++i) {
         // asPOSIXct and Rstrptime are both from RApiDatetime
-        res = Rcpp::as<double>( asPOSIXct( Rstrptime(ss, Rcpp::wrap(rformats[i]), tzs) , tzs) );
+        Rcpp::Shield<SEXP> sp(Rstrptime(ss, Rcpp::wrap(rformats[i]), tzs));
+        Rcpp::Shield<SEXP> ct(asPOSIXct(sp, tzs));;
+        res = Rcpp::as<double>(ct);
         done = ! Rcpp::traits::is_na<REALSXP>(res);
     }
     return res;
@@ -437,7 +439,7 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
     } else if (Rcpp::is<Rcpp::NumericVector>(x) && asDate && REAL(x)[0] <= maxIntAsDate) {
         // if numeric and below date cutoff, treat as (already numeric/int) date
         // we clone first to ensure input is preserved
-        Rcpp::NumericVector z = Rcpp::clone(x);
+        Rcpp::NumericVector z(Rcpp::Shield<SEXP>(Rcpp::clone(x)));
         return Rcpp::DateVector(z);
 
     } else if (Rcpp::is<Rcpp::IntegerVector>(x) && asDate && INTEGER(x)[0] <= maxIntAsDate) {
@@ -460,7 +462,7 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         // now we actually should have a proper large numeric (ie as.numeric(Sys.time())
         // so we can simply return as the already created Datetime vector
         // we clone first to ensure input is preserved
-        Rcpp::NumericVector z = Rcpp::clone(x);
+        Rcpp::NumericVector z(Rcpp::Shield<SEXP>(Rcpp::clone(x)));
         return Rcpp::DatetimeVector(z, asUTC ? "UTC" : tz.c_str());
 
     } else if (Rcpp::is<Rcpp::IntegerVector>(x)) {
