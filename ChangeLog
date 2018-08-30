@@ -1,3 +1,8 @@
+2018-08-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (r_stringToTime, anytime_cpp): Two uses each of
+	Rcpp::Shield<> to make rchk happy
+
 2018-08-19  Dirk Eddelbuettel  <edd@debian.org>
 
 	* tests/simpleTests.R: Added tests for anydate from POSIXt
