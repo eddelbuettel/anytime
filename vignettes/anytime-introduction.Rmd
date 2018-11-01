@@ -98,7 +98,7 @@ converter function do this?
 `anytime()` aims to be that _general purpose_ converter returning a
 proper `POSIXct` (or `Date`) object no matter the input (provided it
 was somewhat parseable), relying on
-[Boost date_time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html)
+[Boost Date_Time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html)
 for the (efficient, performant) conversion. `anydate()` is an
 additional wrapper returning a `Date` object instead.
 
@@ -207,7 +207,7 @@ anytime(c("Thu Sep 01 10:11:12 2016",
 ## Character: Dealing with DST
 
 This shows an important aspect. When not working in localtime (by
-overriding to `UTC`) the _changing difference_ UTC is correctly
+overriding to `UTC`) the _changing difference_ to UTC is correctly
 covered (which the underlying
 [Boost Date_Time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html)
 library does not do by itself).
@@ -232,11 +232,12 @@ used to convert from _anything_ to a string representation. This text representa
 then parsed by [Boost
 Date_Time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html) to create the
 corresponding date, or datetime, type.  (There are also a number of special cases where
-numeric values are directly converted; see below.) We use the [BH
-package](http://dirk.eddelbuettel.com/code/bh.html) \citep{CRAN:BH} to access these
-[Boost](http://www.boost.org) libraries, and rely on
-[Rcpp](http://dirk.eddelbuettel.com/code/rcpp.html) \citep{JSS:Rcpp,Eddelbuettel:2013} for
-a seamless C++ interface to and from [R](https://www.r-project.org).
+numeric values are directly converted; see below.) We use the
+[\pkg{BH}](http://dirk.eddelbuettel.com/code/bh.html) package \citep{CRAN:BH} to access
+these [Boost](http://www.boost.org) libraries, and rely on
+[\pkg{Rcpp}](http://dirk.eddelbuettel.com/code/rcpp.html)
+\citep{JSS:Rcpp,Eddelbuettel:2013} for a seamless C++ interface to and from
+[R](https://www.r-project.org).
 
 The [Boost Date_Time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html)
 library is addressing the needs for parsing date and datetimes out of text. It permits us
@@ -268,8 +269,8 @@ will only work with 2001-02-03 which is somewhat more restrictive.
 
 As an alternative, and to be as close to parsing by the R language and system, we also
 support the parser from R itself.  As R does not provide access via its API, we use the
-RApiDatetime \citep{CRAN:RApiDatetime} package. This is shown in the second invocation of
-`anytime()` in the preceding example.
+\pkg{RApiDatetime} \citep{CRAN:RApiDatetime} package. This is shown in the second
+invocation of `anytime()` in the preceding example.
 
 
 # Output Formats
@@ -291,14 +292,35 @@ rfc3339(pt)
 yyyymmdd(pt)
 ```
 
-# TODOs
+# Ambiguities
 
-- [DONE] detail Boost use and parser
-- [DONE] mention limits of that parser (no single digit day or month)
-- [DONE] mention RApiDatetime use via useR=TRUE as well
-- mention precision issue?
-- [DONE] show formulae used?
+The \pkg{anytime} package is designed to operate heuristically on a number of _plausible_
+and _sane_ formats.  This cannot possibly cover all conceivable cases.
 
+## North America versus the world
 
-<!-- ideally we would not need to force this here -->
-\pagebreak
+In general, \pkg{anytime} tries to gently nudge users towards ISO 8601 order of _year_
+followed by _month_ and _day_. But for example in the United States, another prevalent
+form insists on month-day-year ordering. As many users are likely to encounter such input
+format, \pkg{anytime} accomodates this use provided a separator is used: either a slash
+(`/`) or a hyphen (`-`) is accepted.
+
+## One versus two digits
+
+As mentioned earlier, displaying only one digit for day and/or month is possible. An
+example would be "2010-2-4" for the fourth of February in 2010. However, the Boost parser
+does not recognise this and would require "2010-02-04".  Setting the option `useR=TRUE`
+switches to the R parser which does recognise this input.
+
+# Asserts
+
+The \pkg{anytime} package also contains two helper functions that can assist in defensive
+programming by validating input arguments. The `assertTime()` and `assertDate()` functions
+validate if the given input can be parsed, respectively, as `Datetime` or `Date`
+objects. In case one of the inputs cannot be parsed, an error is triggered.  Otherwise the
+parsed input is returned invisibly.
+
+# Summary
+
+We describe the \pkg{anytime} package which offers fast, convenient and reliable date and
+datetime conversion for R users.

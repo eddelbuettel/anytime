@@ -27,7 +27,7 @@ values stored in local package environment, and set at package load time. Also
 note that this argument applies to the \emph{output}: the returned object will
 have this timezone set. The timezone is \emph{not} used for the parsing which
 will always be to localtime, or to UTC is the \code{asUTC} variable is set (as
-it is in the related functions \code{link{utctime}} amd \code{\link{utcdate}}).
+it is in the related functions \code{\link{utctime}} and \code{\link{utcdate}}).
 So one can think of the argument as \sQuote{shift parsed time object to this
 timezone}. This is similar to what \code{format()} in base R does, but our
 return value is still a \code{POSIXt} object instead of a character value.}
