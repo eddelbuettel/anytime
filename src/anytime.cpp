@@ -168,7 +168,8 @@ double ptToDouble(const bt::ptime & pt, const bool asDate=false) {
     // contain the additional DST adjustment
     double totsec = tdiff.total_microseconds()/1.0e6, dstadj = 0;
 #if defined(_WIN32)
-    if (totsec > 0) {           // on Windows, for dates before 1970-01-01: segfault
+    if (totsec > 0  &&                  // on Windows before 1970-01-01: segfault
+       localAsTm->tm_year < 1100) {     // tm_year is year-1900, so year 3000 is it
         dstadj = localAsTm->tm_isdst*60*60;
     }
 #else

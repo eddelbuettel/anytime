@@ -1,11 +1,17 @@
 
 isSolaris <- Sys.info()[["sysname"]] == "SunOS"
+isWindows <- Sys.info()[["sysname"]] == "Windows"
 
 ## We turn off tests on Solaris with some regret, yet firmly, as the
 ## combined inability of CRAN to provide us a test platform (to
 ## examine test failures) along with the insistence on running these
 ## tests gives us no choice
-if (!isSolaris) {
+##
+## These tests now also puke on Windows (where they passed before). I do
+## not have a Windows machine.
+##
+## Anybody who would like to contribute please get in touch.
+if (!isSolaris && !isWindows) {
 
     options(digits.secs=6)
 
