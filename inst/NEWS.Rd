@@ -3,10 +3,10 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.3.2 (2018-xx-yy)}{
+\section{Changes in anytime version 0.3.2 (2018-11-05)}{
   \itemize{
-    \item A new vignette introducing the \pkg{anytime} package was
-    added.
+    \item Added a new vignette introducing the \pkg{anytime} package.
+    Seemingly it cannot be compiled on Windows so included prebuilt.
     \item Some more tests for \code{anydate} were added along with so
     code coverage tags.
     \item The C++ code was robustified in two places to not trigger

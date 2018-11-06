@@ -8,3 +8,5 @@ src/*.dll
 GPATH
 GRTAGS
 GTAGS
+local/gh_issue_78.R
+local/vignettes/

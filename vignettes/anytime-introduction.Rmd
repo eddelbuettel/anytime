@@ -58,6 +58,7 @@ footer_contents: "anytime Vignette"
 output:
   pinp::pinp:
     collapse: true
+    keep_tex: false
 
 header-includes: >
   \newcommand{\proglang}[1]{\textsf{#1}}
@@ -65,10 +66,12 @@ header-includes: >
 
 # Required: Vignette metadata for inclusion in a package.
 vignette: >
-  %\VignetteIndexEntry{anytime-introduction}
+  %\VignetteIndexEntry{Introduction to anytime}
   %\VignetteKeywords{anytime, date, datetime, conversion}
   %\VignettePackage{anytime}
   %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\usepackage[utf8]{inputenc}
 ---
 
 ```{r initialsetup, include=FALSE}
