@@ -56,22 +56,22 @@
   Sys.setenv(TZ=anytime:::getTZ())      ## helper function to try to get TZ
 
   ## integer
-  anytime(20160101L + 0:2)
+  anydate(20160101L + 0:2)
 
   ## numeric
-  anytime(20160101 + 0:2)
+  anydate(20160101 + 0:2)
 
   ## factor
-  anytime(as.factor(20160101 + 0:2))
+  anydate(as.factor(20160101 + 0:2))
 
   ## ordered
-  anytime(as.ordered(20160101 + 0:2))
+  anydate(as.ordered(20160101 + 0:2))
 
   ## Dates: Character
-  anytime(as.character(20160101 + 0:2))
+  anydate(as.character(20160101 + 0:2))
 
   ## Dates: alternate formats
-  anytime(c("20160101", "2016/01/02", "2016-01-03"))
+  anydate(c("20160101", "2016/01/02", "2016-01-03"))
 
   ## Datetime: ISO with/without fractional seconds
   anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"))

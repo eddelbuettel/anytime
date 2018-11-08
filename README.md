@@ -24,6 +24,12 @@ performant) conversion. `anydate()` is an additional wrapper returning a `Date` 
 
 ### Examples
 
+We show some simple examples on `Date` types. 
+
+(Note that in the first few examples, and for numeric conversion in this range we now 
+only use `anydate` as `anytime` is consistent in computing seconds since epoch. If you want the 
+behaviour of version older than 0.3.0, set `oldHeuristic=TRUE`, see `help(anytime)` for more.)
+
 #### From Integer or Numeric or Factor or Ordered
 
 ```r
@@ -32,19 +38,19 @@ options(digits.secs=6)                ## for fractional seconds below
 Sys.setenv(TZ=anytime:::getTZ())      ## helper function to try to get TZ
 
 ## integer
-anytime(20160101L + 0:2)
+anydate(20160101L + 0:2)              ## older version used anytime for this too
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
 
 ## numeric
-anytime(20160101 + 0:2)
+anydate(20160101 + 0:2)
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
 
 ## factor
-anytime(as.factor(20160101 + 0:2))
+anydate(as.factor(20160101 + 0:2))
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
 
 ## ordered
-anytime(as.ordered(20160101 + 0:2))
+anydate(as.ordered(20160101 + 0:2))
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
 ```
 
@@ -52,11 +58,11 @@ anytime(as.ordered(20160101 + 0:2))
 
 ```r
 ## Dates: Character
-anytime(as.character(20160101 + 0:2))
+anydate(as.character(20160101 + 0:2))
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
 
 ## Dates: alternate formats
-anytime(c("20160101", "2016/01/02", "2016-01-03"))
+anydate(c("20160101", "2016/01/02", "2016-01-03"))
 [1] "2016-01-01 CST" "2016-01-02 CST" "2016-01-03 CST"
 ```
 
