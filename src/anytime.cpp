@@ -2,7 +2,7 @@
 //
 // anytime: Use Boost Date_Time to convert date(time) data to POSIXt
 //
-// Copyright (C) 2015 - 2017  Dirk Eddelbuettel
+// Copyright (C) 2015 - 2018  Dirk Eddelbuettel
 //
 // This file is part of anytime.
 //
@@ -19,6 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with anytime.  If not, see <http://www.gnu.org/licenses/>.
 
+#define BOOST_NO_AUTO_PTR
 #include <boost/date_time.hpp>
 #include <boost/date_time/local_time_adjustor.hpp>
 #include <boost/date_time/c_local_time_adjustor.hpp>
@@ -27,8 +28,7 @@
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/split.hpp>
 
-// this is an opt-in until late 2017 when it will be the default
-#define RCPP_NEW_DATE_DATETIME_VECTORS 1
+#define STRICT_R_HEADERS
 #include <Rcpp.h>
 
 #include <RApiDatetime.h>
