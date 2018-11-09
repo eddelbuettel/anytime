@@ -180,7 +180,7 @@ anydate <- function(x, tz=getTZ(), asUTC=FALSE, useR=FALSE) {
     d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
 
     ## one code path could result in POSIXct, if so convert
-    if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)
+    if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)	# #nocov
 
     ## return result
     d
@@ -204,7 +204,7 @@ utcdate <- function(x, tz=getTZ(), useR=FALSE) {
     d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
 
     ## one code path could result in POSIXct, if so convert
-    if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)
+    if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)	# #nocov
 
     ## return result
     d
@@ -214,7 +214,7 @@ testFormat <- function(fmt, s, tz="") {
     if (isRStudio()) {				#nocov start
         warning("This function cannot run inside of older RStudio versions.")
         return(NA)
-    }						#nocov end
+    }								#nocov end
     testFormat_impl(fmt, s, tz=tz)
 }
 
@@ -222,6 +222,6 @@ testOutput <- function(fmt, s) {
     if (isRStudio()) {				#nocov start
         warning("This function cannot run inside of older RStudio versions.")
         return(NA)
-    }						#nocov end
+    }								#nocov end
     testOutput_impl(fmt, s)
 }
