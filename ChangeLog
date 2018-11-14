@@ -1,3 +1,7 @@
+2018-11-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.3.3
+
 2018-11-08  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp: Minor update setting Boost define
@@ -13,8 +17,8 @@
 	* inst/doc/anytime-introduction.pdf: Removed
 	* .Rbuildignore: Exclude vignettes/ directory
 
-	* README.md: Update showing use anydate() on integer (and alike)
-	input correponding to the 0.3.0 release heuristic change
+	* README.md: Update showing use of anydate() on integer (and
+	alike) input correponding to the 0.3.0 release heuristic change
 	* man/anytime-package.Rd: Idem
 
 2018-11-05  Dirk Eddelbuettel  <edd@debian.org>

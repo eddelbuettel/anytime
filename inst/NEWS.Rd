@@ -3,13 +3,14 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.3.3 (2018-11-xx)}{
+\section{Changes in anytime version 0.3.3 (2018-11-13)}{
   \itemize{
     \item Vignette build quirkyness on Windows resolved so vignette
     reinstated.
     \item Documentation updated showing correct use of \code{anydate}
     (and not \code{anytime}) on input like \sQuote{2016010} following
     the 0.3.0 release heuristic change.
+    \item Set \code{#define} for Boost to make compilation more quiet.
   }
 }
 
