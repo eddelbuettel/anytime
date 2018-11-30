@@ -1,3 +1,11 @@
+2018-11-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Rolled minor version
+
+	* tests/gh_issue_84.R: Added for apparent Fedora issue but more
+	likely a TZ config issue
+	* .Rbuildignore: Added tests/gh_issue_84.R
+
 2018-11-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.3.3

@@ -12,3 +12,4 @@
 ^GRTAGS
 ^GTAGS
 ^docker
+tests/gh_issue_84.R
