@@ -1,9 +1,19 @@
+2018-12-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Rolled minor version
+
+	* R/anytime.R: Add note (in roxygen code) about 'Europe/London' issue
+	with pointers to four GH issue tickets and possible alternative.
+	* man/anytime.Rd: Idem
+
+	* src/anytime.cpp: Only if undefined, define BOOST_NO_AUTO_PTR
+
 2018-11-29  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Rolled minor version
 
 	* tests/gh_issue_84.R: Added for apparent Fedora issue but more
-	likely a TZ config issue
+	likely a TZ=Europe/London issue
 	* .Rbuildignore: Added tests/gh_issue_84.R
 
 2018-11-13  Dirk Eddelbuettel  <edd@debian.org>

@@ -19,7 +19,9 @@
 // You should have received a copy of the GNU General Public License
 // along with anytime.  If not, see <http://www.gnu.org/licenses/>.
 
-#define BOOST_NO_AUTO_PTR
+#if !defined(BOOST_NO_AUTO_PTR)
+  #define BOOST_NO_AUTO_PTR
+#endif
 #include <boost/date_time.hpp>
 #include <boost/date_time/local_time_adjustor.hpp>
 #include <boost/date_time/c_local_time_adjustor.hpp>
