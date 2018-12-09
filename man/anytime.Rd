@@ -112,9 +112,9 @@ to \sQuote{Europe/London}, see GitHub issue tickets
 \href{https://github.com/eddelbuettel/anytime/issues/51}{51}.
 \href{https://github.com/eddelbuettel/anytime/issues/59}{59}. and
 \href{https://github.com/eddelbuettel/anytime/issues/86}{86}. As
-pointed out in the comment in that last one, the \code{\link{Sys.time}}
-manual page suggests several alternatives to using \sQuote{Europe/London}
-such as \sQuote{GB}.
+pointed out in the comment in that last one, the
+\code{\link{Sys.timezone}} manual page suggests several
+alternatives to using \sQuote{Europe/London} such as \sQuote{GB}.
 }
 
 \section{Operating System Impact}{
