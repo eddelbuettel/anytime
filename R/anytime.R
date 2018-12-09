@@ -1,7 +1,7 @@
 
 ## anytime: Use Boost Date_Time to convert date(time) data to POSIXt
 ##
-## Copyright (C) 2015 - 2017  Dirk Eddelbuettel
+## Copyright (C) 2015 - 2018  Dirk Eddelbuettel
 ##
 ## This file is part of anytime.
 ##
@@ -71,7 +71,17 @@
 ##' other hand, \code{c(Sys.Date(), NA)} works as expected parsing as
 ##' type Date with one missing value. See
 ##' \href{https://github.com/eddelbuettel/anytime/issues/11}{issue
-##' ticket 11}) for more.
+##' ticket 11} for more.
+##'
+##' Another known issue concerns conversion when the timezone is set
+##' to \sQuote{Europe/London}, see GitHub issue tickets
+##' \href{https://github.com/eddelbuettel/anytime/issues/36}{36}.
+##' \href{https://github.com/eddelbuettel/anytime/issues/51}{51}.
+##' \href{https://github.com/eddelbuettel/anytime/issues/59}{59}. and
+##' \href{https://github.com/eddelbuettel/anytime/issues/86}{86}. As
+##' pointed out in the comment in that last one, the \code{\link{Sys.time}}
+##' manual page suggests several alternatives to using \sQuote{Europe/London}
+##' such as \sQuote{GB}.
 ##'
 ##' @section Operating System Impact:
 ##' On Windows systems, accessing the \code{isdst} flag on dates or times
