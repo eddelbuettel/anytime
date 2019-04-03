@@ -1,3 +1,10 @@
+2019-04-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Rolled minor version
+
+	* src/Makevars: Added to set C++11 avoiding a compiler warning
+	* src/Makevars.win: Idem
+
 2018-12-09  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Rolled minor version
