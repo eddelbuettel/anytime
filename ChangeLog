@@ -1,3 +1,11 @@
+2019-05-28  Dirk Eddelbuettel  <edd@debian.org>
+
+        * tests/tinytest.R: New test driver using tinytest
+        * DESCRIPTION (Suggests): Added tinytest
+        * .travis.yml (install): Install tinytest
+
+	* inst/tinytest/testValidate.R: Converted from tests/validate.R
+	
 2019-04-02  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Rolled minor version
