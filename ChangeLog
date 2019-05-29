@@ -1,7 +1,9 @@
 2019-05-29  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/testSimpleTests.R: Converted from tests/simpleTests.R
-
+	* inst/tinytest/testR_Format.R: Converted from tests/r_anytime.R
+	* inst/tinytest/testUtilities.R: Converted from tests/utilities.R
+	
 2019-05-28  Dirk Eddelbuettel  <edd@debian.org>
 
         * tests/tinytest.R: New test driver using tinytest

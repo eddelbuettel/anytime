@@ -19,3 +19,4 @@ anytime:::setTZ("America/Chicago")
 
 anytime:::format(s)
 
+expect_true(TRUE)                       # just to record the file
