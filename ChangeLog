@@ -1,3 +1,7 @@
+2019-05-30  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test_gh_issue_5.R: From tests/test_gh_issue_5.R
+
 2019-05-29  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/testSimpleTests.R: Converted from tests/simpleTests.R
