@@ -5,6 +5,8 @@
 	* inst/tinytest/testUtilities.R: Do not add format as it persists
 	across tests -- with thanks to Mark van der Loo for spotting this
 
+	* tests/tinytest.R: Depend on tinytest 0.9.4 (on CRAN "soon")
+
 2019-06-02  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/test_gh_issue_12.R: From tests/test_gh_issue_12.R

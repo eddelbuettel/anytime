@@ -8,8 +8,8 @@ if (requireNamespace("tinytest", quietly=TRUE)) {
     ## tinytest directory, see its package vignette; tests can also
     ## run once the package is installed using the same command
 
-    ## we need version 0.9.3 or later
-    if (packageVersion("tinytest") >= "0.9.3") {
+    ## we need version 0.9.4 or later
+    if (packageVersion("tinytest") >= "0.9.4") {
         tinytest::test_package("anytime")
     }
 }
