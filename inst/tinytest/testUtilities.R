@@ -12,7 +12,7 @@ anytime:::testOutput("%Y-%b-%d %H:%M:%S", "2016-Sep-09 10:11:12")
 
 anytime:::testFormat("%Y", "2016-09-01") # ISO format
 
-addFormats("%Y")
+#addFormats("%Y")  ## has side effects for local tests
 getFormats()
 
 anytime:::setTZ("America/Chicago")

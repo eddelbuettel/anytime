@@ -13,6 +13,7 @@ isSolaris <- Sys.info()[["sysname"]] == "SunOS"
 if (!isSolaris) {
 
     options(digits.secs=6)
+    Sys.setenv("TZ"="America/Chicago")
 
     library(anytime)
 
