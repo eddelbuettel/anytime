@@ -311,6 +311,7 @@ const size_t nrformats = sizeof(rformats)/sizeof(rformats[0]);
 double r_stringToTime(const std::string s, const std::string tz,
                       const bool asUTC=false, const bool asDate=false) {
 
+    const char* oldtz = getenv("TZ");
     bool done = false;
     double res = NA_REAL;
     SEXP ss = Rcpp::wrap(s);
@@ -324,6 +325,7 @@ double r_stringToTime(const std::string s, const std::string tz,
         res = Rcpp::as<double>(ct);
         done = ! Rcpp::traits::is_na<REALSXP>(res);
     }
+    setenv("TZ", (oldtz == nullptr ? "" : oldtz), 1);
     return res;
 }
 
