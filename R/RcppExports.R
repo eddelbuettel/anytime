@@ -9,7 +9,7 @@ anytime_cpp <- function(x, tz = "UTC", asUTC = FALSE, asDate = FALSE, useR = FAL
 #' and fixed) number of timeformats. The format used is the one employed
 #' by the underlying implementation of the Boost date_time library.
 #'
-#' @title Functions to retrieve (or set) formats used for parsing dates.
+#' @title Functions to retrieve, set or remove formats used for parsing dates.
 #' @param fmt A vector of character values in the form understood by Boost
 #' date_time
 #' @return Nothing in the case of \code{addFormats}; a character vector of
@@ -20,6 +20,7 @@ anytime_cpp <- function(x, tz = "UTC", asUTC = FALSE, asDate = FALSE, useR = FAL
 #'   getFormats()
 #'   addFormats(c("%d %b %y",      # two-digit date [not recommended], textual month
 #'                "%a %b %d %Y"))  # weekday weeknumber four-digit year
+#'   removeFormats("%d %b %y")     # remove first
 getFormats <- function() {
     .Call(`_anytime_getFormats`)
 }
@@ -27,6 +28,11 @@ getFormats <- function() {
 #' @rdname getFormats
 addFormats <- function(fmt) {
     invisible(.Call(`_anytime_addFormats`, fmt))
+}
+
+#' @rdname getFormats
+removeFormats <- function(fmt) {
+    invisible(.Call(`_anytime_removeFormats`, fmt))
 }
 
 testFormat_impl <- function(fmt, s, tz = "") {

@@ -1,3 +1,14 @@
+2019-06-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp: Added removeFormats() (also in TimeFormats)
+	* src/RcppExports.cpp: Updated
+	* R/RcppExports.R: Updated
+	* man/getFornats.Rd: Updated, added removeFormats help
+	* NAMESPACE: Export removeFormats()
+	
+	* inst/tinytest/testUtilities.R: Added removeFormats() and format
+	comparison tests
+
 2019-06-04  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
@@ -7,6 +18,8 @@
 
 	* tests/tinytest.R: Depend on tinytest 0.9.4 (on CRAN "soon")
 
+	* src/anytime.cpp: Explicitly unset TZ variable in Rstrptime
+	
 2019-06-02  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/test_gh_issue_12.R: From tests/test_gh_issue_12.R

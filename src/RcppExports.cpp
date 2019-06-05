@@ -41,6 +41,16 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// removeFormats
+void removeFormats(Rcpp::CharacterVector fmt);
+RcppExport SEXP _anytime_removeFormats(SEXP fmtSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::CharacterVector >::type fmt(fmtSEXP);
+    removeFormats(fmt);
+    return R_NilValue;
+END_RCPP
+}
 // testFormat_impl
 Rcpp::NumericVector testFormat_impl(const std::string fmt, const std::string s, const std::string tz);
 RcppExport SEXP _anytime_testFormat_impl(SEXP fmtSEXP, SEXP sSEXP, SEXP tzSEXP) {
@@ -123,6 +133,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_anytime_anytime_cpp", (DL_FUNC) &_anytime_anytime_cpp, 6},
     {"_anytime_getFormats", (DL_FUNC) &_anytime_getFormats, 0},
     {"_anytime_addFormats", (DL_FUNC) &_anytime_addFormats, 1},
+    {"_anytime_removeFormats", (DL_FUNC) &_anytime_removeFormats, 1},
     {"_anytime_testFormat_impl", (DL_FUNC) &_anytime_testFormat_impl, 3},
     {"_anytime_testOutput_impl", (DL_FUNC) &_anytime_testOutput_impl, 2},
     {"_anytime_setDebug", (DL_FUNC) &_anytime_setDebug, 1},

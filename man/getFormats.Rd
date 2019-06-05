@@ -3,11 +3,14 @@
 \name{getFormats}
 \alias{getFormats}
 \alias{addFormats}
-\title{Functions to retrieve (or set) formats used for parsing dates.}
+\alias{removeFormats}
+\title{Functions to retrieve, set or remove formats used for parsing dates.}
 \usage{
 getFormats()
 
 addFormats(fmt)
+
+removeFormats(fmt)
 }
 \arguments{
 \item{fmt}{A vector of character values in the form understood by Boost
@@ -26,6 +29,7 @@ by the underlying implementation of the Boost date_time library.
   getFormats()
   addFormats(c("\%d \%b \%y",      # two-digit date [not recommended], textual month
                "\%a \%b \%d \%Y"))  # weekday weeknumber four-digit year
+  removeFormats("\%d \%b \%y")     # remove first
 }
 \seealso{
 \code{\link{anytime-package}} and references therein
