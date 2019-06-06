@@ -13,9 +13,10 @@ isSolaris <- Sys.info()[["sysname"]] == "SunOS"
 if (!isSolaris) {
 
     options(digits.secs=6)
-    Sys.setenv("TZ"="America/Chicago")
+    oldtz <- anytime:::getTZ()
+    anytime:::setTZ("America/Chicago")
 
-    library(anytime)
+    #library(anytime)
 
     refT <- as.POSIXct(as.POSIXlt(format(as.Date("2016-01-01")+0:2)))
     refD <- as.Date("2016-01-01")+0:2
@@ -45,13 +46,12 @@ if (!isSolaris) {
     expect_equivalent(refT, anytime(c("20160101", "2016/01/02", "2016-01-03")))
 
     ## Datetime: ISO with/without fractional seconds
-    refPt <- format(as.POSIXct(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"),
-                               "%Y-%m-d %H:%M:%0S"))
-    expect_equivalent(refPt, format(anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"))))
+    refPt <- as.POSIXct(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"), "%Y-%m-d %H:%M:%0S")
+    expect_equivalent(refPt, anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678")))
 
     ## Datetime: ISO alternate (?) with 'T' separator
     ## Only works with ' '
-    expect_equivalent(refPt, format(anytime(c("20160101 101112", "20160101 101112.345678"))))
+    expect_equivalent(refPt, anytime(c("20160101 101112", "20160101 101112.345678")))
 
     ## Datetime: textual month formats
     ref3 <- rep(as.POSIXct("2016-09-01 10:11:12"), 3)
@@ -61,7 +61,7 @@ if (!isSolaris) {
 
     ## Datetime: Mixed format (cf http://stackoverflow.com/questions/39259184)
     expect_equivalent(refPt,
-                  format(anytime(c("Thu Jan 01 10:11:12 2016", "Thu Jan 01 10:11:12.345678 2016"))))
+                      anytime(c("Thu Jan 01 10:11:12 2016", "Thu Jan 01 10:11:12.345678 2016")))
 
     ## Datetime: pre/post DST
     anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"))
@@ -103,4 +103,6 @@ if (!isSolaris) {
     ## Date from POSIXct
     #expect_true(anydate(refT) == as.Date(refT))
     #expect_true(utcdate(refT) == as.Date(refT))
+
+    anytime:::setTZ(oldtz)
 }
