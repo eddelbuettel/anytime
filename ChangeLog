@@ -1,7 +1,17 @@
+2019-06-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test_assertions.R: From tests/assertions.R
+	* inst/tinytest/test_bulk.R: tests/bulkTest.R
+	* inst/tinytest/test_gh_issue_56.R: tests/gh_issue_56.R
+	* inst/tinytest/test_gh_issue_84.R: tests/gh_issue_84.R
+	* inst/tinytest/test_gh_issues_36_51.R: tests/gh_issues_36_51.R
+
 2019-06-06  Dirk Eddelbuettel  <edd@debian.org>
 
-	* inst/tinytest/test_all_formats.R: From tests/testAllFormats.R,
-	currently inactive as remote use consistently gets failing tests
+	* inst/tinytest/test_all_formats.R: From tests/testAllFormats.R
+	* inst/tinytest/test_assertions.R: From tests/testAssertions.R
+	* inst/tinytest/test_bulk.R: From tests/bulkTest.R
+	* inst/tinytest/test_gh_issue_56.R: From tests/gh_issue_56.R
 
 	* inst/tinytest/testSimpleTests.R: Tweaks for Travis
 	* inst/tinytest/testValidate.R: Idem
