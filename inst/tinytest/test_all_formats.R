@@ -4,8 +4,7 @@ isSolaris <- Sys.info()[["sysname"]] == "SunOS"
 ## combined inability of CRAN to provide us a test platform (to
 ## examine test failures) along with the insistence on running these
 ## tests gives us no choice
-#if (at_home() && !isSolaris) {
-if (FALSE && !isSolaris) {
+if (!isSolaris) {
 
     options(digits.secs=6, width=70)
 
@@ -15,8 +14,7 @@ if (FALSE && !isSolaris) {
     library(anytime)
     anytime:::setTZ(tz)
 
-    ref <- format(as.POSIXct(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678"),
-                             "%Y-%m-%d %H:%M:%0S"))
+    ref <- format(as.POSIXct(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678")))
     expect_equal(ref, format(anytime(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678"))))
     expect_equal(ref, format(anytime(c("2016-09-01 101112",   "2016-09-01 101112.345678"))))
     expect_equal(ref, format(anytime(c("2016/09/01 10:11:12", "2016/09/01 10:11:12.345678"))))
@@ -87,5 +85,5 @@ if (FALSE && !isSolaris) {
     utcdate(20160901)
 
     #cat("Next call will tickle exception\n")
-    try(anytime(TRUE))			# tickles unsupported type -- and exception, hence try()
+    expect_error(anytime(TRUE))		# tickles unsupported type -- and exception, hence try()
 }

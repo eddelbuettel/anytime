@@ -17,4 +17,4 @@ Imports: Rcpp (>= 0.12.9), RApiDatetime
 LinkingTo: Rcpp (>= 0.12.9), BH, RApiDatetime
 Suggests: tinytest, gettz, knitr, rmarkdown, pinp
 VignetteBuilder: knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 6.0.1

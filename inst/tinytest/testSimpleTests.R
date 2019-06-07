@@ -12,13 +12,14 @@ isSolaris <- Sys.info()[["sysname"]] == "SunOS"
 ## Anybody who would like to contribute please get in touch.
 if (!isSolaris) {
 
+    library(anytime)
+
     options(digits.secs=6)
     oldtz <- anytime:::getTZ()
     anytime:::setTZ("America/Chicago")
 
-    #library(anytime)
-
     refT <- as.POSIXct(as.POSIXlt(format(as.Date("2016-01-01")+0:2)))
+    attr(refT, "tzone") <- NULL  # to suppress a warning
     refD <- as.Date("2016-01-01")+0:2
 
     ## Dates: Integer
@@ -46,7 +47,7 @@ if (!isSolaris) {
     expect_equivalent(refT, anytime(c("20160101", "2016/01/02", "2016-01-03")))
 
     ## Datetime: ISO with/without fractional seconds
-    refPt <- as.POSIXct(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"), "%Y-%m-d %H:%M:%0S")
+    refPt <- as.POSIXct(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"))
     expect_equivalent(refPt, anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678")))
 
     ## Datetime: ISO alternate (?) with 'T' separator

@@ -607,7 +607,7 @@ if (!isSolaris) {
             ## for as.POSIXct, we give tz when we format
             pt <- format(as.POSIXct(tstr       ), tz=tz)
             if (verbose) cat(at, " -- ", pt, " -- ", tz, "\n")
-            stopifnot(all.equal(at, pt))
+            expect_equal(at, pt)
         }
     }
 
@@ -616,7 +616,7 @@ if (!isSolaris) {
             at <- format(anydate(tstr))
             pt <- format(as.Date(tstr))
             if (verbose) cat(at, " -- ", pt, " -- ", tz, "\n")
-            stopifnot(all.equal(at, pt))
+            expect_equal(at, pt)
         }
     }
 

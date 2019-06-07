@@ -7,7 +7,7 @@
 ##' @title Convert to Date (or POSIXct) and assert successful conversion
 ##' @param x An input object suitable for \code{anydate} or \code{anytime}
 ##' @return A vector of \code{Date} or \code{POSIXct} objects. As a side
-##' effect, an error ##' will be thrown in any of the input was not convertible.
+##' effect, an error will be thrown in any of the input was not convertible.
 ##' @author Dirk Eddelbuettel
 ##' @examples
 ##' assertDate(c("2001/02/03", "2001-02-03", "20010203"))
