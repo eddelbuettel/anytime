@@ -1,3 +1,10 @@
+2019-06-08  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test_r_format.R: Renamed for consistency
+	* inst/tinytest/test_gh_issue_33.R: Idem
+	* inst/tinytest/test_gh_issue_12.R: Idem
+	* inst/tinytest/test_utilities.R: Idem
+
 2019-06-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/test_assertions.R: From tests/assertions.R
