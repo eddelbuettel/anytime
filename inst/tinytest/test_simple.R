@@ -78,15 +78,15 @@ if (!isSolaris && !isWindows) {
 
     iso8601(anytime("2016-Sep-01 10:11:12"))
     iso8601(anydate("2016-Sep-01"))
-    ignore(iso8601("this won't work"))
+    ignore(expect_warning)(iso8601("this won't work"))
 
     rfc2822(anytime("2016-Sep-01 10:11:12"))
     rfc2822(anydate("2016-Sep-01"))
-    ignore(rfc2822("this won't work"))
+    ignore(expect_warning)(rfc2822("this won't work"))
 
     rfc3339(anytime("2016-Sep-01 10:11:12"))
     rfc3339(anydate("2016-Sep-01"))
-    ignore(rfc3339("this won't work"))
+    ignore(expect_warning)(rfc3339("this won't work"))
 
     ## Datetime from (integer) Datetime
     expect_equivalent(anytime( as.integer(refT) ), refT)
