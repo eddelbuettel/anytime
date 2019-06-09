@@ -340,7 +340,12 @@ double r_stringToTime(const std::string s, const std::string tz,
         res = Rcpp::as<double>(ct);
         done = ! Rcpp::traits::is_na<REALSXP>(res);
     }
+#ifdef _WIN32
+    Rcpp::Function f("Sys.setenv");
+    f("TZ", (oldtz == nullptr ? "" : oldtz), 1);
+#else
     setenv("TZ", (oldtz == nullptr ? "" : oldtz), 1);
+#endif
     return res;
 }
 
