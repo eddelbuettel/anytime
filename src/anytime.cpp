@@ -129,6 +129,21 @@ public:
         locales.insert(locales.begin(), std::locale(std::locale::classic(),
                                                     new bt::time_input_facet(txt)));
     };
+    void removeFormat(const char *txt) {
+        auto fit = formats.begin();
+        auto lit = locales.begin();
+        std::string s(txt);
+        while (fit != formats.end()) {
+            if (*fit == s) {
+                fit = formats.erase(fit);
+                lit = locales.erase(lit);
+            } else {
+                fit++;
+                lit++;
+            }
+
+        }
+    }
     std::locale getLocale(int i) { return locales[i]; }
     std::string getFormat(int i) { return formats[i]; }
     size_t getN() { return formats.size(); }
@@ -311,6 +326,7 @@ const size_t nrformats = sizeof(rformats)/sizeof(rformats[0]);
 double r_stringToTime(const std::string s, const std::string tz,
                       const bool asUTC=false, const bool asDate=false) {
 
+    const char* oldtz = getenv("TZ");
     bool done = false;
     double res = NA_REAL;
     SEXP ss = Rcpp::wrap(s);
@@ -324,6 +340,12 @@ double r_stringToTime(const std::string s, const std::string tz,
         res = Rcpp::as<double>(ct);
         done = ! Rcpp::traits::is_na<REALSXP>(res);
     }
+#ifdef _WIN32
+    Rcpp::Function f("Sys.setenv");
+    f("TZ", (oldtz == nullptr ? "" : oldtz), 1);
+#else
+    setenv("TZ", (oldtz == nullptr ? "" : oldtz), 1);
+#endif
     return res;
 }
 
@@ -484,7 +506,7 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
 //' and fixed) number of timeformats. The format used is the one employed
 //' by the underlying implementation of the Boost date_time library.
 //'
-//' @title Functions to retrieve (or set) formats used for parsing dates.
+//' @title Functions to retrieve, set or remove formats used for parsing dates.
 //' @param fmt A vector of character values in the form understood by Boost
 //' date_time
 //' @return Nothing in the case of \code{addFormats}; a character vector of
@@ -495,6 +517,7 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
 //'   getFormats()
 //'   addFormats(c("%d %b %y",      # two-digit date [not recommended], textual month
 //'                "%a %b %d %Y"))  # weekday weeknumber four-digit year
+//'   removeFormats("%d %b %y")     # remove first
 // [[Rcpp::export]]
 std::vector<std::string> getFormats() {
     return timeformats.getFormats();
@@ -508,6 +531,16 @@ void addFormats(Rcpp::CharacterVector fmt) {
         timeformats.addFormat(fmt[i]);
     }
 }
+
+//' @rdname getFormats
+// [[Rcpp::export]]
+void removeFormats(Rcpp::CharacterVector fmt) {
+    for (int i = 0 ; i < fmt.size(); i++) {
+        //Rcpp::Rcout  << fmt[i] << std::endl;
+        timeformats.removeFormat(fmt[i]);
+    }
+}
+
 
 
 // [[Rcpp::export]]

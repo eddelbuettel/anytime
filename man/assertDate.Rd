@@ -14,7 +14,7 @@ assertTime(x)
 }
 \value{
 A vector of \code{Date} or \code{POSIXct} objects. As a side
-effect, an error ##' will be thrown in any of the input was not convertible.
+effect, an error will be thrown in any of the input was not convertible.
 }
 \description{
 Converts its input to type \code{Date} (or \code{POSIXct}), and asserts

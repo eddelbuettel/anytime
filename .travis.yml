@@ -12,7 +12,8 @@ before_install:
 
 install:
   - ./run.sh install_aptget r-cran-rcpp r-cran-bh r-cran-gettz r-cran-rapidatetime r-cran-pinp
-
+  - ./run.sh install_r tinytest
+  
 script:
   - ./run.sh run_tests
 
