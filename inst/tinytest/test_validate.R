@@ -1,32 +1,36 @@
 
-#library(anytime)
+isWindows <- Sys.info()[["sysname"]] == "Windows"
 
-oldtz <- Sys.getenv("TZ")
+if (!isWindows) {
+    library(anytime)
 
-input <- "2016-09-01 10:11:12"
+    oldtz <- Sys.getenv("TZ")
 
-tz <- "America/Chicago"
-anytime:::setTZ(tz)
-Sys.setenv("TZ"=tz)
-expect_equivalent(as.POSIXct(input, tz=tz), anytime(input, tz=tz))
-expect_equivalent(anytime(input, tz=tz), as.POSIXct(input, tz=tz))
+    input <- "2016-09-01 10:11:12"
 
-tz <- "Europe/Berlin"
-anytime:::setTZ(tz)
-Sys.setenv("TZ"=tz)
-expect_equivalent(as.POSIXct(input, tz=tz), anytime(input, tz=tz))
-expect_equivalent(anytime(input, tz=tz), as.POSIXct(input, tz=tz))
+    tz <- "America/Chicago"
+    anytime:::setTZ(tz)
+    Sys.setenv("TZ"=tz)
+    expect_equivalent(as.POSIXct(input, tz=tz), anytime(input, tz=tz))
+    expect_equivalent(anytime(input, tz=tz), as.POSIXct(input, tz=tz))
 
-tz <- "Japan"
-anytime:::setTZ(tz)
-Sys.setenv("TZ"=tz)
-expect_equivalent(as.POSIXct(input, tz=tz), anytime(input, tz=tz))
-expect_equivalent(anytime(input, tz=tz), as.POSIXct(input, tz=tz))
+    tz <- "Europe/Berlin"
+    anytime:::setTZ(tz)
+    Sys.setenv("TZ"=tz)
+    expect_equivalent(as.POSIXct(input, tz=tz), anytime(input, tz=tz))
+    expect_equivalent(anytime(input, tz=tz), as.POSIXct(input, tz=tz))
 
-## when using UTC parse, and output format, we can we assurred
-## a fixed result nomatter where this runs
-Sys.setenv("TZ"="UTC")
-anytime:::setTZ("UTC")
-output <- expect_equivalent(utctime(input), as.POSIXct(input))
+    tz <- "Japan"
+    anytime:::setTZ(tz)
+    Sys.setenv("TZ"=tz)
+    expect_equivalent(as.POSIXct(input, tz=tz), anytime(input, tz=tz))
+    expect_equivalent(anytime(input, tz=tz), as.POSIXct(input, tz=tz))
 
-Sys.setenv("TZ"=oldtz)
+    ## when using UTC parse, and output format, we can we assurred
+    ## a fixed result nomatter where this runs
+    Sys.setenv("TZ"="UTC")
+    anytime:::setTZ("UTC")
+    output <- expect_equivalent(utctime(input), as.POSIXct(input))
+
+    Sys.setenv("TZ"=oldtz)
+}

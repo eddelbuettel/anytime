@@ -8,8 +8,9 @@
 ## examine test failures) along with the insistence on running these
 ## tests gives us no choice
 isSolaris <- Sys.info()[["sysname"]] == "SunOS"
+isWindows <- Sys.info()[["sysname"]] == "Windows"
 
-if (!isSolaris) {
+if (!isSolaris && !isWindows) {
 
     library(anytime)
 

@@ -1,5 +1,6 @@
 
 isSolaris <- Sys.info()[["sysname"]] == "SunOS"
+isWindows <- Sys.info()[["sysname"]] == "Windows"
 
 ## We turn off tests on Solaris with some regret, yet firmly, as the
 ## combined inability of CRAN to provide us a test platform (to
@@ -10,7 +11,7 @@ isSolaris <- Sys.info()[["sysname"]] == "SunOS"
 ## not have a Windows machine.
 ##
 ## Anybody who would like to contribute please get in touch.
-if (!isSolaris) {
+if (!isSolaris && !isWindows) {
 
     library(anytime)
 
@@ -24,11 +25,11 @@ if (!isSolaris) {
 
     ## Dates: Integer
     expect_equivalent(refD, anydate(20160101L + 0:2))
-    expect_equivalent(refT, anytime(20160101L + 0:2, oldHeuristic=TRUE))
+    if (!isWindows) expect_equivalent(refT, anytime(20160101L + 0:2, oldHeuristic=TRUE))
 
     ## Dates: Numeric
     expect_equivalent(refD, anydate(20160101 + 0:2))
-    expect_equivalent(refT, anytime(20160101 + 0:2, oldHeuristic=TRUE))
+    if (!isWindows) expect_equivalent(refT, anytime(20160101 + 0:2, oldHeuristic=TRUE))
 
     ## Dates: Factor
     expect_equivalent(refD, anydate(as.factor(20160101 + 0:2)))

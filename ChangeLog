@@ -1,3 +1,19 @@
+2019-06-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+	* src/anytime.cpp (r_stringToTime): Use Sys.setenv() from if on
+	Windows as the latter OS remains "special"
+
+	* inst/tinytest/test_all_formats.R: Exempt Windows from some tests
+	* inst/tinytest/test_bulk.R: ditto
+	* inst/tinytest/test_gh_issue_5.R: ditto
+	* inst/tinytest/test_gh_issue_84.R: ditto
+	* inst/tinytest/test_r_format.R: ditto
+	* inst/tinytest/test_simple.R: ditto
+	* inst/tinytest/test_utilities.R: ditto
+	* inst/tinytest/test_validate.R: ditto
+
 2019-06-08  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/test_r_format.R: Renamed for consistency
