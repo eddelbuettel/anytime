@@ -1,3 +1,7 @@
+2019-06-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md (tinytest): Mention post-install testing
+
 2019-06-09  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
