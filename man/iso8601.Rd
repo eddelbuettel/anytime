@@ -32,8 +32,11 @@ ISO 8601 is described in some detail in \url{https://en.wikipedia.org/wiki/ISO_8
 multiple date and time formats.
 
 Here, we interpret it more narrowly focussing on a single format each for datetimes
-and dates.  We return datetime object formatted as \sQuote{2016-09-01 10:11:12}
+and dates.  We return datetime object formatted as \sQuote{2016-09-01T10:11:12}
 and date object as \sQuote{2016-09-01}.
+
+If the option \code{anytime.oldISO8601format} is set to \code{TRUE}, then the previous
+format (with a space instead of \sQuote{T} to separate date and time) is used.
 }
 
 \section{RFC 2822}{

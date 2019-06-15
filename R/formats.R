@@ -10,8 +10,11 @@
 #' multiple date and time formats.
 #'
 #' Here, we interpret it more narrowly focussing on a single format each for datetimes
-#' and dates.  We return datetime object formatted as \sQuote{2016-09-01 10:11:12}
+#' and dates.  We return datetime object formatted as \sQuote{2016-09-01T10:11:12}
 #' and date object as \sQuote{2016-09-01}.
+#'
+#' If the option \code{anytime.oldISO8601format} is set to \code{TRUE}, then the previous
+#' format (with a space instead of \sQuote{T} to separate date and time) is used.
 #'
 #' @section RFC 2822:
 #' RFC 2822 is described in some detail in \url{https://www.ietf.org/rfc/rfc2822.txt}
@@ -57,11 +60,18 @@
 #' yyyymmdd(anytime("2016-09-01 10:11:12.123456"))
 #' yyyymmdd(anydate("2016-Sep-01"))
 iso8601 <- function(pt) {
-    if (inherits(pt, "POSIXt"))
-        return(format.POSIXct(as.POSIXct(pt), "%Y-%m-%d %H:%M:%S"))
-    else if (inherits(pt, "Date"))
+    if (inherits(pt, "POSIXt")) {
+        ## allow option to be set to return TRUE but default to FALSE
+        if (getOption("anytime.oldISO8601format", FALSE)) {
+            ## old format used up to release 0.3.3
+            return(format.POSIXct(as.POSIXct(pt), "%Y-%m-%d %H:%M:%S"))
+        } else {
+            ## new format used from release 0.3.4
+            return(format.POSIXct(as.POSIXct(pt), "%Y-%m-%dT%H:%M:%S"))
+        }
+    } else if (inherits(pt, "Date")) {
         return(format.Date(pt, "%Y-%m-%d"))
-
+    }
 
     warning("Inapplicable object: ", pt)
     invisible(NULL)

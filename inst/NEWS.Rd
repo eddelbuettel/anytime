@@ -3,6 +3,12 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in anytime version 0.3.4 (2019-06-xx)}{
+  \itemize{
+    \item The package now uses \pkg{tinytest} for unit tests.
+  }
+}
+
 \section{Changes in anytime version 0.3.3 (2018-11-13)}{
   \itemize{
     \item Vignette build quirkyness on Windows resolved so vignette
