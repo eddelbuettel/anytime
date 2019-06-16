@@ -1,3 +1,10 @@
+2019-06-16  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/anytime-introduction-wrapper.Rnw: Vignette wrapper with tip of
+	the hat to Mark van der Loo for his January 2019 blog post
+	* vignettes/rmd/anytime-introduction.Rmd (output): Moved
+	* vignettes/rmd/anytime.bib: Idem
+	
 2019-06-15  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/formats.R (iso8601): Switch format to ISO8601 use with T between

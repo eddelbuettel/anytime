@@ -5,7 +5,11 @@
 
 \section{Changes in anytime version 0.3.4 (2019-06-xx)}{
   \itemize{
+    \item The \code{iso8601()} function now places a \sQuote{T} between
+    date and time; an option switches to prior format using a space.
     \item The package now uses \pkg{tinytest} for unit tests.
+    \item The vignette is now pre-made in included as-is in Sweave
+    document reducing the number of suggested packages.
   }
 }
 
