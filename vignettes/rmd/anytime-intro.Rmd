@@ -17,11 +17,11 @@ doi: "https://cran.r-project.org/package=anytime"
 
 # Abstract
 abstract: |
-  The \pkg{anytime} package converts from a number of different input
-  variable types (integer, numeric, character, factor) and a number of
-  different input formats which are tried heuristally offering a powerful
-  and versatile date and time converter that (frequently) requires no
-  user input.
+  The \pkg{anytime} package provides functions which convert from both a
+  number of different input variable types (integer, numeric, character,
+  factor) and different input formats which are tried heuristically offering
+  a powerful and versatile date and time converter that (generally) requires
+  no user input and operates autonomously.
 
 # Font size of the document, values of 9pt (default), 10pt, 11pt and 12pt
 fontsize: 9pt
@@ -80,29 +80,28 @@ knitr::opts_chunk$set(cache=FALSE)
 
 # Motivation
 
-R excels at computing with dates, and times.  Using _typed_
-representation for your data is highly recommended not only because of
-the functionality offered but also because of the added safety
-stemming from proper representation.
+R excels at computing with dates, and times.  Using a _typed_ representation
+for your data is highly recommended not only because of the functionality
+offered but also because of the added safety stemming from proper
+representation.
 
 But there is a small nuisance cost in interactive work as well as in
-programming. Users must have told `as.POSIXct()` about a million times
-that the origin is (of course) the
-[epoch](https://en.wikipedia.org/wiki/Unix_time). Do we really have to
-say it a million more times?  Similarly, when parsing dates that are
-_some form_ of YYYYMMDD format, do we really have to manually convert
-from `integer` or `numeric` or `factor` or `ordered` to character?
-Having one of several common separators and/or date / time month forms
-(YYYY-MM-DD, YYYY/MM/DD, YYYYMMDD, YYYY-mon-DD and so on, with or
-without times), do we really need a format string? Or could a smart
-converter function do this?
+programming. Users must have told `as.POSIXct()` about a million times that
+the origin is (of course) the
+[epoch](https://en.wikipedia.org/wiki/Unix_time). Do we really have to say it
+a million more times?  Similarly, when parsing dates that are _some variant_
+of the common YYYYMMDD format, do we really have to manually convert from
+`integer` or `numeric` or `factor` or `ordered` to character?  Having one of
+several common separators and/or date formats (YYYY-MM-DD, YYYY/MM/DD,
+YYYYMMDD, YYYY-mon-DD and so on, with or without times), do we really need a
+format string? Or could a smart converter function do this for us?
 
-`anytime()` aims to be that _general purpose_ converter returning a
-proper `POSIXct` (or `Date`) object no matter the input (provided it
-was somewhat parseable), relying on
-[Boost Date_Time](http://www.boost.org/doc/libs/1_68_0/doc/html/date_time.html)
-for the (efficient, performant) conversion. `anydate()` is an
-additional wrapper returning a `Date` object instead.
+`anytime()` aims to be that _general purpose_ converter returning a proper
+`POSIXct` (or `Date`) object no matter the input (provided it was parseable),
+relying on [Boost
+Date_Time](http://www.boost.org/doc/libs/1_69_0/doc/html/date_time.html) for
+the (efficient, performant) conversion. `anydate()` is an additional wrapper
+returning a `Date` object instead.
 
 
 # Examples
@@ -119,7 +118,8 @@ Sys.setenv(TZ=anytime:::getTZ()) # TZ helper
 
 ## From Integer or Numeric or Factor or Ordered
 
-For the numeric date formats in the range of the (numeric) _yyyymmdd_, we use the `anydate()` function.
+For the numeric date formats in the range of the (numeric) _yyyymmdd_ format,
+we use the `anydate()` function.
 
 ```{r, int_num_date}
 ## integer
@@ -141,7 +141,7 @@ anytime(1451628000L + 0:2)
 anytime(1451628000 + 0:2)
 ```
 
-This is a change in version 0.3.0; the old behaviour (which was not
+This is a change from version 0.3.0; the old behaviour (which was not
 fully consistent in how it treated numeric input values, but
 convenient for input in the ranges shown here) can be enabled via
 either an argument to the function or a global options, see
@@ -182,12 +182,13 @@ anytime(c("20160101", "2016/01/02", "2016-01-03"))
 
 ## Character: ISO
 
-ISO8661 date (and datetime) formats are supported too.
+ISO8661 date (and datetime) formats are supported too, with both 'T' and a
+space as separator of date and time.
 
 ```{r, char_iso}
 ## Datetime: ISO with/without fractional seconds
 anytime(c("2016-01-01 10:11:12",
-          "2016-01-01 10:11:12.345678"))
+          "2016-01-01T10:11:12.345678"))
 ```
 
 ## Character: Textual month formats
@@ -209,9 +210,9 @@ anytime(c("Thu Sep 01 10:11:12 2016",
 ## Character: Dealing with DST
 
 This shows an important aspect. When not working in localtime (by
-overriding to `UTC`) the _changing difference_ to UTC is correctly
+overriding to `UTC`) the _change in difference_ to UTC is correctly
 covered (which the underlying
-[Boost Date_Time](https://www.boost.org/doc/libs/1_68_0/doc/html/date_time.html)
+[Boost Date_Time](https://www.boost.org/doc/libs/1_69_0/doc/html/date_time.html)
 library does not do by itself).
 
 
@@ -226,12 +227,12 @@ anytime(c("2016-01-31 12:13:14",
 
 # Technical Details
 
-The actual parsing and conversion is done by two
-[Boost](http://www.boost.org) libraries.  First,
-[Boost lexical_cast](https://www.boost.org/doc/libs/1_68_0/doc/html/boost_lexical_cast.html)
-is used to convert from _anything_ to a string representation.  This text
-representation is then parsed by
-[Boost Date_Time](https://www.boost.org/doc/libs/1_68_0/doc/html/date_time.html) to
+The actual parsing and conversion is done by two different
+[Boost](http://www.boost.org) libraries.  First, [Boost
+lexical_cast](https://www.boost.org/doc/libs/1_69_0/doc/html/boost_lexical_cast.html)
+is used to convert from _anything_ to a string representation.  This textual
+representation is then parsed by [Boost
+Date_Time](https://www.boost.org/doc/libs/1_69_0/doc/html/date_time.html) to
 create the corresponding date, or datetime, type.  (There are also a number
 of special cases where numeric values are directly converted; see below.) We
 use the [\pkg{BH}](http://dirk.eddelbuettel.com/code/bh.html) package
@@ -240,8 +241,8 @@ rely on [\pkg{Rcpp}](http://dirk.eddelbuettel.com/code/rcpp.html)
 \citep{JSS:Rcpp,Eddelbuettel:2013} for a seamless C++ interface to and from
 [R](https://www.r-project.org).
 
-The [Boost Date_Time](https://www.boost.org/doc/libs/1_68_0/doc/html/date_time.html)
-library is addressing the needs for parsing date and datetimes out of text. It permits us
+The [Boost Date_Time](https://www.boost.org/doc/libs/1_69_0/doc/html/date_time.html)
+library is addressing the needs for parsing date and datetimes from text. It permits us
 to loop over a suitably large number of _candidate formats_ with considerable ease.  The
 formats are generally variants of the ISO 8601 date format, _i.e._, of the YYYY-MM-DD
 ordering.  In general, we also allow for textual representation of months, _e.g._, 'Jan'
@@ -254,8 +255,8 @@ anytime(c("2016-1-31", "2016-2-1"), useR=TRUE)
 
 The list of current formats can be retrieved by the `getFormats()`
 function. Users can also add to this list at run-time by calling
-`addFormats()`. User-provided formats are tried before the formats
-supplied by the package.
+`addFormats()`, as well as removing formats. User-provided formats are tried
+before the formats supplied by the package.
 
 ```{r}
 getFormats()
@@ -308,8 +309,8 @@ format, \pkg{anytime} accomodates this use provided a separator is used: either 
 
 As mentioned earlier, displaying only one digit for day and/or month is possible. An
 example would be "2010-2-4" for the fourth of February in 2010. However, the Boost parser
-does not recognise this and would require "2010-02-04".  Setting the option `useR=TRUE`
-switches to the R parser which does recognise this input.
+does not recognise this and would require "2010-02-04".  However, setting the option
+`useR=TRUE` switches to the R parser which does recognise this input.
 
 # Asserts
 
@@ -322,4 +323,4 @@ parsed input is returned invisibly.
 # Summary
 
 We describe the \pkg{anytime} package which offers fast, convenient and reliable date and
-datetime conversion for R users.
+datetime conversion for R users along with helper functions for formatting and assertions.

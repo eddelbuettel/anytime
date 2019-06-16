@@ -2,8 +2,11 @@
 
 	* vignettes/anytime-introduction.Rnw: Vignette wrapper with tip of
 	the hat to Mark van der Loo for his January 2019 blog post
-	* vignettes/rmd/anytime-intro.Rmd (output): Moved
+	* vignettes/rmd/anytime-intro.Rmd: Moved
 	* vignettes/rmd/anytime.bib: Idem
+
+	* vignettes/rmd/anytime-intro.Rmd: Updated
+	* vignettes/anytime-intro.pdf: Idem
 
 2019-06-15  Dirk Eddelbuettel  <edd@debian.org>
 
