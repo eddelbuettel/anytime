@@ -6,5 +6,5 @@
 %\VignetteEncoding{UTF-8}
 
 \begin{document}
-\includepdf[pages=-, fitpaper=true]{anytime-introduction.pdf}
+\includepdf[pages=-, fitpaper=true]{anytime-intro.pdf}
 \end{document}
