@@ -8,6 +8,8 @@
 	* vignettes/rmd/anytime-intro.Rmd: Updated
 	* vignettes/anytime-intro.pdf: Idem
 
+	* vignettes/anytime-intro.pdf: Ran compactPDF(gs_quality = "ebook")
+
 	* .codecov.yml (coverage): Make patch behaviour more quiet
 
 	* inst/tinytest/test_simple.R: Test old format
