@@ -10,6 +10,8 @@
 
 	* .codecov.yml (coverage): Make patch behaviour more quiet
 
+	* inst/tinytest/test_simple.R: Test old format
+
 2019-06-15  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/formats.R (iso8601): Switch format to ISO8601 use with T between

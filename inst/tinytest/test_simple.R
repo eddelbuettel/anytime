@@ -79,6 +79,9 @@ if (!isSolaris && !isWindows) {
     iso8601(anytime("2016-Sep-01 10:11:12"))
     iso8601(anydate("2016-Sep-01"))
     ignore(expect_warning)(iso8601("this won't work"))
+    options("anytime.oldISO8601format"=TRUE)
+    iso8601(anytime("2016-Sep-01 10:11:12"))
+    options("anytime.oldISO8601format"=FALSE)
 
     rfc2822(anytime("2016-Sep-01 10:11:12"))
     rfc2822(anydate("2016-Sep-01"))
