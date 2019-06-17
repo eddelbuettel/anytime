@@ -1,8 +1,10 @@
 
-isWindows <- Sys.info()[["sysname"]] == "Windows"
+library(anytime)
 
-if (!isWindows) {
-    library(anytime)
+isWindows <- Sys.info()[["sysname"]] == "Windows"
+isRelease <- length(unclass(packageVersion("anytime"))[[1]]) == 3
+
+if (!isWindows && !isRelease) {
 
     oldtz <- Sys.getenv("TZ")
 

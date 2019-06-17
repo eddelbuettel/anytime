@@ -1,20 +1,21 @@
+tz <- "UTC"
+Sys.setenv("TZ"=tz)
+
+library(anytime)
+anytime:::setTZ(tz)
+
 isSolaris <- Sys.info()[["sysname"]] == "SunOS"
 isWindows <- Sys.info()[["sysname"]] == "Windows"
+isRelease <- length(unclass(packageVersion("anytime"))[[1]]) == 3
 
 ## We turn off tests on Solaris with some regret, yet firmly, as the
 ## combined inability of CRAN to provide us a test platform (to
 ## examine test failures) along with the insistence on running these
 ## tests gives us no choice
 ## Ditto for Windoze
-if (!isSolaris && !isWindows) {
+if (!isSolaris && !isWindows && !isRelease) {
 
     options(digits.secs=6, width=70)
-
-    tz <- "UTC"
-    Sys.setenv("TZ"=tz)
-
-    library(anytime)
-    anytime:::setTZ(tz)
 
     ref <- format(as.POSIXct(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678")))
     expect_equal(ref, format(anytime(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678"))))
