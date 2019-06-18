@@ -1,3 +1,14 @@
+2019-06-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.3.4
+
+2019-06-17  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test_all_formats.R: Do not run test for releases
+	* inst/tinytest/test_bulk.R: Idem
+        * inst/tinytest/test_gh_issue_5.R: Idem
+        * inst/tinytest/test_validate.R: Idem
+
 2019-06-16  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/anytime-introduction.Rnw: Vignette wrapper with tip of
@@ -28,7 +39,7 @@
 
 	* DESCRIPTION (Version, Date): Roll minor version
 
-	* src/anytime.cpp (r_stringToTime): Use Sys.setenv() from if on
+	* src/anytime.cpp (r_stringToTime): Use Sys.setenv() from R on
 	Windows as the latter OS remains "special"
 
 	* inst/tinytest/test_all_formats.R: Exempt Windows from some tests
