@@ -1,5 +1,7 @@
 2019-06-23  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Roll minor version
+
 	* inst/tinytest/test_all_formats.R: Add three tests to complete
 	coverage
 
