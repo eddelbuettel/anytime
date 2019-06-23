@@ -1,3 +1,10 @@
+2019-06-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test_all_formats.R: Add three tests to complete
+	coverage
+
+	* src/anytime.cpp (convertToTime): Some #nocov attributes
+
 2019-06-18  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.3.4

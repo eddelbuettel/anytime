@@ -2,7 +2,7 @@
 //
 // anytime: Use Boost Date_Time to convert date(time) data to POSIXt
 //
-// Copyright (C) 2015 - 2018  Dirk Eddelbuettel
+// Copyright (C) 2015 - 2019  Dirk Eddelbuettel
 //
 // This file is part of anytime.
 //
@@ -379,7 +379,7 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
         std::string s = boost::lexical_cast<std::string>(val);
 
         if (s == "NA") {
-            pv[i] = NA_REAL;
+            pv[i] = NA_REAL;    					// #nocov
         } else {
             if (debug) Rcpp::Rcout << "before tests: " << s << std::endl;
             // Boost Date_Time gets the 'YYYYMMDD' format wrong, even
@@ -392,7 +392,7 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
 
                 if ((two.size()==5 || two.size() >= 8) &&          	// if we have hh:mm or hh:mm:ss[.ffffff]
                     !isAtLeastGivenLengthAndAllDigits(two, 6)) { 	// and it is not hhmmss
-                    three = "";    	                     		// do nothing, three remains ""
+                    three = "";    	                     		// do nothing, three remains "" #nocov
                 } else {
                     inp = two;
 
@@ -402,7 +402,7 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
                     if (two.size() == 6) {
                         two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
                     } else if (two.size() == 4) {
-                        two = two.substr(0, 2) + ":" + two.substr(2, 2);
+                        two = two.substr(0, 2) + ":" + two.substr(2, 2); // #nocov
                     }
                 }
 
@@ -415,10 +415,10 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
                 if (debug) Rcpp::Rcout << two << " " << " three: " << three << std::endl;
 
             } else if (isAtLeastGivenLengthAndAllDigits(two, 6)) {
-                if (two.size() == 6) {
+                if (two.size() == 6) { 					// #nocov start
                     two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
                 }
-                s = one + " " + two;
+                s = one + " " + two; 					// #nocov end
             } else {
                 if (debug) Rcpp::Rcout << "One: " << one << " " << "two: " << two << std::endl;
             }
@@ -497,7 +497,7 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         return Rcpp::DatetimeVector(x, asUTC ? "UTC" : tz.c_str());
 
     } else {
-        Rcpp::stop("Unsupported Type");	// bug in 0.12.{7,8}; Rcpp 0.12.9 or latyer ok
+        Rcpp::stop("Unsupported Type");	// bug in 0.12.{7,8}; Rcpp 0.12.9 or later ok #nocov
         return R_NilValue;//not reached
     }
 }

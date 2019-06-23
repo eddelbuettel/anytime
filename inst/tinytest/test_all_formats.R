@@ -90,3 +90,7 @@ if (!isSolaris && !isWindows && !isRelease) {
     #cat("Next call will tickle exception\n")
     expect_error(anytime(TRUE))		# tickles unsupported type -- and exception, hence try()
 }
+
+expect_true(inherits(anytime(as.POSIXlt(Sys.time())), "POSIXt"))
+expect_true(inherits(anytime(Sys.Date()), "POSIXt"))
+expect_equal(class(utcdate(Sys.Date())), "Date")
