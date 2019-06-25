@@ -175,7 +175,7 @@ anytime <- function(x, tz=getTZ(), asUTC=FALSE, useR=FALSE,
         x <- as.character(x)
     }
 
-    anytime_cpp(x, tz=tz, asUTC=asUTC, useR=useR, oldHeuristic=oldHeuristic)
+    anytime_cpp(x, tz=tz, asUTC=asUTC, asDate=FALSE, useR=useR, oldHeuristic=oldHeuristic)
 }
 
 ##' @rdname anytime
