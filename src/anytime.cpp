@@ -342,7 +342,7 @@ double r_stringToTime(const std::string s, const std::string tz,
     }
 #ifdef _WIN32
     Rcpp::Function f("Sys.setenv");
-    f("TZ", (oldtz == nullptr ? "" : oldtz), 1);
+    f(Rcpp::Named("TZ") = (oldtz == nullptr ? "" : oldtz));
 #else
     setenv("TZ", (oldtz == nullptr ? "" : oldtz), 1);
 #endif
