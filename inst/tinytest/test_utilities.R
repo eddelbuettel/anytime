@@ -1,8 +1,6 @@
 
 library(anytime)
 
-isWindows <- Sys.info()[["sysname"]] == "Windows"
-
 input <- "2016-09-01 10:11:12"
 s <- anytime(input)
 
@@ -24,4 +22,4 @@ expect_false(identical(f1, f2))
 
 anytime:::setTZ("America/Chicago")
 
-if (!isWindows) expect_equal(anytime:::format(s), "2016-09-01 10:11:12.000000")
+expect_equal(anytime:::format(s), "2016-09-01 10:11:12.000000")

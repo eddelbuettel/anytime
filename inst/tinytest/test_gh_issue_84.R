@@ -12,7 +12,7 @@
 
 isWindows <- Sys.info()[["sysname"]] == "Windows"
 
-if (!isWindows) {
+if (!isWindows | TRUE) {
     Sys.setenv(TZ = "Europe/London")
     x <- c("2016-01-01 00:00", "2016-10-01 00:00",
            "2016-12-09 00:00", "2016-12-09 10:00")

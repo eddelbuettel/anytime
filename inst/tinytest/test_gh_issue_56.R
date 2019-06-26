@@ -9,7 +9,7 @@ expect_true(is.finite(anytime(20170101L)))
 expect_true(is.finite(anydate(20170101L)))
 
 ## overflows on Windows, sadly
-if (.Platform$OS.type != "windows") {
+if (.Platform$OS.type != "windows" | TRUE) {
     ## these are (with the default cutoff of 29991231) interpreted as seconds-since-epoch
     anytime:::setMaxIntAsYYYYMMDD(39991231L)
     expect_true(is.finite(anytime(30010203L)))
