@@ -138,7 +138,7 @@ via a standard
 install.packages("anytime")
 ```
 
-## Continued Testing
+### Continued Testing
 
 As we rely on the [tinytest](https://cran.r-project.org/package=tinytest) package, the
 already-installed package can also be verified via

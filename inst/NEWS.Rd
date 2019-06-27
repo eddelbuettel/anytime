@@ -3,6 +3,15 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in anytime version 0.3.5 (2019-xx-yy)}{
+  \itemize{
+    \item Fix use of \code{Rcpp::Function}-accessed \code{Sys.setenv()},
+    name all arguments in call to C++ (Christoph Sax in \ghpr{95})
+    \item Relax constraint on Windows testing in several test files
+    (Christoph Sax in \ghpr{97}) 
+  }
+}
+
 \section{Changes in anytime version 0.3.4 (2019-06-18)}{
   \itemize{
     \item Documentation was updated about a 'Europe/London' conversion

@@ -1,3 +1,18 @@
+2019-06-27  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+2019-06-26  Christoph Sax  <christoph.sax@gmail.com>
+
+	* src/anytime.cpp: Correct use via Rcpp::Function imported
+	Sys.setenv on Windows
+	* R/anytime.R: Use all argument to anytime_cpp()
+
+	* inst/tinytest/test_gh_issue_56.R: Relax Windows test constraint
+	* inst/tinytest/test_gh_issue_84.R: Idem
+	* inst/tinytest/test_simple.R: Idem
+	* inst/tinytest/test_utilities.R: Idem
+	
 2019-06-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
