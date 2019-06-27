@@ -10,24 +10,20 @@
 ##     stopifnot(expected == format(anytime::utctime("2018-10-01 00:00:00", tz = "UTC")))
 ## }
 
-isWindows <- Sys.info()[["sysname"]] == "Windows"
+Sys.setenv(TZ = "Europe/London")
+x <- c("2016-01-01 00:00", "2016-10-01 00:00",
+       "2016-12-09 00:00", "2016-12-09 10:00")
+anytime::utctime(x, tz = "UTC")
+anytime::utctime(x, tz = "UTC", useR=TRUE)
 
-if (!isWindows) {
-    Sys.setenv(TZ = "Europe/London")
-    x <- c("2016-01-01 00:00", "2016-10-01 00:00",
-           "2016-12-09 00:00", "2016-12-09 10:00")
-    anytime::utctime(x, tz = "UTC")
-    anytime::utctime(x, tz = "UTC", useR=TRUE)
+Sys.setenv(TZ = "UTC")
+x <- c("2016-07-01 00:00", "2016-07-01 00:00",
+       "2016-12-09 00:00", "2016-12-09 10:00")
+anytime::utctime(x, tz = "UTC")
+anytime::utctime(x, tz = "UTC", useR=TRUE)
 
-    Sys.setenv(TZ = "UTC")
-    x <- c("2016-07-01 00:00", "2016-07-01 00:00",
-           "2016-12-09 00:00", "2016-12-09 10:00")
-    anytime::utctime(x, tz = "UTC")
-    anytime::utctime(x, tz = "UTC", useR=TRUE)
-
-    Sys.setenv(TZ = "Australia/Melbourne")
-    x <- c("2016-01-01 00:00", "2016-10-01 00:00",
-           "2016-12-09 00:00", "2016-12-09 10:00")
-    anytime::utctime(x, tz = "UTC")
-    anytime::utctime(x, tz = "UTC", useR=TRUE)
-}
+Sys.setenv(TZ = "Australia/Melbourne")
+x <- c("2016-01-01 00:00", "2016-10-01 00:00",
+       "2016-12-09 00:00", "2016-12-09 10:00")
+anytime::utctime(x, tz = "UTC")
+anytime::utctime(x, tz = "UTC", useR=TRUE)

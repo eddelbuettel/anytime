@@ -11,7 +11,7 @@ isWindows <- Sys.info()[["sysname"]] == "Windows"
 ## not have a Windows machine.
 ##
 ## Anybody who would like to contribute please get in touch.
-if (!isSolaris && !isWindows) {
+if (!isSolaris) {
 
     library(anytime)
 
@@ -33,36 +33,36 @@ if (!isSolaris && !isWindows) {
 
     ## Dates: Factor
     expect_equivalent(refD, anydate(as.factor(20160101 + 0:2)))
-    expect_equivalent(refT, anytime(as.factor(20160101 + 0:2)))
+    if (!isWindows) expect_equivalent(refT, anytime(as.factor(20160101 + 0:2)))
 
     ## Dates: Ordered
     expect_equivalent(refD, anydate(as.ordered(20160101 + 0:2)))
-    expect_equivalent(refT, anytime(as.ordered(20160101 + 0:2)))
+    if (!isWindows) expect_equivalent(refT, anytime(as.ordered(20160101 + 0:2)))
 
     ## Dates: Character
     expect_equivalent(refD, anydate(as.character(20160101 + 0:2)))
-    expect_equivalent(refT, anytime(as.character(20160101 + 0:2)))
+    if (!isWindows) expect_equivalent(refT, anytime(as.character(20160101 + 0:2)))
 
     ## Dates: alternate formats
     expect_equivalent(refD, anydate(c("20160101", "2016/01/02", "2016-01-03")))
-    expect_equivalent(refT, anytime(c("20160101", "2016/01/02", "2016-01-03")))
+    if (!isWindows) expect_equivalent(refT, anytime(c("20160101", "2016/01/02", "2016-01-03")))
 
     ## Datetime: ISO with/without fractional seconds
     refPt <- as.POSIXct(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"))
-    expect_equivalent(refPt, anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678")))
+    if (!isWindows) expect_equivalent(refPt, anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678")))
 
     ## Datetime: ISO alternate (?) with 'T' separator
     ## Only works with ' '
-    expect_equivalent(refPt, anytime(c("20160101 101112", "20160101 101112.345678")))
+    if (!isWindows) expect_equivalent(refPt, anytime(c("20160101 101112", "20160101 101112.345678")))
 
     ## Datetime: textual month formats
     ref3 <- rep(as.POSIXct("2016-09-01 10:11:12"), 3)
-    expect_equivalent(ref3,
+    if (!isWindows) expect_equivalent(ref3,
                       anytime(c("2016-Sep-01 10:11:12", "Sep/01/2016 10:11:12",
                                 "Sep-01-2016 10:11:12")))
 
     ## Datetime: Mixed format (cf http://stackoverflow.com/questions/39259184)
-    expect_equivalent(refPt,
+    if (!isWindows) expect_equivalent(refPt,
                       anytime(c("Thu Jan 01 10:11:12 2016", "Thu Jan 01 10:11:12.345678 2016")))
 
     ## Datetime: pre/post DST
