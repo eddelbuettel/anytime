@@ -2,6 +2,8 @@
 
 	* inst/tinytest/test_gh_issue_96.R: New test file
 
+        * .travis.yml (install): Use r-cran-tinytest from PPA
+
 2019-06-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
