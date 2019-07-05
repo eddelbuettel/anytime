@@ -1,3 +1,7 @@
+2019-07-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test_gh_issue_96.R: New test file
+
 2019-06-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
