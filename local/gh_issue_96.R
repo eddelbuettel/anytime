@@ -10,3 +10,7 @@ as.POSIXct(input)
 n1 <- as.numeric(anytime(input, useR = TRUE))
 n2 <- as.numeric(anytime(input))
 n3 <- as.numeric(as.POSIXct(input))
+
+cat("n1 - n2: ", n1 - n2, "\n")
+cat("n1 - n3: ", n1 - n3, "\n")
+cat("n2 - n3: ", n2 - n3, "\n")
