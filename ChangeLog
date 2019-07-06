@@ -1,10 +1,4 @@
-2019-07-06  Dirk Eddelbuettel  <edd@debian.org>
-
-	* inst/tinytest/test_gh_issue_96.R: Special case Windows
-
 2019-07-05  Dirk Eddelbuettel  <edd@debian.org>
-
-	* inst/tinytest/test_gh_issue_96.R: New test file
 
         * .travis.yml (install): Use r-cran-tinytest from PPA
 
