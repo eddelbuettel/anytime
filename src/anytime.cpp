@@ -157,7 +157,7 @@ static std::string setupTZ;
 // account for localtime, and also account for dst
 double ptToDouble(const bt::ptime & pt, const bool asDate=false) {
 
-    //This local adjustor depends on the machine TZ settings-- highly dangerous!
+    // This local adjustor depends on the machine TZ settings-- highly dangerous!
     typedef boost::date_time::c_local_adjustor<bt::ptime> local_adj;
 
     const bt::ptime timet_start(boost::gregorian::date(1970,1,1));
@@ -165,8 +165,10 @@ double ptToDouble(const bt::ptime & pt, const bool asDate=false) {
 
     // seconds sincr epoch (in local time) -- misses DST adjustment
     bt::time_duration tdiff = pt - local_timet_start;
-    //Rcpp::Rcout << "tdiff is " << tdiff << std::endl;
-    //Rcpp::Rcout << "pt is " << pt << std::endl;
+    if (debug) {
+        Rcpp::Rcout << "tdiff in sec is " << tdiff.total_seconds()
+                    << " and pt is " << pt << std::endl;
+    }
 
     if (asDate) {
         if (debug) Rcpp::Rcout << "days " << pt.date().day_number() - timet_start.date().day_number() << std::endl;
@@ -192,6 +194,7 @@ double ptToDouble(const bt::ptime & pt, const bool asDate=false) {
 #else
     dstadj = localAsTm->tm_isdst*60*60;
 #endif
+    if (debug) Rcpp::Rcout << "totsec secs is " << std::setprecision(16) << totsec << " and dstadj is " << dstadj << std::endl;
     return totsec - dstadj;
 }
 
@@ -225,6 +228,14 @@ double stringToTime(const std::string s, const bool asUTC=false, const bool asDa
 
     if (pt == ptbase) return NA_REAL; // NA for non-parsed dates
 
+    if (debug) {
+        int utc = static_cast<int>(ptToDoubleUTC(pt));
+        int loc = static_cast<int>(ptToDouble(pt));
+        Rcpp::Rcout << "Boost parsed as " << pt
+                    << " which is UTC " << utc
+                    << " local " << loc
+                    << " diff " << utc-loc << std::endl;
+    }
     if (asUTC) {
         return ptToDoubleUTC(pt, asDate);
     } else {
