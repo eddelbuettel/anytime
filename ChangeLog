@@ -1,5 +1,8 @@
 2019-07-14  Dirk Eddelbuettel  <edd@debian.org>
 
+	* R/anytime.R: Add a paragraph warning about possibly issue on
+	Windows due to Boost ignoring TZ (but using the tzutil program)
+
 	* tests/tinytest.R: Call as utils::packageVersions()
         * inst/tinytest/test_all_formats.R: Idem
         * inst/tinytest/test_bulk.R: Idem

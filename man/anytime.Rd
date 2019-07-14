@@ -115,6 +115,20 @@ to \sQuote{Europe/London}, see GitHub issue tickets
 pointed out in the comment in that last one, the
 \code{\link{Sys.timezone}} manual page suggests several
 alternatives to using \sQuote{Europe/London} such as \sQuote{GB}.
+
+Yet another known issue arises on Windows due to designs in the
+Boost library. While we can set the \code{TZ} library variable,
+Boost actually does \emph{not} consult it but rather relies only
+on the (Windows) tool \code{tzutil}. This means that default
+behaviour should be as expected: dates and/or times are parsed to
+the local settings.  But testing different \code{TZ} values (or
+more precisely, changes via the (unexported) helper function
+\code{setTZ} function as we cache \code{TZ}) will only influence
+the behaviour on Unix or Unix-alike operating systems and not on
+Windows.  If such a change is desired, use the \code{useR=TRUE}
+flag to select the R date and time parser. See
+\href{https://github.com/eddelbuettel/anytime/issues/96}{issue
+ticket 96} for more.
 }
 
 \section{Operating System Impact}{
