@@ -1,3 +1,12 @@
+2019-07-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tests/tinytest.R: Call as utils::packageVersions()
+        * inst/tinytest/test_all_formats.R: Idem
+        * inst/tinytest/test_bulk.R: Idem
+        * inst/tinytest/test_gh_issue_5.R: Idem
+        * inst/tinytest/test_utilities.R: Idem
+        * inst/tinytest/test_validate.R: Idem
+
 2019-07-08  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (ptToDouble): Another debug message
@@ -20,7 +29,7 @@
 	* inst/tinytest/test_gh_issue_84.R: Idem
 	* inst/tinytest/test_simple.R: Idem
 	* inst/tinytest/test_utilities.R: Idem
-	
+
 2019-06-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version

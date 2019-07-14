@@ -6,7 +6,7 @@ anytime:::setTZ(tz)
 
 isSolaris <- Sys.info()[["sysname"]] == "SunOS"
 isWindows <- Sys.info()[["sysname"]] == "Windows"
-isRelease <- length(unclass(packageVersion("anytime"))[[1]]) == 3
+isRelease <- length(unclass(utils::packageVersion("anytime"))[[1]]) == 3
 
 ## We turn off tests on Solaris with some regret, yet firmly, as the
 ## combined inability of CRAN to provide us a test platform (to

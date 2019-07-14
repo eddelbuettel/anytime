@@ -11,7 +11,7 @@ library(anytime)                        # load it early to test verseion
 ## tests gives us no choice
 isSolaris <- Sys.info()[["sysname"]] == "SunOS"
 isWindows <- Sys.info()[["sysname"]] == "Windows"
-isRelease <- length(unclass(packageVersion("anytime"))[[1]]) == 3
+isRelease <- length(unclass(utils::packageVersion("anytime"))[[1]]) == 3
 
 if (!isSolaris && !isWindows && !isRelease) {
 

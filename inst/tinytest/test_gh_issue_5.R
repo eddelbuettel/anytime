@@ -4,7 +4,7 @@ library(anytime)
 anytime:::setTZ("Australia/Sydney")
 
 isWindows <- Sys.info()[["sysname"]] == "Windows"
-isRelease <- length(unclass(packageVersion("anytime"))[[1]]) == 3
+isRelease <- length(unclass(utils::packageVersion("anytime"))[[1]]) == 3
 
 refD <- as.Date("2015-01-01")
 refT <- as.POSIXct(as.POSIXlt("2015-01-01"))
