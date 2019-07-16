@@ -334,29 +334,28 @@ const std::string rformats[] = {
 const size_t nrformats = sizeof(rformats)/sizeof(rformats[0]);
 
 // conversion of ptime object to double done by ptToDouble()
-double r_stringToTime(const std::string s, const std::string tz,
-                      const bool asUTC=false, const bool asDate=false) {
+double r_stringToTime(const std::string s, const bool asUTC=false, const bool asDate=false) {
 
-    const char* oldtz = getenv("TZ");
+    const char* oldtz = asUTC ? "UTC" : getenv("TZ");
     bool done = false;
     double res = NA_REAL;
     SEXP ss = Rcpp::wrap(s);
-    SEXP tzs = Rcpp::wrap(tz);
+    SEXP tzs = Rcpp::wrap(oldtz);
 
     // loop over formats and try them til one fits
     for (size_t i=0; !done && i < nrformats; ++i) {
         // asPOSIXct and Rstrptime are both from RApiDatetime
         Rcpp::Shield<SEXP> sp(Rstrptime(ss, Rcpp::wrap(rformats[i]), tzs));
-        Rcpp::Shield<SEXP> ct(asPOSIXct(sp, tzs));;
-        res = Rcpp::as<double>(ct);
+        if (asDate) {
+            Rcpp::Shield<SEXP> d1(POSIXlt2D(sp));
+            Rcpp::Date d2 = Rcpp::as<Rcpp::Date>(d1);
+            res = d2.getDate();
+        } else {
+            Rcpp::Shield<SEXP> ct(asPOSIXct(sp, tzs));
+            res = Rcpp::as<double>(ct);
+        }
         done = ! Rcpp::traits::is_na<REALSXP>(res);
     }
-#ifdef _WIN32
-    Rcpp::Function f("Sys.setenv");
-    f(Rcpp::Named("TZ") = (oldtz == nullptr ? "" : oldtz));
-#else
-    setenv("TZ", (oldtz == nullptr ? "" : oldtz), 1);
-#endif
     return res;
 }
 
@@ -439,7 +438,7 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
             // Given the string, convert to a POSIXct using an interim double
             // of fractional seconds since the epoch
             if (useR) {
-                pv[i] = r_stringToTime(s, tz, asUTC, asDate);
+                pv[i] = r_stringToTime(s, asUTC, asDate);
             } else {
                 pv[i] = stringToTime(s, asUTC, asDate);
             }
