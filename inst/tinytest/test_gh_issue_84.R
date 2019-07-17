@@ -10,7 +10,9 @@
 ##     stopifnot(expected == format(anytime::utctime("2018-10-01 00:00:00", tz = "UTC")))
 ## }
 
-Sys.setenv(TZ = "Europe/London")
+Sys.setenv(TZ = "UTC")
+library(anytime)
+
 x <- c("2016-01-01 00:00", "2016-10-01 00:00",
        "2016-12-09 00:00", "2016-12-09 10:00")
 anytime::utctime(x, tz = "UTC")

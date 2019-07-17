@@ -336,7 +336,8 @@ const size_t nrformats = sizeof(rformats)/sizeof(rformats[0]);
 // conversion of ptime object to double done by ptToDouble()
 double r_stringToTime(const std::string s, const bool asUTC=false, const bool asDate=false) {
 
-    const char* oldtz = asUTC ? "UTC" : getenv("TZ");
+    char oldtz[32];
+    snprintf(oldtz, 31, "%s", asUTC ? "UTC" : getenv("TZ"));
     bool done = false;
     double res = NA_REAL;
     SEXP ss = Rcpp::wrap(s);
