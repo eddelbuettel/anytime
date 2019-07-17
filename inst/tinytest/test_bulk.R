@@ -603,6 +603,7 @@ if (!isSolaris && !isWindows && !isRelease) {
     )
 
     fullPOSIXctEx <- function(tstr) {
+        at <- format(anytime(tstr, tz=tzvec[1]))
         for (tz in tzvec) {
             ## for anytime, the returned POSIXct object has the 'target' timezone (default is local)
             at <- format(   anytime(tstr, tz=tz)        )

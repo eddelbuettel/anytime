@@ -1,3 +1,13 @@
+2019-07-16  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+	* src/anytime.cpp (r_stringToTime): Skip tz argument, change
+	internal conversion logic and reflect optional asDate argument
+
+	* inst/tinytest/test_r_format.R: Skip for now
+	* inst/tinytest/test_bulk.R (fullPOSIXctEx): Set TZ once
+
 2019-07-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/anytime.R: Add a paragraph warning about possibly issue on
