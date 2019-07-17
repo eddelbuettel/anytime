@@ -371,7 +371,6 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
 
     // step one: create a results vector, and class it as POSIXct
     int n = sxpvec.size();
-    Rprintf("tz=%s\n", tz.c_str());
     Rcpp::DatetimeVector pv(n, tz.c_str());
     // if (asDate) {
     //     pv.attr("class") = Rcpp::CharacterVector::create("Date");
