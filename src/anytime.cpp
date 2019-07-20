@@ -33,8 +33,6 @@
 #define STRICT_R_HEADERS
 #include <Rcpp.h>
 
-#include <RApiDatetime.h>
-
 namespace bt = boost::posix_time;
 namespace ba = boost::algorithm;
 
@@ -261,7 +259,6 @@ bool isAtLeastGivenLengthAndAllDigits(const std::string& s, const unsigned int n
     return res;
 }
 
-// ---
 // R-based ranytime below
 
 const std::string rformats[] = {
@@ -333,23 +330,22 @@ const size_t nrformats = sizeof(rformats)/sizeof(rformats[0]);
 // conversion of ptime object to double done by ptToDouble()
 double r_stringToTime(const std::string s, const bool asUTC=false, const bool asDate=false) {
 
-    char oldtz[32];
-    snprintf(oldtz, 31, "%s", asUTC ? "UTC" : getenv("TZ"));
     bool done = false;
     double res = NA_REAL;
     SEXP ss = Rcpp::wrap(s);
-    SEXP tzs = Rcpp::wrap(oldtz);
 
     // loop over formats and try them til one fits
     for (size_t i=0; !done && i < nrformats; ++i) {
-        // asPOSIXct and Rstrptime are both from RApiDatetime
-        Rcpp::Shield<SEXP> sp(Rstrptime(ss, Rcpp::wrap(rformats[i]), tzs));
+        Rcpp::Function rstrptime("strptime");
+        Rcpp::Shield<SEXP> sp(rstrptime(ss, Rcpp::wrap(rformats[i])));//, tzs));
         if (asDate) {
-            Rcpp::Shield<SEXP> d1(POSIXlt2D(sp));
+            Rcpp::Function rasdateposixlt("as.Date.POSIXlt");
+            Rcpp::Shield<SEXP> d1(rasdateposixlt(sp));
             Rcpp::Date d2 = Rcpp::as<Rcpp::Date>(d1);
             res = d2.getDate();
         } else {
-            Rcpp::Shield<SEXP> ct(asPOSIXct(sp, tzs));
+            Rcpp::Function rasposixct("as.POSIXct");
+            Rcpp::Shield<SEXP> ct(rasposixct(sp));//, tzs));
             res = Rcpp::as<double>(ct);
         }
         done = ! Rcpp::traits::is_na<REALSXP>(res);
@@ -357,7 +353,6 @@ double r_stringToTime(const std::string s, const bool asUTC=false, const bool as
     return res;
 }
 
-// ---
 
 
 template <class T, int RTYPE>
