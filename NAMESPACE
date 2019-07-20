@@ -13,5 +13,4 @@ export("anytime",
        "assertTime")
 importFrom("Rcpp", "evalCpp")
 importFrom("utils", "head")
-import("RApiDatetime")
-useDynLib(anytime, .registration=TRUE)
+useDynLib("anytime", .registration=TRUE)

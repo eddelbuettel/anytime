@@ -13,7 +13,7 @@ isSolaris <- Sys.info()[["sysname"]] == "SunOS"
 isWindows <- Sys.info()[["sysname"]] == "Windows"
 isRelease <- length(unclass(utils::packageVersion("anytime"))[[1]]) == 3
 
-if (!isSolaris && !isWindows && !isRelease) {
+if (!isSolaris && !isWindows) {
 
     verbose <- FALSE
 

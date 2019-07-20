@@ -3,6 +3,12 @@
 	* src/anytime.cpp (r_stringToTime): Use Rcpp::Function to access R
 	functionality instead of using RApiDatetime
 
+	* DESCRIPTION: No longer import RApiDatetime
+	* NAMESPACE: Idem
+
+        * inst/tinytest/test_all_formats.R: Loosen Windows test restrictions
+	* inst/tinytest/test_gh_issue_96.R: Idem
+
 2019-07-17  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp: A few minor #nocov additions

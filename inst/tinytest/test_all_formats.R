@@ -5,15 +5,14 @@ library(anytime)
 anytime:::setTZ(tz)
 
 isSolaris <- Sys.info()[["sysname"]] == "SunOS"
-isWindows <- Sys.info()[["sysname"]] == "Windows"
-isRelease <- length(unclass(utils::packageVersion("anytime"))[[1]]) == 3
+#isWindows <- Sys.info()[["sysname"]] == "Windows"
+#isRelease <- length(unclass(utils::packageVersion("anytime"))[[1]]) == 3
 
 ## We turn off tests on Solaris with some regret, yet firmly, as the
 ## combined inability of CRAN to provide us a test platform (to
 ## examine test failures) along with the insistence on running these
 ## tests gives us no choice
-## Ditto for Windoze
-if (!isSolaris && !isWindows && !isRelease) {
+if (!isSolaris) {
 
     options(digits.secs=6, width=70)
 

@@ -12,5 +12,5 @@ n2 <- as.numeric(anytime(input))
 n3 <- as.numeric(as.POSIXct(input))
 
 if (!isWindows) expect_equal(n1, n2)
-if (!isWindows) expect_equal(n1, n3)
+expect_equal(n1, n3)
 if (!isWindows) expect_equal(n2, n3)
