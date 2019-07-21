@@ -1,4 +1,10 @@
+2019-07-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test_r_format.R: Deactivate test as it fails on Travis
+
 2019-07-20  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
 
 	* src/anytime.cpp (r_stringToTime): Use Rcpp::Function to access R
 	functionality instead of using RApiDatetime

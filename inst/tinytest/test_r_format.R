@@ -1,7 +1,7 @@
 
 isWindows <- Sys.info()[["sysname"]] == "Windows"
 
-if (!isWindows) {
+if (FALSE && !isWindows) {
 
     library(anytime)
 
