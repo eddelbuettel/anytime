@@ -133,7 +133,7 @@
 ##' @param asUTC A logical value indicating if parsing should be to UTC; default
 ##' is false implying localtime.
 ##' @param useR A logical value indicating if conversion should be done via code
-##' from R (via package \pkg{RApiDatetime}) or via the Boost routines.
+##' from R (via \code{Rcpp::Function}) or via the Boost routines.
 ##' @param oldHeuristic Behave versions up to and including 0.2.2 did and interpret
 ##' a numeric or integer value that could be seen as a YYYYMMDD as a date. If
 ##' the default value \code{FALSE} is seen, then date offset for used for dates,

@@ -36,7 +36,7 @@ return value is still a \code{POSIXt} object instead of a character value.}
 is false implying localtime.}
 
 \item{useR}{A logical value indicating if conversion should be done via code
-from R (via package \pkg{RApiDatetime}) or via the Boost routines.}
+from R (via \code{Rcpp::Function}) or via the Boost routines.}
 
 \item{oldHeuristic}{Behave versions up to and including 0.2.2 did and interpret
 a numeric or integer value that could be seen as a YYYYMMDD as a date. If
@@ -125,8 +125,7 @@ the local settings.  But testing different \code{TZ} values (or
 more precisely, changes via the (unexported) helper function
 \code{setTZ} function as we cache \code{TZ}) will only influence
 the behaviour on Unix or Unix-alike operating systems and not on
-Windows.  If such a change is desired, use the \code{useR=TRUE}
-flag to select the R date and time parser. See
+Windows.  See the discussion at
 \href{https://github.com/eddelbuettel/anytime/issues/96}{issue
 ticket 96} for more.
 }

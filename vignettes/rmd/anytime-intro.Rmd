@@ -269,9 +269,9 @@ will only work with 2001-02-03 which is somewhat more restrictive.
 
 As an alternative, and to be as close to parsing by the R language and
 system, we also support the parser from R itself.  As R does not provide
-access via its API, we use the \pkg{RApiDatetime} package
-\citep{CRAN:RApiDatetime}.  This is shown in the second invocation of
-`anytime()` in the preceding example.
+access via its API, we use the \pkg{Rcpp} package \citep{Eddelbuettel:2013,
+CRAN:Rcpp}.  This is shown in the second invocation of `anytime()` in the
+preceding example.
 
 # Output Formats
 
