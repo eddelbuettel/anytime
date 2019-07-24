@@ -94,7 +94,9 @@
 ##' the behaviour on Unix or Unix-alike operating systems and not on
 ##' Windows.  See the discussion at
 ##' \href{https://github.com/eddelbuettel/anytime/issues/96}{issue
-##' ticket 96} for more.
+##' ticket 96} for more. In short, the recommendation for Windows
+##' user is to also set \code{useR=TRUE} when setting a timezone
+##' argument.
 ##'
 ##' @section Operating System Impact:
 ##' On Windows systems, accessing the \code{isdst} flag on dates or times
@@ -133,7 +135,10 @@
 ##' @param asUTC A logical value indicating if parsing should be to UTC; default
 ##' is false implying localtime.
 ##' @param useR A logical value indicating if conversion should be done via code
-##' from R (via \code{Rcpp::Function}) or via the Boost routines.
+##' from R (via \code{Rcpp::Function}) instead of the default Boost routines. The
+##' default value is the value of the option \code{anytimeUseRConversions} with a
+##' fallback of \code{FALSE} if the option is unset. In other words, this will
+##' be false by default but can be set to true via an option.
 ##' @param oldHeuristic Behave versions up to and including 0.2.2 did and interpret
 ##' a numeric or integer value that could be seen as a YYYYMMDD as a date. If
 ##' the default value \code{FALSE} is seen, then date offset for used for dates,
@@ -169,8 +174,11 @@
 ##' anytime("2001-02-03 04:05:06", tz="America/Los_Angeles")
 ##' ## somewhat equvalent base R functionality
 ##' format(anytime("2001-02-03 04:05:06"), tz="America/Los_Angeles")
-anytime <- function(x, tz=getTZ(), asUTC=FALSE, useR=FALSE,
-                    oldHeuristic=getOption("anytimeOldHeuristic", FALSE)) {
+anytime <- function(x,
+                    tz = getTZ(),
+                    asUTC = FALSE,
+                    useR = getOption("anytimeUseRConversions", FALSE),
+                    oldHeuristic = getOption("anytimeOldHeuristic", FALSE)) {
 
     if (inherits(x, "POSIXt")) {
         return(as.POSIXct(x, tz=tz))

@@ -1,3 +1,22 @@
+## anytime: Use Boost Date_Time to convert date(time) data to POSIXt
+##
+## Copyright (C) 2017 - 2019  Dirk Eddelbuettel
+##
+## This file is part of anytime.
+##
+## anytime is free software: you can redistribute it and/or modify it
+## under the terms of the GNU General Public License as published by
+## the Free Software Foundation, either version 2 of the License, or
+## (at your option) any later version.
+##
+## anytime is distributed in the hope that it will be useful, but
+## WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with anytime.  If not, see <http://www.gnu.org/licenses/>.
+
 ##' Converts its input to type \code{Date} (or \code{POSIXct}), and asserts
 ##' that the content is in fact of suitable type by checking for remaining
 ##' \code{NA}

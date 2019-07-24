@@ -7,7 +7,8 @@
 \alias{utcdate}
 \title{Parse POSIXct or Date objects from input data}
 \usage{
-anytime(x, tz = getTZ(), asUTC = FALSE, useR = FALSE,
+anytime(x, tz = getTZ(), asUTC = FALSE,
+  useR = getOption("anytimeUseRConversions", FALSE),
   oldHeuristic = getOption("anytimeOldHeuristic", FALSE))
 
 anydate(x, tz = getTZ(), asUTC = FALSE, useR = FALSE)
@@ -36,7 +37,10 @@ return value is still a \code{POSIXt} object instead of a character value.}
 is false implying localtime.}
 
 \item{useR}{A logical value indicating if conversion should be done via code
-from R (via \code{Rcpp::Function}) or via the Boost routines.}
+from R (via \code{Rcpp::Function}) instead of the default Boost routines. The
+default value is the value of the option \code{anytimeUseRConversions} with a
+fallback of \code{FALSE} if the option is unset. In other words, this will
+be false by default but can be set to true via an option.}
 
 \item{oldHeuristic}{Behave versions up to and including 0.2.2 did and interpret
 a numeric or integer value that could be seen as a YYYYMMDD as a date. If
@@ -127,7 +131,9 @@ more precisely, changes via the (unexported) helper function
 the behaviour on Unix or Unix-alike operating systems and not on
 Windows.  See the discussion at
 \href{https://github.com/eddelbuettel/anytime/issues/96}{issue
-ticket 96} for more.
+ticket 96} for more. In short, the recommendation for Windows
+user is to also set \code{useR=TRUE} when setting a timezone
+argument.
 }
 
 \section{Operating System Impact}{

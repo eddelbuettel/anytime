@@ -1,7 +1,7 @@
 
 ## anytime: Use Boost Date_Time to convert date(time) data to POSIXt
 ##
-## Copyright (C) 2015 - 2017  Dirk Eddelbuettel
+## Copyright (C) 2015 - 2019  Dirk Eddelbuettel
 ##
 ## This file is part of anytime.
 ##

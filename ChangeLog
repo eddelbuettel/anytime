@@ -1,3 +1,8 @@
+2019-07-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/anytime.R (anytime): The useR argument can now be set via an option
+	* man/anytime.Rd: Ditto
+
 2019-07-21  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/test_r_format.R: Deactivate test as it fails on Travis
