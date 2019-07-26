@@ -24,10 +24,10 @@ performant) conversion. `anydate()` is an additional wrapper returning a `Date` 
 
 ### Examples
 
-We show some simple examples on `Date` types. 
+We show some simple examples on `Date` types.
 
-(Note that in the first few examples, and for numeric conversion in this range we now 
-only use `anydate` as `anytime` is consistent in computing seconds since epoch. If you want the 
+(Note that in the first few examples, and for numeric conversion in this range we now
+only use `anydate` as `anytime` is consistent in computing seconds since epoch. If you want the
 behaviour of version older than 0.3.0, set `oldHeuristic=TRUE`, see `help(anytime)` for more.)
 
 #### From Integer or Numeric or Factor or Ordered
@@ -110,16 +110,22 @@ anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"), tz="UTC")  # important:
 ### Technical Details
 
 The heavy lifting is done by a combination of
-[Boost lexical_cast](http://www.boost.org/doc/libs/1_61_0/doc/html/boost_lexical_cast.html) to go
+[Boost lexical_cast](http://www.boost.org/doc/libs/1_70_0/doc/html/boost_lexical_cast.html) to go
 from _anything_ to string representation which is then parsed by
-[Boost Date_Time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html).  We use the
+[Boost Date_Time](http://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html).  We use the
 [BH package](http://dirk.eddelbuettel.com/code/bh.html) to access [Boost](http://www.boost.org), and
 rely on [Rcpp](http://dirk.eddelbuettel.com/code/rcpp.html) for a seamless C++ interface to and from
 [R](https://www.r-project.org).
 
+Further, as the [Boost
+Date_Time](http://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html)
+library cannot resolve timezones on the Windows platform (where timezone information is typically provided by R itself for its use), we offer a fallback of calling into R (via facilities from
+[Rcpp](http://dirk.eddelbuettel.com/code/rcpp.html)); see the help for
+the `useR` argument for more details.
+
 ### Status
 
-Should work as expected.
+The package should work as expected.
 
 ### Changes
 

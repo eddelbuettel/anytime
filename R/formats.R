@@ -32,7 +32,7 @@
 ##' and dates.  We return datetime object formatted as \sQuote{2016-09-01T10:11:12}
 ##' and date object as \sQuote{2016-09-01}.
 ##'
-##' If the option \code{anytime.oldISO8601format} is set to \code{TRUE}, then the previous
+##' If the option \code{anytimeOldISO8601format} is set to \code{TRUE}, then the previous
 ##' format (with a space instead of \sQuote{T} to separate date and time) is used.
 ##'
 ##' @section RFC 2822:
@@ -81,7 +81,8 @@
 iso8601 <- function(pt) {
     if (inherits(pt, "POSIXt")) {
         ## allow option to be set to return TRUE but default to FALSE
-        if (getOption("anytime.oldISO8601format", FALSE)) {
+        if (getOption("anytimeOldISO8601format", FALSE) ||
+            getOption("anytime.oldISO8601format", FALSE)) {
             ## old format used up to release 0.3.3
             return(format.POSIXct(as.POSIXct(pt), "%Y-%m-%d %H:%M:%S"))
         } else {

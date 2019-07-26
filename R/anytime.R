@@ -220,7 +220,8 @@ anydate <- function(x, tz=getTZ(), asUTC=FALSE,
 }
 
 ##' @rdname anytime
-utctime <- function(x, tz=getTZ(), useR=FALSE,
+utctime <- function(x, tz=getTZ(),
+                    useR = getOption("anytimeUseRConversions", FALSE),
                     oldHeuristic=getOption("anytimeOldHeuristic", FALSE)) {
     anytime(x=x, tz=tz, asUTC=TRUE, useR=useR, oldHeuristic=oldHeuristic)
 }

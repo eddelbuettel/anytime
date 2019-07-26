@@ -109,10 +109,10 @@ returning a `Date` object instead.
 We first set up the R environment and display for the examples that follow.
 
 ```{r, setup}
-library(anytime)                 # our library
+Sys.setenv(TZ=anytime:::getTZ()) # TZ helper
+library(anytime)                 # our library, caches TZ info
 options(width=50,                # column width
         digits.secs=6)           # fractional secs
-Sys.setenv(TZ=anytime:::getTZ()) # TZ helper
 ```
 
 
@@ -212,7 +212,7 @@ anytime(c("Thu Sep 01 10:11:12 2016",
 This shows an important aspect. When not working in localtime (by
 overriding to `UTC`) the _change in difference_ to UTC is correctly
 covered (which the underlying
-[Boost Date_Time](https://www.boost.org/doc/libs/1_69_0/doc/html/date_time.html)
+[Boost Date_Time](https://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html)
 library does not do by itself).
 
 
@@ -238,7 +238,7 @@ of special cases where numeric values are directly converted; see below.) We
 use the [\pkg{BH}](http://dirk.eddelbuettel.com/code/bh.html) package
 \citep{CRAN:BH} to access these [Boost](https://www.boost.org) libraries, and
 rely on [\pkg{Rcpp}](http://dirk.eddelbuettel.com/code/rcpp.html)
-\citep{JSS:Rcpp,Eddelbuettel:2013} for a seamless C++ interface to and from
+\citep{JSS:Rcpp,Eddelbuettel:2013,CRAN:Rcpp} for a seamless C++ interface to and from
 [R](https://www.r-project.org).
 
 The [Boost Date_Time](https://www.boost.org/doc/libs/1_69_0/doc/html/date_time.html)
@@ -269,7 +269,7 @@ will only work with 2001-02-03 which is somewhat more restrictive.
 
 As an alternative, and to be as close to parsing by the R language and
 system, we also support the parser from R itself.  As R does not provide
-access via its API, we use the \pkg{Rcpp} package \citep{Eddelbuettel:2013,
+access via its API, we use the \pkg{Rcpp} package \citep{JSS:Rcpp,Eddelbuettel:2013,
 CRAN:Rcpp}.  This is shown in the second invocation of `anytime()` in the
 preceding example.
 

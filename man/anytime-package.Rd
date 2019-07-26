@@ -25,35 +25,41 @@
   be that function.
 
   The actual conversion is done by a combination of
-  \href{http://www.boost.org/doc/libs/1_61_0/doc/html/boost_lexical_cast.html}{Boost lexical_cast} to go
-  from \emph{(almost) anything} to string representation which is then parsed by
-  \href{http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html}{Boost Date_Time}.
+  \href{http://www.boost.org/doc/libs/1_70_0/doc/html/boost_lexical_cast.html}{Boost
+  lexical_cast} to go from \emph{(almost) anything} to string
+  representation which is then parsed by
+  \href{http://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html}{Boost
+  Date_Time}. An alternate method using the corresponding R functions is
+  also available as a fallback.
 
   Conversion is done by looping over a fixed set of formats until a
   matching one is found, or returning an error if none is found.  The
   current set of conversion formulae is accessible in the
   \href{https://github.com/eddelbuettel/anytime/blob/master/src/anytime.cpp#L43-L106}{source code},
   and can now also be accessed in R via \code{getFormats()}. Formats can
-  be added via the \code{addFormats()} function.
+  be added and removed via the \code{addFormats()} and
+  \code{removeFormats{}} functions.
 
   Details on the Boost date format symbols are provided by the
-  \href{http://www.boost.org/doc/libs/1_61_0/doc/html/date_time/date_time_io.html#date_time.format_flags}{Boost
+  \href{http://www.boost.org/doc/libs/1_70_0/doc/html/date_time/date_time_io.html#date_time.format_flags}{Boost
   date_time documentation} and similar (but not identical) to what
   \code{\link{strftime}} uses.
+
 }
 \references{
-  Boost date_time: \url{http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html}
+  Boost date_time: \url{http://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html}
 
-  Formats used: \url{https://github.com/eddelbuettel/anytime/blob/master/src/anytime.cpp#L30-L70}
+  Formats used: \url{https://github.com/eddelbuettel/anytime/blob/master/src/anytime.cpp#L43-L106}
 
   Boost format documentation: \url{http://www.boost.org/doc/libs/1_61_0/doc/html/date_time/date_time_io.html#date_time.format_flags}
 }
 \author{\packageAuthor{anytime}}
 \keyword{package}
 \examples{
-  library(anytime)
-  options(digits.secs=6)                ## for fractional seconds below
   Sys.setenv(TZ=anytime:::getTZ())      ## helper function to try to get TZ
+  options(digits.secs=6)                ## for fractional seconds below
+
+  library(anytime)                      ## load package, caches TZ information
 
   ## integer
   anydate(20160101L + 0:2)

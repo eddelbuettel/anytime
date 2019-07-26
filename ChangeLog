@@ -1,6 +1,12 @@
 2019-07-26  Dirk Eddelbuettel  <edd@debian.org>
 
-	* R/anytime.R (anydate, utcdate): Also use option for possible useR default
+	* R/anytime.R (utctime, anydate, utcdate): Also use option for
+	possible useR default
+	* R/format.R: Documentation tweaks
+	* man/anytime-package.Rd: Idem
+	* man/iso8601.Rd: Idem
+	* README.md: Idem
+	* vignettes/rmd/anytime-introduction.Rmd: Idem
 
 2019-07-25  Dirk Eddelbuettel  <edd@debian.org>
 

@@ -14,7 +14,7 @@ anytime(x, tz = getTZ(), asUTC = FALSE,
 anydate(x, tz = getTZ(), asUTC = FALSE,
   useR = getOption("anytimeUseRConversions", FALSE))
 
-utctime(x, tz = getTZ(), useR = FALSE,
+utctime(x, tz = getTZ(), useR = getOption("anytimeUseRConversions", FALSE),
   oldHeuristic = getOption("anytimeOldHeuristic", FALSE))
 
 utcdate(x, tz = getTZ(), useR = getOption("anytimeUseRConversions", FALSE))
