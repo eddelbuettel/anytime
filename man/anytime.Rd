@@ -11,12 +11,13 @@ anytime(x, tz = getTZ(), asUTC = FALSE,
   useR = getOption("anytimeUseRConversions", FALSE),
   oldHeuristic = getOption("anytimeOldHeuristic", FALSE))
 
-anydate(x, tz = getTZ(), asUTC = FALSE, useR = FALSE)
+anydate(x, tz = getTZ(), asUTC = FALSE,
+  useR = getOption("anytimeUseRConversions", FALSE))
 
 utctime(x, tz = getTZ(), useR = FALSE,
   oldHeuristic = getOption("anytimeOldHeuristic", FALSE))
 
-utcdate(x, tz = getTZ(), useR = FALSE)
+utcdate(x, tz = getTZ(), useR = getOption("anytimeUseRConversions", FALSE))
 }
 \arguments{
 \item{x}{A vector of type character, integer or numeric with date(time)
@@ -42,11 +43,11 @@ default value is the value of the option \code{anytimeUseRConversions} with a
 fallback of \code{FALSE} if the option is unset. In other words, this will
 be false by default but can be set to true via an option.}
 
-\item{oldHeuristic}{Behave versions up to and including 0.2.2 did and interpret
-a numeric or integer value that could be seen as a YYYYMMDD as a date. If
-the default value \code{FALSE} is seen, then date offset for used for dates,
-and second offsets for datetimes. A default value can also be set via the
-\code{anytimeOldHeuristic} option.}
+\item{oldHeuristic}{A logical value to enable behaviour as in version 0.2.2 or earlier:
+interpret a numeric or integer value that could be seen as a YYYYMMDD as a date. If
+the default value \code{FALSE} is seen, then numeric values are used as offsets
+dates (in \code{anydate} or \code{utcdate}), and as second offsets for datetimes
+otherwise. A default value can also be set via the \code{anytimeOldHeuristic} option.}
 }
 \value{
 A vector of \code{POSIXct} elements, or, in the case of \code{anydate},

@@ -1,3 +1,7 @@
+2019-07-26  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/anytime.R (anydate, utcdate): Also use option for possible useR default
+
 2019-07-25  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (r_stringToTime): Correct 'useR' to date conversion

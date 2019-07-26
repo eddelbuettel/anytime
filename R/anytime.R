@@ -139,11 +139,11 @@
 ##' default value is the value of the option \code{anytimeUseRConversions} with a
 ##' fallback of \code{FALSE} if the option is unset. In other words, this will
 ##' be false by default but can be set to true via an option.
-##' @param oldHeuristic Behave versions up to and including 0.2.2 did and interpret
-##' a numeric or integer value that could be seen as a YYYYMMDD as a date. If
-##' the default value \code{FALSE} is seen, then date offset for used for dates,
-##' and second offsets for datetimes. A default value can also be set via the
-##' \code{anytimeOldHeuristic} option.
+##' @param oldHeuristic A logical value to enable behaviour as in version 0.2.2 or earlier:
+##' interpret a numeric or integer value that could be seen as a YYYYMMDD as a date. If
+##' the default value \code{FALSE} is seen, then numeric values are used as offsets
+##' dates (in \code{anydate} or \code{utcdate}), and as second offsets for datetimes
+##' otherwise. A default value can also be set via the \code{anytimeOldHeuristic} option.
 ##' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
 ##' a vector of \code{Date} objects.
 ##' @seealso \code{\link{anytime-package}}
@@ -200,7 +200,9 @@ anytime <- function(x,
 }
 
 ##' @rdname anytime
-anydate <- function(x, tz=getTZ(), asUTC=FALSE, useR=FALSE) {
+anydate <- function(x, tz=getTZ(), asUTC=FALSE,
+                    useR = getOption("anytimeUseRConversions", FALSE)) {
+
     ## input is Date, pass through
     if (inherits(x, "Date")) return(x)
 
@@ -224,7 +226,7 @@ utctime <- function(x, tz=getTZ(), useR=FALSE,
 }
 
 ##' @rdname anytime
-utcdate <- function(x, tz=getTZ(), useR=FALSE) {
+utcdate <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE)) {
     ## input is Date, pass through
     if (inherits(x, "Date")) return(x)
 
