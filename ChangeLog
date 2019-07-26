@@ -1,3 +1,7 @@
+2019-07-25  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (r_stringToTime): Correct 'useR' to date conversion
+
 2019-07-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version

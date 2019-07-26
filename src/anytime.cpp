@@ -332,7 +332,7 @@ double r_stringToTime(const std::string s, const bool asUTC=false, const bool as
 
     bool done = false;
     double res = NA_REAL;
-    SEXP ss = Rcpp::wrap(s);
+    Rcpp::Shield<SEXP> ss(Rcpp::wrap(s));
 
     // loop over formats and try them til one fits
     for (size_t i=0; !done && i < nrformats; ++i) {
@@ -340,9 +340,8 @@ double r_stringToTime(const std::string s, const bool asUTC=false, const bool as
         Rcpp::Shield<SEXP> sp(rstrptime(ss, Rcpp::wrap(rformats[i])));//, tzs));
         if (asDate) {
             Rcpp::Function rasdateposixlt("as.Date.POSIXlt");
-            Rcpp::Shield<SEXP> d1(rasdateposixlt(sp));
-            Rcpp::Date d2 = Rcpp::as<Rcpp::Date>(d1);
-            res = d2.getDate();
+            Rcpp::Shield<SEXP> dt(rasdateposixlt(sp));
+            res = Rcpp::as<double>(dt);
         } else {
             Rcpp::Function rasposixct("as.POSIXct");
             Rcpp::Shield<SEXP> ct(rasposixct(sp));//, tzs));
