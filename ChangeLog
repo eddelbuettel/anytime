@@ -1,3 +1,10 @@
+2019-07-27  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/anytime.R (utctime): Account for difference to UTC when useR=TRUE
+
+	* inst/tinytest/test_all_formats.R: Condition a few more tests
+	* inst/tinytest/test_gh_issue_96.R: Lower 'tol' on two tests
+
 2019-07-26  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/anytime.R (utctime, anydate, utcdate): Also use option for

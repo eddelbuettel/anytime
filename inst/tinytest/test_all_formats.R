@@ -92,8 +92,8 @@ if (!isSolaris && !isWindows && !isRelease) {
 
     expect_equivalent(anydate("1970-01-01 00:00:00", useR=TRUE), anydate(0))
     expect_equal(anytime:::format(anytime("1970-01-01 00:00:00")), "1970-01-01 00:00:00.000000")
-}
 
-expect_true(inherits(anytime(as.POSIXlt(Sys.time())), "POSIXt"))
-expect_true(inherits(anytime(Sys.Date()), "POSIXt"))
-expect_equal(class(utcdate(Sys.Date())), "Date")
+    expect_true(inherits(anytime(as.POSIXlt(Sys.time())), "POSIXt"))
+    expect_true(inherits(anytime(Sys.Date()), "POSIXt"))
+    expect_equal(class(utcdate(Sys.Date())), "Date")
+}

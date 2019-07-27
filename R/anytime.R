@@ -223,7 +223,12 @@ anydate <- function(x, tz=getTZ(), asUTC=FALSE,
 utctime <- function(x, tz=getTZ(),
                     useR = getOption("anytimeUseRConversions", FALSE),
                     oldHeuristic=getOption("anytimeOldHeuristic", FALSE)) {
-    anytime(x=x, tz=tz, asUTC=TRUE, useR=useR, oldHeuristic=oldHeuristic)
+    val <- anytime(x=x, tz=tz, asUTC=TRUE, useR=useR, oldHeuristic=oldHeuristic)
+    if (useR) {                         # need to adjust to UTC in this case
+        dt <- as.POSIXlt(base::format(val, tz="UTC")) - as.POSIXlt(base::format(val))
+        val <- val - dt
+    }
+    val
 }
 
 ##' @rdname anytime
