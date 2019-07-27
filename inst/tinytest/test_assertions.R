@@ -1,5 +1,7 @@
-
+tz <- "America/Chicago"
+Sys.setenv("TZ"=tz)
 library(anytime)
+anytime:::setTZ(tz)
 
 expect_equal(class(assertDate(c("2001/02/03", "2001-02-03", "20010203"))),
              "Date")

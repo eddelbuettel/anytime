@@ -1,6 +1,5 @@
-tz <- "UTC"
+tz <- "America/Chicago"
 Sys.setenv("TZ"=tz)
-
 library(anytime)
 anytime:::setTZ(tz)
 

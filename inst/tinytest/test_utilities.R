@@ -1,5 +1,8 @@
 
+tz <- "America/Chicago"
+Sys.setenv("TZ"=tz)
 library(anytime)
+anytime:::setTZ(tz)
 
 input <- "2016-09-01 10:11:12"
 s <- anytime(input)

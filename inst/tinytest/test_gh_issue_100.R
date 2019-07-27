@@ -1,5 +1,8 @@
 
+tz <- "America/Chicago"
+Sys.setenv("TZ"=tz)
 library(anytime)
+anytime:::setTZ(tz)
 
 ## show effect of tz argument
 anytime("2001-02-03 04:05:06", tz="America/Chicago")

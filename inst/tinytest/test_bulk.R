@@ -3,7 +3,10 @@
 ## and while Boost Date_Time instantiates the formats relative to a locale
 ## it remains tricky to change TZ on the fly
 
-library(anytime)                        # load it early to test verseion
+tz <- "America/Chicago"
+Sys.setenv("TZ"=tz)
+library(anytime)
+anytime:::setTZ(tz)
 
 ## We turn off tests on Solaris with some regret, yet firmly, as the
 ## combined inability of CRAN to provide us a test platform (to
