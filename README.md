@@ -155,6 +155,18 @@ tinytest::test_package("anytime")
 
 at any later point.
 
+### Contributing
+
+Any problems, bug reports, or features requests for the package can be submitted and
+handled most conveniently as [Github
+issues](https://github.com/eddelbuettel/anytime/issues) in the repository.
+
+Before submitting pull requests, it is frequently preferable to first discuss
+need and scope in such an issue ticket.  Sett the file
+[Contributing.md](https://github.com/RcppCore/Rcpp/blob/master/Contributing.md) in the
+[Rcpp](https://github.com/RcppCore/Rcpp) repo for a brief discussion.
+
+
 ### Author
 
 Dirk Eddelbuettel

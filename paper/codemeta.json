@@ -1,0 +1,23 @@
+{
+  "@context": "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld",
+  "@type": "Code",
+  "author": [
+    {
+      "@id": "http://orcid.org/0000-0001-6419-907X",
+      "@type": "Person",
+      "email": "edd@debian.org",
+      "name": "Dirk Eddelbuettel",
+      "affiliation": "University of Illinois, Urbana-Champaign"
+    }
+  ],
+  "identifier": "",
+  "codeRepository": "https://github.com/eddelbuettel/anytime",
+  "datePublished": "2019-07-28",
+  "dateModified": "2019-07-28",
+  "dateCreated": "2019-07-28",
+  "description": "Anything to POSIXct or Date Converter",
+  "keywords": "R, date, datetime, conversion",
+  "license": "GPL v2.0",
+  "title": "anytime",
+  "version": "0.3.5"
+}

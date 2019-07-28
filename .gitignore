@@ -15,4 +15,6 @@ vignettes/rmd/anytime-intro.pdf
 vignettes/rmd/anytime-intro_cache
 vignettes/rmd/jss.bst
 vignettes/rmd/pinp.cls
-
+paper/generate.rb
+paper/paper.pdf
+paper/runMe.sh
