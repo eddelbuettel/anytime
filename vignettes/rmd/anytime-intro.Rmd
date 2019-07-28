@@ -332,21 +332,47 @@ two ways.
 ## Speed
 
 The `as.POSIXct()` function in R provides a useful baseline as it is also implemented in
-compiled code.  The `fastPOSIct()` function from the \pkg{fasttime} \citep{CRAN:fasttime} 
-excels at converting one (and only one) input format _fast_ to a (UTC-only) datetime
-object.  A simple benchmark coverting 100 input strings 10,000 times finds both
-`as.POSIXct()` and `anytime()` at near-identical speed, but about 16 times slower that
-`fastPOSIXct()`.  This result is reasonable: a highly focussed function can outperform two
-(still fast) more universal converters.  `anytime()` is still compelling as it easier to
-use than `as.POSIXct()` by not requiring a format string.
+compiled code.  The `fastPOSIct()` function from the \pkg{fasttime} package
+\citep{CRAN:fasttime} excels at converting one (and only one) input format _fast_ to a
+(UTC-only) datetime object.  A simple benchmark coverting 100 input strings 100,000 times
+finds both `as.POSIXct()` and `anytime()` at very comparable and similar performance, but
+well over one order of magnitude slower that the highly-focussed `fastPOSIXct()`.  This
+result is reasonable: a highly specialised function can (and should) outperform two
+(relatively fast) universal converters.  `anytime()` is still compelling as it easier
+to use than `as.POSIXct()` by not requiring a format string.
+
+```{r benchmark_speed, cache=TRUE}
+library(rbenchmark)
+library(fasttime)
+inp <- rep("2019-01-02 03:04:05", 100)
+v <- benchmark(fasttime=fastPOSIXct(inp),
+               baseR=as.POSIXct(inp),
+               anytime=anytime(inp),
+               replications=1e5)
+v[,1:4]
+```
 
 ## Generality 
 
 The \pkg{parsedate} package \citep{CRAN:parsedate} brings the very general date parsing
 utility from the \textsf{git} version control software to \proglang{R}. In a similar
-comparison of 100 input strings parsed 100 times, we find its `parse_date()` function to
-be about fourteen times slower than `anytime()` or `as.POSIXct()`.  Again, this is
-reasonable as the greater flexibility of \pkg{parsedate} comes at a cost in performance.
+comparison of 100 input strings parsed 5000 times, we find its `parse_date()` function to
+be more than an order of magnitude slower than `anytime()` or `as.POSIXct()`.  Again, this
+is reasonable as the greater flexibility of \pkg{parsedate} comes at a cost in
+performance relative to the more restricted alternatives.
+
+
+```{r benchmark_generality, cache=TRUE}
+library(rbenchmark)
+library(parsedate)
+inp <- rep("2019-01-02 03:04:05", 100)
+v <- benchmark(parsedate=parse_date(inp),
+               baseR=as.POSIXct(inp),
+               anytime=anytime(inp),
+               replications=5e3)
+v[,1:4]
+```
+
 
 # Summary
 
