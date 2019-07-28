@@ -3,12 +3,19 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.3.5 (2019-xx-yy)}{
+\section{Changes in anytime version 0.3.5 (2019-07-28)}{
   \itemize{
     \item Fix use of \code{Rcpp::Function}-accessed \code{Sys.setenv()},
-    name all arguments in call to C++ (Christoph Sax in \ghpr{95})
+    name all arguments in call to C++ (Christoph Sax in \ghpr{95}).
     \item Relax constraint on Windows testing in several test files
-    (Christoph Sax in \ghpr{97}) 
+    (Christoph Sax in \ghpr{97}).
+    \item Fix an issue related to \code{TZ} environment variable setting
+    (Dirk in \ghpr{101}).
+    \item Change \code{useR=TRUE} behaviour by directly calling R via
+    \pkg{Rcpp} (Dirk in \ghpr{103} fixing \ghit{96}).
+    \item Several updates to unit testing files aiming for more robust
+    behaviour across platforms.
+    \item Updated documentation in manual pages, README and vignette.
   }
 }
 

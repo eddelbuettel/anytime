@@ -1,5 +1,7 @@
 2019-07-28  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Release 0.3.5
+
 	* vignettes/rmd/anytime-intro.Rmd: More edits
 	* vignettes/anytime-intro.pdf: Idem
 
