@@ -1,9 +1,18 @@
 2019-07-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/anytime.R (utctime): Account for difference to UTC when useR=TRUE
+	* inst/tinytest/test_useR.R: New test file for useR=TRUE
 
 	* inst/tinytest/test_all_formats.R: Condition a few more tests
 	* inst/tinytest/test_gh_issue_96.R: Lower 'tol' on two tests
+
+	* inst/tinytest/test_all_formats.R: Set TZ at start
+	* inst/tinytest/test_assertions.R: Idem
+	* inst/tinytest/test_bulk.R: Idem
+	* inst/tinytest/test_gh_issue_100.R: Idem
+	* inst/tinytest/test_utilities.R: Idem
+	
+	* vignettes/rmd/anytime-intro.Rmd: Some edits
 
 2019-07-26  Dirk Eddelbuettel  <edd@debian.org>
 
