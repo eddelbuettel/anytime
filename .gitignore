@@ -10,3 +10,9 @@ GRTAGS
 GTAGS
 local/gh_issue_78.R
 local/vignettes/
+vignettes/rmd/anytime-intro.log
+vignettes/rmd/anytime-intro.pdf
+vignettes/rmd/anytime-intro_cache
+vignettes/rmd/jss.bst
+vignettes/rmd/pinp.cls
+

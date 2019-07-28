@@ -1,3 +1,13 @@
+2019-07-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/rmd/anytime-intro.Rmd: More edits
+	* vignettes/anytime-intro.pdf: Idem
+
+	* inst/tinytest/test_gh_issue_96.R: More polish
+	* inst/tinytest/test_useR.R: Idem
+
+	* local/test_useR.R: Deactivated as it fails at Travis
+	
 2019-07-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/anytime.R (utctime): Account for difference to UTC when useR=TRUE
