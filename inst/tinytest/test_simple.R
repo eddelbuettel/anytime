@@ -113,7 +113,7 @@ if (!isSolaris) {
     ## anydate with useR
     expect_equal(class(anydate("2001-02-03", useR=TRUE)), "Date")
     ## format() call
-    expect_equal(class(anytime:::format(Sys.time())), "character")
+    expect_equal(class(anytime:::fmt(Sys.time())), "character")
     ## anytime() entries
     expect_true(inherits(anytime(Sys.time()), "POSIXt"))
     expect_true(inherits(anytime(Sys.Date()), "POSIXt"))

@@ -87,14 +87,14 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// format
-std::vector<std::string> format(Rcpp::NumericVector x);
-RcppExport SEXP _anytime_format(SEXP xSEXP) {
+// fmt
+std::vector<std::string> fmt(Rcpp::NumericVector x);
+RcppExport SEXP _anytime_fmt(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::NumericVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(format(x));
+    rcpp_result_gen = Rcpp::wrap(fmt(x));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -137,7 +137,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_anytime_testFormat_impl", (DL_FUNC) &_anytime_testFormat_impl, 3},
     {"_anytime_testOutput_impl", (DL_FUNC) &_anytime_testOutput_impl, 2},
     {"_anytime_setDebug", (DL_FUNC) &_anytime_setDebug, 1},
-    {"_anytime_format", (DL_FUNC) &_anytime_format, 1},
+    {"_anytime_fmt", (DL_FUNC) &_anytime_fmt, 1},
     {"_anytime_setMaxIntAsYYYYMMDD", (DL_FUNC) &_anytime_setMaxIntAsYYYYMMDD, 1},
     {"_anytime_setMaxIntAsDate", (DL_FUNC) &_anytime_setMaxIntAsDate, 1},
     {"_anytime_setInitialTZ", (DL_FUNC) &_anytime_setInitialTZ, 1},
