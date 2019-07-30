@@ -109,5 +109,15 @@ if (!isSolaris) {
     #expect_true(anydate(refT) == as.Date(refT))
     #expect_true(utcdate(refT) == as.Date(refT))
 
+    ## some simple calls to add some coverage
+    ## anydate with useR
+    expect_equal(class(anydate("2001-02-03", useR=TRUE)), "Date")
+    ## format() call
+    expect_equal(class(anytime:::format(Sys.time())), "character")
+    ## anytime() entries
+    expect_true(inherits(anytime(Sys.time()), "POSIXt"))
+    expect_true(inherits(anytime(Sys.Date()), "POSIXt"))
+    expect_equal(class(utcdate(Sys.Date())), "Date")
+
     anytime:::setTZ(oldtz)
 }

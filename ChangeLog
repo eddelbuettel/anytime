@@ -1,3 +1,7 @@
+2019-07-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test_simple.R: A few more simple tests
+
 2019-07-28  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.3.5
