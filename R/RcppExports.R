@@ -47,8 +47,8 @@ setDebug <- function(mode) {
     .Call(`_anytime_setDebug`, mode)
 }
 
-format <- function(x) {
-    .Call(`_anytime_format`, x)
+fmt <- function(x) {
+    .Call(`_anytime_fmt`, x)
 }
 
 setMaxIntAsYYYYMMDD <- function(val) {

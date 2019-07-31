@@ -590,7 +590,7 @@ bool setDebug(const bool mode) {
 }
 
 // [[Rcpp::export]]
-std::vector<std::string> format(Rcpp::NumericVector x) {
+std::vector<std::string> fmt(Rcpp::NumericVector x) {
     std::vector<std::string> z(x.size());
     for (int i=0; i<x.size(); i++) {
         Rcpp::Datetime d(x[i]);
