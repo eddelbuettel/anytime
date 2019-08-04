@@ -174,41 +174,68 @@
 ##' anytime("2001-02-03 04:05:06", tz="America/Los_Angeles")
 ##' ## somewhat equvalent base R functionality
 ##' format(anytime("2001-02-03 04:05:06"), tz="America/Los_Angeles")
-anytime <- function(x,
-                    tz = getTZ(),
-                    asUTC = FALSE,
+anytime <- function(x, tz = getTZ(), asUTC = FALSE,
                     useR = getOption("anytimeUseRConversions", FALSE),
                     oldHeuristic = getOption("anytimeOldHeuristic", FALSE)) {
+    UseMethod("anytime")
+}
 
-    if (inherits(x, "POSIXt")) {
-        return(as.POSIXct(x, tz=tz))
-    }
+anytime.POSIXt <- function(x, tz = getTZ(), asUTC = FALSE,
+                           useR = getOption("anytimeUseRConversions", FALSE),
+                           oldHeuristic = getOption("anytimeOldHeuristic", FALSE)) {
+    return(as.POSIXct(x, tz=tz))
+}
 
-    if (inherits(x, "Date")) {
-        ## we format and reparse to get proper midnight in TZ treatment
-        ## if we used as.Date() we would get midnight at UTC which is rarely desired
-        ## x <- format(x)
-        ## or not -- stick with what R does
-        return(as.POSIXct(x))
-    }
+anytime.Date <- function(x, tz = getTZ(), asUTC = FALSE,
+                         useR = getOption("anytimeUseRConversions", FALSE),
+                         oldHeuristic = getOption("anytimeOldHeuristic", FALSE)) {
+    ## we format and reparse to get proper midnight in TZ treatment
+    ## if we used as.Date() we would get midnight at UTC which is rarely desired
+    ## x <- format(x)
+    ## or not -- stick with what R does
+    return(as.POSIXct(x))
+}
 
-    if (inherits(x, "factor")) {
-        x <- as.character(x)
-    }
+anytime.factor <- function(x, tz = getTZ(), asUTC = FALSE,
+                           useR = getOption("anytimeUseRConversions", FALSE),
+                           oldHeuristic = getOption("anytimeOldHeuristic", FALSE)) {
+    x <- as.character(x)
+    NextMethod("anytime")
+}
 
+anytime.default <- function(x,
+                           tz = getTZ(),
+                           asUTC = FALSE,
+                           useR = getOption("anytimeUseRConversions", FALSE),
+                           oldHeuristic = getOption("anytimeOldHeuristic", FALSE)) {
     anytime_cpp(x, tz=tz, asUTC=asUTC, asDate=FALSE, useR=useR, oldHeuristic=oldHeuristic)
 }
 
 ##' @rdname anytime
 anydate <- function(x, tz=getTZ(), asUTC=FALSE,
                     useR = getOption("anytimeUseRConversions", FALSE)) {
+    UseMethod("anydate")
+}
 
-    ## input is Date, pass through
-    if (inherits(x, "Date")) return(x)
+anydate.Date <- function(x, tz=getTZ(), asUTC=FALSE,
+                         useR = getOption("anytimeUseRConversions", FALSE)) {
+    return(x)                           # input is Date, pass through
+}
 
+anydate.POSIXt <- function(x, tz=getTZ(), asUTC=FALSE,
+                           useR = getOption("anytimeUseRConversions", FALSE)) {
+    return(as.Date(x, tz=tz))  		# input is POSIXt, pass through converted
+}
+
+anydate.factor <- function(x, tz=getTZ(), asUTC=FALSE,
+                           useR = getOption("anytimeUseRConversions", FALSE)) {
     ## input is factor or order, convert
-    if (inherits(x, "factor")) x <- as.character(x)
+    x <- as.character(x)
+    NextMethod("anytime")
+}
 
+anydate.default <- function(x, tz=getTZ(), asUTC=FALSE,
+                            useR = getOption("anytimeUseRConversions", FALSE)) {
     ## otherwise call anytime_cpp
     d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
 
@@ -233,13 +260,24 @@ utctime <- function(x, tz=getTZ(),
 
 ##' @rdname anytime
 utcdate <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE)) {
-    ## input is Date, pass through
-    if (inherits(x, "Date")) return(x)
+    UseMethod("utcdate")
+}
 
-    ## input is factor or order, convert
-    if (inherits(x, "factor")) x <- as.character(x)
+utcdate.Date <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE)) {
+    return(x) 				# input is Date, pass through
+}
 
-    ## otherwise call anytime_cpp
+utcdate.POSIXt <- function(x, tz=getTZ(),
+                           useR = getOption("anytimeUseRConversions", FALSE)) {
+    return(as.Date(x, tz="UTC")) 	# input is POSIXt, pass through converted
+}
+
+utcdate.factor <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE)) {
+    x <- as.character(x)     		# input is factor or order, convert
+    NextMethod("utcdate")
+}
+
+utcdate.default <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE)) {
     d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
 
     ## one code path could result in POSIXct, if so convert
@@ -248,6 +286,7 @@ utcdate <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FA
     ## return result
     d
 }
+
 
 testFormat <- function(fmt, s, tz="") {
     if (isRStudio()) {				#nocov start
