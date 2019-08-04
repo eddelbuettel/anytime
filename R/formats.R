@@ -79,46 +79,44 @@
 ##' yyyymmdd(anytime("2016-09-01 10:11:12.123456"))
 ##' yyyymmdd(anydate("2016-Sep-01"))
 iso8601 <- function(pt) {
-    if (inherits(pt, "POSIXt")) {
-        ## allow option to be set to return TRUE but default to FALSE
-        if (getOption("anytimeOldISO8601format", FALSE) ||
-            getOption("anytime.oldISO8601format", FALSE)) {
-            ## old format used up to release 0.3.3
-            return(format.POSIXct(as.POSIXct(pt), "%Y-%m-%d %H:%M:%S"))
-        } else {
-            ## new format used from release 0.3.4
-            return(format.POSIXct(as.POSIXct(pt), "%Y-%m-%dT%H:%M:%S"))
-        }
-    } else if (inherits(pt, "Date")) {
-        return(format.Date(pt, "%Y-%m-%d"))
+    UseMethod("iso8601")
+}
+iso8601.POSIXt <- function(pt) {
+    ## allow option to be set to return TRUE but default to FALSE
+    if (getOption("anytimeOldISO8601format", FALSE) ||
+        getOption("anytime.oldISO8601format", FALSE)) {
+        ## old format used up to release 0.3.3
+        return(format.POSIXct(as.POSIXct(pt), "%Y-%m-%d %H:%M:%S"))
+    } else {
+        ## new format used from release 0.3.4
+        return(format.POSIXct(as.POSIXct(pt), "%Y-%m-%dT%H:%M:%S"))
     }
-
+}
+iso8601.Date <- function(pt) {
+    return(format.Date(pt, "%Y-%m-%d"))
+}
+iso8601.default <- function(pt) {
     warning("Inapplicable object: ", pt)
     invisible(NULL)
 }
 
 ##' @rdname iso8601
-rfc2822 <- function(pt) {
-    if (inherits(pt, "POSIXt"))
-        return(format.POSIXct(pt, "%a, %d %b %Y %H:%M:%OS %z"))
-    else if (inherits(pt, "Date"))
-        return(format.Date(pt, "%a, %d %b %Y"))
-
+rfc2822         <- function(pt) { UseMethod("rfc2822") }
+rfc2822.POSIXt  <- function(pt) { return(format.POSIXct(pt, "%a, %d %b %Y %H:%M:%OS %z")) }
+rfc2822.Date    <- function(pt) { return(format.Date(pt, "%a, %d %b %Y")) }
+rfc2822.default <- function(pt) {
     warning("Inapplicable object: ", pt)
     invisible(NULL)
 }
 
 ##' @rdname iso8601
-rfc3339 <- function(pt) {
-    if (inherits(pt, "POSIXt"))
-        return(format.POSIXct(pt, "%Y-%m-%dT%H:%M:%OS%z"))
-    else if (inherits(pt, "Date"))
-        return(format.Date(pt, "%Y-%m-%d"))
-
+rfc3339         <- function(pt) { UseMethod("rfc3339") }
+rfc3339.POSIXt  <- function(pt) { return(format.POSIXct(pt, "%Y-%m-%dT%H:%M:%OS%z")) }
+rfc3339.Date    <- function(pt) { return(format.Date(pt, "%Y-%m-%d")) }
+rfc3339.default <- function(pt) {
     warning("Inapplicable object: ", pt)
     invisible(NULL)
 }
-
 
 ##' @rdname iso8601
 yyyymmdd <- function(pt) {

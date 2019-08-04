@@ -1,3 +1,11 @@
+2019-08-04  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+	* R/anytime.R (anytime,anydate,utcdate): Rewritten using S3 dispatch
+	* R/formats.R (iso8601,rfc2822,rfc3339): Ditto
+	* NAMESPACE: Register new S3 methods
+
 2019-07-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version

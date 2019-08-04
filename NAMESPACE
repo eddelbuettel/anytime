@@ -14,3 +14,30 @@ export("anytime",
 importFrom("Rcpp", "evalCpp")
 importFrom("utils", "head")
 useDynLib("anytime", .registration=TRUE)
+
+S3method(anytime, default)
+S3method(anytime, Date)
+S3method(anytime, POSIXt)
+S3method(anytime, factor)
+
+S3method(anydate, default)
+S3method(anydate, Date)
+S3method(anydate, POSIXt)
+S3method(anydate, factor)
+
+S3method(utcdate, default)
+S3method(utcdate, Date)
+S3method(utcdate, POSIXt)
+S3method(utcdate, factor)
+
+S3method(iso8601, default)
+S3method(iso8601, Date)
+S3method(iso8601, POSIXt)
+
+S3method(rfc2822, default)
+S3method(rfc2822, Date)
+S3method(rfc2822, POSIXt)
+
+S3method(rfc3339, default)
+S3method(rfc3339, Date)
+S3method(rfc3339, POSIXt)
