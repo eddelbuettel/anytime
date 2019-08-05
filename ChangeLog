@@ -6,6 +6,11 @@
 	* R/formats.R (iso8601,rfc2822,rfc3339): Ditto
 	* NAMESPACE: Register new S3 methods
 
+	* inst/tinytest/test_all_formats.R: Tweaking tests to accomodate rhub
+	* inst/tinytest/test_bulk.R: Idem
+	* inst/tinytest/test_gh_issue_96.R: Idem
+	* inst/tinytest/test_validate.R: Idem
+	
 2019-07-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version

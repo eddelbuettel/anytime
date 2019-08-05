@@ -3,6 +3,18 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in anytime version 0.3.6 (2019-08-xx)}{
+  \itemize{
+    \item Added, and then removed, required file for JOSS; added
+    'unworthy' badge as we earned a desk reject (cf #1605 there).
+    \item Renamed internal helper function format() to fmt() to avoid
+    clashes with base::format() (Dirk in \ghpr{104}).
+    \item Recast main R functions using S3 dispatch (Dirk in \ghpr{106}).
+    \item Continued to tweak tests as we find some of the rhub platform
+    to behave strangely; (Dirk via commits as well as \ghpr{107}).
+  }
+}
+
 \section{Changes in anytime version 0.3.5 (2019-07-28)}{
   \itemize{
     \item Fix use of \code{Rcpp::Function}-accessed \code{Sys.setenv()},
