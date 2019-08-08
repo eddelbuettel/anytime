@@ -12,6 +12,8 @@
     \item Recast main R functions using S3 dispatch (Dirk in \ghpr{106}).
     \item Continued to tweak tests as we find some of the rhub platform
     to behave strangely; (Dirk via commits as well as \ghpr{107}).
+    \item Added \code{\%e} format to allow single-digit days to be parsed
+    by Boost (Dirk in \ghpr{108}).
   }
 }
 

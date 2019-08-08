@@ -1,3 +1,10 @@
+2019-08-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+	* src/anytime.cpp: Complement existing sformats[] with '%e' variants
+	to allow single-digit days to be parse by Boost date_time
+
 2019-08-04  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version

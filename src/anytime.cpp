@@ -41,67 +41,67 @@ static int maxIntAsYYYYMMDD = 29991231; // cutoff values below which we treat in
 static int maxIntAsDate = 199999;       // cutoff values below which we treat ints as Dates
 
 const std::string sformats[] = {
-    "%Y-%m-%d %H:%M:%S%f",
-    "%Y-%m-%d %H%M%S%f",
-    "%Y/%m/%d %H:%M:%S%f",
+    "%Y-%m-%d %H:%M:%S%f",  "%Y-%m-%e %H:%M:%S%f",
+    "%Y-%m-%d %H%M%S%f",    "%Y-%m-%e %H%M%S%f",
+    "%Y/%m/%d %H:%M:%S%f",  "%Y/%m/%e %H:%M:%S%f",
     "%Y%m%d %H%M%S%f",
     "%Y%m%d %H:%M:%S%f",
-    "%m/%d/%Y %H:%M:%S%f",
-    "%m-%d-%Y %H:%M:%S%f",
+    "%m/%d/%Y %H:%M:%S%f",  "%m/%e/%Y %H:%M:%S%f",
+    "%m-%d-%Y %H:%M:%S%f",  "%m-%e-%Y %H:%M:%S%f",
     // "%d.%m.%Y %H:%M:%S%f",
 
-    "%Y-%b-%d %H:%M:%S%f",
-    "%Y/%b/%d %H:%M:%S%f",
-    "%Y%b%d %H%M%S%F",
-    "%Y%b%d %H:%M:%S%F",
-    "%b/%d/%Y %H:%M:%S%f",
-    "%b-%d-%Y %H:%M:%S%f",
+    "%Y-%b-%d %H:%M:%S%f",  "%Y-%b-%e %H:%M:%S%f",
+    "%Y/%b/%d %H:%M:%S%f",  "%Y/%b/%e %H:%M:%S%f",
+    "%Y%b%d %H%M%S%F",      "%Y%b%e %H%M%S%F",
+    "%Y%b%d %H:%M:%S%F",    "%Y%b%e %H:%M:%S%F",
+    "%b/%d/%Y %H:%M:%S%f",  "%b/%e/%Y %H:%M:%S%f",
+    "%b-%d-%Y %H:%M:%S%f",  "%b-%e-%Y %H:%M:%S%f",
 
-    "%d.%b.%Y %H:%M:%S%f",
-    "%d%b%Y %H%M%S%f",
-    "%d%b%Y %H:%M:%S%f",
-    "%d-%b-%Y %H%M%S%f",
-    "%d-%b-%Y %H:%M:%S%f",
+    "%d.%b.%Y %H:%M:%S%f",  "%e.%b.%Y %H:%M:%S%f",
+    "%d%b%Y %H%M%S%f",	    "%e%b%Y %H%M%S%f",
+    "%d%b%Y %H:%M:%S%f",    "%e%b%Y %H:%M:%S%f",
+    "%d-%b-%Y %H%M%S%f",    "%e-%b-%Y %H%M%S%f",
+    "%d-%b-%Y %H:%M:%S%f",  "%d-%b-%Y %H:%M:%S%f",
 
-    "%Y-%B-%d %H:%M:%S%f",
-    "%Y/%B/%d %H:%M:%S%f",
-    "%Y%B%d %H%M%S%f",
-    "%Y%B%d %H:%M:%S%f",
-    "%B/%d/%Y %H:%M:%S%f",
-    "%B-%d-%Y %H:%M:%S%f",
-    "%d.%B.%Y %H:%M:%S%f",
+    "%Y-%B-%d %H:%M:%S%f",  "%Y-%B-%e %H:%M:%S%f",
+    "%Y/%B/%d %H:%M:%S%f",  "%Y/%B/%e %H:%M:%S%f",
+    "%Y%B%d %H%M%S%f",      "%Y%B%e %H%M%S%f",
+    "%Y%B%d %H:%M:%S%f",    "%Y%B%e %H:%M:%S%f",
+    "%B/%d/%Y %H:%M:%S%f",  "%B/%e/%Y %H:%M:%S%f",
+    "%B-%d-%Y %H:%M:%S%f",  "%B-%e-%Y %H:%M:%S%f",
+    "%d.%B.%Y %H:%M:%S%f",  "%e.%B.%Y %H:%M:%S%f",
 
     // see http://stackoverflow.com/questions/39259184/formatting-dates-with-r for next one
-    "%a %b %d %H:%M:%S%F %Y",
+    "%a %b %d %H:%M:%S%F %Y", "%a %b %e %H:%M:%S%F %Y",
 
     // see RFC 822 and standard Unix use eg mail headers (but no TZ or UTC offset on input :-/ )
-    "%a %d %b %Y %H:%M:%S%F",
+    "%a %d %b %Y %H:%M:%S%F", "%a %e %b %Y %H:%M:%S%F",
 
     // See the Boost documentation, tz specifications (%q %Q %z %Z) are _ignored_ on input
     // http://www.boost.org/doc/libs/1_62_0/doc/html/date_time/date_time_io.html#date_time.time_input_facet
-    "%Y-%m-%d %H:%M:%S%Z",
+    "%Y-%m-%d %H:%M:%S%Z",  "%Y-%m-%e %H:%M:%S%Z",
 
     // Issue 47: support formats like "Thu Jan 17 09:29:10 EST 2013" by ignoring the three-char TZ
     // also support fractional seconds if present
-    "%a %b %d %H:%M:%S%F xxx %Y",
+    "%a %b %d %H:%M:%S%F xxx %Y",  "%a %b %e %H:%M:%S%F xxx %Y",
 
-    "%Y-%m-%d",
+    "%Y-%m-%d",  "%Y-%m-%e",
     "%Y%m%d",
-    "%m/%d/%Y",
-    "%m-%d-%Y",
+    "%m/%d/%Y",  "%m/%e/%Y",
+    "%m-%d-%Y",  "%m-%e-%Y",
 
-    "%Y-%b-%d",
-    "%Y%b%d",
-    "%b/%d/%Y",
-    "%b-%d-%Y",
+    "%Y-%b-%d",  "%Y-%b-%e",
+    "%Y%b%d",    "%Y%b%e",
+    "%b/%d/%Y",  "%b/%e/%Y",
+    "%b-%d-%Y",  "%b-%e-%Y",
 
-    "%d%b%Y"
-    "%d-%b-%Y"
+    "%d%b%Y"     "%e%b%Y"
+    "%d-%b-%Y"   "%e-%b-%Y"
 
-    "%Y-%B-%d",
-    "%Y%B%d",
-    "%B/%d/%Y",
-    "%B-%d-%Y"
+    "%Y-%B-%d",  "%Y-%B-%e",
+    "%Y%B%d",    "%Y%B%e",
+    "%B/%d/%Y",  "%B/%e/%Y",
+    "%B-%d-%Y"   "%B-%e-%Y"
 
 };
 const size_t nsformats = sizeof(sformats)/sizeof(sformats[0]);
