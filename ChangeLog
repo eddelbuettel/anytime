@@ -1,3 +1,11 @@
+2019-08-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/hide/test_gh_issue_5.R: Temporarily moved test
+	which upsets two of the rhub builders
+	* inst/tinytest/hide/test_gh_issue_84.R: Ditto
+        * inst/tinytest/hide/test_gh_issue_96.R: Ditto
+        * inst/tinytest/hide/test_validate.R: Ditto
+ 	
 2019-08-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
