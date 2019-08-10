@@ -1,3 +1,7 @@
+2019-08-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp: Add missing commas in format definition
+
 2019-08-09  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/hide/test_gh_issue_5.R: Temporarily moved test

@@ -95,13 +95,13 @@ const std::string sformats[] = {
     "%b/%d/%Y",  "%b/%e/%Y",
     "%b-%d-%Y",  "%b-%e-%Y",
 
-    "%d%b%Y"     "%e%b%Y"
-    "%d-%b-%Y"   "%e-%b-%Y"
+    "%d%b%Y",    "%e%b%Y",
+    "%d-%b-%Y",  "%e-%b-%Y",
 
     "%Y-%B-%d",  "%Y-%B-%e",
     "%Y%B%d",    "%Y%B%e",
     "%B/%d/%Y",  "%B/%e/%Y",
-    "%B-%d-%Y"   "%B-%e-%Y"
+    "%B-%d-%Y",  "%B-%e-%Y"
 
 };
 const size_t nsformats = sizeof(sformats)/sizeof(sformats[0]);
