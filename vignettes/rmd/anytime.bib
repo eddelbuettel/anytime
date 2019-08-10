@@ -1,17 +1,10 @@
-@Manual{CRAN:fasttime,
-  title =        {fasttime: Fast Utility Function for Time Parsing and Conversion},
-  author =       {Simon Urbanek},
-  year =         {2016},
-  note =         {R package version 1.0.2},
-  url =          {https://CRAN.R-project.org/package=fasttime},
-}
-
-@Manual{CRAN:parsedate,
-  title =        {parsedate: Recognize and Parse Dates in Various Formats, Including All ISO 8601 Formats},
-  author =       {Gábor Csárdi and Linus Torvalds},
+@Manual{CRAN:BH,
+  title =        {BH: Boost C++ Header Files},
+  author =       {Dirk Eddelbuettel and John W. Emerson and Michael
+                  J. Kane},
   year =         {2019},
-  note =         {R package version 1.2.0},
-  url =          {https://CRAN.R-project.org/package=parsedate},
+  note =         {R package version 1.69.0-1},
+  url =          {https://CRAN.R-project.org/package=BH},
 }
 
 @Manual{CRAN:RApiDatetime,
@@ -22,15 +15,6 @@
   url =          {https://CRAN.R-project.org/package=RApiDatetime},
 }
 
-@Manual{CRAN:BH,
-  title =        {BH: Boost C++ Header Files},
-  author =       {Dirk Eddelbuettel and John W. Emerson and Michael
-                  J. Kane},
-  year =         {2019},
-  note =         {R package version 1.69.0-1},
-  url =          {https://CRAN.R-project.org/package=BH},
-}
-
 @Manual{CRAN:Rcpp,
   title =	 {{Rcpp}: Seamless {R} and {C++} Integration},
   author =	 {Dirk Eddelbuettel and Romain Fran\c{c}ois and JJ
@@ -39,6 +23,77 @@
   year =	 2019,
   note =	 {R package version 1.0.1},
   url =		 {https://CRAN.R-project.org/CRAN=package=Rcpp}
+}
+
+@Manual{CRAN:RcppCCTZ,
+  title =        {{RcppCCTZ}: {Rcpp} Bindings for the {CCTZ}
+                  LibraryRcpp},
+  author =       {Dirk Eddelbuettel},
+  year =         2019,
+  note =         {R package version 0.2.6},
+  url =          {https://CRAN.R-project.org/CRAN=package=RcppCCTZ}
+}
+
+
+@Manual{CRAN:fasttime,
+  title =        {fasttime: Fast Utility Function for Time Parsing and Conversion},
+  author =       {Simon Urbanek},
+  year =         {2016},
+  note =         {R package version 1.0.2},
+  url =          {https://CRAN.R-project.org/package=fasttime},
+}
+
+@Manual{CRAN:lubridate,
+  title =        {{lubridate}: Make Dealing with Dates a Little
+                  Easier},
+  author =       {Vitalie Spinu and Garrett Grolemund and Hadley
+                  Wickham and Ian Lyttle and Imanuel Constigan and
+                  Jason Law and Doug Mitarotonda and Joseph Larmarange
+                  and Jonathan Boiser and Chel Hee Lee},
+  year =         2018,
+  note =         {R package version 1.7.4},
+  url =          {https://CRAN.R-project.org/CRAN=package=lubridate}
+}
+
+@Manual{CRAN:parsedate,
+  title =        {parsedate: Recognize and Parse Dates in Various
+                  Formats, Including All ISO 8601 Formats},
+  author =       {Gábor Csárdi and Linus Torvalds},
+  year =         {2019},
+  note =         {R package version 1.2.0},
+  url =          {https://CRAN.R-project.org/package=parsedate},
+}
+
+@Book{Eddelbuettel:2013,
+  title =        {Seamless {R} and {C++} Integration with {Rcpp}},
+  author =       {Dirk Eddelbuettel},
+  publisher =    {Springer},
+  address =      {New York},
+  year =         {2013},
+  annote =       {ISBN 978-1-4614-6867-7},
+  doi =          {10.1007/978-1-4614-6868-4},
+}
+
+@Manual{GitHub:CCTZ,
+  title =        {{CCTZ}: {A C++ library for translating between
+                  absolute and civil times using the rules of a time
+                  zone}},
+  author =       {Bradley White and Greg Miller},
+  year =         2019,
+  note =         {GitHub Repository},
+  url =          { https://github.com/google/cctz}
+}
+
+@Article{JSS:Rcpp,
+  title =        {{Rcpp}: Seamless {R} and {C++} Integration},
+  author =       {Dirk Eddelbuettel and Romain Fran\c{c}ois},
+  journal =      {Journal of Statistical Software},
+  year =         {2011},
+  volume =       {40},
+  number =       {8},
+  pages =        {1--18},
+  annote =       {http://www.jstatsoft.org/v40/i08/},
+  doi =          {10.18637/jss.v040.i08},
 }
 
 @article{PeerJ:Rcpp,
@@ -71,26 +126,4 @@
   issn =         {2167-9843},
   url =          {https://doi.org/10.7287/peerj.preprints.3188v1},
   doi =          {10.7287/peerj.preprints.3188v1}
-}
-
-@Article{JSS:Rcpp,
-  title =        {{Rcpp}: Seamless {R} and {C++} Integration},
-  author =       {Dirk Eddelbuettel and Romain Fran\c{c}ois},
-  journal =      {Journal of Statistical Software},
-  year =         {2011},
-  volume =       {40},
-  number =       {8},
-  pages =        {1--18},
-  annote =       {http://www.jstatsoft.org/v40/i08/},
-  doi =          {10.18637/jss.v040.i08},
-}
-
-@Book{Eddelbuettel:2013,
-  title =        {Seamless {R} and {C++} Integration with {Rcpp}},
-  author =       {Dirk Eddelbuettel},
-  publisher =    {Springer},
-  address =      {New York},
-  year =         {2013},
-  annote =       {ISBN 978-1-4614-6867-7},
-  doi =          {10.1007/978-1-4614-6868-4},
 }

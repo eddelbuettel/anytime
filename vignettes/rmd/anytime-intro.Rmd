@@ -42,7 +42,7 @@ two_column: true
 #secnumdepth: 5
 
 # Optional: Skip inserting final break between acknowledgements, default is false
-skip_final_break: true
+skip_final_break: false
 
 # Optional: Bibliography
 bibliography: anytime
@@ -127,7 +127,7 @@ anydate(20160101L + 0:2)
 anydate(20160101 + 0:2)
 ```
 
-Numeric input also works for datetimes if range corresponds to the range of `as.numeric()`
+Numeric input also works for datetimes if its range corresponds to the range of `as.numeric()`
 values of `POSIXct` variables:
 
 ```{r, int_num_dt}
@@ -150,6 +150,9 @@ anytime(20160101L + 0:2, oldHeuristic=TRUE)
 ## numeric
 anytime(20160101 + 0:2, oldHeuristic=TRUE)
 ```
+
+In general, it is now preferred to use `anydate()` on values in this range (or resort to
+using `oldHeuristics=TRUE` as shown).
 
 ## Factor or Ordered
 
@@ -247,39 +250,33 @@ formats are generally variants of the ISO 8601 date format, _i.e._, of the YYYY-
 ordering.  We also allow for textual representation of months, _e.g._, 'Jan'
 for January. This feature is not internationalised.
 
-```{r, date_single_digit}
-anytime(c("2016-1-31", "2016-2-1"))
-anytime(c("2016-1-31", "2016-2-1"), useR=TRUE)
-```
-
 The list of current formats can be retrieved by the `getFormats()` function. Users can
 also add to this list at run-time by calling `addFormats()`, as well as removing
 formats. User-provided formats are tried before the formats supplied by the package.
 
 ```{r}
-getFormats()
+fmts <- getFormats()
+length(fmts)
+head(fmts,10)
+tail(fmts,10)
 ```
 
-One minor shortcoming is that single digits dates and months are sometimes encountered:
-2001-2-3 for the third of February of 2001.  [Boost
-Date_Time](https://www.boost.org/libs/date_time) will only work with 2001-02-03 which is
-somewhat more restrictive.
-
-As an alternative, and to be close to parsing by the R language and system, we also
-support the parser from R itself.  As R does not provide access via its API, we use the
-\pkg{Rcpp} package \citep{JSS:Rcpp,Eddelbuettel:2013, CRAN:Rcpp}.  This is shown in the
-second invocation of `anytime()` in the preceding example.
+As a fallback for, _e.g._, different behavior on Windows where Boost does not consult the
+\code{TZ} environment variable, and to be generally as close as possible to parsing by the
+R language and system, we also support the parser from R itself.  As R does not expose
+this part of its API at the C level, we use the \pkg{Rcpp} package \citep{JSS:Rcpp,Eddelbuettel:2013,
+CRAN:Rcpp}.  This code path is enabled when `useR=TRUE` is used.
 
 # Output Formats
 
 A related topic is faithful and easy to read _representation_ of
-datetime objects in output, _i.e.,_ formats for printing object.
+datetime objects in output, _i.e.,_ formatting and printing such objects.
 
 In the spirit of _no configuration_ used on the parsing side,
 formating support is provided via several functions. These all follow
 different known standards and are accessible by the name of the
-standard, or, in one case, the non-standard convention. In all cases,
-a character representation is returned.
+standard, or, in one case, the non-standard convention. All return a 
+a character representation.
 
 ```{r output_ex}
 pt <- anytime("2016-01-31 12:13:14.123456")
@@ -302,19 +299,6 @@ form insists on month-day-year ordering. As many users are likely to encounter s
 format, \pkg{anytime} accomodates this use provided a separator is used: input with either
 a slash (`/`) or a hyphen (`-`) is accepted and parsed.
 
-## One versus two digits
-
-As mentioned earlier, displaying only one digit for day and/or month is possible. An
-example would be "2010-2-4" for the fourth of February in 2010. However, the Boost parser
-does not recognise this on input as it would require "2010-02-04".  However, setting the
-option `useR=TRUE` switches to the R parser which does recognise this input as the
-following example demonstrates:
-
-```{r output_useR}
-anydate("2019-1-2")
-anydate("2019-1-2", useR=TRUE)
-```
-
 # Asserts
 
 The \pkg{anytime} package also contains two helper functions that can assist in defensive
@@ -326,8 +310,8 @@ parsed input is returned invisibly.
 # Comparison
 
 The \pkg{anytime} aims to satisfy two goal: be performant, and the same time flexible in
-terms of not requiring an explicit input format.  We can gauge the relative performance in
-two ways. 
+terms of not requiring an explicit input format.  We can gauge the relative performance via several pairwise compariosns.
+
 
 ## Speed
 
@@ -337,19 +321,19 @@ compiled code.  The `fastPOSIct()` function from the \pkg{fasttime} package
 (UTC-only) datetime object.  A simple benchmark coverting 100 input strings 100,000 times
 finds both `as.POSIXct()` and `anytime()` at very comparable and similar performance, but
 well over one order of magnitude slower that the highly-focussed `fastPOSIXct()`.  This
-result is reasonable: a highly specialised function can (and should) outperform two
-(relatively fast) universal converters.  `anytime()` is still compelling as it easier
-to use than `as.POSIXct()` by not requiring a format string.
+result is reasonable: a highly specialised function can (yand should) outperform two
+(relatively fast) universal converters.  `anytime()` is still compelling as it easier to
+use than `as.POSIXct()` by not requiring a format string (for formats other than ISO
+8601).
 
 ```{r benchmark_speed, cache=TRUE}
 library(rbenchmark)
 library(fasttime)
 inp <- rep("2019-01-02 03:04:05", 100)
-v <- benchmark(fasttime=fastPOSIXct(inp),
-               baseR=as.POSIXct(inp),
-               anytime=anytime(inp),
-               replications=1e5)
-v[,1:4]
+benchmark(fasttime=fastPOSIXct(inp),
+          baseR=as.POSIXct(inp),
+          anytime=anytime(inp),
+          replications=1e5)[,1:4]
 ```
 
 ## Generality 
@@ -366,15 +350,50 @@ performance relative to the more restricted alternatives.
 library(rbenchmark)
 library(parsedate)
 inp <- rep("2019-01-02 03:04:05", 100)
-v <- benchmark(parsedate=parse_date(inp),
-               baseR=as.POSIXct(inp),
-               anytime=anytime(inp),
-               replications=5e3)
-v[,1:4]
+benchmark(parsedate=parse_date(inp),
+          baseR=as.POSIXct(inp),
+          anytime=anytime(inp),
+          replications=5e3)[,1:4]
 ```
+
+## All-in
+
+The \pkg{lubridate} package \citep{CRAN:lubridate} is a widely-used package for
+working with dates and times offering a wide variety of functions.  Its parser requires at
+least a _hint_: the user has to specify whether input is ordered as, say,
+year-month-day, or day-month-year, or another form. \pkg{lubridate} has changed its
+internals considerably over the years. Early versions did not contain compiled code; a
+C-based parser was added first, and current versions embed the CCTZ C++ library
+\citep{GitHub:CCTZ} first brought to R by package \pkg{RcppCCTZ} \citep{CRAN:RcppCCTZ}.
+
+While \pkg{lubridate} is less general than \pkg{anytime} (in that it generally requires
+user input on the ordering of date elements), it is also slower as can be seen in the
+example below. The more-widely used form (here `ymd_hms()`) is over an order of
+magnitude slower; the less well-known function `parse_data_times()` (which still
+requires _hints_) is still several times slower as shown below.
+
+
+```{r benchmark_lubridate, cache=TRUE}
+library(rbenchmark)
+suppressMessages(library(lubridate))
+inp <- rep("2019-01-02 03:04:05", 100)
+benchmark(ymd_hms=ymd_hms(inp),
+          parse_dt=parse_date_time(inp, "ymd_HMS"),
+          anytime=anytime(inp),
+          replications=1e4)[, 1:4]
+```
+
 
 
 # Summary
 
 We describe the \pkg{anytime} package which offers fast, convenient and reliable date and
 datetime conversion for R users along with helper functions for formatting and assertions.
+Different types of input are illustrated and described in detail, and performance is
+analyzed via several benchmark comparisons.
+
+We show that the \pkg{anytime} package is no slower than the base R parser, and much faster
+than either the most flexible parsing alternative, or a commonly-used package in this
+space---all the while freeing users from having to supply explicit formats specified in
+advance. The combination of features, performance and ease-of-use may make \pkg{anytime} a
+compelling alternative for R users parsing and analysing dates and times.
