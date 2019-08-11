@@ -2,7 +2,7 @@
 
 if (requireNamespace("tinytest", quietly=TRUE)) {
 
-    files <- list.files("../inst/tinytest", full.names = TRUE)
+    files <- list.files("../inst/tinytest", full.names = TRUE, pattern="test.*R")
 
     runTestFile <- function(file) {
         tz_prior <- Sys.getenv("TZ")
@@ -14,19 +14,22 @@ if (requireNamespace("tinytest", quietly=TRUE)) {
     }
 
     runSerial <- function(files) {
+        cat("** serial\n")
         for (file in files) {
             res <- runTestFile(file)
-            cat(sprintf("TZ from %s to %s\n", res[1], res[2]))
+            #cat(sprintf("TZ from %s to %s\n", res[1], res[2]))
         }
     }
 
     runParallel <- function(files) {
+        cat("** parallel\n")
         rl <- parallel::mclapply(files, runTestFile, mc.cores=4)
         res <- do.call(rbind, rl)
-        print(res)
+        #print(res)
     }
 
-    runParallel(files)
+#    runParallel(files)
+    runSerial(files)
     runSerial(files)
     runParallel(files)
 }
