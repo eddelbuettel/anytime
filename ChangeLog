@@ -1,3 +1,8 @@
+2019-08-12  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/hide/test_r_format.R: Moved as zero active tests
+	* inst/tinytest/hide/test_gh_issues_36_51.R: Ditto
+	
 2019-08-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp: Add missing commas in format definition
