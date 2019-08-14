@@ -127,6 +127,15 @@ the `useR` argument for more details.
 
 The package should work as expected.
 
+### Example Uses 
+
+Currently, just over ten different [CRAN](https://cran.r-project.org) packages import this package. Among them are the following research-focused packages:
+ - [AGread](https://cran.r-project.org/package=AGread) by Hibbing _et al_ which reads and transforms ActiGraph physical activity measures;
+ - [E4tools](https://cran.r-project.org/package=E4tools) by Kleiman which reads data from Empatica wearable physiology monitors;
+ - [RDS](https://cran.r-project.org/package=RDS) by Handcock _et al_ which is part of the "RDS Ananlyst" suite for analysing respondent-driven sampling data;
+ - [tsbox](https://cran.r-project.org/package=tsbox) by Sax for format-agnostic time series data representation and conversions;
+ - [tsibble](https://cran.r-project.org/package=tsibble) by Wang _et al_ for temporal data in an explicit data- and model-oriented format.
+
 ### Changes
 
 See the NEWS.Rd file on [CRAN](https://cran.r-project.org/package=anytime/news.html) or
@@ -165,7 +174,7 @@ issues](https://github.com/eddelbuettel/anytime/issues) in the repository.
 Before submitting pull requests, it is frequently preferable to first discuss
 need and scope in such an issue ticket.  See the file
 [Contributing.md](https://github.com/RcppCore/Rcpp/blob/master/Contributing.md) (in the
-[Rcpp](https://github.com/RcppCore/Rcpp) repo) for a brief discussion. 
+[Rcpp](https://github.com/RcppCore/Rcpp) repo) for a brief discussion.
 
 
 ### Author

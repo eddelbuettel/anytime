@@ -1,3 +1,7 @@
+2019-08-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Add section on example uses
+
 2019-08-12  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/hide/test_r_format.R: Moved as zero active tests
