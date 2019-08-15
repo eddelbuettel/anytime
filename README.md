@@ -33,9 +33,8 @@ behaviour of version older than 0.3.0, set `oldHeuristic=TRUE`, see `help(anytim
 #### From Integer or Numeric or Factor or Ordered
 
 ```r
-library(anytime)
+library(anytime)                      ## also caches TZ in local env
 options(digits.secs=6)                ## for fractional seconds below
-Sys.setenv(TZ=anytime:::getTZ())      ## helper function to try to get TZ
 
 ## integer
 anydate(20160101L + 0:2)              ## older version used anytime for this too
