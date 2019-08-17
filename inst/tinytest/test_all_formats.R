@@ -34,7 +34,6 @@ expect_equal(ref, format(anytime(c("20160901 10:11:12",   "20160901 10:11:12.345
 expect_equal(ref, format(anytime(c("09/01/2016 10:11:12", "09/01/2016 10:11:12.345678"))))
 expect_equal(ref, format(anytime(c("09-01-2016 10:11:12", "09-01-2016 10:11:12.345678"))))
 ## anytime(c("01.09.2016 10:11:12", "01.09.2016 10:11:12.345678")) # European format gets confused with m/d/y
-exit_file("Skip here now")
 
 expect_equal(ref, format(anytime(c("2016-Sep-01 10:11:12", "2016-Sep-01 10:11:12.345678"))))
 expect_equal(ref, format(anytime(c("2016/Sep/01 10:11:12", "2016/Sep/01 10:11:12.345678"))))
