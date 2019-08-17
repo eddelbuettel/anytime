@@ -8,8 +8,10 @@ if (requireNamespace("tinytest", quietly=TRUE)) {
     ## tinytest directory, see its package vignette; tests can also
     ## run once the package is installed using the same command
 
-    ## we need version 0.9.4 or later
-    if (utils::packageVersion("tinytest") >= "0.9.4") {
-        tinytest::test_package("anytime")
+    ## we need version 0.9.6.13 or later
+    if (utils::packageVersion("tinytest") >= "0.9.6.13") {
+        tinytest::test_package("anytime",
+                               ncpu=getOption("Ncpus", 1),
+                               side_effects=TRUE)
     }
 }
