@@ -1,7 +1,7 @@
-tz <- "America/Chicago"
-Sys.setenv("TZ"=tz)
+#tz <- "America/Chicago"
+#Sys.setenv("TZ"=tz)
 library(anytime)
-anytime:::setTZ(tz)
+#anytime:::setTZ(tz)
 
 isSolaris <- Sys.info()[["sysname"]] == "SunOS"
 isWindows <- Sys.info()[["sysname"]] == "Windows"
