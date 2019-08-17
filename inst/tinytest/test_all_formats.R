@@ -17,12 +17,15 @@ isRelease <- length(unclass(utils::packageVersion("anytime"))[[1]]) == 3
 ## rhub which would not otherwise pass no matter what we tried.  They
 ## may lack zoneinfo or something else that is basic and expect.
 
+ref <- anytime("2016-09-01 10:11:12")
+expect_equal(ref, anytime("2016-09-01 101112"))
+
 if (TRUE || isSolaris || isWindows || isRelease) exit_file("Skipping Solaris or Windows or Release")
 
 options(digits.secs=6, width=70)
 
-                                        #ref <- format(as.POSIXct(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678")))
-                                        #expect_equal(ref, format(anytime(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678"))))
+##ref <- format(as.POSIXct(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678")))
+##expect_equal(ref, format(anytime(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678"))))
 ref <- format(anytime(c("2016-09-01 10:11:12", "2016-09-01 10:11:12.345678")))
 expect_equal(ref, format(anytime(c("2016-09-01 101112",   "2016-09-01 101112.345678"))))
 expect_equal(ref, format(anytime(c("2016/09/01 10:11:12", "2016/09/01 10:11:12.345678"))))
