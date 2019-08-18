@@ -60,7 +60,6 @@ expect_equal(ref, anytime("2016-09-01T10:11:12 CDT"))
 expect_equal(ref, anytime("Thu Sep 01 10:11:12 CDT 2016"))
 
 
-
 ref <- anytime("2016-09-01 10:11:12.345678")
 expect_equal(ref, anytime("2016-09-01 101112.345678"))
 expect_equal(ref, anytime("2016/09/01 10:11:12.345678"))
@@ -112,14 +111,11 @@ expect_equal(ref, anytime("2016September01"))
 expect_equal(ref, anytime("September/01/2016"))
 expect_equal(ref, anytime("September-01-2016"))
 
-
 ## special case of non-finite NA reals
 anytime(c(NA, NaN, Inf, as.numeric(as.POSIXct("2016-09-01 10:11:12"))))
 
-##cat("\n")                               # special case of no separators
 anytime(c("20160911", "20160911 1011", "20160911 101112", "20160911 101112.345678"))
 
-cat("\n")
 anytime("NA") 			# String NA
 anytime(Sys.time())                 # POSIXt pass-through
 utctime(Sys.time())                 # POSIXt pass-through (doesn't do anything different for numeric input)
