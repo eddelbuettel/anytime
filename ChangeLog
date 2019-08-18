@@ -1,3 +1,7 @@
+2019-08-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test_all_formats.R: Small refactoring
+
 2019-08-16  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Suggests on tinytest now '(>= 0.9.6.13)'
