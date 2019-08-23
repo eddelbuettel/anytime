@@ -1,3 +1,17 @@
+2019-08-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test_all_formats.R: Small refactoring
+
+2019-08-16  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Suggests on tinytest now '(>= 0.9.6.13)'
+	
+	* tests/tinytest.R: Now with parallel execution and side effect
+
+	* inst/tinytest/test_all_formats.R: Now uses tinytest::exit_file()
+        * inst/tinytest/test_bulk.R: Idem
+        * inst/tinytest/test_simple.R: Idem
+	
 2019-08-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Add section on example uses
