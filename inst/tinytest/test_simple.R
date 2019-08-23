@@ -106,8 +106,8 @@ expect_equivalent(anydate(365L + 0:2), epochplusone)
 expect_true(yyyymmdd(refD) == format(refD, "%Y%m%d"))
 
 ## Date from POSIXct
-                                        #expect_true(anydate(refT) == as.Date(refT))
-                                        #expect_true(utcdate(refT) == as.Date(refT))
+##expect_true(anydate(refT) == as.Date(refT))
+##expect_true(utcdate(refT) == as.Date(refT))
 
 ## some simple calls to add some coverage
 ## anydate with useR
@@ -120,5 +120,10 @@ expect_true(inherits(anytime(Sys.Date()), "POSIXt"))
 expect_equal(class(utcdate(Sys.Date())), "Date")
 expect_equal(class(anydate(Sys.time())), "Date")
 expect_equal(class(utcdate(Sys.time())), "Date")
+
+now <- Sys.time()
+expect_silent(utctime(now, useR=TRUE))
+txt <- format(now)
+expect_silent(utctime(txt, useR=TRUE))
 
 anytime:::setTZ(oldtz)
