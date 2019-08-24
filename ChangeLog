@@ -8,6 +8,9 @@
 	
 	* inst/tinytest/test_simple.R: Add two more tests
 
+	* vignettes/rmd/anytime-intro.Rmd: Updated
+	* vignettes/anytime-intro.pdf: Idem
+
 2019-08-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (ptToDoubleUTC): One more #nocov tag

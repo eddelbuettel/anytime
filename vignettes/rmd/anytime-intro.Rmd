@@ -42,7 +42,7 @@ two_column: true
 #secnumdepth: 5
 
 # Optional: Skip inserting final break between acknowledgements, default is false
-skip_final_break: false
+skip_final_break: true
 
 # Optional: Bibliography
 bibliography: anytime
@@ -326,14 +326,24 @@ result is reasonable: a highly specialised function can (yand should) outperform
 use than `as.POSIXct()` by not requiring a format string (for formats other than ISO
 8601).
 
-```{r benchmark_speed, cache=TRUE}
-library(rbenchmark)
-library(fasttime)
-inp <- rep("2019-01-02 03:04:05", 100)
-benchmark(fasttime=fastPOSIXct(inp),
-          baseR=as.POSIXct(inp),
-          anytime=anytime(inp),
-          replications=1e5)[,1:4]
+<!-- ` ` `{r benchmark_speed, cache=TRUE} -->
+<!-- library(rbenchmark) -->
+<!-- library(fasttime) -->
+<!-- inp <- rep("2019-01-02 03:04:05", 100) -->
+<!-- benchmark(fasttime=fastPOSIXct(inp), -->
+<!--           baseR=as.POSIXct(inp), -->
+<!--           anytime=anytime(inp), -->
+<!--           replications=1e5)[,1:4] -->
+<!-- ` ` ` -->
+
+```{r knitr_speed, echo=FALSE}
+df <- read.table(text="
+      test replications elapsed relative
+3  anytime       100000  16.556   20.515
+2    baseR       100000  15.692   19.445
+1 fasttime       100000   0.807    1.000", stringsAsFactors=FALSE)
+knitr::kable(df, "latex", booktabs=TRUE, row.names=FALSE,
+             caption="Comparison of anytime and base R to fasttime")
 ```
 
 ## Generality 
@@ -346,15 +356,27 @@ is reasonable as the greater flexibility of \pkg{parsedate} comes at a cost in
 performance relative to the more restricted alternatives.
 
 
-```{r benchmark_generality, cache=TRUE}
-library(rbenchmark)
-library(parsedate)
-inp <- rep("2019-01-02 03:04:05", 100)
-benchmark(parsedate=parse_date(inp),
-          baseR=as.POSIXct(inp),
-          anytime=anytime(inp),
-          replications=5e3)[,1:4]
+<!-- ` ` `{r benchmark_generality, cache=TRUE} -->
+<!-- library(rbenchmark) -->
+<!-- library(parsedate) -->
+<!-- inp <- rep("2019-01-02 03:04:05", 100) -->
+<!-- benchmark(parsedate=parse_date(inp), -->
+<!--           baseR=as.POSIXct(inp), -->
+<!--           anytime=anytime(inp), -->
+<!--           replications=5e3)[,1:4] -->
+<!-- ` ` ` -->
+
+```{r knitr_generality, echo=FALSE}
+df <- read.table(stringsAsFactors=FALSE, text="
+       test replications elapsed relative
+3   anytime        10000   1.653    1.069
+2     baseR        10000   1.546    1.000
+1 parsedate        10000  21.827   14.118
+")
+knitr::kable(df, "latex", booktabs=TRUE, row.names=FALSE,
+             caption="Comparison of anytime and base R to parsedate")
 ```
+
 
 ## All-in
 
@@ -373,16 +395,27 @@ magnitude slower; the less well-known function `parse_data_times()` (which still
 requires _hints_) is still several times slower as shown below.
 
 
-```{r benchmark_lubridate, cache=TRUE}
-library(rbenchmark)
-suppressMessages(library(lubridate))
-inp <- rep("2019-01-02 03:04:05", 100)
-benchmark(ymd_hms=ymd_hms(inp),
-          parse_dt=parse_date_time(inp, "ymd_HMS"),
-          anytime=anytime(inp),
-          replications=1e4)[, 1:4]
-```
+<!-- ` ` `{r benchmark_lubridate, cache=TRUE} -->
+<!-- library(rbenchmark) -->
+<!-- suppressMessages(library(lubridate)) -->
+<!-- inp <- rep("2019-01-02 03:04:05", 100) -->
+<!-- benchmark(ymd_hms=ymd_hms(inp), -->
+<!--           parse_dt=parse_date_time(inp, "ymd_HMS"), -->
+<!--           anytime=anytime(inp), -->
+<!--           replications=1e4)[, 1:4] -->
+<!-- ` ` ` -->
 
+
+```{r knitr_lubridate, echo=FALSE}
+df <- read.table(stringsAsFactors=FALSE, text="
+             test replications elapsed relative
+3         anytime        10000   1.652    1.000
+2 parse_date_time        10000  12.770    7.730
+1         ymd_hms        10000  25.162   15.231
+")
+knitr::kable(df, "latex", booktabs=TRUE, row.names=FALSE,
+             caption="Comparison of anytime to two lubridate functions")
+```
 
 
 # Summary
@@ -397,3 +430,37 @@ than either the most flexible parsing alternative, or a commonly-used package in
 space---all the while freeing users from having to supply explicit formats specified in
 advance. The combination of features, performance and ease-of-use may make \pkg{anytime} a
 compelling alternative for R users parsing and analysing dates and times.
+
+# Appendix
+
+The benchmark code from tables one to three is included below.
+
+```r
+library(anytime)
+library(rbenchmark)
+library(fasttime)
+inp <- rep("2019-01-02 03:04:05", 100)
+res1 <- benchmark(fasttime=fastPOSIXct(inp),
+                  baseR=as.POSIXct(inp),
+                  anytime=anytime(inp),
+                  replications=1e5)[, 1:4]
+res1
+
+library(parsedate)
+inp <- rep("2019-01-02 03:04:05", 100)
+res2 <- benchmark(parsedate=parse_date(inp),
+                  baseR=as.POSIXct(inp),
+                  anytime=anytime(inp),
+                  replications=1e4)[, 1:4]
+res2
+
+suppressMessages(library(lubridate))
+inp <- rep("2019-01-02 03:04:05", 100)
+res3 <- benchmark(ymd_hms=ymd_hms(inp),
+                  parse_date_time=
+                      parse_date_time(inp,
+                                      "ymd_HMS"),
+                  anytime=anytime(inp),
+                  replications=1e4)[, 1:4]
+res3
+```
