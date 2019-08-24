@@ -58,7 +58,7 @@ const std::string sformats[] = {
     "%b-%d-%Y %H:%M:%S%f",  "%b-%e-%Y %H:%M:%S%f",
 
     "%d.%b.%Y %H:%M:%S%f",  "%e.%b.%Y %H:%M:%S%f",
-    "%d%b%Y %H%M%S%f",	    "%e%b%Y %H%M%S%f",
+    "%d%b%Y %H%M%S%f",      "%e%b%Y %H%M%S%f",
     "%d%b%Y %H:%M:%S%f",    "%e%b%Y %H:%M:%S%f",
     "%d-%b-%Y %H%M%S%f",    "%e-%b-%Y %H%M%S%f",
     "%d-%b-%Y %H:%M:%S%f",  "%d-%b-%Y %H:%M:%S%f",
@@ -201,9 +201,9 @@ double ptToDoubleUTC(const bt::ptime & pt, const bool asDate=false) {
         return static_cast<double>(pt.date().day_number()) - static_cast<double>(timet_start.date().day_number());
     }
 
-    bt::time_duration tdiff = pt - timet_start;
+    bt::time_duration tdiff = pt - timet_start;                 // #nocov start
     double totsec = tdiff.total_microseconds()/1.0e6;
-    return totsec;
+    return totsec;                                              // #nocov end
 }
 
 
@@ -230,7 +230,7 @@ double stringToTime(const std::string s, const bool asUTC=false, const bool asDa
                     << " which is UTC " << utc
                     << " local " << loc
                     << " diff " << utc-loc << std::endl;
-    } 				// #nocov end
+    }                           // #nocov end
     if (asUTC) {
         return ptToDoubleUTC(pt, asDate);
     } else {
@@ -381,7 +381,7 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
         std::string s = boost::lexical_cast<std::string>(val);
 
         if (s == "NA") {
-            pv[i] = NA_REAL;    					// #nocov
+            pv[i] = NA_REAL;                                            // #nocov
         } else {
             if (debug) Rcpp::Rcout << "before tests: " << s << std::endl;
             // Boost Date_Time gets the 'YYYYMMDD' format wrong, even
@@ -392,9 +392,9 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
             if (isAtLeastGivenLengthAndAllDigits(one, 8)) {
                 one = one.substr(0, 4) + "-" + one.substr(4, 2) + "-" + one.substr(6,2);
 
-                if ((two.size()==5 || two.size() >= 8) &&          	// if we have hh:mm or hh:mm:ss[.ffffff]
-                    !isAtLeastGivenLengthAndAllDigits(two, 6)) { 	// and it is not hhmmss
-                    three = "";    	                     		// do nothing, three remains "" #nocov
+                if ((two.size()==5 || two.size() >= 8) &&               // if we have hh:mm or hh:mm:ss[.ffffff]
+                    !isAtLeastGivenLengthAndAllDigits(two, 6)) {        // and it is not hhmmss
+                    three = "";                                         // do nothing, three remains "" #nocov
                 } else {
                     inp = two;
 
@@ -417,10 +417,10 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
                 if (debug) Rcpp::Rcout << two << " " << " three: " << three << std::endl;
 
             } else if (isAtLeastGivenLengthAndAllDigits(two, 6)) {
-                if (two.size() == 6) { 					// #nocov start
+                if (two.size() == 6) {                                  // #nocov start
                     two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
                 }
-                s = one + " " + two; 					// #nocov end
+                s = one + " " + two;                                    // #nocov end
             } else {
                 if (debug) Rcpp::Rcout << "One: " << one << " " << "two: " << two << std::endl;
             }
@@ -438,7 +438,7 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
     }
     // There is an issue with datetime parsing under TZ=Europe/London, see eg #36 and #51
     // We think this is caused by Boost but as we return to R for formating we need to adjust
-    if (!useR && setupTZ == "Europe/London") {					// #nocov start
+    if (!useR && setupTZ == "Europe/London") {                                  // #nocov start
         //Rcpp::Rcerr << "Putzing\n";
         const double cutoff = 57722400; // 1971-10-31 02:00:00 was a policy change
         for (int i=0; i<pv.size(); i++) {
@@ -499,7 +499,7 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         return Rcpp::DatetimeVector(x, asUTC ? "UTC" : tz.c_str());
 
     } else {
-        Rcpp::stop("Unsupported Type");	// bug in 0.12.{7,8}; Rcpp 0.12.9 or later ok #nocov
+        Rcpp::stop("Unsupported Type"); // bug in 0.12.{7,8}; Rcpp 0.12.9 or later ok #nocov
         return R_NilValue;//not reached
     }
 }

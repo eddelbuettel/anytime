@@ -1,3 +1,17 @@
+2019-08-24  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+	
+	* DESCRIPTION: Suggests on tinytest now '(>= 1.0.0)'
+
+	* tests/tinytests.R: Check for tinytest '(>= 1.0.0)'
+	
+	* inst/tinytest/test_simple.R: Add two more tests
+
+2019-08-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (ptToDoubleUTC): One more #nocov tag
+
 2019-08-18  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/test_all_formats.R: Small refactoring
