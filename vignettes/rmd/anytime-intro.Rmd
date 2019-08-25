@@ -318,13 +318,14 @@ terms of not requiring an explicit input format.  We can gauge the relative perf
 The `as.POSIXct()` function in R provides a useful baseline as it is also implemented in
 compiled code.  The `fastPOSIct()` function from the \pkg{fasttime} package
 \citep{CRAN:fasttime} excels at converting one (and only one) input format _fast_ to a
-(UTC-only) datetime object.  A simple benchmark coverting 100 input strings 100,000 times
+(UTC-only) datetime object.  A simple benchmark converting 100 input strings 100,000 times
 finds both `as.POSIXct()` and `anytime()` at very comparable and similar performance, but
-well over one order of magnitude slower that the highly-focussed `fastPOSIXct()`.  This
-result is reasonable: a highly specialised function can (yand should) outperform two
-(relatively fast) universal converters.  `anytime()` is still compelling as it easier to
-use than `as.POSIXct()` by not requiring a format string (for formats other than ISO
-8601).
+well over one order of magnitude slower that the highly-focussed `fastPOSIXct()`. Table
+\ref{tab:speed} shows the detailed results; the underlying code can be seen in the
+[appendix](#appendix).  This result is reasonable: a highly specialised function can (yand
+should) outperform two (relatively fast) universal converters.  `anytime()` is still
+compelling as it easier to use than `as.POSIXct()` by not requiring a format string (for
+formats other than ISO 8601).
 
 <!-- ` ` `{r benchmark_speed, cache=TRUE} -->
 <!-- library(rbenchmark) -->
@@ -337,23 +338,25 @@ use than `as.POSIXct()` by not requiring a format string (for formats other than
 <!-- ` ` ` -->
 
 ```{r knitr_speed, echo=FALSE}
-df <- read.table(text="
+df <- read.table(stringsAsFactors=FALSE, text="
       test replications elapsed relative
 3  anytime       100000  16.556   20.515
 2    baseR       100000  15.692   19.445
-1 fasttime       100000   0.807    1.000", stringsAsFactors=FALSE)
+1 fasttime       100000   0.807    1.000
+")
 knitr::kable(df, "latex", booktabs=TRUE, row.names=FALSE,
-             caption="Comparison of anytime and base R to fasttime")
+             caption="\\label{tab:speed}Comparison of anytime and base R to fasttime")
 ```
 
 ## Generality 
 
 The \pkg{parsedate} package \citep{CRAN:parsedate} brings the very general date parsing
 utility from the \textsf{git} version control software to \proglang{R}. In a similar
-comparison of 100 input strings parsed 5000 times, we find its `parse_date()` function to
-be more than an order of magnitude slower than `anytime()` or `as.POSIXct()`.  Again, this
-is reasonable as the greater flexibility of \pkg{parsedate} comes at a cost in
-performance relative to the more restricted alternatives.
+comparison of 100 input strings parsed 10,000 times, we find its `parse_date()` function
+to be more than an order of magnitude slower than `anytime()` or `as.POSIXct()`---see
+table \ref{tab:generality} for the results based on the code in the [appendix](#appendix).
+Again, this result is reasonable as the greater flexibility of \pkg{parsedate} comes at a
+cost in performance relative to the more restricted alternatives.
 
 
 <!-- ` ` `{r benchmark_generality, cache=TRUE} -->
@@ -374,25 +377,28 @@ df <- read.table(stringsAsFactors=FALSE, text="
 1 parsedate        10000  21.827   14.118
 ")
 knitr::kable(df, "latex", booktabs=TRUE, row.names=FALSE,
-             caption="Comparison of anytime and base R to parsedate")
+             caption="\\label{tab:generality}Comparison of anytime and base R to parsedate")
 ```
 
 
 ## All-in
 
-The \pkg{lubridate} package \citep{CRAN:lubridate} is a widely-used package for
-working with dates and times offering a wide variety of functions.  Its parser requires at
-least a _hint_: the user has to specify whether input is ordered as, say,
-year-month-day, or day-month-year, or another form. \pkg{lubridate} has changed its
-internals considerably over the years. Early versions did not contain compiled code; a
-C-based parser was added first, and current versions embed the CCTZ C++ library
-\citep{GitHub:CCTZ} first brought to R by package \pkg{RcppCCTZ} \citep{CRAN:RcppCCTZ}.
+The \pkg{lubridate} package \citep{CRAN:lubridate} is a widely-used package for working
+with dates and times. It offers a very anywide variety of functions for working with dates
+and times: we count a full 168 exported functions in the current version.  Its parser for
+dates and times requires at least a _hint_: the user has to specify whether input is
+ordered as, say, year-month-day, or day-month-year, or another form. \pkg{lubridate} has
+changed its internals considerably over the years. Early versions did not contain compiled
+code; a C-based parser was added first, and current versions embed the CCTZ C++ library
+\citep{GitHub:CCTZ} which was first made available to R by the \pkg{RcppCCTZ} package
+\citep{CRAN:RcppCCTZ}.
 
 While \pkg{lubridate} is less general than \pkg{anytime} (in that it generally requires
-user input on the ordering of date elements), it is also slower as can be seen in the
-example below. The more-widely used form (here `ymd_hms()`) is over an order of
-magnitude slower; the less well-known function `parse_data_times()` (which still
-requires _hints_) is still several times slower as shown below.
+user input on the ordering of date elements), it is also slower as can be seen from the
+results in table \ref{tab:lubridate} based on the code in the [appendix](#appendix). The
+more-widely used form (here `ymd_hms()`) is over an order of magnitude slower; the less
+well-known function `parse_data_times()` (which still requires _hints_) is still several
+times slower as shown below.
 
 
 <!-- ` ` `{r benchmark_lubridate, cache=TRUE} -->
@@ -414,7 +420,7 @@ df <- read.table(stringsAsFactors=FALSE, text="
 1         ymd_hms        10000  25.162   15.231
 ")
 knitr::kable(df, "latex", booktabs=TRUE, row.names=FALSE,
-             caption="Comparison of anytime to two lubridate functions")
+             caption="\\label{tab:lubridate}Comparison of anytime to two lubridate functions")
 ```
 
 
@@ -433,7 +439,10 @@ compelling alternative for R users parsing and analysing dates and times.
 
 # Appendix
 
-The benchmark code from tables one to three is included below.
+The benchmark results shown in tables \ref{tab:speed}, \ref{tab:generality} and
+\ref{tab:lubridate} are based on the code included below, and obtained via execution under
+R version 3.6.1 running under Ubuntu 19.04 with Linux kernel 5.0.0-25 on an Intel i7-8700k
+processor.
 
 ```r
 library(anytime)
