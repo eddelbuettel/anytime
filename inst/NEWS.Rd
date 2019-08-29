@@ -3,17 +3,21 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.3.6 (2019-08-xx)}{
+\section{Changes in anytime version 0.3.6 (2019-08-29)}{
   \itemize{
     \item Added, and then removed, required file for JOSS; added
     'unworthy' badge as we earned a desk reject (cf #1605 there).
     \item Renamed internal helper function format() to fmt() to avoid
     clashes with base::format() (Dirk in \ghpr{104}).
-    \item Recast main R functions using S3 dispatch (Dirk in \ghpr{106}).
+    \item Use S3 dispatch and generics for key functions (Dirk in
+    \ghpr{106}). 
     \item Continued to tweak tests as we find some of the rhub platform
-    to behave strangely; (Dirk via commits as well as \ghpr{107}).
+    to behave strangely (Dirk via commits as well as \ghpr{107}).
     \item Added \code{\%e} format for single-digit day parsing by Boost
     (Dirk addressing at least \ghit{24}, \ghit{70} and \ghit{99}).
+    \item Expansed and updated vignette with benchmark comparisons.
+    \item Updated unit tests using \pkg{tinytest} which remains a
+    pleasure to use; versioned Suggests: is now '>= 1.0.0'.
   }
 }
 
