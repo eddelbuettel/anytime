@@ -3,6 +3,12 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in anytime version 0.3.7 (2019-xx-yy)}{
+  \itemize{
+    \item Test and possibly condition away one more test file.
+  }
+}
+
 \section{Changes in anytime version 0.3.6 (2019-08-29)}{
   \itemize{
     \item Added, and then removed, required file for JOSS; added
