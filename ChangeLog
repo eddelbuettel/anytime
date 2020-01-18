@@ -5,6 +5,12 @@
 	* R/anytime.R: Reassert proper line-endings, add nocov tags
 	* man/anytime.Rd: Re-run roxygenize()
 
+2020-01-18  Stephen Froehlich  <s.froehlich@cablelabs.com>
+
+	* R/anytime.R: Add new option 'calcUnique' for more efficient
+	processing of input with many repeated values
+	* man/anytime.Rd: Add documentation
+
 2020-01-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Add another usage example
