@@ -1,3 +1,10 @@
+2020-01-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test_pr_110.R: New test for PR 110
+
+	* R/anytime.R: Reassert proper line-endings
+	* man/anytime.Rd: Re-run roxygenize()
+
 2020-01-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Add another usage example
