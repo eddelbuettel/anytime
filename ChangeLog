@@ -2,7 +2,7 @@
 
 	* inst/tinytest/test_pr_110.R: New test for PR 110
 
-	* R/anytime.R: Reassert proper line-endings
+	* R/anytime.R: Reassert proper line-endings, add nocov tags
 	* man/anytime.Rd: Re-run roxygenize()
 
 2020-01-10  Dirk Eddelbuettel  <edd@debian.org>

@@ -267,11 +267,11 @@ anydate.default <- function(x, tz=getTZ(), asUTC=FALSE,
         d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
     }
 
-    if(calcUnique == TRUE) {
+    if(calcUnique == TRUE) {												# #nocov start
         ux <- unique(x)
         uy <- anytime_cpp(x=ux, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
         d <- uy[match(x, ux)]
-    }
+    }																		# #nocov end
 
     ## one code path could result in POSIXct, if so convert
     if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)	# #nocov
@@ -317,11 +317,11 @@ utcdate.default <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversi
         d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
     }
 
-    if(calcUnique == TRUE) {
+    if(calcUnique == TRUE) {												# #nocov start
         ux <- unique(x)
         uy <- anytime_cpp(x=ux, tz=tz, asUTC=TRUE, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
         d <- uy[match(x, ux)]
-    }
+    }																		# #nocov end
 
     ## one code path could result in POSIXct, if so convert
     if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)	# #nocov
