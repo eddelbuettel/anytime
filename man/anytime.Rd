@@ -9,15 +9,18 @@
 \usage{
 anytime(x, tz = getTZ(), asUTC = FALSE,
   useR = getOption("anytimeUseRConversions", FALSE),
-  oldHeuristic = getOption("anytimeOldHeuristic", FALSE))
+  oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
+  calcUnique = FALSE)
 
 anydate(x, tz = getTZ(), asUTC = FALSE,
-  useR = getOption("anytimeUseRConversions", FALSE))
+  useR = getOption("anytimeUseRConversions", FALSE), calcUnique = FALSE)
 
 utctime(x, tz = getTZ(), useR = getOption("anytimeUseRConversions", FALSE),
-  oldHeuristic = getOption("anytimeOldHeuristic", FALSE))
+  oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
+  calcUnique = FALSE)
 
-utcdate(x, tz = getTZ(), useR = getOption("anytimeUseRConversions", FALSE))
+utcdate(x, tz = getTZ(), useR = getOption("anytimeUseRConversions", FALSE),
+  calcUnique = FALSE)
 }
 \arguments{
 \item{x}{A vector of type character, integer or numeric with date(time)
@@ -48,6 +51,13 @@ interpret a numeric or integer value that could be seen as a YYYYMMDD as a date.
 the default value \code{FALSE} is seen, then numeric values are used as offsets
 dates (in \code{anydate} or \code{utcdate}), and as second offsets for datetimes
 otherwise. A default value can also be set via the \code{anytimeOldHeuristic} option.}
+
+\item{calcUnique}{A logical value with a default value of \code{FALSE} that tells the
+function to perform the \code{anytime()} or \code{anydate()} calculation only once for
+each unique value in the \code{x} vector. It results in no difference in inputs or
+outputs, but can result in a significant speed increases for long vectors where each
+timestamp appears more than once. However, it will result in a slight slow down for
+input vectors where each timestamp appears only once.}
 }
 \value{
 A vector of \code{POSIXct} elements, or, in the case of \code{anydate},

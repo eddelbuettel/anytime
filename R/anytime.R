@@ -144,6 +144,12 @@
 ##' the default value \code{FALSE} is seen, then numeric values are used as offsets
 ##' dates (in \code{anydate} or \code{utcdate}), and as second offsets for datetimes
 ##' otherwise. A default value can also be set via the \code{anytimeOldHeuristic} option.
+##' @param calcUnique A logical value with a default value of \code{FALSE} that tells the
+##' function to perform the \code{anytime()} or \code{anydate()} calculation only once for
+##' each unique value in the \code{x} vector. It results in no difference in inputs or
+##' outputs, but can result in a significant speed increases for long vectors where each
+##' timestamp appears more than once. However, it will result in a slight slow down for
+##' input vectors where each timestamp appears only once.
 ##' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
 ##' a vector of \code{Date} objects.
 ##' @seealso \code{\link{anytime-package}}
@@ -176,19 +182,22 @@
 ##' format(anytime("2001-02-03 04:05:06"), tz="America/Los_Angeles")
 anytime <- function(x, tz = getTZ(), asUTC = FALSE,
                     useR = getOption("anytimeUseRConversions", FALSE),
-                    oldHeuristic = getOption("anytimeOldHeuristic", FALSE)) {
+                    oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
+                    calcUnique = FALSE) {
     UseMethod("anytime")
 }
 
 anytime.POSIXt <- function(x, tz = getTZ(), asUTC = FALSE,
                            useR = getOption("anytimeUseRConversions", FALSE),
-                           oldHeuristic = getOption("anytimeOldHeuristic", FALSE)) {
+                           oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
+                           calcUnique = FALSE) {
     return(as.POSIXct(x, tz=tz))
 }
 
 anytime.Date <- function(x, tz = getTZ(), asUTC = FALSE,
                          useR = getOption("anytimeUseRConversions", FALSE),
-                         oldHeuristic = getOption("anytimeOldHeuristic", FALSE)) {
+                         oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
+                         calcUnique = FALSE) {
     ## we format and reparse to get proper midnight in TZ treatment
     ## if we used as.Date() we would get midnight at UTC which is rarely desired
     ## x <- format(x)
@@ -198,7 +207,8 @@ anytime.Date <- function(x, tz = getTZ(), asUTC = FALSE,
 
 anytime.factor <- function(x, tz = getTZ(), asUTC = FALSE,
                            useR = getOption("anytimeUseRConversions", FALSE),
-                           oldHeuristic = getOption("anytimeOldHeuristic", FALSE)) {
+                           oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
+                           calcUnique = FALSE) {
     x <- as.character(x)
     NextMethod("anytime")
 }
@@ -207,37 +217,61 @@ anytime.default <- function(x,
                            tz = getTZ(),
                            asUTC = FALSE,
                            useR = getOption("anytimeUseRConversions", FALSE),
-                           oldHeuristic = getOption("anytimeOldHeuristic", FALSE)) {
-    anytime_cpp(x, tz=tz, asUTC=asUTC, asDate=FALSE, useR=useR, oldHeuristic=oldHeuristic)
+                           oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
+                           calcUnique = FALSE) {
+
+    if(calcUnique == FALSE) {
+        return(anytime_cpp(x, tz=tz, asUTC=asUTC, asDate=FALSE, useR=useR, oldHeuristic=oldHeuristic))
+        }
+
+    if(calcUnique == TRUE) {
+        ux <- unique(x)
+        uy <- anytime_cpp(ux, tz=tz, asUTC=asUTC, asDate=FALSE, useR=useR, oldHeuristic=oldHeuristic)
+        return(uy[match(x, ux)])
+    }
 }
 
 ##' @rdname anytime
 anydate <- function(x, tz=getTZ(), asUTC=FALSE,
-                    useR = getOption("anytimeUseRConversions", FALSE)) {
+                    useR = getOption("anytimeUseRConversions", FALSE),
+                    calcUnique = FALSE) {
     UseMethod("anydate")
 }
 
 anydate.Date <- function(x, tz=getTZ(), asUTC=FALSE,
-                         useR = getOption("anytimeUseRConversions", FALSE)) {
+                         useR = getOption("anytimeUseRConversions", FALSE),
+                         calcUnique = FALSE) {
     return(x)                           # input is Date, pass through
 }
 
 anydate.POSIXt <- function(x, tz=getTZ(), asUTC=FALSE,
-                           useR = getOption("anytimeUseRConversions", FALSE)) {
+                           useR = getOption("anytimeUseRConversions", FALSE),
+                           calcUnique = FALSE) {
     return(as.Date(x, tz=tz))  		# input is POSIXt, pass through converted
 }
 
 anydate.factor <- function(x, tz=getTZ(), asUTC=FALSE,
-                           useR = getOption("anytimeUseRConversions", FALSE)) {
+                           useR = getOption("anytimeUseRConversions", FALSE),
+                           calcUnique = FALSE) {
     ## input is factor or order, convert
     x <- as.character(x)
     NextMethod("anytime")
 }
 
 anydate.default <- function(x, tz=getTZ(), asUTC=FALSE,
-                            useR = getOption("anytimeUseRConversions", FALSE)) {
+                            useR = getOption("anytimeUseRConversions", FALSE),
+                            calcUnique = FALSE) {
     ## otherwise call anytime_cpp
-    d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
+
+    if(calcUnique == FALSE) {
+        d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
+    }
+
+    if(calcUnique == TRUE) {												# #nocov start
+        ux <- unique(x)
+        uy <- anytime_cpp(x=ux, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
+        d <- uy[match(x, ux)]
+    }																		# #nocov end
 
     ## one code path could result in POSIXct, if so convert
     if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)	# #nocov
@@ -249,8 +283,8 @@ anydate.default <- function(x, tz=getTZ(), asUTC=FALSE,
 ##' @rdname anytime
 utctime <- function(x, tz=getTZ(),
                     useR = getOption("anytimeUseRConversions", FALSE),
-                    oldHeuristic=getOption("anytimeOldHeuristic", FALSE)) {
-    val <- anytime(x=x, tz=tz, asUTC=TRUE, useR=useR, oldHeuristic=oldHeuristic)
+                    oldHeuristic=getOption("anytimeOldHeuristic", FALSE), calcUnique = FALSE) {
+    val <- anytime(x=x, tz=tz, asUTC=TRUE, useR=useR, oldHeuristic=oldHeuristic, calcUnique=calcUnique)
     if (useR) {                         # need to adjust to UTC in this case
         dt <- as.POSIXlt(base::format(val, tz="UTC")) - as.POSIXlt(base::format(val))
         val <- val - dt
@@ -259,26 +293,35 @@ utctime <- function(x, tz=getTZ(),
 }
 
 ##' @rdname anytime
-utcdate <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE)) {
+utcdate <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE), calcUnique = FALSE) {
     UseMethod("utcdate")
 }
 
-utcdate.Date <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE)) {
+utcdate.Date <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE), calcUnique = FALSE) {
     return(x) 				# input is Date, pass through
 }
 
 utcdate.POSIXt <- function(x, tz=getTZ(),
-                           useR = getOption("anytimeUseRConversions", FALSE)) {
+                           useR = getOption("anytimeUseRConversions", FALSE), calcUnique = FALSE) {
     return(as.Date(x, tz="UTC")) 	# input is POSIXt, pass through converted
 }
 
-utcdate.factor <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE)) {
+utcdate.factor <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE), calcUnique = FALSE) {
     x <- as.character(x)     		# input is factor or order, convert
     NextMethod("utcdate")
 }
 
-utcdate.default <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE)) {
-    d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
+utcdate.default <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE), calcUnique = FALSE) {
+
+    if(calcUnique == FALSE) {
+        d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
+    }
+
+    if(calcUnique == TRUE) {												# #nocov start
+        ux <- unique(x)
+        uy <- anytime_cpp(x=ux, tz=tz, asUTC=TRUE, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
+        d <- uy[match(x, ux)]
+    }																		# #nocov end
 
     ## one code path could result in POSIXct, if so convert
     if (inherits(d, "POSIXt")) d <- as.Date(d, tz=tz)	# #nocov
