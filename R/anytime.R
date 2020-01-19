@@ -1,7 +1,7 @@
 
 ## anytime: Use Boost Date_Time to convert date(time) data to POSIXt
 ##
-## Copyright (C) 2015 - 2019  Dirk Eddelbuettel
+## Copyright (C) 2015 - 2020  Dirk Eddelbuettel
 ##
 ## This file is part of anytime.
 ##
@@ -220,11 +220,9 @@ anytime.default <- function(x,
                            oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
                            calcUnique = FALSE) {
 
-    if(calcUnique == FALSE) {
+    if (calcUnique == FALSE) {
         return(anytime_cpp(x, tz=tz, asUTC=asUTC, asDate=FALSE, useR=useR, oldHeuristic=oldHeuristic))
-        }
-
-    if(calcUnique == TRUE) {
+    } else {
         ux <- unique(x)
         uy <- anytime_cpp(ux, tz=tz, asUTC=asUTC, asDate=FALSE, useR=useR, oldHeuristic=oldHeuristic)
         return(uy[match(x, ux)])
@@ -263,11 +261,9 @@ anydate.default <- function(x, tz=getTZ(), asUTC=FALSE,
                             calcUnique = FALSE) {
     ## otherwise call anytime_cpp
 
-    if(calcUnique == FALSE) {
+    if (calcUnique == FALSE) {
         d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
-    }
-
-    if(calcUnique == TRUE) {												# #nocov start
+    } else {																# #nocov start
         ux <- unique(x)
         uy <- anytime_cpp(x=ux, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
         d <- uy[match(x, ux)]
@@ -313,11 +309,9 @@ utcdate.factor <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversio
 
 utcdate.default <- function(x, tz=getTZ(), useR = getOption("anytimeUseRConversions", FALSE), calcUnique = FALSE) {
 
-    if(calcUnique == FALSE) {
+    if (calcUnique == FALSE) {
         d <- anytime_cpp(x=x, tz=tz, asUTC=TRUE, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
-    }
-
-    if(calcUnique == TRUE) {												# #nocov start
+    } else {																# #nocov start
         ux <- unique(x)
         uy <- anytime_cpp(x=ux, tz=tz, asUTC=TRUE, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
         d <- uy[match(x, ux)]
