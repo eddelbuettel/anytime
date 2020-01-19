@@ -1,3 +1,8 @@
+2020-01-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/anytime.R: Minor code tightening for calcUnique
+	* inst/tinytest/test_calc_unique.R: Renamed from test_pr_110.R
+
 2020-01-18  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/test_pr_110.R: New test for PR 110
