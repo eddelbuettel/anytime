@@ -1,5 +1,7 @@
 2020-01-19  Dirk Eddelbuettel  <edd@debian.org>
 
+        * DESCRIPTION (Version, Date): Roll minor version
+
 	* R/anytime.R: Minor code tightening for calcUnique
 	* inst/tinytest/test_calc_unique.R: Renamed from test_pr_110.R
 
