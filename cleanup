@@ -1,5 +1,17 @@
 
-rm -f src/*.o src/*.so src/*.dylib src/*~ *~
-
-rm -rf vignettes/rmd/auto/ vignettes/rmd/*.{log,aux,out,tex,blg,bbl,xwm} \
-   vignettes/rmd/pinp.cls vignettes/rmd/jss.bst
+rm -rf \
+   *~ \
+   src/*.o \
+   src/*.so \
+   src/*.dylib \
+   src/*~ \
+   vignettes/rmd/auto/ \
+   vignettes/rmd/*.log \
+   vignettes/rmd/*.aux \
+   vignettes/rmd/*.out \
+   vignettes/rmd/*.tex \
+   vignettes/rmd/*.blg \
+   vignettes/rmd/*.bbl \
+   vignettes/rmd/*.xwm \
+   vignettes/rmd/pinp.cls \
+   vignettes/rmd/jss.bst

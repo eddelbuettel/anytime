@@ -3,9 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.3.7 (2019-xx-yy)}{
+\section{Changes in anytime version 0.3.7 (2019-01-20)}{
   \itemize{
     \item Test and possibly condition away one more test file.
+    \item Small enhancement for compilation by setting \code{no-rtti}
+    define via Rcpp.
+    \item New option \code{calcUnique} for speed-up by parseing only
+    unique timestamps (Stephen Froehlich in \ghpr{110} fixing \ghpr{109}).
   }
 }
 
@@ -16,9 +20,9 @@
     \item Renamed internal helper function format() to fmt() to avoid
     clashes with base::format() (Dirk in \ghpr{104}).
     \item Use S3 dispatch and generics for key functions (Dirk in
-    \ghpr{106}). 
+    \ghpr{106}).
     \item Continued to tweak tests as we find some of the rhub platform
-    to behave strangely (Dirk via commits as well as \ghpr{107}).
+    to behave strangely (Dirk via commits, \ghpr{107}, and \ghpr{108}).
     \item Added \code{\%e} format for single-digit day parsing by Boost
     (Dirk addressing at least \ghit{24}, \ghit{70} and \ghit{99}).
     \item Expansed and updated vignette with benchmark comparisons.
