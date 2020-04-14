@@ -1,3 +1,7 @@
+2020-04-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md (tinytest): Add 'last commit' badge
+
 2020-01-20  Dirk Eddelbuettel  <edd@debian.org>
 
         * DESCRIPTION (Version, Date): Release 0.3.7

@@ -7,8 +7,8 @@
 [![CRAN use](https://jangorecki.gitlab.io/rdeps/anytime/CRAN_usage.svg?sanitize=true)](https://cran.r-project.org/package=anytime)
 [![Downloads](http://cranlogs.r-pkg.org/badges/anytime?color=brightgreen)](http://www.r-pkg.org/pkg/anytime)
 [![Code Coverage](https://codecov.io/gh/eddelbuettel/anytime/graph/badge.svg)](https://codecov.io/gh/eddelbuettel/anytime)
+[![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/anytime)](https://github.com/eddelbuettel/anytime)
 [![JOSS](https://img.shields.io/badge/JOSS-Not%20Worthy-lightgrey)](https://github.com/openjournals/joss-reviews/issues/1605#issuecomment-517055652)
-
 
 ### Motivation
 
