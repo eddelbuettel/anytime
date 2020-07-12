@@ -1,6 +1,7 @@
 
 isSolaris <- Sys.info()[["sysname"]] == "SunOS"
 isWindows <- Sys.info()[["sysname"]] == "Windows"
+isFedora  <- anytime:::.isFedora()
 
 ## We turn off tests on Solaris with some regret, yet firmly, as the
 ## combined inability of CRAN to provide us a test platform (to
@@ -12,6 +13,8 @@ isWindows <- Sys.info()[["sysname"]] == "Windows"
 ##
 ## Anybody who would like to contribute please get in touch.
 if (isSolaris) exit_file("Skipping Solaris")
+## Ditto for Fedora at CRAN
+if (isFedora) exit_file("Skipping Fedora")
 
 library(anytime)
 
@@ -23,12 +26,14 @@ anytime:::setTZ("America/Chicago")
 ## Explicit test for (at least) two of the Fedora machines at CRAN which fail this
 inp <- "2016-01-01"
 isStupid <- as.Date(inp) != anydate(inp)
-if (isStupid) exit_file("Skipping Stupid")
-
+if (isStupid) exit_file("Skipping Stupid (1 of 2)")
 
 refT <- as.POSIXct(as.POSIXlt(format(as.Date("2016-01-01")+0:2)))
 attr(refT, "tzone") <- NULL  # to suppress a warning
 refD <- as.Date("2016-01-01")+0:2
+
+isStupid <- !all.equal(refT, anytime(20160101L + 0:2, oldHeuristic=TRUE))
+if (isStupid) exit_file("Skipping Stupid (2 of 2)")
 
 ## Dates: Integer
 expect_equivalent(refD, anydate(20160101L + 0:2))

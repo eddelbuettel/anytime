@@ -12,7 +12,7 @@ export("anytime",
        "assertDate",
        "assertTime")
 importFrom("Rcpp", "evalCpp")
-importFrom("utils", "head")
+importFrom("utils", "head", "read.table")
 useDynLib("anytime", .registration=TRUE)
 
 S3method(anytime, default)
