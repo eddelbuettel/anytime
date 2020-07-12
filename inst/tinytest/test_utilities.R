@@ -25,3 +25,6 @@ expect_false(identical(f1, f2))
 
 #anytime:::setTZ("America/Chicago")
 #expect_equal(anytime:::format(s), "2016-09-01 10:11:12")
+
+## to trigger these two helpers
+expect_false(anytime:::.isDebian() && anytime:::.isUbuntu())
