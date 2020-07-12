@@ -1,3 +1,14 @@
+2020-07-12  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+	* R/init.R: Support OS detection for some flavours of Linux, add
+	predicates to test e.g. .isUbuntu() vs .isFedora()
+	* NAMESPACE: Import utils::read.table() for this
+
+	* inst/tinytest/test_simple.R: Also skip if on Fedora as the CRAN
+	tests apparently cannot be fixed
+
 2020-04-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md (tinytest): Add 'last commit' badge
