@@ -32,7 +32,7 @@ refT <- as.POSIXct(as.POSIXlt(format(as.Date("2016-01-01")+0:2)))
 attr(refT, "tzone") <- NULL  # to suppress a warning
 refD <- as.Date("2016-01-01")+0:2
 
-isStupid <- !all.equal(refT, anytime(20160101L + 0:2, oldHeuristic=TRUE))
+isStupid <- isFALSE(all.equal(refT, anytime(20160101L + 0:2, oldHeuristic=TRUE)))
 if (isStupid) exit_file("Skipping Stupid (2 of 2)")
 
 ## Dates: Integer
