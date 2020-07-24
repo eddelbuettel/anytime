@@ -1,3 +1,11 @@
+2020-07-23  Dirk Eddelbuettel  <edd@debian.org>
+
+        * DESCRIPTION (Version, Date): Release 0.3.8
+
+2020-07-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tests/tinytest.R: No longer call tests in parallel
+
 2020-07-20  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .travis.yml: Switch to 'bionic' and R 4.0.*

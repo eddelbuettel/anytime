@@ -3,7 +3,15 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.3.7 (2019-01-20)}{
+\section{Changes in anytime version 0.3.8 (2020-07-23)}{
+  \itemize{
+    \item A small utility function was added to detect the Linux
+    distribution used in order to fine-tune tests once more.
+    \item Travis now uses Ubuntu 'bionic' and R 4.0.*.
+  }
+}
+
+\section{Changes in anytime version 0.3.7 (2020-01-20)}{
   \itemize{
     \item Test and possibly condition away one more test file.
     \item Small enhancement for compilation by setting \code{no-rtti}
