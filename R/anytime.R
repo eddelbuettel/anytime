@@ -154,7 +154,7 @@
 ##' a vector of \code{Date} objects.
 ##' @seealso \code{\link{anytime-package}}
 ##' @references This StackOverflow answer provided the initial idea:
-##' \url{http://stackoverflow.com/a/3787188/143305}.
+##' \url{https://stackoverflow.com/a/3787188/143305}.
 ##' @author Dirk Eddelbuettel
 ##' @examples
 ##' ## See the source code for a full list of formats, and the

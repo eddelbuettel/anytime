@@ -16,6 +16,13 @@ if (isSolaris) exit_file("Skipping Solaris")
 ## Ditto for Fedora at CRAN
 if (isFedora) exit_file("Skipping Fedora")
 
+## This is _beyond repair_ at CRAN because tzone attributes are set
+## inconsistently between release and devel, as well as different
+## architectures and after fighting this for a number of release the
+## time has come to call it a day.
+isForced <- tolower(Sys.getenv("ForceAllAnytimeTests")) == "yes"
+if (!isForced) exit_file("Set 'ForceAllAnytimeTests=yes' to run.")
+
 library(anytime)
 
 options(digits.secs=6)
@@ -29,11 +36,14 @@ isStupid <- as.Date(inp) != anydate(inp)
 if (isStupid) exit_file("Skipping Stupid (1 of 2)")
 
 refT <- as.POSIXct(as.POSIXlt(format(as.Date("2016-01-01")+0:2)))
-attr(refT, "tzone") <- NULL  # to suppress a warning
+#attr(refT, "tzone") <- NULL  # to suppress a warning; now the opposite and need it
 refD <- as.Date("2016-01-01")+0:2
 
 isStupid <- isFALSE(all.equal(refT, anytime(20160101L + 0:2, oldHeuristic=TRUE)))
 if (isStupid) exit_file("Skipping Stupid (2 of 2)")
+
+#isCompleteTests <- Sys.getenv("RunAllAnytimeTests") == "yes"
+#if (!isCompleteTests) exit_file("Skipping remainder of test_simple")
 
 ## Dates: Integer
 expect_equivalent(refD, anydate(20160101L + 0:2))
@@ -60,7 +70,7 @@ expect_equivalent(refD, anydate(c("20160101", "2016/01/02", "2016-01-03")))
 if (!isWindows) expect_equivalent(refT, anytime(c("20160101", "2016/01/02", "2016-01-03")))
 
 ## Datetime: ISO with/without fractional seconds
-refPt <- as.POSIXct(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678"))
+refPt <- as.POSIXct(as.POSIXlt(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678")))
 if (!isWindows) expect_equivalent(refPt, anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678")))
 
 ## Datetime: ISO alternate (?) with 'T' separator
@@ -68,7 +78,7 @@ if (!isWindows) expect_equivalent(refPt, anytime(c("2016-01-01 10:11:12", "2016-
 if (!isWindows) expect_equivalent(refPt, anytime(c("20160101 101112", "20160101 101112.345678")))
 
 ## Datetime: textual month formats
-ref3 <- rep(as.POSIXct("2016-09-01 10:11:12"), 3)
+ref3 <- rep(as.POSIXct(as.POSIXlt("2016-09-01 10:11:12")), 3)
 if (!isWindows) expect_equivalent(ref3,
                                   anytime(c("2016-Sep-01 10:11:12", "Sep/01/2016 10:11:12",
                                             "Sep-01-2016 10:11:12")))

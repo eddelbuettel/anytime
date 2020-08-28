@@ -3,6 +3,14 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in anytime version 0.3.9 (2020-08-26)}{
+  \itemize{
+    \item Skip one test file that is impossible to run across different
+    CRAN setups, and life is definitely too short for these games.
+    \item Change remaining http:// to https:// because, well, you know.
+  }
+}
+
 \section{Changes in anytime version 0.3.8 (2020-07-23)}{
   \itemize{
     \item A small utility function was added to detect the Linux

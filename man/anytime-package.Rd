@@ -25,10 +25,10 @@
   be that function.
 
   The actual conversion is done by a combination of
-  \href{http://www.boost.org/doc/libs/1_70_0/doc/html/boost_lexical_cast.html}{Boost
+  \href{https://www.boost.org/doc/libs/1_70_0/doc/html/boost_lexical_cast.html}{Boost
   lexical_cast} to go from \emph{(almost) anything} to string
   representation which is then parsed by
-  \href{http://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html}{Boost
+  \href{https://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html}{Boost
   Date_Time}. An alternate method using the corresponding R functions is
   also available as a fallback.
 
@@ -41,17 +41,17 @@
   \code{removeFormats{}} functions.
 
   Details on the Boost date format symbols are provided by the
-  \href{http://www.boost.org/doc/libs/1_70_0/doc/html/date_time/date_time_io.html#date_time.format_flags}{Boost
+  \href{https://www.boost.org/doc/libs/1_70_0/doc/html/date_time/date_time_io.html#date_time.format_flags}{Boost
   date_time documentation} and similar (but not identical) to what
   \code{\link{strftime}} uses.
 
 }
 \references{
-  Boost date_time: \url{http://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html}
+  Boost date_time: \url{https://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html}
 
   Formats used: \url{https://github.com/eddelbuettel/anytime/blob/master/src/anytime.cpp#L43-L106}
 
-  Boost format documentation: \url{http://www.boost.org/doc/libs/1_61_0/doc/html/date_time/date_time_io.html#date_time.format_flags}
+  Boost format documentation: \url{https://www.boost.org/doc/libs/1_61_0/doc/html/date_time/date_time_io.html#date_time.format_flags}
 }
 \author{\packageAuthor{anytime}}
 \keyword{package}
@@ -88,6 +88,6 @@
   ## Short month '%b' (and full month is supported too)
   anytime(c("2016-Sep-01 10:11:12", "Sep/01/2016 10:11:12", "Sep-01-2016 10:11:12"))
 
-  ## Datetime: Mixed format (cf http://stackoverflow.com/questions/39259184)
+  ## Datetime: Mixed format (cf https://stackoverflow.com/questions/39259184)
   anytime(c("Thu Sep 01 10:11:12 2016", "Thu Sep 01 10:11:12.345678 2016"))
 }

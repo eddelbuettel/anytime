@@ -1,11 +1,11 @@
 ## anytime: Anything to 'POSIXct' or 'Date' Converter
 
 [![Build Status](https://travis-ci.org/eddelbuettel/anytime.svg)](https://travis-ci.org/eddelbuettel/anytime)
-[![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
-[![CRAN](http://www.r-pkg.org/badges/version/anytime)](https://cran.r-project.org/package=anytime)
+[![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![CRAN](https://www.r-pkg.org/badges/version/anytime)](https://cran.r-project.org/package=anytime)
 [![Dependencies](https://tinyverse.netlify.com/badge/anytime)](https://cran.r-project.org/package=anytime)
-[![CRAN use](https://jangorecki.gitlab.io/rdeps/anytime/CRAN_usage.svg?sanitize=true)](https://cran.r-project.org/package=anytime)  
-[![Downloads](http://cranlogs.r-pkg.org/badges/anytime?color=brightgreen)](http://www.r-pkg.org/pkg/anytime)
+[![CRAN use](https://jangorecki.gitlab.io/rdeps/anytime/CRAN_usage.svg?sanitize=true)](https://cran.r-project.org/package=anytime)
+[![Downloads](https://cranlogs.r-pkg.org/badges/anytime?color=brightgreen)](https://www.r-pkg.org/pkg/anytime)
 [![Code Coverage](https://codecov.io/gh/eddelbuettel/anytime/graph/badge.svg)](https://codecov.io/gh/eddelbuettel/anytime)
 [![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/anytime)](https://github.com/eddelbuettel/anytime)
 [![JOSS](https://img.shields.io/badge/JOSS-Not%20Worthy-lightgrey)](https://github.com/openjournals/joss-reviews/issues/1605#issuecomment-517055652)
@@ -27,7 +27,7 @@ function do this?
 
 `anytime()` aims to be that _general purpose_ converter returning a proper `POSIXct` (or `Date`)
 object no matter the input (provided it was somewhat parseable), relying on
-[Boost date_time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html) for the (efficient,
+[Boost date_time](https://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html) for the (efficient,
 performant) conversion. `anydate()` is an additional wrapper returning a `Date` object instead.
 
 ### Examples
@@ -92,7 +92,7 @@ anytime(c("20160101T101112", "20160101T101112.345678"))
 anytime(c("2016-Sep-01 10:11:12", "Sep/01/2016 10:11:12", "Sep-01-2016 10:11:12"))
 [1] "2016-09-01 10:11:12 CDT" "2016-09-01 10:11:12 CDT" "2016-09-01 10:11:12 CDT"
 
-## Datetime: Mixed format (cf http://stackoverflow.com/questions/39259184)
+## Datetime: Mixed format (cf https://stackoverflow.com/questions/39259184)
 anytime(c("Thu Sep 01 10:11:12 2016", "Thu Sep 01 10:11:12.345678 2016"))
 [1] "2016-09-01 10:11:12.000000 CDT" "2016-09-01 10:11:12.345678 CDT"
 ```
@@ -102,7 +102,7 @@ anytime(c("Thu Sep 01 10:11:12 2016", "Thu Sep 01 10:11:12.345678 2016"))
 
 This shows an important aspect. When not working localtime (by overriding to `UTC`) the _changing
 difference_ UTC is correctly covered (which the underlying
-[Boost Date_Time](http://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html) library does not by
+[Boost Date_Time](https://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html) library does not by
 itself).
 
 
@@ -117,17 +117,17 @@ anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"), tz="UTC")  # important:
 ### Technical Details
 
 The heavy lifting is done by a combination of
-[Boost lexical_cast](http://www.boost.org/doc/libs/1_70_0/doc/html/boost_lexical_cast.html) to go
+[Boost lexical_cast](https://www.boost.org/doc/libs/1_70_0/doc/html/boost_lexical_cast.html) to go
 from _anything_ to string representation which is then parsed by
-[Boost Date_Time](http://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html).  We use the
-[BH package](http://dirk.eddelbuettel.com/code/bh.html) to access [Boost](http://www.boost.org), and
-rely on [Rcpp](http://dirk.eddelbuettel.com/code/rcpp.html) for a seamless C++ interface to and from
+[Boost Date_Time](https://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html).  We use the
+[BH package](https://dirk.eddelbuettel.com/code/bh.html) to access [Boost](https://www.boost.org), and
+rely on [Rcpp](https://dirk.eddelbuettel.com/code/rcpp.html) for a seamless C++ interface to and from
 [R](https://www.r-project.org).
 
 Further, as the [Boost
-Date_Time](http://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html)
+Date_Time](https://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html)
 library cannot resolve timezones on the Windows platform (where timezone information is typically provided by R itself for its use), we offer a fallback of calling into R (via facilities from
-[Rcpp](http://dirk.eddelbuettel.com/code/rcpp.html)); see the help for
+[Rcpp](https://dirk.eddelbuettel.com/code/rcpp.html)); see the help for
 the `useR` argument for more details.
 
 ### Status

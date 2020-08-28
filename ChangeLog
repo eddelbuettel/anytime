@@ -1,3 +1,15 @@
+2020-08-26  Dirk Eddelbuettel  <edd@debian.org>
+
+        * DESCRIPTION (Version, Date): Release 0.3.9
+
+	* inst/tinytest/test_simple.R: Giving up on CRAN as timezone
+	attributes are inconsistently set between machines
+
+	* R/anytime.R: Change http:// to https://
+	* man/anytime.Rd: Idem
+	* man/anytime-package.Rd: Idem
+	* README.md: Idem
+
 2020-07-23  Dirk Eddelbuettel  <edd@debian.org>
 
         * DESCRIPTION (Version, Date): Release 0.3.8

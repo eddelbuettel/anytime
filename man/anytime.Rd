@@ -199,7 +199,7 @@ format(anytime("2001-02-03 04:05:06"), tz="America/Los_Angeles")
 }
 \references{
 This StackOverflow answer provided the initial idea:
-\url{http://stackoverflow.com/a/3787188/143305}.
+\url{https://stackoverflow.com/a/3787188/143305}.
 }
 \seealso{
 \code{\link{anytime-package}}
