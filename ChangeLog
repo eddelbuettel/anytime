@@ -1,3 +1,10 @@
+2020-09-12  Dirk Eddelbuettel  <edd@debian.org>
+
+	* docs/: Added package website
+	* docs-src/: Added package website inputs
+
+	* README.md: Added badge and short paragraph linking to documentation
+
 2020-08-26  Dirk Eddelbuettel  <edd@debian.org>
 
         * DESCRIPTION (Version, Date): Release 0.3.9

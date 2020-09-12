@@ -14,3 +14,5 @@
 ^docker
 ^vignettes/rmd
 ^paper
+^docs
+^docs-src

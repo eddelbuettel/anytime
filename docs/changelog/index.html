@@ -1,0 +1,1675 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="https://github.com/eddelbuettel/anytime/changelog/">
+      
+      
+      <link rel="shortcut icon" href="../assets/Rlogo.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>Changelog - anytime</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
+        <style>body,input{font-family:"Lato",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../assets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2020" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://github.com/eddelbuettel/anytime" title="anytime" class="md-header-nav__button md-logo" aria-label="anytime">
+      
+  <img src="../assets/Rlogo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            anytime
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Changelog
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href=".." class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../man/anytime-package/" class="md-tabs__link">
+          Reference
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../vignette/" class="md-tabs__link">
+          Articles
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../news/" class="md-tabs__link">
+          News
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Changelog
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://github.com/eddelbuettel/anytime" title="anytime" class="md-nav__button md-logo" aria-label="anytime">
+      
+  <img src="../assets/Rlogo.svg" alt="logo">
+
+    </a>
+    anytime
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Home" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon"></span>
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Reference
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../man/anytime-package/" title="Anytime package" class="md-nav__link">
+      Anytime package
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../man/anytime/" title="Anytime" class="md-nav__link">
+      Anytime
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../man/assertDate/" title="assertDate" class="md-nav__link">
+      assertDate
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../man/getFormats/" title="getFormats" class="md-nav__link">
+      getFormats
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../man/iso8601/" title="Iso8601" class="md-nav__link">
+      Iso8601
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Articles
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Articles" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Articles
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vignette/" title="Introductory Vignette" class="md-nav__link">
+      Introductory Vignette
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      News
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="News" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        News
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../news/" title="News" class="md-nav__link">
+      News
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Changelog
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Changelog" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Changelog
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Changelog
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Changelog" class="md-nav__link md-nav__link--active">
+      Changelog
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2020" class="md-nav__link">
+    2020
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2019" class="md-nav__link">
+    2019
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2018" class="md-nav__link">
+    2018
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2017" class="md-nav__link">
+    2017
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2016" class="md-nav__link">
+    2016
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2020" class="md-nav__link">
+    2020
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2019" class="md-nav__link">
+    2019
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2018" class="md-nav__link">
+    2018
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2017" class="md-nav__link">
+    2017
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2016" class="md-nav__link">
+    2016
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>Changelog</h1>
+                
+                <h3 id="2020">2020</h3>
+<p>2020-08-26  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.3.9
+
+    * inst/tinytest/test_simple.R: Giving up on CRAN as timezone 
+    attributes are inconsistently set between machines
+
+    * R/anytime.R: Change http:// to https:// 
+    * man/anytime.Rd: Idem 
+    * man/anytime-package.Rd: Idem 
+    * README.md: Idem
+</code></pre>
+<p>2020-07-23  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.3.8
+</code></pre>
+<p>2020-07-22  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * tests/tinytest.R: No longer call tests in parallel
+</code></pre>
+<p>2020-07-20  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * .travis.yml: Switch to 'bionic' and R 4.0.*
+</code></pre>
+<p>2020-07-12  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * R/init.R: Support OS detection for some flavours of Linux, add 
+    predicates to test e.g. .isUbuntu() vs .isFedora() 
+    * NAMESPACE: Import utils::read.table() for this
+
+    * inst/tinytest/test_simple.R: Also skip if on Fedora as the CRAN 
+    tests apparently cannot be fixed
+</code></pre>
+<p>2020-04-14  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * README.md (tinytest): Add 'last commit' badge
+</code></pre>
+<p>2020-01-20  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.3.7
+
+    * cleanup: Partly rewritten to fall afoul of bashism tests
+</code></pre>
+<p>2020-01-19  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * R/anytime.R: Minor code tightening for calcUnique 
+    * inst/tinytest/test_calc_unique.R: Renamed from test_pr_110.R
+</code></pre>
+<p>2020-01-18  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * inst/tinytest/test_pr_110.R: New test for PR 110
+
+    * R/anytime.R: Reassert proper line-endings, add nocov tags 
+    * man/anytime.Rd: Re-run roxygenize()
+</code></pre>
+<p>2020-01-18  Stephen Froehlich  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#46;&#102;&#114;&#111;&#101;&#104;&#108;&#105;&#99;&#104;&#64;&#99;&#97;&#98;&#108;&#101;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;">&#115;&#46;&#102;&#114;&#111;&#101;&#104;&#108;&#105;&#99;&#104;&#64;&#99;&#97;&#98;&#108;&#101;&#108;&#97;&#98;&#115;&#46;&#99;&#111;&#109;</a> </p>
+<pre><code>    * R/anytime.R: Add new option 'calcUnique' for more efficient 
+    processing of input with many repeated values 
+    * man/anytime.Rd: Add documentation
+</code></pre>
+<p>2020-01-10  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * README.md: Add another usage example
+</code></pre>
+<h3 id="2019">2019</h3>
+<p>2019-11-29  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/Makevars (PKG_CXXFLAGS): Use no-rtti define for Rcpp
+</code></pre>
+<p>2019-10-12  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * README.md: Add CRAN usage badge
+</code></pre>
+<p>2019-08-30  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * inst/tinytest/test_simple.R: Add new 'isStupid' test
+</code></pre>
+<p>2019-08-29  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.3.6
+</code></pre>
+<p>2019-08-24  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * DESCRIPTION: Suggests on tinytest now '(&gt;= 1.0.0)'
+
+    * tests/tinytests.R: Check for tinytest '(&gt;= 1.0.0)'
+
+    * inst/tinytest/test_simple.R: Add two more tests
+
+    * vignettes/rmd/anytime-intro.Rmd: Updated 
+    * vignettes/anytime-intro.pdf: Idem
+</code></pre>
+<p>2019-08-23  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (ptToDoubleUTC): One more #nocov tag
+</code></pre>
+<p>2019-08-18  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * inst/tinytest/test_all_formats.R: Small refactoring
+</code></pre>
+<p>2019-08-16  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION: Suggests on tinytest now '(&gt;= 0.9.6.13)'
+
+    * tests/tinytest.R: Now with parallel execution and side effect
+
+    * inst/tinytest/test_all_formats.R: Now uses tinytest::exit_file() 
+    * inst/tinytest/test_bulk.R: Idem 
+    * inst/tinytest/test_simple.R: Idem
+</code></pre>
+<p>2019-08-14  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * README.md: Add section on example uses
+</code></pre>
+<p>2019-08-12  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * inst/tinytest/hide/test_r_format.R: Moved as zero active tests 
+    * inst/tinytest/hide/test_gh_issues_36_51.R: Ditto
+</code></pre>
+<p>2019-08-10  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp: Add missing commas in format definition
+
+    * vignettes/rmd/anytime-intro.Rmd: Some more edits 
+    * vignettes/anytime-intro.pdf: Idem 
+    * vignettes/rmd/anytime.bib: Added entries
+</code></pre>
+<p>2019-08-09  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * inst/tinytest/hide/test_gh_issue_5.R: Temporarily moved test 
+    which upsets two of the rhub builders 
+    * inst/tinytest/hide/test_gh_issue_84.R: Ditto 
+    * inst/tinytest/hide/test_gh_issue_96.R: Ditto 
+    * inst/tinytest/hide/test_validate.R: Ditto
+</code></pre>
+<p>2019-08-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * src/anytime.cpp: Complement existing sformats[] with '%e' variants 
+    to allow single-digit days to be parse by Boost date_time
+</code></pre>
+<p>2019-08-04  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * R/anytime.R (anytime,anydate,utcdate): Rewritten using S3 dispatch 
+    * R/formats.R (iso8601,rfc2822,rfc3339): Ditto 
+    * NAMESPACE: Register new S3 methods
+
+    * inst/tinytest/test_all_formats.R: Tweaking tests to accomodate rhub 
+    * inst/tinytest/test_bulk.R: Idem 
+    * inst/tinytest/test_gh_issue_96.R: Idem 
+    * inst/tinytest/test_validate.R: Idem
+</code></pre>
+<p>2019-07-30  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * src/anytime.cpp (fmt): Renamed from format() to avoid clashes 
+    * src/RcppExports.cpp (_anytime_fmt): Idem 
+    * R/RcppExports.R (fmt): Idem 
+    * inst/tinytest/test_simple.R: Ditto in test use 
+    * inst/tinytest/test_all_formats.R: Idem
+</code></pre>
+<p>2019-07-29  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * inst/tinytest/test_simple.R: A few more simple tests
+</code></pre>
+<p>2019-07-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.3.5
+
+    * vignettes/rmd/anytime-intro.Rmd: More edits 
+    * vignettes/anytime-intro.pdf: Idem
+
+    * inst/tinytest/test_gh_issue_96.R: More polish 
+    * inst/tinytest/test_useR.R: Idem
+
+    * local/test_useR.R: Deactivated as it fails at Travis
+</code></pre>
+<p>2019-07-27  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/anytime.R (utctime): Account for difference to UTC when useR=TRUE 
+    * inst/tinytest/test_useR.R: New test file for useR=TRUE
+
+    * inst/tinytest/test_all_formats.R: Condition a few more tests 
+    * inst/tinytest/test_gh_issue_96.R: Lower 'tol' on two tests
+
+    * inst/tinytest/test_all_formats.R: Set TZ at start 
+    * inst/tinytest/test_assertions.R: Idem 
+    * inst/tinytest/test_bulk.R: Idem 
+    * inst/tinytest/test_gh_issue_100.R: Idem 
+    * inst/tinytest/test_utilities.R: Idem
+
+    * vignettes/rmd/anytime-intro.Rmd: Some edits
+</code></pre>
+<p>2019-07-26  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/anytime.R (utctime, anydate, utcdate): Also use option for 
+    possible useR default 
+    * R/format.R: Documentation tweaks 
+    * man/anytime-package.Rd: Idem 
+    * man/iso8601.Rd: Idem 
+    * README.md: Idem 
+    * vignettes/rmd/anytime-introduction.Rmd: Idem
+</code></pre>
+<p>2019-07-25  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (r_stringToTime): Correct 'useR' to date conversion
+</code></pre>
+<p>2019-07-24  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * inst/tinytest/test_all_formats.R: Tweaks for Windows tests 
+    * inst/tinytest/test_bulk.R: Idem
+
+    * .travis.yml (install): Simplified with two fewer required packages
+</code></pre>
+<p>2019-07-23  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/anytime.R (anytime): The useR argument can now be set via an option 
+    * man/anytime.Rd: Ditto
+</code></pre>
+<p>2019-07-21  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * inst/tinytest/test_r_format.R: Deactivate test as it fails on Travis
+</code></pre>
+<p>2019-07-20  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * src/anytime.cpp (r_stringToTime): Use Rcpp::Function to access R 
+    functionality instead of using RApiDatetime
+
+    * DESCRIPTION: No longer import RApiDatetime 
+    * NAMESPACE: Idem
+
+    * inst/tinytest/test_all_formats.R: Loosen Windows test restrictions 
+    * inst/tinytest/test_gh_issue_96.R: Idem
+</code></pre>
+<p>2019-07-17  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp: A few minor #nocov additions 
+    * inst/tinytest/test_all_formats.R: Add test for anydate with useR
+</code></pre>
+<p>2019-07-16  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * src/anytime.cpp (r_stringToTime): Skip tz argument, change 
+    internal conversion logic and reflect optional asDate argument
+
+    * inst/tinytest/test_r_format.R: Skip for now 
+    * inst/tinytest/test_bulk.R (fullPOSIXctEx): Set TZ once
+</code></pre>
+<p>2019-07-14  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/anytime.R: Add a paragraph warning about possibly issue on 
+    Windows due to Boost ignoring TZ (but using the tzutil program)
+
+    * tests/tinytest.R: Call as utils::packageVersions() 
+    * inst/tinytest/test_all_formats.R: Idem 
+    * inst/tinytest/test_bulk.R: Idem 
+    * inst/tinytest/test_gh_issue_5.R: Idem 
+    * inst/tinytest/test_utilities.R: Idem 
+    * inst/tinytest/test_validate.R: Idem
+</code></pre>
+<p>2019-07-08  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (ptToDouble): Another debug message
+</code></pre>
+<p>2019-07-05  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * .travis.yml (install): Use r-cran-tinytest from PPA
+</code></pre>
+<p>2019-06-27  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+</code></pre>
+<p>2019-06-26  Christoph Sax  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#114;&#105;&#115;&#116;&#111;&#112;&#104;&#46;&#115;&#97;&#120;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#99;&#104;&#114;&#105;&#115;&#116;&#111;&#112;&#104;&#46;&#115;&#97;&#120;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> </p>
+<pre><code>    * src/anytime.cpp: Correct use via Rcpp::Function imported 
+    Sys.setenv on Windows 
+    * R/anytime.R: Use all argument to anytime_cpp()
+
+    * inst/tinytest/test_gh_issue_56.R: Relax Windows test constraint 
+    * inst/tinytest/test_gh_issue_84.R: Idem 
+    * inst/tinytest/test_simple.R: Idem 
+    * inst/tinytest/test_utilities.R: Idem
+</code></pre>
+<p>2019-06-23  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * inst/tinytest/test_all_formats.R: Add three tests to complete 
+    coverage
+
+    * src/anytime.cpp (convertToTime): Some #nocov attributes
+</code></pre>
+<p>2019-06-18  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.3.4
+</code></pre>
+<p>2019-06-17  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * inst/tinytest/test_all_formats.R: Do not run test for releases 
+    * inst/tinytest/test_bulk.R: Idem 
+    * inst/tinytest/test_gh_issue_5.R: Idem 
+    * inst/tinytest/test_validate.R: Idem
+</code></pre>
+<p>2019-06-16  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * vignettes/anytime-introduction.Rnw: Vignette wrapper with tip of 
+    the hat to Mark van der Loo for his January 2019 blog post 
+    * vignettes/rmd/anytime-intro.Rmd: Moved 
+    * vignettes/rmd/anytime.bib: Idem
+
+    * vignettes/rmd/anytime-intro.Rmd: Updated 
+    * vignettes/anytime-intro.pdf: Idem
+
+    * vignettes/anytime-intro.pdf: Ran compactPDF(gs_quality = "ebook")
+
+    * .codecov.yml (coverage): Make patch behaviour more quiet
+
+    * inst/tinytest/test_simple.R: Test old format
+</code></pre>
+<p>2019-06-15  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/formats.R (iso8601): Switch format to ISO8601 use with T between 
+    date and time; allow option to override for old behaviour. 
+    * man/iso8601.Rd: Document new behaviour and option.
+</code></pre>
+<p>2019-06-10  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * README.md (tinytest): Mention post-install testing
+</code></pre>
+<p>2019-06-09  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * src/anytime.cpp (r_stringToTime): Use Sys.setenv() from R on 
+    Windows as the latter OS remains "special"
+
+    * inst/tinytest/test_all_formats.R: Exempt Windows from some tests 
+    * inst/tinytest/test_bulk.R: ditto 
+    * inst/tinytest/test_gh_issue_5.R: ditto 
+    * inst/tinytest/test_gh_issue_84.R: ditto 
+    * inst/tinytest/test_r_format.R: ditto 
+    * inst/tinytest/test_simple.R: ditto 
+    * inst/tinytest/test_utilities.R: ditto 
+    * inst/tinytest/test_validate.R: ditto
+</code></pre>
+<p>2019-06-08  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * inst/tinytest/test_r_format.R: Renamed for consistency 
+    * inst/tinytest/test_gh_issue_33.R: Idem 
+    * inst/tinytest/test_gh_issue_12.R: Idem 
+    * inst/tinytest/test_utilities.R: Idem
+</code></pre>
+<p>2019-06-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * inst/tinytest/test_assertions.R: From tests/assertions.R 
+    * inst/tinytest/test_bulk.R: tests/bulkTest.R 
+    * inst/tinytest/test_gh_issue_56.R: tests/gh_issue_56.R 
+    * inst/tinytest/test_gh_issue_84.R: tests/gh_issue_84.R 
+    * inst/tinytest/test_gh_issues_36_51.R: tests/gh_issues_36_51.R
+</code></pre>
+<p>2019-06-06  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * inst/tinytest/test_all_formats.R: From tests/testAllFormats.R 
+    * inst/tinytest/test_assertions.R: From tests/testAssertions.R 
+    * inst/tinytest/test_bulk.R: From tests/bulkTest.R 
+    * inst/tinytest/test_gh_issue_56.R: From tests/gh_issue_56.R
+
+    * inst/tinytest/testSimpleTests.R: Tweaks for Travis 
+    * inst/tinytest/testValidate.R: Idem 
+    * inst/tinytest/test_gh_issue_5.R: Idem
+</code></pre>
+<p>2019-06-05  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp: Added removeFormats() (also in TimeFormats) 
+    * src/RcppExports.cpp: Updated 
+    * R/RcppExports.R: Updated 
+    * man/getFornats.Rd: Updated, added removeFormats help 
+    * NAMESPACE: Export removeFormats()
+
+    * inst/tinytest/testUtilities.R: Added removeFormats() and format 
+    comparison tests
+</code></pre>
+<p>2019-06-04  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * inst/tinytest/testUtilities.R: Do not add format as it persists 
+    across tests -- with thanks to Mark van der Loo for spotting this
+
+    * tests/tinytest.R: Depend on tinytest 0.9.4 (on CRAN "soon")
+
+    * src/anytime.cpp: Explicitly unset TZ variable in Rstrptime
+</code></pre>
+<p>2019-06-02  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * inst/tinytest/test_gh_issue_12.R: From tests/test_gh_issue_12.R 
+    * inst/tinytest/test_gh_issue_33.R: From tests/test_gh_issue_12.R
+</code></pre>
+<p>2019-05-30  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * inst/tinytest/test_gh_issue_5.R: From tests/test_gh_issue_5.R
+</code></pre>
+<p>2019-05-29  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * inst/tinytest/testSimpleTests.R: Converted from tests/simpleTests.R 
+    * inst/tinytest/testR_Format.R: Converted from tests/r_anytime.R 
+    * inst/tinytest/testUtilities.R: Converted from tests/utilities.R
+</code></pre>
+<p>2019-05-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * tests/tinytest.R: New test driver using tinytest 
+    * DESCRIPTION (Suggests): Added tinytest 
+    * .travis.yml (install): Install tinytest
+
+    * inst/tinytest/testValidate.R: Converted from tests/validate.R
+</code></pre>
+<p>2019-04-02  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * src/Makevars: Added to set C++11 avoiding a compiler warning 
+    * src/Makevars.win: Idem
+</code></pre>
+<h3 id="2018">2018</h3>
+<p>2018-12-09  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Rolled minor version
+
+    * R/anytime.R: Add note (in roxygen code) about 'Europe/London' issue 
+    with pointers to four GH issue tickets and possible alternative. 
+    * man/anytime.Rd: Idem
+
+    * src/anytime.cpp: Only if undefined, define BOOST_NO_AUTO_PTR
+</code></pre>
+<p>2018-11-29  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Rolled minor version
+
+    * tests/gh_issue_84.R: Added for apparent Fedora issue but more 
+    likely a TZ=Europe/London issue 
+    * .Rbuildignore: Added tests/gh_issue_84.R
+</code></pre>
+<p>2018-11-13  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.3.3
+</code></pre>
+<p>2018-11-08  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp: Minor update setting Boost define
+
+    * R/anytime.R: Two more #nocov tags
+</code></pre>
+<p>2018-11-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Rolled minor version
+
+    * vignettes/anytime-introduction.Rmd: Restore vignette to vignettes/ 
+    directory as builds succeed on Windows after several small changes 
+    * inst/doc/anytime-introduction.pdf: Removed 
+    * .Rbuildignore: Exclude vignettes/ directory
+
+    * README.md: Update showing use of anydate() on integer (and 
+    alike) input correponding to the 0.3.0 release heuristic change 
+    * man/anytime-package.Rd: Idem
+</code></pre>
+<p>2018-11-05  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.3.2
+
+    * inst/doc/anytime-introduction.pdf: Include prebuilt
+
+    * .Rbuildignore: Exclude vignettes/ directory
+</code></pre>
+<p>2018-11-04  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * tests/simpleTests.R: Disable two some tests
+
+    * src/anytime.cpp (ptToDouble): Small Windows refinement for DST 
+    adjustment
+</code></pre>
+<p>2018-11-01  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * vignettes/anytime-introduction.Rmd: Updated and extended
+</code></pre>
+<p>2018-09-02  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * .travis.yml: Switch Travis CI to R 3.5 repo
+</code></pre>
+<p>2018-08-30  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * tests/allFormats.R: Do not test on Solaris 
+    * tests/bulkTest.R: Idem 
+    * tests/simpleTests.R: Idem
+
+    * vignettes/anytime-introduction.Rmd: Vignette setup tweaks 
+    * cleanup: Idem 
+    * DESCRIPTION: Add VignetteBuilder: fields
+</code></pre>
+<p>2018-08-29  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (r_stringToTime, anytime_cpp): Two uses each of 
+    Rcpp::Shield&lt;&gt; to make rchk happy
+</code></pre>
+<p>2018-08-19  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * tests/simpleTests.R: Added tests for anydate from POSIXt
+
+    * R/assertions.R: Add '#nocov' tags
+</code></pre>
+<p>2018-08-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * vignettes/anytime-introduction.Rmd: More content
+</code></pre>
+<p>2018-07-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * vignettes/anytime-introduction.Rmd: Initial commit 
+    * DESCRIPTION (Suggests): Added 'knitr, rmarkdown, pinp' 
+    * .travis.yml (install): Also install r-cran-pinp and its imports
+</code></pre>
+<p>2018-07-03  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.3.1
+</code></pre>
+<h3 id="2017">2017</h3>
+<p>2017-10-11  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Rolled minor version
+
+    * tests/simpleTests.R: Additional test for yyyymmdd()
+</code></pre>
+<p>2017-10-10  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/formats.R: Added yyyymmdd() converter even though it 
+    represents a truly terrible format 
+    * man/iso8601.Rd: Added documentation
+</code></pre>
+<p>2017-10-09  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * tests/simpleTests.R: Additional test for anydate from integer
+</code></pre>
+<p>2017-10-08  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Rolled minor version
+
+    * NAMESPACE: Export assertDate and assertTime
+
+    * tests/assertions.R: Added simple tests
+</code></pre>
+<p>2017-10-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * man/assertDate.Rd: Added documentation 
+    * tests/assertions.R (assertDate, assertTime): Idem
+</code></pre>
+<p>2017-10-06  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/assertions.R (assertDate, assertTime): First drafts
+</code></pre>
+<p>2017-06-24  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (anytime_cpp): Clone numeric inputs to preserve
+</code></pre>
+<p>2017-06-05  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.3.0
+
+    * README.md: Use alternate for img.shields.io GPL-2+ badge
+</code></pre>
+<p>2017-05-29  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/RcppExports.cpp (R_init_anytime): Registration now here 
+    * src/init.c: Deleted as calls now made in RcppExports.cpp 
+    * R/RcppExports.R: Updated by Rcpp 0.12.11 as well
+</code></pre>
+<p>2017-05-12  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp: Numeric input now always interpreted as offset 
+    to epoch, with 'anytime()' and 'anydate()' working more consistently
+
+    * R/anytime.R: Document new 'oldHeuristic' option to re-enable old 
+    behaviour. 
+    * man/anytime.Rd: Idem
+
+    * tests/simpleTests.R: Adjust for new behaviour, ie use oldHeuristic=TRUE
+</code></pre>
+<p>2017-04-15  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/init.R (.onLoad): Typo fix
+</code></pre>
+<p>2017-04-02  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Date, Version): Roll minor version
+
+    * src/anytime.cpp (r_anytime_cpp): Adding support for parsing 
+    functionality from the C API for R via package RApiDatetime
+
+    * .editorconfig: Adding editorconfig supprt
+
+    * .travis.yml (install): Add r-cran-rapidatetime
+</code></pre>
+<p>2017-03-31  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/init.R (.onLoad): The 'isRStudio' test has been refined to allow 
+    RStudio versions 1.1.129 or later which no longer conflict with Boost 
+    * R/anytime.R (testFormat, testOutput): Message reworded
+</code></pre>
+<p>2017-03-21  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.2.2
+
+    * src/init.c (R_init_anytime): Call R_registerRoutines() 
+    and R_useDynamicSymbols()
+
+    * src/anytime.cpp (setMaxIntAsDate): Added setter accessible via ::: 
+    (setMaxIntAsYYYYMMDD): Made return type void
+</code></pre>
+<p>2017-03-20  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (anytime_cpp): Minor refactoring
+</code></pre>
+<p>2017-03-18  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * src/anytime.cpp (anytime_cpp): Another special case covering 
+    numeric values in the possible range of Dates now returned as 
+    Dates
+
+    * tests/simpleTests.R: Additional (simple) tests
+</code></pre>
+<p>2017-03-05  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (convertToTime): Special case for Europe/London 
+    post 1971-10-31 02:00 
+    (setInitialTZ): New helper function to store initial setup time 
+    zone
+
+    * R/init.R (.onLoad): Register initial setup timezone used by 
+    Boost code
+
+    * tests/gh_issues_36_51.R: New illustration for #36 and #51
+</code></pre>
+<p>2017-02-26  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (anytime_cpp): Convert large integer values in 
+    the range of POSIXct values as well (whereas before only eg 
+    20101112L worked) 
+    (setMaxIntAsYYYYMMDD): New (unexported but R-accessible) helper to 
+    set the cutoff value, leaving default at 29991231
+
+    * tests/gh_issue_56.R: Added simple test script
+</code></pre>
+<p>2017-02-09  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.2.1
+
+    * R/anytime.R (anydate, utcdate): If converting from POSIXt, also use 
+    timezone argument
+</code></pre>
+<p>2017-02-04  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#109;&#97;&#120;&#46;&#101;&#100;&#100;&#101;&#108;&#98;&#117;&#101;&#116;&#116;&#101;&#108;&#46;&#99;&#111;&#109;">&#101;&#100;&#100;&#64;&#109;&#97;&#120;&#46;&#101;&#100;&#100;&#101;&#108;&#98;&#117;&#101;&#116;&#116;&#101;&#108;&#46;&#99;&#111;&#109;</a> </p>
+<pre><code>    * src/anytime.cpp (sformats[]): Add format with to-be-skipped 
+    timezone string now parsing 'Thu Sep 01 10:11:12 CDT 2016'
+
+    * tests/allFormats.R: Added test for new format
+</code></pre>
+<p>2017-02-03  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * R/anytime.R (anydate, utcdate): Convert factor or ordered if needed
+
+    * tests/simpleTests.R: New tests for anydate(), utcdate() and factors
+
+    * R/init.R (.onLoad): Minor editing / refactoring
+
+    * .travis.yml (before_install): Use https for curl fetch
+</code></pre>
+<p>2017-01-22  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Date, Version): Roll minor version
+
+    * src/anytime.cpp (convertToTime): Use Rcpp's new Date(time)Vector
+
+    * DESCRIPTION: Versioned Imports and LinkingTo 'Rcpp (&gt;= 0.12.9), 
+    use versioned Depends 'R (&gt;= 3.2.0) to ensure versioned LinkingTo
+</code></pre>
+<h3 id="2016">2016</h3>
+<p>2016-12-24  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Date, Version): Release 0.2.0
+
+    * inst/NEWS.Rd: Finalized for release
+
+    * test/bulkTest.R: New set of tests
+</code></pre>
+<p>2016-12-23  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Date, Version): Roll minor version
+
+    * R/formats.R (iso8601, rfc2822, rfc3339): New helper functions
+
+    * man/iso8601.Rd: New documentation for the new functions
+
+    * NAMESPACE: Exporting new functions
+
+    * tests/simpleTests.R: New simple tests
+
+    * tests/gh_issue_5.R: Skip two tests if on Windows
+</code></pre>
+<p>2016-12-22  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/anytime.R (anydate, utcdate): Ensure Date object is returned
+</code></pre>
+<p>2016-12-21  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * tests/simpleTests.R: More tests 
+    * tests/gh_issue_5.R: Idem
+</code></pre>
+<p>2016-12-20  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * tests/allFormats.R: Significantly increased number of tests
+</code></pre>
+<p>2016-12-19  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * tests/bulkTest.R: Improved testing for POSIXct and Date 
+    * tests/gh_issue_12.R: Additional testing
+</code></pre>
+<p>2016-12-18  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version and date
+
+    * src/anytime.cpp (anytime_cpp): New option asDate 
+    (convertToTime): Idem 
+    (stringToTime): Idem 
+    (ptToDoubleUTC): Idem 
+    (ptToDouble): Idem
+
+    * R/anytime.R (anydate): Now calls anytime_cpp with asDate=TRUE 
+    (utcdate): Idem
+
+    * tests/allFormats.R: Minor fix, additional call
+
+    * tests/bulkTest.R (fullEx): New bulk formatting test
+</code></pre>
+<p>2016-12-14  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (sformats[]): Add ISO8601 format
+
+    * tests/allFormats.R: Tests for ISO8601 format
+</code></pre>
+<p>2016-12-13  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.1.2
+</code></pre>
+<p>2016-12-06  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (isAtLeastGivenLengthAndAllDigits): Simplified 
+    using Boost classification and predicate use
+</code></pre>
+<p>2016-12-05  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (format): Condition only on Rcpp version
+
+    * tests/utilities.R: Call anytime:::format()
+</code></pre>
+<p>2016-12-04  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll version and date
+
+    * src/anytime.cpp (stringSplitter): Correct small oversight and split 
+    on actual 'spliton' argument
+
+    * tests/gh_issue_33.R: Added to test most of GH issue 
+    * tests/allFormats.R: Minor edit
+</code></pre>
+<p>2016-12-03  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (stringSplitter): Split string with 
+    boost::algorithm instead of strtok which appears to fail on 64-bit 
+    windows.
+</code></pre>
+<p>2016-11-27  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.1.1
+</code></pre>
+<p>2016-11-26  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * tests/utilities.R: Gaming coverage metrics by adding more calls 
+    * tests/allFormats.R: Ditto
+
+    * src/anytime.cpp (anytime_cpp): Condition use of Rcpp::stop() on 
+    having Rcpp 0.12.8.1 or later as 0.12.7 and 0.12.8 had a bug tickled 
+    under older g++ versions such as Ubuntu 14.04 one used by Travis CI
+</code></pre>
+<p>2016-11-25  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * .travis.yml (after_success): Launch coverage analysis 
+    * .codecov.yml (comment): Added 
+    * .Rbuildignore: Exclude .codecov.yml 
+    * README.md: Added code coverage badge
+</code></pre>
+<p>2016-11-19  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/anytime.R (anydate,utcdate): Check for input of class Date
+
+    * src/anytime.cpp (stringSplitter): Be more defensive about input string
+</code></pre>
+<p>2016-11-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.1.0
+
+    * tests/validate.R: No call of stopifnot(); Windows always surprises
+</code></pre>
+<p>2016-11-06  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (sformats[]): Remove one redundant entry present 
+    twice, move one entry to related entries 
+    (convertToTime): Another special case treatment for hhmmss
+
+    * tests/allFormats.R: Align with current formats
+</code></pre>
+<p>2016-11-05  Bob Jansen <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#98;&#111;&#98;&#106;&#97;&#110;&#115;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#98;&#111;&#98;&#106;&#97;&#110;&#115;&#101;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> </p>
+<pre><code>    * src/anytime.cpp (sformats[]): Add one 'no-separator' format
+</code></pre>
+<p>2016-11-05  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (sformats[]): Add fractional seconds to four more 
+    datetimes, also add one missing format; 
+    (isAtLeastGivenLengthAndAllDigits): Another refinement, and generalized; 
+    (setDebug): add simple debug routine
+</code></pre>
+<p>2016-11-04  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (convertToTime): Add logic to cope with the extended 
+    'yyyymmdd hhmm[ss[.fff]]' format which needs treatment before parsing 
+    * tests/allFormats.R: Added tests
+</code></pre>
+<p>2016-10-30  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/anytime.R (testOutput): New simple (unexported) string output function 
+    * src/anytime.cpp (testOutput_impl): Implementation
+</code></pre>
+<p>2016-10-24  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version): Rolled version and date
+
+    * R/anytime.R (testFormat): New layer around testFormat_impl testing for RStudio 
+    * src/anytime.cpp (testFormat_impl): Renamed from testFormat 
+    * R/utils.R (isRStudio): New helper function 
+    * R/init.R (.onLoad): At startup, check if we are inside RStudio
+</code></pre>
+<p>2016-10-23  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (sformats[]): New format for RFC 822 style date 
+    * tests/allFormats.R: New test
+
+    * tests/validate.R: Added test for utcparse via stopifnot()
+</code></pre>
+<p>2016-10-22  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * NAMESPACE: Adding utctime() and utcdate() to export()
+
+    * R/anytime.R: Expanded documentation in Notes section (also 
+    merging the Issues section in); expand documentation of the tz 
+    argument; expanded examples 
+    * man/anytime.Rd: Ditto
+
+    * R/utils.R (setTZ): New (unexported) helper function
+</code></pre>
+<p>2016-10-21  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (anytime_cpp): New option asUTC (defaulting to 
+    false) which governs whether parsing is as localtime or UTC 
+    (ptToDoubleUTC): New UTC conversion of ptime to double 
+    (stringToTime): Dispatch to either ptToDouble or ptToDoubleUTC
+
+    * R/anytime.R (anytime): Document new option asUTC; 
+    add and document new callers utctime() and utcdate() 
+    * man/anytime.Rd: Document new options and functions
+</code></pre>
+<p>2016-10-20  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.0.4
+</code></pre>
+<p>2016-10-19  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (anytime_cpp): Also recognise as.numeric() 
+    conversions of POSIXt objects
+
+    * R/anytime.R: Expand manual page text with section on Issues, correct 
+    working on Notes. 
+    * man/anytime.Rd: Ditto
+
+    * tests/allFormats.R: Additional tests
+
+    * README.md: Reformated code display slightly
+</code></pre>
+<p>2016-10-17  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (convertToTime): Process non-finite values as well 
+    and return NA
+
+    * R/init.R (.onLoad): Also test for NA to invoke gettz, and test for 
+    NA and NULL before using fallback of UTC (with warning)
+</code></pre>
+<p>2016-10-15  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (convertToTime): Templated conversion avoids UBSAN 
+    on a temporary object created from SEXP; renamed from anytime_impl
+
+    * cleanup: New helper script
+</code></pre>
+<p>2016-10-14  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (sformats[]): Add several new date(time) formats 
+    of the 14OCT2016 variety, with and without hours/minutes
+
+    * tests/allFormats.R: Add new tests as well
+</code></pre>
+<p>2016-10-13  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.0.3
+
+    * R/anytime.R: Added extra comment to help page
+
+    * tests/gh_issue_12.R: Small test for #12
+</code></pre>
+<p>2016-10-10  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (ptToDouble): Do not access tm_isdst on Windows for 
+    dates earlier than the epoch (bug report #12)
+</code></pre>
+<p>2016-10-08  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * .travis.yml (install): Added
+</code></pre>
+<p>2016-09-17  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (testFormat): Added (non-exported) helper function 
+    to test one format on one input (and timezone) 
+    (ptToDouble): Factored function now called from two places
+</code></pre>
+<p>2016-09-15  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.0.2
+
+    * inst/NEWS.Rd: Ditto
+</code></pre>
+<p>2016-09-14  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version and date
+
+    * DESCRIPTION (Imports): Relax min. version costraint on Rcpp
+
+    * NAMESPACE: Make getFormats() and addFormat() public
+
+    * src/anytime.cpp: Added documentation for new functions getFormats() 
+    and addFormats() 
+    * man/getFormats.Rd: Ditto
+
+    * man/anytime-package.Rd: Mention getFormats() and addFormats()
+
+    * inst/NEWS.Rd: Added
+
+    * tests/validate.R: Loosen test removing stopifnot
+
+    * R/anytime.R (anydate): Call as.POSIXlt() before calling as.Date() 
+    to ensure all sub-components of the tm structure are set (GH #4) 
+    * tests/gh_issue_5.R: test case
+</code></pre>
+<p>2016-09-13  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Rolled to (interim) version 0.0.1.1
+
+    * DESCRIPTION (Title, Description): Edited to mention anydate()
+
+    * src/anytime.cpp: Refactored so that formats are now simple 
+    string kept in vector (from which locales are built in the ctor of 
+    a simple container class); now new formats can be added (at the 
+    front); formats get be retrieved as well
+
+    * README.md: Add badges and CRAN installation note
+</code></pre>
+<p>2016-09-12  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.0.1
+
+    * DESCRIPTION (URL, BugReports): Added
+
+    * src/anytime.cpp (anytime_cpp): Remove roxygen chunk 
+    * R/anytime.R (anytime): Add roxygen chunk 
+    * man/anytime.Rd: New file (replacing man/anytime_cpp.Rd)
+
+    * NAMESPACE: Do not export anytime_cpp
+
+    * R/anytime.R: Add copyright header 
+    * R/utils.R: Ditto 
+    * R/init.R: Ditto
+</code></pre>
+<p>2016-09-11  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/anytime.R (anydate): New function reducing to Date
+
+    * R/anytime.R (anytime): Support factors on input
+
+    * src/anytime.cpp: Extended format list, corrected one special case, 
+    document 'anydate' and add roxygen alias, remove some unused code 
+    useful only for comparison, added Notesrcp: section with some caveats
+
+    * NAMESPACE: Export anydate
+
+    * tests/simpleTests.R: Expanded 
+    * tests/simpleTests.Rout.save: Initially added for proper comparison, 
+    deactivated in package as local format make fixed comparison difficult
+
+    * tests/allFormats.R: Added test of all formats 
+    * tests/simpleTests.Rout.save: Initially added for proper comparison, 
+    deactivated in package as local format make fixed comparison difficult
+
+    * tests/validate.R: Added, full-cycle conversion + comparison with R
+
+    * man/anytime-package.Rd: Rewritten and expanded
+
+    * .Rbuildignore: Do not include *.Rout.save files as default format 
+    method will fall back to local time which we cannot override
+</code></pre>
+<p>2016-09-10  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/init.R (.onLoad): Use Sys.timezone(), and gettz::gettz() if 
+    available and needed, to gather and cache timezone value
+
+    * R/utils.R (getTZ): New helper function to get cached TZ value
+
+    * R/anytime.R (anytime): Use getTZ() to get default value
+
+    * tests/simpleTests.R: Use getTZ(), some extensions
+
+    * src/anytime.cpp: small tweaks to formats
+
+    * README.md: Added
+</code></pre>
+<p>2016-09-09  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * .travis.yml: Added, using run.sh from Travis CI
+</code></pre>
+<p>2016-09-08  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp (cToPOSIXct): no longer exported; 
+    (charToPOSIXct): Safer assignment for string, no longer export;
+
+    * man/charToPOSIXct.Rd: Removed 
+    * man/cToPOSIXct.Rd: Ditto
+</code></pre>
+<p>2016-09-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * src/anytime.cpp: Updated and expanded help texts 
+    * man/cToPOSIXct.Rd: Ditto 
+    * man/charToPOSIXct.Rd: Ditto
+
+    * tests/simpleTests.R: Some first (and simple) tests
+</code></pre>
+<p>2016-09-06  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/anytime.R: Front-end R function testing for Date or POSIXt 
+    before dispatching to C++-based converter
+
+    * DESCRIPTION (Package): First commit, using a set of files which 
+    originated with the RcppBDT package
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav
+        class="md-footer-nav__inner md-grid"
+        aria-label="Footer"
+      >
+
+        <!-- Link to previous page -->
+        
+          <a
+            href="../news/"
+            title="News"
+            class="md-footer-nav__link md-footer-nav__link--prev"
+            rel="prev"
+          >
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                News
+              </div>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        
+          Documentation for <a href="https://github.com/eddelbuettel/anytime">anytime</a>
+          made by <a href="https://dirk.eddelbuettel.com">Dirk Eddelbuettel</a>
+          using some <a href="https://www.R-Project.org">R</a> scripts and
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs </a>
+      </div>
+
+      <!-- Social links -->
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/eddelbuettel/nanotime" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
