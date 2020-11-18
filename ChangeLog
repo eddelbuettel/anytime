@@ -1,5 +1,7 @@
 2020-11-18  Dirk Eddelbuettel  <edd@debian.org>
 
+	* .travis.yml: Switch to focal and bspm, activate macOS build
+
 	* inst/tinytest/test_all_formats.R: untabify a section
 
 2020-10-25  Dirk Eddelbuettel  <edd@debian.org>
