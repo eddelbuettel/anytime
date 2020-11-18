@@ -1,3 +1,7 @@
+2020-11-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/tinytest/test_all_formats.R: untabify a section
+
 2020-10-25  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/test_simple.R: Reactivate tests with added
