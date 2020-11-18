@@ -20,8 +20,8 @@ if (isFedora) exit_file("Skipping Fedora")
 ## inconsistently between release and devel, as well as different
 ## architectures and after fighting this for a number of release the
 ## time has come to call it a day.
-isForced <- tolower(Sys.getenv("ForceAllAnytimeTests")) == "yes"
-if (!isForced) exit_file("Set 'ForceAllAnytimeTests=yes' to run.")
+#isForced <- tolower(Sys.getenv("ForceAllAnytimeTests")) == "yes"
+#if (!isForced) exit_file("Set 'ForceAllAnytimeTests=yes' to run.")
 
 library(anytime)
 
@@ -47,45 +47,45 @@ if (isStupid) exit_file("Skipping Stupid (2 of 2)")
 
 ## Dates: Integer
 expect_equivalent(refD, anydate(20160101L + 0:2))
-if (!isWindows) expect_equivalent(refT, anytime(20160101L + 0:2, oldHeuristic=TRUE))
+if (!isWindows) expect_equal(refT, anytime(20160101L + 0:2, oldHeuristic=TRUE), check.tzone=FALSE)
 
 ## Dates: Numeric
 expect_equivalent(refD, anydate(20160101 + 0:2))
-if (!isWindows) expect_equivalent(refT, anytime(20160101 + 0:2, oldHeuristic=TRUE))
+if (!isWindows) expect_equal(refT, anytime(20160101 + 0:2, oldHeuristic=TRUE), check.tzone=FALSE)
 
 ## Dates: Factor
 expect_equivalent(refD, anydate(as.factor(20160101 + 0:2)))
-if (!isWindows) expect_equivalent(refT, anytime(as.factor(20160101 + 0:2)))
+if (!isWindows) expect_equal(refT, anytime(as.factor(20160101 + 0:2)), check.tzone=FALSE)
 
 ## Dates: Ordered
 expect_equivalent(refD, anydate(as.ordered(20160101 + 0:2)))
-if (!isWindows) expect_equivalent(refT, anytime(as.ordered(20160101 + 0:2)))
+if (!isWindows) expect_equal(refT, anytime(as.ordered(20160101 + 0:2)), check.tzone=FALSE)
 
 ## Dates: Character
 expect_equivalent(refD, anydate(as.character(20160101 + 0:2)))
-if (!isWindows) expect_equivalent(refT, anytime(as.character(20160101 + 0:2)))
+if (!isWindows) expect_equal(refT, anytime(as.character(20160101 + 0:2)), check.tzone=FALSE)
 
 ## Dates: alternate formats
 expect_equivalent(refD, anydate(c("20160101", "2016/01/02", "2016-01-03")))
-if (!isWindows) expect_equivalent(refT, anytime(c("20160101", "2016/01/02", "2016-01-03")))
+if (!isWindows) expect_equal(refT, anytime(c("20160101", "2016/01/02", "2016-01-03")), check.tzone=FALSE)
 
 ## Datetime: ISO with/without fractional seconds
 refPt <- as.POSIXct(as.POSIXlt(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678")))
-if (!isWindows) expect_equivalent(refPt, anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678")))
+if (!isWindows) expect_equal(refPt, anytime(c("2016-01-01 10:11:12", "2016-01-01 10:11:12.345678")), check.tzone=FALSE)
 
 ## Datetime: ISO alternate (?) with 'T' separator
 ## Only works with ' '
-if (!isWindows) expect_equivalent(refPt, anytime(c("20160101 101112", "20160101 101112.345678")))
+if (!isWindows) expect_equal(refPt, anytime(c("20160101 101112", "20160101 101112.345678")), check.tzone=FALSE)
 
 ## Datetime: textual month formats
 ref3 <- rep(as.POSIXct(as.POSIXlt("2016-09-01 10:11:12")), 3)
-if (!isWindows) expect_equivalent(ref3,
-                                  anytime(c("2016-Sep-01 10:11:12", "Sep/01/2016 10:11:12",
-                                            "Sep-01-2016 10:11:12")))
+if (!isWindows) expect_equal(ref3,
+                             anytime(c("2016-Sep-01 10:11:12", "Sep/01/2016 10:11:12",
+                                       "Sep-01-2016 10:11:12")), check.tzone=FALSE)
 
 ## Datetime: Mixed format (cf http://stackoverflow.com/questions/39259184)
-if (!isWindows) expect_equivalent(refPt,
-                                  anytime(c("Thu Jan 01 10:11:12 2016", "Thu Jan 01 10:11:12.345678 2016")))
+if (!isWindows) expect_equal(refPt,
+                             anytime(c("Thu Jan 01 10:11:12 2016", "Thu Jan 01 10:11:12.345678 2016")), check.tzone=FALSE)
 
 ## Datetime: pre/post DST
 anytime(c("2016-01-31 12:13:14", "2016-08-31 12:13:14"))
@@ -114,15 +114,15 @@ rfc3339(anydate("2016-Sep-01"))
 ignore(expect_warning)(rfc3339("this won't work"))
 
 ## Datetime from (integer) Datetime
-expect_equivalent(anytime( as.integer(refT) ), refT)
+expect_equal(anytime( as.integer(refT) ), refT, check.tzone=FALSE)
 
 ## Date from (smaller) numeric
-expect_equivalent(anydate( as.numeric(refD) ), refD)
-expect_equivalent(anytime( as.numeric(refT) ), refT)
+expect_equal(anydate( as.numeric(refD) ), refD)
+expect_equal(anytime( as.numeric(refT) ), refT, check.tzone=FALSE)
 
 ## Date from (smaller) integer
 epochplusone <- as.Date("1971-01-01") + 0:2
-expect_equivalent(anydate(365L + 0:2), epochplusone)
+expect_equal(anydate(365L + 0:2), epochplusone)
 
 ## Format test
 expect_true(yyyymmdd(refD) == format(refD, "%Y%m%d"))
