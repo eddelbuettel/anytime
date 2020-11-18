@@ -1,14 +1,14 @@
 Package: anytime
 Type: Package
 Title: Anything to 'POSIXct' or 'Date' Converter
-Version: 0.3.9
-Date: 2020-08-26
+Version: 0.3.9.1
+Date: 2020-11-18
 Author: Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Description: Convert input in any one of character, integer, numeric, factor,
  or ordered type into 'POSIXct' (or 'Date') objects, using one of a number of
  predefined formats, and relying on Boost facilities for date and time parsing.
-URL: http://dirk.eddelbuettel.com/code/anytime.html
+URL: https://dirk.eddelbuettel.com/code/anytime.html
 BugReports: https://github.com/eddelbuettel/anytime/issues
 License: GPL (>= 2)
 Encoding: UTF-8
