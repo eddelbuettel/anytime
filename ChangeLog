@@ -1,3 +1,7 @@
+2020-11-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .travis.yml: Use renamed r-ci repository URL
+
 2020-11-18  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
