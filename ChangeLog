@@ -1,3 +1,7 @@
+2020-12-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .github/workflows/ci.yaml: Add GitHub Action CI runner
+
 2020-11-21  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .travis.yml: Use renamed r-ci repository URL
