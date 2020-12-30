@@ -11,7 +11,7 @@ env:
   _R_CHECK_FORCE_SUGGESTS_: "false"
 
 jobs:
-  build:
+  ci:
     strategy:
       matrix:
         include:

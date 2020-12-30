@@ -1,3 +1,7 @@
+2020-12-30  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .github/workflows/ci.yaml: Rename job from build to ci
+
 2020-12-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml: Small tweaks to CI YAML file
