@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -9,11 +7,12 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+      
+      
         <link rel="canonical" href="https://github.com/eddelbuettel/anytime/">
       
-      
       <link rel="shortcut icon" href="assets/Rlogo.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.7">
     
     
       
@@ -21,14 +20,18 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.4dd2dd8d.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.cb6bc1d0.min.css">
       
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.39b8e14a.min.css">
+        
       
     
     
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
         <style>body,input{font-family:"Lato",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
@@ -44,7 +47,13 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -62,7 +71,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://github.com/eddelbuettel/anytime" title="anytime" class="md-header-nav__button md-logo" aria-label="anytime">
       
@@ -73,18 +84,20 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
     <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             anytime
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             
               Index
             
           </span>
         </div>
-      
+      </div>
     </div>
     
       <label class="md-header-nav__button md-icon" for="__search">
@@ -95,7 +108,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
@@ -123,27 +136,27 @@
     
     <div class="md-container" data-md-component="container">
       
-        
-      
       
         
           
-
-  
-
-<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   
   
+    
+  
+
+
+  
+  
+  
     <li class="md-tabs__item">
-      
-        <a href="." class="md-tabs__link md-tabs__link--active">
-          Home
-        </a>
-      
+      <a href="." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
     </li>
   
 
@@ -151,12 +164,15 @@
         
   
   
+
+
+  
+  
+  
     <li class="md-tabs__item">
-      
-        <a href="man/anytime-package/" class="md-tabs__link">
-          Reference
-        </a>
-      
+      <a href="man/anytime-package/" class="md-tabs__link">
+        Reference
+      </a>
     </li>
   
 
@@ -164,12 +180,15 @@
         
   
   
+
+
+  
+  
+  
     <li class="md-tabs__item">
-      
-        <a href="vignette/" class="md-tabs__link">
-          Articles
-        </a>
-      
+      <a href="vignette/" class="md-tabs__link">
+        Articles
+      </a>
     </li>
   
 
@@ -177,12 +196,15 @@
         
   
   
+
+
+  
+  
+  
     <li class="md-tabs__item">
-      
-        <a href="news/" class="md-tabs__link">
-          News
-        </a>
-      
+      <a href="news/" class="md-tabs__link">
+        News
+      </a>
     </li>
   
 
@@ -190,12 +212,15 @@
         
   
   
+
+
+  
+  
+  
     <li class="md-tabs__item">
-      
-        <a href="changelog/" class="md-tabs__link">
-          Changelog
-        </a>
-      
+      <a href="changelog/" class="md-tabs__link">
+        Changelog
+      </a>
     </li>
   
 
@@ -209,10 +234,18 @@
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://github.com/eddelbuettel/anytime" title="anytime" class="md-nav__button md-logo" aria-label="anytime">
       
@@ -229,46 +262,49 @@
       
 
   
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
-    
-    <label class="md-nav__link" for="nav-1">
-      Home
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Home" data-md-level="1">
-      <label class="md-nav__title" for="nav-1">
-        <span class="md-nav__icon md-icon"></span>
-        Home
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
   
-
-
-  <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+  
+  
     
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Index
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        Home
         <span class="md-nav__icon md-icon"></span>
       </label>
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
     
-    <a href="." title="Index" class="md-nav__link md-nav__link--active">
-      Index
-    </a>
-    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
       
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Index
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Index
+      </a>
+      
+        
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -420,213 +456,235 @@
     </ul>
   
 </nav>
-    
-  </li>
+      
+    </li>
+  
 
-        
-      </ul>
-    </nav>
-  </li>
+          
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
-      Reference
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Reference" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        <span class="md-nav__icon md-icon"></span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
         Reference
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="man/anytime-package/" title="Anytime package" class="md-nav__link">
-      Anytime package
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="man/anytime/" title="Anytime" class="md-nav__link">
-      Anytime
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="man/assertDate/" title="assertDate" class="md-nav__link">
-      assertDate
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="man/getFormats/" title="getFormats" class="md-nav__link">
-      getFormats
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="man/iso8601/" title="Iso8601" class="md-nav__link">
-      Iso8601
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      Articles
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Articles" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="man/anytime-package/" class="md-nav__link">
+        Anytime package
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="man/anytime/" class="md-nav__link">
+        Anytime
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="man/assertDate/" class="md-nav__link">
+        assertDate
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="man/getFormats/" class="md-nav__link">
+        getFormats
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="man/iso8601/" class="md-nav__link">
+        Iso8601
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
         Articles
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="vignette/" title="Introductory Vignette" class="md-nav__link">
-      Introductory Vignette
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      News
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="News" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
         <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Articles" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Articles
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vignette/" class="md-nav__link">
+        Introductory Vignette
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+      
+      <label class="md-nav__link" for="nav-4">
         News
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="news/" title="News" class="md-nav__link">
-      News
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      Changelog
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Changelog" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
         <span class="md-nav__icon md-icon"></span>
-        Changelog
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="News" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          News
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="news/" class="md-nav__link">
+        News
+      </a>
+    </li>
+  
+
           
+        </ul>
+      </nav>
+    </li>
+  
 
+    
+      
+      
+      
 
-  <li class="md-nav__item">
-    <a href="changelog/" title="Changelog" class="md-nav__link">
-      Changelog
-    </a>
-  </li>
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+      
+      <label class="md-nav__link" for="nav-5">
+        Changelog
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Changelog" data-md-level="1">
+        <label class="md-nav__title" for="nav-5">
+          <span class="md-nav__icon md-icon"></span>
+          Changelog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
 
-        
-      </ul>
-    </nav>
-  </li>
+          
+        </ul>
+      </nav>
+    </li>
+  
 
     
   </ul>
@@ -636,7 +694,8 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -801,9 +860,6 @@
               
                 
                 
-                  
-                
-                
                   <h1>Index</h1>
                 
                 <h2 id="anytime-anything-to-posixct-or-date-converter">anytime: Anything to 'POSIXct' or 'Date' Converter</h2>
@@ -842,7 +898,7 @@ performant) conversion. <code>anydate()</code> is an additional wrapper returnin
 only use <code>anydate</code> as <code>anytime</code> is consistent in computing seconds since epoch. If you want the
 behaviour of version older than 0.3.0, set <code>oldHeuristic=TRUE</code>, see <code>help(anytime)</code> for more.)</p>
 <h4 id="from-integer-or-numeric-or-factor-or-ordered">From Integer or Numeric or Factor or Ordered</h4>
-<pre><code class="r">library(anytime)                      ## also caches TZ in local env
+<pre><code class="language-r">library(anytime)                      ## also caches TZ in local env
 options(digits.secs=6)                ## for fractional seconds below
 
 ## integer
@@ -861,9 +917,8 @@ anydate(as.factor(20160101 + 0:2))
 anydate(as.ordered(20160101 + 0:2))
 [1] &quot;2016-01-01 CST&quot; &quot;2016-01-02 CST&quot; &quot;2016-01-03 CST&quot;
 </code></pre>
-
 <h4 id="character-simple">Character: Simple</h4>
-<pre><code class="r">## Dates: Character
+<pre><code class="language-r">## Dates: Character
 anydate(as.character(20160101 + 0:2))
 [1] &quot;2016-01-01 CST&quot; &quot;2016-01-02 CST&quot; &quot;2016-01-03 CST&quot;
 
@@ -871,9 +926,8 @@ anydate(as.character(20160101 + 0:2))
 anydate(c(&quot;20160101&quot;, &quot;2016/01/02&quot;, &quot;2016-01-03&quot;))
 [1] &quot;2016-01-01 CST&quot; &quot;2016-01-02 CST&quot; &quot;2016-01-03 CST&quot;
 </code></pre>
-
 <h4 id="character-iso">Character: ISO</h4>
-<pre><code class="r">## Datetime: ISO with/without fractional seconds
+<pre><code class="language-r">## Datetime: ISO with/without fractional seconds
 anytime(c(&quot;2016-01-01 10:11:12&quot;, &quot;2016-01-01 10:11:12.345678&quot;))
 [1] &quot;2016-01-01 10:11:12.000000 CST&quot; &quot;2016-01-01 10:11:12.345678 CST&quot;
 
@@ -881,9 +935,8 @@ anytime(c(&quot;2016-01-01 10:11:12&quot;, &quot;2016-01-01 10:11:12.345678&quot
 anytime(c(&quot;20160101T101112&quot;, &quot;20160101T101112.345678&quot;))
 [1] &quot;2016-01-01 10:11:12.000000 CST&quot; &quot;2016-01-01 10:11:12.345678 CST&quot;
 </code></pre>
-
 <h4 id="character-textual-month-formats">Character: Textual month formats</h4>
-<pre><code class="r">## ISO style
+<pre><code class="language-r">## ISO style
 anytime(c(&quot;2016-Sep-01 10:11:12&quot;, &quot;Sep/01/2016 10:11:12&quot;, &quot;Sep-01-2016 10:11:12&quot;))
 [1] &quot;2016-09-01 10:11:12 CDT&quot; &quot;2016-09-01 10:11:12 CDT&quot; &quot;2016-09-01 10:11:12 CDT&quot;
 
@@ -891,19 +944,17 @@ anytime(c(&quot;2016-Sep-01 10:11:12&quot;, &quot;Sep/01/2016 10:11:12&quot;, &q
 anytime(c(&quot;Thu Sep 01 10:11:12 2016&quot;, &quot;Thu Sep 01 10:11:12.345678 2016&quot;))
 [1] &quot;2016-09-01 10:11:12.000000 CDT&quot; &quot;2016-09-01 10:11:12.345678 CDT&quot;
 </code></pre>
-
 <h4 id="character-dealing-with-dst">Character: Dealing with DST</h4>
 <p>This shows an important aspect. When not working localtime (by overriding to <code>UTC</code>) the <em>changing
 difference</em> UTC is correctly covered (which the underlying
 <a href="https://www.boost.org/doc/libs/1_61_0/doc/html/date_time.html">Boost Date_Time</a> library does not by
 itself).</p>
-<pre><code class="r">## Datetime: pre/post DST
+<pre><code class="language-r">## Datetime: pre/post DST
 anytime(c(&quot;2016-01-31 12:13:14&quot;, &quot;2016-08-31 12:13:14&quot;))
 [1] &quot;2016-01-31 12:13:14 CST&quot; &quot;2016-08-31 12:13:14 CDT&quot;
 anytime(c(&quot;2016-01-31 12:13:14&quot;, &quot;2016-08-31 12:13:14&quot;), tz=&quot;UTC&quot;)  # important: catches change
 [1] &quot;2016-01-31 18:13:14 UTC&quot; &quot;2016-08-31 17:13:14 UTC&quot;
 </code></pre>
-
 <h3 id="technical-details">Technical Details</h3>
 <p>The heavy lifting is done by a combination of
 <a href="https://www.boost.org/doc/libs/1_70_0/doc/html/boost_lexical_cast.html">Boost lexical_cast</a> to go
@@ -936,15 +987,13 @@ be restored with an option which also be be set globally, see the help page for 
 <h3 id="installation">Installation</h3>
 <p>The package is now on <a href="https://cran.r-project.org">CRAN</a> and can be installed
 via a standard</p>
-<pre><code class="r">install.packages(&quot;anytime&quot;)
+<pre><code class="language-r">install.packages(&quot;anytime&quot;)
 </code></pre>
-
 <h3 id="continued-testing">Continued Testing</h3>
 <p>As we rely on the <a href="https://cran.r-project.org/package=tinytest">tinytest</a> package, the
 already-installed package can also be verified via</p>
-<pre><code class="r">tinytest::test_package(&quot;anytime&quot;)
+<pre><code class="language-r">tinytest::test_package(&quot;anytime&quot;)
 </code></pre>
-
 <p>at any later point.</p>
 <h3 id="contributing">Contributing</h3>
 <p>Any problems, bug reports, or features requests for the package can be submitted and
@@ -1064,15 +1113,15 @@ need and scope in such an issue ticket.  See the file
       
     </div>
     
-      <script src="assets/javascripts/vendor.3636a4ec.min.js"></script>
-      <script src="assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="assets/javascripts/vendor.53cc9318.min.js"></script>
+      <script src="assets/javascripts/bundle.e9c9f54f.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: ".",
-          features: ["tabs"],
+          features: ['navigation.tabs', 'navigation.instant'],
           search: Object.assign({
-            worker: "assets/javascripts/worker/search.5eca75d3.min.js"
+            worker: "assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

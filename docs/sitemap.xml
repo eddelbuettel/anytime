@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://github.com/eddelbuettel/anytime/</loc>
-     <lastmod>2020-09-12</lastmod>
+     <lastmod>2021-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/anytime/man/anytime-package/</loc>
-     <lastmod>2020-09-12</lastmod>
+     <lastmod>2021-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/anytime/man/anytime/</loc>
-     <lastmod>2020-09-12</lastmod>
+     <lastmod>2021-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/anytime/man/assertDate/</loc>
-     <lastmod>2020-09-12</lastmod>
+     <lastmod>2021-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/anytime/man/getFormats/</loc>
-     <lastmod>2020-09-12</lastmod>
+     <lastmod>2021-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/anytime/man/iso8601/</loc>
-     <lastmod>2020-09-12</lastmod>
+     <lastmod>2021-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/anytime/vignette/</loc>
-     <lastmod>2020-09-12</lastmod>
+     <lastmod>2021-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/anytime/news/</loc>
-     <lastmod>2020-09-12</lastmod>
+     <lastmod>2021-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/anytime/changelog/</loc>
-     <lastmod>2020-09-12</lastmod>
+     <lastmod>2021-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
