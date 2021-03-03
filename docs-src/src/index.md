@@ -1,6 +1,7 @@
 ## anytime: Anything to 'POSIXct' or 'Date' Converter
 
 [![Build Status](https://travis-ci.org/eddelbuettel/anytime.svg)](https://travis-ci.org/eddelbuettel/anytime)
+[![CI](https://github.com/eddelbuettel/anytime/workflows/ci/badge.svg)](https://github.com/eddelbuettel/anytime/actions?query=workflow%3Aci)
 [![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![CRAN](https://www.r-pkg.org/badges/version/anytime)](https://cran.r-project.org/package=anytime)
 [![Dependencies](https://tinyverse.netlify.com/badge/anytime)](https://cran.r-project.org/package=anytime)
@@ -142,7 +143,10 @@ The package should work as expected.
 
 ### Example Uses
 
-Currently, just over ten different [CRAN](https://cran.r-project.org) packages import this package. Among them are the following research-focused packages:
+Currently, just over ten different [CRAN](https://cran.r-project.org)
+packages import this package. Among them are the following research-focused
+packages:
+
  - [AGread](https://cran.r-project.org/package=AGread) by Hibbing _et al_ which reads and transforms ActiGraph physical activity measures;
  - [cqcr](https://cran.r-project.org/package=AGread) by Odell accesses 'Care Quality Commission' data from the health and adult social care regulator for England;
  - [E4tools](https://cran.r-project.org/package=E4tools) by Kleiman which reads data from Empatica wearable physiology monitors;

@@ -1,5 +1,52 @@
+###  2021 
+
+2021-03-02  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Roll minor version 
+ 
+        * src/anytime.cpp (anytime_cpp): In case of a logical input vector, 
+        error out with message 
+        * inst/tinytest/test_all_formats.R: Add simple tests 
+ 
 ###  2020 
 
+2020-12-30  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml: Rename job from build to ci 
+ 
+2020-12-24  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml: Small tweaks to CI YAML file 
+ 
+2020-12-10  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml: Add CI runner using r-ci 
+        * README.md: Add new CI badge 
+ 
+2020-11-21  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .travis.yml: Use renamed r-ci repository URL 
+ 
+2020-11-18  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Roll minor version 
+ 
+        * .travis.yml: Switch to focal and bspm, activate macOS build 
+ 
+        * inst/tinytest/test_all_formats.R: untabify a section 
+ 
+2020-10-25  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * inst/tinytest/test_simple.R: Reactivate tests with added 
+        check.tzone=FALSE 
+ 
+2020-09-12  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * docs/: Added package website 
+        * docs-src/: Added package website inputs 
+ 
+        * README.md: Added badge and short paragraph linking to documentation 
+ 
 2020-08-26  Dirk Eddelbuettel  <edd@debian.org> 
  
         * DESCRIPTION (Version, Date): Release 0.3.9 

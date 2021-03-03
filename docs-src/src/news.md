@@ -1,3 +1,12 @@
+### Version 0.3.10 (2021-03-xx)
+
+-   A new documentation site was added.
+
+-   Continuous Integration now uses run.sh from r-ci with bspm
+
+-   Logical input vectors are now recognised as an error
+    ([\#121](https://github.com/eddelbuettel/anytime/issues/121))
+
 ### Version 0.3.9 (2020-08-26)
 
 -   Skip one test file that is impossible to run across different CRAN
@@ -198,7 +207,7 @@
     [\#36](https://github.com/eddelbuettel/anytime/issues/36))
 
 -   The ISO 8601 format is now recognised, however the timezone
-    information is not parsed by Boost Date\_Time (which is a known
+    information is not parsed by Boost Date_Time (which is a known
     upstream limitation) (PR
     [\#38](https://github.com/eddelbuettel/anytime/pull/38) closing
     [\#37](https://github.com/eddelbuettel/anytime/issues/37))
@@ -227,7 +236,7 @@
     input value that is already of type `Date`.
 
 -   The string splitter (needed for the \'all-digits\' formats extending
-    Boost Date\_time) is now more defensive about the input argument and
+    Boost Date_time) is now more defensive about the input argument and
     more robust. Thanks to Bob Jansen for the heads-up (PR
     [\#30](https://github.com/eddelbuettel/anytime/pull/30) closing
     issue [\#29](https://github.com/eddelbuettel/anytime/issues/29)).
