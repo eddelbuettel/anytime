@@ -417,12 +417,12 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
                 if (debug) Rcpp::Rcout << two << " " << " three: " << three << std::endl;
 
             } else if (isAtLeastGivenLengthAndAllDigits(two, 6)) {
-                if (two.size() == 6) {                                  // #nocov start
+                if (two.size() == 6) {                                  						// #nocov start
                     two = two.substr(0, 2) + ":" + two.substr(2, 2) + ":" + two.substr(4,2);
                 }
-                s = one + " " + two;                                    // #nocov end
+                s = one + " " + two;
             } else {
-                if (debug) Rcpp::Rcout << "One: " << one << " " << "two: " << two << std::endl;
+                if (debug) Rcpp::Rcout << "One: " << one << " " << "two: " << two << std::endl; // #nocov end
             }
 
             if (debug) Rcpp::Rcout << "before parse: " << s << std::endl;
