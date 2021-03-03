@@ -137,3 +137,10 @@ expect_equal(anytime:::fmt(anytime("1970-01-01 00:00:00")), "1970-01-01 00:00:00
 expect_true(inherits(anytime(as.POSIXlt(Sys.time())), "POSIXt"))
 expect_true(inherits(anytime(Sys.Date()), "POSIXt"))
 expect_equal(class(utcdate(Sys.Date())), "Date")
+
+
+## logical
+expect_error(anytime(NA))
+expect_error(anytime(TRUE))
+expect_error(anydate(NA))
+expect_error(anydate(TRUE))

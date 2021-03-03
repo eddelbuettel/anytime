@@ -2,6 +2,7 @@
 
 	* src/anytime.cpp (anytime_cpp): In case of a logical input vector,
 	error out with message
+	* inst/tinytest/test_all_formats.R: Add simple tests
 
 2020-12-30  Dirk Eddelbuettel  <edd@debian.org>
 
