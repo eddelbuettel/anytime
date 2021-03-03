@@ -1,3 +1,8 @@
+2021-03-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (anytime_cpp): In case of a logical input vector,
+	error out with message
+
 2020-12-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml: Rename job from build to ci

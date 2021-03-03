@@ -498,6 +498,11 @@ Rcpp::NumericVector anytime_cpp(SEXP x,
         // no clone needed as integers get cast
         return Rcpp::DatetimeVector(x, asUTC ? "UTC" : tz.c_str());
 
+    } else if (Rcpp::is<Rcpp::LogicalVector>(x)) {
+        // this we cannot do
+        Rcpp::stop("Unsupported type logical vector: no conversion to datetime or date");
+        return R_NilValue;//not reached
+
     } else {
         Rcpp::stop("Unsupported Type"); // bug in 0.12.{7,8}; Rcpp 0.12.9 or later ok #nocov
         return R_NilValue;//not reached
