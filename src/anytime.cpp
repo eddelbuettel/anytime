@@ -1,5 +1,4 @@
-// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; indent-tabs-mode: nil; -*-
-//
+
 // anytime: Use Boost Date_Time to convert date(time) data to POSIXt
 //
 // Copyright (C) 2015 - 2019  Dirk Eddelbuettel
