@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://github.com/eddelbuettel/anytime/">
       
       <link rel="shortcut icon" href="assets/Rlogo.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.7">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0b2">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.cb6bc1d0.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.45122f27.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.e03a20ad.min.css">
         
       
     
@@ -33,7 +33,7 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
-        <style>body,input{font-family:"Lato",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <style>:root{--md-text-font-family:"Lato",;--md-code-font-family:"",}</style>
       
     
     
@@ -113,7 +113,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
@@ -235,7 +235,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -313,7 +313,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#anytime-anything-to-posixct-or-date-converter" class="md-nav__link">
@@ -695,7 +695,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -707,7 +707,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#anytime-anything-to-posixct-or-date-converter" class="md-nav__link">
@@ -855,7 +855,7 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
@@ -864,6 +864,7 @@
                 
                 <h2 id="anytime-anything-to-posixct-or-date-converter">anytime: Anything to 'POSIXct' or 'Date' Converter</h2>
 <p><a href="https://travis-ci.org/eddelbuettel/anytime"><img alt="Build Status" src="https://travis-ci.org/eddelbuettel/anytime.svg" /></a>
+<a href="https://github.com/eddelbuettel/anytime/actions?query=workflow%3Aci"><img alt="CI" src="https://github.com/eddelbuettel/anytime/workflows/ci/badge.svg" /></a>
 <a href="https://www.gnu.org/licenses/gpl-2.0.html"><img alt="License" src="https://eddelbuettel.github.io/badges/GPL2+.svg" /></a>
 <a href="https://cran.r-project.org/package=anytime"><img alt="CRAN" src="https://www.r-pkg.org/badges/version/anytime" /></a>
 <a href="https://cran.r-project.org/package=anytime"><img alt="Dependencies" src="https://tinyverse.netlify.com/badge/anytime" /></a>
@@ -971,13 +972,17 @@ the <code>useR</code> argument for more details.</p>
 <h3 id="status">Status</h3>
 <p>The package should work as expected.</p>
 <h3 id="example-uses">Example Uses</h3>
-<p>Currently, just over ten different <a href="https://cran.r-project.org">CRAN</a> packages import this package. Among them are the following research-focused packages:
- - <a href="https://cran.r-project.org/package=AGread">AGread</a> by Hibbing <em>et al</em> which reads and transforms ActiGraph physical activity measures;
- - <a href="https://cran.r-project.org/package=AGread">cqcr</a> by Odell accesses 'Care Quality Commission' data from the health and adult social care regulator for England;
- - <a href="https://cran.r-project.org/package=E4tools">E4tools</a> by Kleiman which reads data from Empatica wearable physiology monitors;
- - <a href="https://cran.r-project.org/package=RDS">RDS</a> by Handcock <em>et al</em> which is part of the "RDS Ananlyst" suite for analysing respondent-driven sampling data;
- - <a href="https://cran.r-project.org/package=tsbox">tsbox</a> by Sax for format-agnostic time series data representation and conversions;
- - <a href="https://cran.r-project.org/package=tsibble">tsibble</a> by Wang <em>et al</em> for temporal data in an explicit data- and model-oriented format.</p>
+<p>Currently, just over ten different <a href="https://cran.r-project.org">CRAN</a>
+packages import this package. Among them are the following research-focused
+packages:</p>
+<ul>
+<li><a href="https://cran.r-project.org/package=AGread">AGread</a> by Hibbing <em>et al</em> which reads and transforms ActiGraph physical activity measures;</li>
+<li><a href="https://cran.r-project.org/package=AGread">cqcr</a> by Odell accesses 'Care Quality Commission' data from the health and adult social care regulator for England;</li>
+<li><a href="https://cran.r-project.org/package=E4tools">E4tools</a> by Kleiman which reads data from Empatica wearable physiology monitors;</li>
+<li><a href="https://cran.r-project.org/package=RDS">RDS</a> by Handcock <em>et al</em> which is part of the "RDS Ananlyst" suite for analysing respondent-driven sampling data;</li>
+<li><a href="https://cran.r-project.org/package=tsbox">tsbox</a> by Sax for format-agnostic time series data representation and conversions;</li>
+<li><a href="https://cran.r-project.org/package=tsibble">tsibble</a> by Wang <em>et al</em> for temporal data in an explicit data- and model-oriented format.</li>
+</ul>
 <h3 id="changes">Changes</h3>
 <p>See the NEWS.Rd file on <a href="https://cran.r-project.org/package=anytime/news.html">CRAN</a> or
 <a href="https://github.com/eddelbuettel/anytime/blob/master/inst/NEWS.Rd">GitHub</a>.  In particular, version 0.3.0 corrects
@@ -1112,19 +1117,14 @@ need and scope in such an issue ticket.  See the file
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "assets/javascripts/worker/search.3f4c5856.min.js"}</script>
     
-      <script src="assets/javascripts/vendor.53cc9318.min.js"></script>
-      <script src="assets/javascripts/bundle.e9c9f54f.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: ".",
-          features: ['navigation.tabs', 'navigation.instant'],
-          search: Object.assign({
-            worker: "assets/javascripts/worker/search.9c0e82ba.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="assets/javascripts/vendor.00ecb175.min.js"></script>
+      <script src="assets/javascripts/bundle.fbcb1fc3.min.js"></script>
       
     
   </body>
