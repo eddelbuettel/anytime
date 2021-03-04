@@ -143,14 +143,19 @@ The package should work as expected.
 
 ### Example Uses
 
-Currently, just over ten different [CRAN](https://cran.r-project.org)
+Several different [CRAN](https://cran.r-project.org)
 packages import this package. Among them are the following research-focused
 packages:
 
+ - [adheRenceRX](https://cran.r-project.org/package=adheRenceRX) by Beal assesses medication adherence;
  - [AGread](https://cran.r-project.org/package=AGread) by Hibbing _et al_ which reads and transforms ActiGraph physical activity measures;
  - [cqcr](https://cran.r-project.org/package=AGread) by Odell accesses 'Care Quality Commission' data from the health and adult social care regulator for England;
+ - [datadogr](https://cran.r-project.org/package=datadogr) by Yutani queries metrics from Datadog;
  - [E4tools](https://cran.r-project.org/package=E4tools) by Kleiman which reads data from Empatica wearable physiology monitors;
+ - [nprcgenekeepr](https://cran.r-project.org/package=nprcgenekeepr) by Raboin _et al_ provides genetic tools for colony management ;
  - [RDS](https://cran.r-project.org/package=RDS) by Handcock _et al_ which is part of the "RDS Ananlyst" suite for analysing respondent-driven sampling data;
+ - [rtsdata](https://cran.r-project.org/package=rtsdata) by RTSVizTeam manages time series data dtorage;
+ - [threesixtygiving](https://cran.r-project.org/package=threesixtygiving) by Odell accesses download charitable grants from the '360Giving' Platform;
  - [tsbox](https://cran.r-project.org/package=tsbox) by Sax for format-agnostic time series data representation and conversions;
  - [tsibble](https://cran.r-project.org/package=tsibble) by Wang _et al_ for temporal data in an explicit data- and model-oriented format.
 
