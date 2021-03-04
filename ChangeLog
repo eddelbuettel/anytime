@@ -1,6 +1,7 @@
 2021-03-03  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .editorconfig: Added
+	* README.md: Expanded list of packages using anytime
 
 2021-03-02  Dirk Eddelbuettel  <edd@debian.org>
 
