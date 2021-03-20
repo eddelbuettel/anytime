@@ -1,3 +1,7 @@
+2021-03-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (URL): List GitHub repo and package page
+
 2021-03-03  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .editorconfig: Added
