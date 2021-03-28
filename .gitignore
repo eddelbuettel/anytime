@@ -19,3 +19,4 @@ paper/generate.rb
 paper/paper.pdf
 paper/runMe.sh
 docs-src/docs
+docs/mkdmt-src/docs
