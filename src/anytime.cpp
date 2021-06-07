@@ -48,6 +48,8 @@ const std::string sformats[] = {
     "%m/%d/%Y %H:%M:%S%f",  "%m/%e/%Y %H:%M:%S%f",
     "%m-%d-%Y %H:%M:%S%f",  "%m-%e-%Y %H:%M:%S%f",
     // "%d.%m.%Y %H:%M:%S%f",
+    "%Y.%m.%d %H:%M:%S%f",  "%Y.%m.%e %H:%M:%S%f",
+    "%Y.%m.%d %H%M%S%f",    "%Y.%m.%e %H%M%S%f",
 
     "%Y-%b-%d %H:%M:%S%f",  "%Y-%b-%e %H:%M:%S%f",
     "%Y/%b/%d %H:%M:%S%f",  "%Y/%b/%e %H:%M:%S%f",
@@ -86,6 +88,7 @@ const std::string sformats[] = {
 
     "%Y-%m-%d",  "%Y-%m-%e",
     "%Y%m%d",
+    "%Y.%m.%d",  "%Y.%m.%e",
     "%m/%d/%Y",  "%m/%e/%Y",
     "%m-%d-%Y",  "%m-%e-%Y",
 

@@ -1,3 +1,8 @@
+2021-06-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/anytime.cpp (sformats): Support additional formats that are
+	dot-sepatated such as '%Y.%m.%d' and variants
+
 2021-03-28  Dirk Eddelbuettel  <edd@debian.org>
 
 	* docs/mkdmt-src/: Moved mkdocs-material input
