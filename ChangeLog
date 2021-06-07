@@ -1,7 +1,12 @@
 2021-06-07  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Roll minor version
+
 	* src/anytime.cpp (sformats): Support additional formats that are
 	dot-sepatated such as '%Y.%m.%d' and variants
+
+	* R/anytime.R: Add a 'see also' link to 'getFormats'
+	* man/anytime.Rd: Ditto
 
 2021-03-28  Dirk Eddelbuettel  <edd@debian.org>
 
