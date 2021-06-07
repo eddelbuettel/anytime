@@ -202,7 +202,7 @@ This StackOverflow answer provided the initial idea:
 \url{https://stackoverflow.com/a/3787188/143305}.
 }
 \seealso{
-\code{\link{anytime-package}}
+\code{\link{anytime-package}}, \code{\link{getFormats}}
 }
 \author{
 Dirk Eddelbuettel

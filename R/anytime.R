@@ -152,7 +152,7 @@
 ##' input vectors where each timestamp appears only once.
 ##' @return A vector of \code{POSIXct} elements, or, in the case of \code{anydate},
 ##' a vector of \code{Date} objects.
-##' @seealso \code{\link{anytime-package}}
+##' @seealso \code{\link{anytime-package}}, \code{\link{getFormats}}
 ##' @references This StackOverflow answer provided the initial idea:
 ##' \url{https://stackoverflow.com/a/3787188/143305}.
 ##' @author Dirk Eddelbuettel
