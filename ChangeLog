@@ -1,3 +1,7 @@
+2021-06-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* anytime.Rproj: Removed
+
 2021-06-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
