@@ -1,3 +1,8 @@
+2021-11-04  Dirk Eddelbuettel  <edd@debian.org>
+
+ 	* README.md: Remove Travis badge
+	* .travis.yml: Remove Travis YAML config
+
 2021-06-09  Dirk Eddelbuettel  <edd@debian.org>
 
 	* anytime.Rproj: Removed
