@@ -1,3 +1,7 @@
+2022-01-25  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Add total downloads badge
+
 2021-11-04  Dirk Eddelbuettel  <edd@debian.org>
 
  	* README.md: Remove Travis badge
