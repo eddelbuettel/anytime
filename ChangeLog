@@ -1,3 +1,9 @@
+2022-12-11  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Update one URL
+	* R/formats.R: Update URL to RFC3339
+	* man/iso8601.Rd: Idem
+
 2022-10-31  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml (jobs): Update to actions/checkout@v3

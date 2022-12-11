@@ -1,6 +1,6 @@
 ## anytime: Use Boost Date_Time to convert date(time) data to POSIXt
 ##
-## Copyright (C) 2016 - 2019  Dirk Eddelbuettel
+## Copyright (C) 2016 - 2022  Dirk Eddelbuettel
 ##
 ## This file is part of anytime.
 ##
@@ -46,7 +46,7 @@
 ##' and date object as \sQuote{Thu, 01 Sep 2016}.
 ##'
 ##' @section RFC 3339:
-##' RFC 3339 is described in some detail in \url{https://tools.ietf.org/html/rfc3339}
+##' RFC 3339 is described in some detail in \url{https://www.rfc-editor.org/rfc/rfc3339}
 ##' It refines both earlier standards.
 ##'
 ##' Here, we use it to format datetimes and dates as single and compact strings.
@@ -65,7 +65,7 @@
 ##' @references \url{https://en.wikipedia.org/wiki/ISO_8601},
 ##' \url{https://www.ietf.org/rfc/rfc2822.txt},
 ##' \url{https://en.wikipedia.org/wiki/Email#Internet_Message_Format},
-##' \url{https://tools.ietf.org/html/rfc3339}
+##' \url{https://www.rfc-editor.org/rfc/rfc3339}
 ##' @examples
 ##' iso8601(anytime("2016-09-01 10:11:12.123456"))
 ##' iso8601(anydate("2016-Sep-01"))
