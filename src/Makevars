@@ -1,6 +1,2 @@
 
-## Compile as C++ to ensure we get 'long long' support
-## thus avoiding a possible warning from Boost headers
-CXX_STD = CXX11
-
-PKG_CXXFLAGS = -DRCPP_NO_RTTI
+CXX_STD = CXX17

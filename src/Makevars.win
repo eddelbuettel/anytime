@@ -1,4 +1,2 @@
 
-## Compile as C++ to ensure we get 'long long' support
-## thus avoiding a possible warning from Boost headers
-CXX_STD = CXX11
+CXX_STD = CXX17
