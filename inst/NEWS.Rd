@@ -3,11 +3,17 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.3.10 (2021-03-xx)}{
+\section{Changes in anytime version 0.3.10 (2023-xx-xx)}{
   \itemize{
     \item A new documentation site was added.
     \item Continuous Integration now uses run.sh from r-ci with bspm
     \item Logical input vectors are now recognised as an error (\ghit{121})
+    \item Additional dot-separated format '%Y.%m.%d' is supported
+    \item Other small updates were made throughout the package
+    \item Update C++ compilation standard to C++17
+    \item Switch Rcpp include file to Rcpp/Lightest
+    \item We recommend the following options in as compiler flags
+    -Wno-ignored-attributes -Wno-nonnull -Wno-parentheses
   }
 }
 

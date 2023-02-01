@@ -5,6 +5,8 @@
 
 	* src/anytime.cpp: Set include header to Rcpp/Lightest
 
+	* inst/NEWS.Rd: Update NEWS.Rd
+
 2023-01-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Correct URL for codecov.io badge
