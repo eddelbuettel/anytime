@@ -1,3 +1,10 @@
+2023-02-01  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/Makevars (CXX_STD): Set C++ standard to C++17
+	* src/Makevars.win (CXX_STD): Idem
+
+	* src/anytime.cpp: Set include header to Rcpp/Lightest
+
 2023-01-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Correct URL for codecov.io badge

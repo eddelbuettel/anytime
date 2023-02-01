@@ -1,7 +1,7 @@
 
 // anytime: Use Boost Date_Time to convert date(time) data to POSIXt
 //
-// Copyright (C) 2015 - 2021  Dirk Eddelbuettel
+// Copyright (C) 2015 - 2023  Dirk Eddelbuettel
 //
 // This file is part of anytime.
 //
@@ -29,8 +29,7 @@
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/split.hpp>
 
-#define STRICT_R_HEADERS
-#include <Rcpp.h>
+#include <Rcpp/Lightest>
 
 namespace bt = boost::posix_time;
 namespace ba = boost::algorithm;
