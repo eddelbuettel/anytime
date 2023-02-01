@@ -1,5 +1,7 @@
 2023-02-01  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Roll minor version and date
+
 	* src/Makevars (CXX_STD): Set C++ standard to C++17
 	* src/Makevars.win (CXX_STD): Idem
 
