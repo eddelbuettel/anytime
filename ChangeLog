@@ -7,6 +7,8 @@
 
 	* inst/NEWS.Rd: Update NEWS.Rd
 
+	* cleanup: Remove src/symbols.rds
+
 2023-01-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Correct URL for codecov.io badge

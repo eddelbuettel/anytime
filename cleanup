@@ -5,6 +5,7 @@ rm -rf \
    src/*.so \
    src/*.dylib \
    src/*~ \
+   src/symbols.rds \
    vignettes/rmd/auto/ \
    vignettes/rmd/*.log \
    vignettes/rmd/*.aux \
