@@ -10,7 +10,8 @@
     \item Logical input vectors are now recognised as an error (\ghit{121})
     \item Additional dot-separated format '%Y.%m.%d' is supported
     \item Other small updates were made throughout the package
-    \item Update C++ compilation standard to C++17
+    \item No longer set a C++ compilation standard as the default choices by
+    R are sufficient for the package
     \item Switch Rcpp include file to Rcpp/Lightest
     \item We recommend the following options in as compiler flags
     -Wno-ignored-attributes -Wno-nonnull -Wno-parentheses
