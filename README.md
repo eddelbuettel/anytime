@@ -3,6 +3,7 @@
 [![CI](https://github.com/eddelbuettel/anytime/workflows/ci/badge.svg)](https://github.com/eddelbuettel/anytime/actions?query=workflow%3Aci)
 [![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![CRAN](https://www.r-pkg.org/badges/version/anytime)](https://cran.r-project.org/package=anytime)
+[![r-universe](https://eddelbuettel.r-universe.dev/badges/anytime)](https://eddelbuettel.r-universe.dev/anytime)
 [![Dependencies](https://tinyverse.netlify.com/badge/anytime)](https://cran.r-project.org/package=anytime)
 [![CRAN use](https://jangorecki.gitlab.io/rdeps/anytime/CRAN_usage.svg?sanitize=true)](https://cran.r-project.org/package=anytime)
 [![Downloads (monthly)](https://cranlogs.r-pkg.org/badges/anytime?color=brightgreen)](https://www.r-pkg.org/pkg/anytime)
