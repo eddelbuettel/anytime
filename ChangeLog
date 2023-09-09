@@ -1,3 +1,7 @@
+2023-09-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tests/tinytest.R: Simplified
+
 2023-04-17  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/Makevars: Delete unneeded filed
