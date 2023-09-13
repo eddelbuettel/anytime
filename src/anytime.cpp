@@ -362,15 +362,10 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
                                   const bool asDate = false,
                                   const bool useR = false) {
 
+    bool have_warned = false;
     // step one: create a results vector, and class it as POSIXct
     int n = sxpvec.size();
     Rcpp::DatetimeVector pv(n, tz.c_str());
-    // if (asDate) {
-    //     pv.attr("class") = Rcpp::CharacterVector::create("Date");
-    // } else {
-    //     pv.attr("class") = Rcpp::CharacterVector::create("POSIXct", "POSIXt");
-    // }
-    // pv.attr("tzone") = tz;
 
     // step two: loop over input, cast each element to string and then convert
     for (int i=0; i<n; i++) {
@@ -383,6 +378,7 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
 
         if (s == "NA") {
             pv[i] = NA_REAL;                                            // #nocov
+            Rcpp::warning("Input conversion resulted in 'NA' results.");
         } else {
             if (debug) Rcpp::Rcout << "before tests: " << s << std::endl;
             // Boost Date_Time gets the 'YYYYMMDD' format wrong, even
@@ -435,6 +431,11 @@ Rcpp::NumericVector convertToTime(const Rcpp::Vector<RTYPE>& sxpvec,
             } else {
                 pv[i] = stringToTime(s, asUTC, asDate);
             }
+            if (R_IsNA(pv[i]) && !have_warned) {
+                Rcpp::warning(tfm::format("Input conversion of '%s' resulted in 'NA' results.", s));
+                have_warned = true;
+            }
+
         }
     }
     // There is an issue with datetime parsing under TZ=Europe/London, see eg #36 and #51
