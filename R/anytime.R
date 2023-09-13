@@ -1,7 +1,7 @@
 
 ## anytime: Use Boost Date_Time to convert date(time) data to POSIXt
 ##
-## Copyright (C) 2015 - 2020  Dirk Eddelbuettel
+## Copyright (C) 2015 - 2023  Dirk Eddelbuettel
 ##
 ## This file is part of anytime.
 ##
@@ -118,6 +118,14 @@
 ##' value can be set via \code{getOption("anytimeOldHeuristic")} which can be set
 ##' to \code{TRUE} in startup file. Note that all other inputs such character,
 ##' factor or ordered are not affected.
+##'
+##' @section Warnings:
+##' As of version 0.3.10, a conversion from character resulting in a \code{NA}
+##' will lead to a warning being emitted.  At most one warning per call is given:
+##' should numerous unparseable values be present on input, only one warning will
+##' be show. R offers mechanism to either suppress warnings, or convert them
+##' to errors as described in the help page for \code{options()} under the entry
+##' for \code{warn}.
 ##'
 ##' @title Parse POSIXct or Date objects from input data
 ##' @param x A vector of type character, integer or numeric with date(time)
