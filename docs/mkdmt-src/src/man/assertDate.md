@@ -1,3 +1,4 @@
+
 ## Convert to Date (or POSIXct) and assert successful conversion
 
 ### Description
@@ -7,15 +8,17 @@ content is in fact of suitable type by checking for remaining `NA`
 
 ### Usage
 
-    assertDate(x)
-    
-    assertTime(x)
+``` R
+assertDate(x)
+
+assertTime(x)
+```
 
 ### Arguments
 
-| Argument | Description                                         |
-| -------- | --------------------------------------------------- |
-| `x`      | An input object suitable for `anydate` or `anytime` |
+|     |                                                     |
+|-----|-----------------------------------------------------|
+| `x` | An input object suitable for `anydate` or `anytime` |
 
 ### Details
 
@@ -33,5 +36,8 @@ Dirk Eddelbuettel
 
 ### Examples
 
-    assertDate(c("2001/02/03", "2001-02-03", "20010203"))
-    assertTime(c("2001/02/03 04:05:06", "2001-02-03  04:05:06", "20010203 040506"))
+``` R
+assertDate(c("2001/02/03", "2001-02-03", "20010203"))
+assertTime(c("2001/02/03 04:05:06", "2001-02-03  04:05:06", "20010203 040506"))
+```
+

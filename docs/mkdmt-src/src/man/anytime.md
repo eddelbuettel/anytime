@@ -1,8 +1,9 @@
+
 ## Parse POSIXct or Date objects from input data
 
 ### Description
 
-These function use the Boost Date\_Time library to parse datetimes (and
+These function use the Boost Date_Time library to parse datetimes (and
 dates) from strings, integers, factors or even numeric values (which are
 cast to strings internally). They return a vector of `POSIXct` objects
 (or `Date` objects in the case of `anydate`). `POSIXct` objects
@@ -12,25 +13,27 @@ represent dates and time as (possibly fractional) seconds since the
 
 ### Usage
 
-    anytime(x, tz = getTZ(), asUTC = FALSE,
-      useR = getOption("anytimeUseRConversions", FALSE),
-      oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
-      calcUnique = FALSE)
-    
-    anydate(x, tz = getTZ(), asUTC = FALSE,
-      useR = getOption("anytimeUseRConversions", FALSE), calcUnique = FALSE)
-    
-    utctime(x, tz = getTZ(), useR = getOption("anytimeUseRConversions", FALSE),
-      oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
-      calcUnique = FALSE)
-    
-    utcdate(x, tz = getTZ(), useR = getOption("anytimeUseRConversions", FALSE),
-      calcUnique = FALSE)
+``` R
+anytime(x, tz = getTZ(), asUTC = FALSE,
+  useR = getOption("anytimeUseRConversions", FALSE),
+  oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
+  calcUnique = FALSE)
+
+anydate(x, tz = getTZ(), asUTC = FALSE,
+  useR = getOption("anytimeUseRConversions", FALSE), calcUnique = FALSE)
+
+utctime(x, tz = getTZ(), useR = getOption("anytimeUseRConversions", FALSE),
+  oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
+  calcUnique = FALSE)
+
+utcdate(x, tz = getTZ(), useR = getOption("anytimeUseRConversions", FALSE),
+  calcUnique = FALSE)
+```
 
 ### Arguments
 
-| Argument       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `x`            | A vector of type character, integer or numeric with date(time) expressions to be parsed and converted.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `tz`           | A string with the timezone, defaults to the result of the (internal) `getTZ` function if unset. The `getTZ` function returns the timezone values stored in local package environment, and set at package load time. Also note that this argument applies to the *output*: the returned object will have this timezone set. The timezone is *not* used for the parsing which will always be to localtime, or to UTC is the `asUTC` variable is set (as it is in the related functions `utctime` and `utcdate`). So one can think of the argument as ‘shift parsed time object to this timezone’. This is similar to what `format()` in base R does, but our return value is still a `POSIXt` object instead of a character value. |
 | `asUTC`        | A logical value indicating if parsing should be to UTC; default is false implying localtime.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -74,8 +77,8 @@ worse, be parsed incorrectly. This is not quite a [Bobby
 Tables](https://xkcd.com/327/) situation but care must always be taken
 with user-supplied input.
 
-The Boost Date\_Time library cannot parse single digit months or days.
-So while ‘2016/09/02’ works (as expected), ‘2016/9/2’ will not. Other
+The Boost Date_Time library cannot parse single digit months or days. So
+while ‘2016/09/02’ works (as expected), ‘2016/9/2’ will not. Other
 non-standard formats may also fail.
 
 There is a known issue (discussed at length in [issue ticket
@@ -135,6 +138,15 @@ can be set via `getOption("anytimeOldHeuristic")` which can be set to
 `TRUE` in startup file. Note that all other inputs such character,
 factor or ordered are not affected.
 
+### Warnings
+
+As of version 0.3.10, a conversion from character resulting in a `NA`
+will lead to a warning being emitted. At most one warning per call is
+given: should numerous unparseable values be present on input, only one
+warning will be show. R offers mechanism to either suppress warnings, or
+convert them to errors as described in the help page for `options()`
+under the entry for `warn`.
+
 ### Author(s)
 
 Dirk Eddelbuettel
@@ -146,30 +158,33 @@ This StackOverflow answer provided the initial idea:
 
 ### See Also
 
-`anytime-package`
+`anytime-package`, `getFormats`
 
 ### Examples
 
-    ## See the source code for a full list of formats, and the
-    ## or the reference in help('anytime-package') for details
-    times <- c("2004-03-21 12:45:33.123456",
-              "2004/03/21 12:45:33.123456",
-              "20040321 124533.123456",
-              "03/21/2004 12:45:33.123456",
-              "03-21-2004 12:45:33.123456",
-              "2004-03-21",
-              "20040321",
-              "03/21/2004",
-              "03-21-2004",
-              "20010101")
-    anytime(times)
-    anydate(times)
-    utctime(times)
-    utcdate(times)
-    
-    ## show effect of tz argument
-    anytime("2001-02-03 04:05:06")
-    ## adjust parsed time to given TZ argument
-    anytime("2001-02-03 04:05:06", tz="America/Los_Angeles")
-    ## somewhat equvalent base R functionality
-    format(anytime("2001-02-03 04:05:06"), tz="America/Los_Angeles")
+``` R
+## See the source code for a full list of formats, and the
+## or the reference in help('anytime-package') for details
+times <- c("2004-03-21 12:45:33.123456",
+          "2004/03/21 12:45:33.123456",
+          "20040321 124533.123456",
+          "03/21/2004 12:45:33.123456",
+          "03-21-2004 12:45:33.123456",
+          "2004-03-21",
+          "20040321",
+          "03/21/2004",
+          "03-21-2004",
+          "20010101")
+anytime(times)
+anydate(times)
+utctime(times)
+utcdate(times)
+
+## show effect of tz argument
+anytime("2001-02-03 04:05:06")
+## adjust parsed time to given TZ argument
+anytime("2001-02-03 04:05:06", tz="America/Los_Angeles")
+## somewhat equvalent base R functionality
+format(anytime("2001-02-03 04:05:06"), tz="America/Los_Angeles")
+```
+

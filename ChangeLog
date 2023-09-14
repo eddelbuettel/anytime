@@ -1,3 +1,7 @@
+2023-09-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* docs/*: Updated
+
 2023-09-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/anytime.cpp (convertToTime): Warn if NA values resulting from

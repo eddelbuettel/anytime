@@ -1,3 +1,4 @@
+
 ## Anything to 'POSIXct' or 'Date' Converter
 
 ### Description
@@ -29,10 +30,10 @@ returning a proper `POSIXct` (or `Date`) object no matter the input
 function.
 
 The actual conversion is done by a combination of [Boost
-lexical\_cast](https://www.boost.org/doc/libs/1_70_0/doc/html/boost_lexical_cast.html)
+lexical_cast](https://www.boost.org/doc/libs/1_70_0/doc/html/boost_lexical_cast.html)
 to go from *(almost) anything* to string representation which is then
 parsed by [Boost
-Date\_Time](https://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html).
+Date_Time](https://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html).
 An alternate method using the corresponding R functions is also
 available as a fallback.
 
@@ -45,7 +46,7 @@ added and removed via the `addFormats()` and `removeFormats{}`
 functions.
 
 Details on the Boost date format symbols are provided by the [Boost
-date\_time
+date_time
 documentation](https://www.boost.org/doc/libs/1_70_0/doc/html/date_time/date_time_io.html#date_time.format_flags)
 and similar (but not identical) to what `strftime` uses.
 
@@ -55,7 +56,7 @@ Dirk Eddelbuettel
 
 ### References
 
-Boost date\_time:
+Boost date_time:
 <https://www.boost.org/doc/libs/1_70_0/doc/html/date_time.html>
 
 Formats used:
@@ -66,7 +67,7 @@ Boost format documentation:
 
 ### Examples
 
-``` 
+``` R
   Sys.setenv(TZ=anytime:::getTZ())      ## helper function to try to get TZ
   options(digits.secs=6)                ## for fractional seconds below
 
@@ -102,3 +103,4 @@ Boost format documentation:
   ## Datetime: Mixed format (cf https://stackoverflow.com/questions/39259184)
   anytime(c("Thu Sep 01 10:11:12 2016", "Thu Sep 01 10:11:12.345678 2016"))
 ```
+

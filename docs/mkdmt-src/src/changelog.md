@@ -1,5 +1,93 @@
+###  2023 
+
+2023-09-13  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * src/anytime.cpp (convertToTime): Warn if NA values resulting from 
+        conversion to character (and only one warning will be give) 
+        * R/anytime.R: Updated docs 
+        * man/anytime.Rd: Idem 
+ 
+2023-09-09  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * tests/tinytest.R: Simplified 
+ 
+2023-04-17  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * src/Makevars: Delete unneeded filed 
+        * src/Makevars.win: Idem 
+ 
+2023-02-04  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * src/Makevars: No longer set a C++ standard 
+        * src/Makevars.win: Idem 
+ 
+2023-02-01  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Roll minor version and date 
+ 
+        * src/Makevars (CXX_STD): Set C++ standard to C++17 
+        * src/Makevars.win (CXX_STD): Idem 
+ 
+        * src/anytime.cpp: Set include header to Rcpp/Lightest 
+ 
+        * inst/NEWS.Rd: Update NEWS.Rd 
+ 
+        * cleanup: Remove src/symbols.rds 
+ 
+2023-01-14  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * README.md: Correct URL for codecov.io badge 
+ 
+###  2022 
+
+2022-12-11  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * README.md: Update one URL 
+        * R/formats.R: Update URL to RFC3339 
+        * man/iso8601.Rd: Idem 
+ 
+2022-10-31  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml (jobs): Update to actions/checkout@v3 
+ 
+2022-01-25  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * README.md: Add total downloads badge 
+ 
 ###  2021 
 
+2021-11-04  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+         * README.md: Remove Travis badge 
+        * .travis.yml: Remove Travis YAML config 
+ 
+2021-06-09  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * anytime.Rproj: Removed 
+ 
+2021-06-07  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Roll minor version 
+ 
+        * src/anytime.cpp (sformats): Support additional formats that are 
+        dot-sepatated such as '%Y.%m.%d' and variants 
+ 
+        * R/anytime.R: Add a 'see also' link to 'getFormats' 
+        * man/anytime.Rd: Ditto 
+ 
+2021-03-28  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * docs/mkdmt-src/: Moved mkdocs-material input 
+ 
+2021-03-19  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (URL): List GitHub repo and package page 
+ 
+2021-03-03  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .editorconfig: Added 
+        * README.md: Expanded list of packages using anytime 
+ 
 2021-03-02  Dirk Eddelbuettel  <edd@debian.org> 
  
         * DESCRIPTION (Version, Date): Roll minor version 

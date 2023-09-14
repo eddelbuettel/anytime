@@ -6,15 +6,18 @@
 \section{Changes in anytime version 0.3.10 (2023-xx-xx)}{
   \itemize{
     \item A new documentation site was added.
-    \item Continuous Integration now uses run.sh from r-ci with bspm
+    \item Continuous Integration now uses \code{run.sh} from \pkg{r-ci} with
+    \pkg{bspm}
     \item Logical input vectors are now recognised as an error (\ghit{121})
     \item Additional dot-separated format '%Y.%m.%d' is supported
     \item Other small updates were made throughout the package
     \item No longer set a C++ compilation standard as the default choices by
     R are sufficient for the package
     \item Switch Rcpp include file to Rcpp/Lightest
-    \item We recommend the following options in as compiler flags
-    -Wno-ignored-attributes -Wno-nonnull -Wno-parentheses
+    \item We recommend \code{~/.R/Makevars} compiler flag options
+    \code{-Wno-ignored-attributes -Wno-nonnull -Wno-parentheses}
+    \item The \pkg{tinytest} runner was simplified
+    \item \code{NA} values from conversion now trigger a warning
   }
 }
 

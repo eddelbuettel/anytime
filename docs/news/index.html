@@ -8,11 +8,10 @@
       
       
       
-      
         <link rel="canonical" href="https://github.com/eddelbuettel/anytime/news/">
       
-      <link rel="shortcut icon" href="../assets/Rlogo.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0b2">
+      <link rel="icon" href="../assets/Rlogo.png">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.5">
     
     
       
@@ -20,28 +19,33 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.45122f27.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.80dcb947.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.e03a20ad.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
       
+      
+
     
     
     
       
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Lato",;--md-code-font-family:"",}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Lato";--md-code-font:"Roboto Mono"}</style>
       
-    
     
     
       <link rel="stylesheet" href="../assets/extra.css">
     
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
+    
     
     
   </head>
@@ -53,44 +57,40 @@
     
     
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
-      
   
+    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#version-0310-2021-03-xx" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="https://github.com/eddelbuettel/anytime" title="anytime" class="md-header-nav__button md-logo" aria-label="anytime">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="anytime" class="md-header__button md-logo" aria-label="anytime" data-md-component="logo">
       
   <img src="../assets/Rlogo.svg" alt="logo">
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      <div class="md-header-nav__ellipsis">
-        <div class="md-header-nav__topic">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
           <span class="md-ellipsis">
             anytime
           </span>
         </div>
-        <div class="md-header-nav__topic">
+        <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
               News
@@ -100,22 +100,27 @@
       </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -132,6 +137,7 @@
     
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
@@ -139,6 +145,7 @@
       
         
           
+            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
@@ -228,6 +235,7 @@
     </ul>
   </div>
 </nav>
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -240,14 +248,12 @@
                   <div class="md-sidebar__inner">
                     
 
-
-
   
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://github.com/eddelbuettel/anytime" title="anytime" class="md-nav__button md-logo" aria-label="anytime">
+    <a href=".." title="anytime" class="md-nav__button md-logo" aria-label="anytime" data-md-component="logo">
       
   <img src="../assets/Rlogo.svg" alt="logo">
 
@@ -268,21 +274,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
       
-      <label class="md-nav__link" for="nav-1">
-        Home
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Home" data-md-level="1">
-        <label class="md-nav__title" for="nav-1">
+        <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Home
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -293,6 +303,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -311,21 +322,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
-      <label class="md-nav__link" for="nav-2">
-        Reference
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Reference" data-md-level="1">
-        <label class="md-nav__title" for="nav-2">
+        <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Reference
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -336,8 +351,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -348,8 +365,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -360,8 +379,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -372,8 +393,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -384,6 +407,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -402,21 +426,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
-      <label class="md-nav__link" for="nav-3">
-        Articles
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Articles
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Articles" data-md-level="1">
-        <label class="md-nav__title" for="nav-3">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Articles
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -427,6 +455,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -447,21 +476,25 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
-      <label class="md-nav__link" for="nav-4">
-        News
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          News
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="News" data-md-level="1">
-        <label class="md-nav__title" for="nav-4">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           News
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
     
@@ -472,180 +505,15 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          News
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         News
       </a>
       
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#version-0310-2021-03-xx" class="md-nav__link">
-    Version 0.3.10 (2021-03-xx)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-039-2020-08-26" class="md-nav__link">
-    Version 0.3.9 (2020-08-26)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-038-2020-07-23" class="md-nav__link">
-    Version 0.3.8 (2020-07-23)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-037-2020-01-20" class="md-nav__link">
-    Version 0.3.7 (2020-01-20)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-036-2019-08-29" class="md-nav__link">
-    Version 0.3.6 (2019-08-29)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-035-2019-07-28" class="md-nav__link">
-    Version 0.3.5 (2019-07-28)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-034-2019-06-18" class="md-nav__link">
-    Version 0.3.4 (2019-06-18)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-033-2018-11-13" class="md-nav__link">
-    Version 0.3.3 (2018-11-13)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-032-2018-11-05" class="md-nav__link">
-    Version 0.3.2 (2018-11-05)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-031-2018-07-03" class="md-nav__link">
-    Version 0.3.1 (2018-07-03)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-030-2017-06-05" class="md-nav__link">
-    Version 0.3.0 (2017-06-05)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-022-2017-03-21" class="md-nav__link">
-    Version 0.2.2 (2017-03-21)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-021-2017-02-09" class="md-nav__link">
-    Version 0.2.1 (2017-02-09)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-020-2016-12-24" class="md-nav__link">
-    Version 0.2.0 (2016-12-24)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-012-2016-12-13" class="md-nav__link">
-    Version 0.1.2 (2016-12-13)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-011-2016-11-27" class="md-nav__link">
-    Version 0.1.1 (2016-11-27)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-010-2016-11-06" class="md-nav__link">
-    Version 0.1.0 (2016-11-06)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-004-2016-10-20" class="md-nav__link">
-    Version 0.0.4 (2016-10-20)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-003-2016-10-13" class="md-nav__link">
-    Version 0.0.3 (2016-10-13)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-002-2016-09-15" class="md-nav__link">
-    Version 0.0.2 (2016-09-15)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-001-2016-09-12" class="md-nav__link">
-    Version 0.0.1 (2016-09-12)
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -664,21 +532,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
-      <label class="md-nav__link" for="nav-5">
-        Changelog
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Changelog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Changelog" data-md-level="1">
-        <label class="md-nav__title" for="nav-5">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Changelog
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -689,6 +561,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -708,164 +581,11 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#version-0310-2021-03-xx" class="md-nav__link">
-    Version 0.3.10 (2021-03-xx)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-039-2020-08-26" class="md-nav__link">
-    Version 0.3.9 (2020-08-26)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-038-2020-07-23" class="md-nav__link">
-    Version 0.3.8 (2020-07-23)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-037-2020-01-20" class="md-nav__link">
-    Version 0.3.7 (2020-01-20)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-036-2019-08-29" class="md-nav__link">
-    Version 0.3.6 (2019-08-29)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-035-2019-07-28" class="md-nav__link">
-    Version 0.3.5 (2019-07-28)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-034-2019-06-18" class="md-nav__link">
-    Version 0.3.4 (2019-06-18)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-033-2018-11-13" class="md-nav__link">
-    Version 0.3.3 (2018-11-13)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-032-2018-11-05" class="md-nav__link">
-    Version 0.3.2 (2018-11-05)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-031-2018-07-03" class="md-nav__link">
-    Version 0.3.1 (2018-07-03)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-030-2017-06-05" class="md-nav__link">
-    Version 0.3.0 (2017-06-05)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-022-2017-03-21" class="md-nav__link">
-    Version 0.2.2 (2017-03-21)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-021-2017-02-09" class="md-nav__link">
-    Version 0.2.1 (2017-02-09)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-020-2016-12-24" class="md-nav__link">
-    Version 0.2.0 (2016-12-24)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-012-2016-12-13" class="md-nav__link">
-    Version 0.1.2 (2016-12-13)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-011-2016-11-27" class="md-nav__link">
-    Version 0.1.1 (2016-11-27)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-010-2016-11-06" class="md-nav__link">
-    Version 0.1.0 (2016-11-06)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-004-2016-10-20" class="md-nav__link">
-    Version 0.0.4 (2016-10-20)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-003-2016-10-13" class="md-nav__link">
-    Version 0.0.3 (2016-10-13)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-002-2016-09-15" class="md-nav__link">
-    Version 0.0.2 (2016-09-15)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-001-2016-09-12" class="md-nav__link">
-    Version 0.0.1 (2016-09-12)
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -873,451 +593,350 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                
-                  <h1>News</h1>
-                
-                <h3 id="version-0310-2021-03-xx">Version 0.3.10 (2021-03-xx)</h3>
-<ul>
-<li>
-<p>A new documentation site was added.</p>
-</li>
-<li>
-<p>Continuous Integration now uses run.sh from r-ci with bspm</p>
-</li>
-<li>
-<p>Logical input vectors are now recognised as an error
-    (<a href="https://github.com/eddelbuettel/anytime/issues/121">#121</a>)</p>
-</li>
-</ul>
-<h3 id="version-039-2020-08-26">Version 0.3.9 (2020-08-26)</h3>
-<ul>
-<li>
-<p>Skip one test file that is impossible to run across different CRAN
-    setups, and life is definitely too short for these games.</p>
-</li>
-<li>
-<p>Change remaining http:// to https:// because, well, you know.</p>
-</li>
-</ul>
-<h3 id="version-038-2020-07-23">Version 0.3.8 (2020-07-23)</h3>
-<ul>
-<li>
-<p>A small utility function was added to detect the Linux distribution
-    used in order to fine-tune tests once more.</p>
-</li>
-<li>
-<p>Travis now uses Ubuntu \'bionic\' and R 4.0.*.</p>
-</li>
-</ul>
-<h3 id="version-037-2020-01-20">Version 0.3.7 (2020-01-20)</h3>
-<ul>
-<li>
-<p>Test and possibly condition away one more test file.</p>
-</li>
-<li>
-<p>Small enhancement for compilation by setting <code>no-rtti</code> define via
-    Rcpp.</p>
-</li>
-<li>
-<p>New option <code>calcUnique</code> for speed-up by parseing only unique
-    timestamps (Stephen Froehlich in
-    <a href="https://github.com/eddelbuettel/anytime/pull/110">#110</a> fixing
-    <a href="https://github.com/eddelbuettel/anytime/pull/109">#109</a>).</p>
-</li>
-</ul>
-<h3 id="version-036-2019-08-29">Version 0.3.6 (2019-08-29)</h3>
-<ul>
-<li>
-<p>Added, and then removed, required file for JOSS; added \'unworthy\'
-    badge as we earned a desk reject (cf #1605 there).</p>
-</li>
-<li>
-<p>Renamed internal helper function format() to fmt() to avoid clashes
-    with base::format() (Dirk in
-    <a href="https://github.com/eddelbuettel/anytime/pull/104">#104</a>).</p>
-</li>
-<li>
-<p>Use S3 dispatch and generics for key functions (Dirk in
-    <a href="https://github.com/eddelbuettel/anytime/pull/106">#106</a>).</p>
-</li>
-<li>
-<p>Continued to tweak tests as we find some of the rhub platform to
-    behave strangely (Dirk via commits,
-    <a href="https://github.com/eddelbuettel/anytime/pull/107">#107</a>, and
-    <a href="https://github.com/eddelbuettel/anytime/pull/108">#108</a>).</p>
-</li>
-<li>
-<p>Added <code>%e</code> format for single-digit day parsing by Boost (Dirk
-    addressing at least
-    <a href="https://github.com/eddelbuettel/anytime/issues/24">#24</a>,
-    <a href="https://github.com/eddelbuettel/anytime/issues/70">#70</a> and
-    <a href="https://github.com/eddelbuettel/anytime/issues/99">#99</a>).</p>
-</li>
-<li>
-<p>Expansed and updated vignette with benchmark comparisons.</p>
-</li>
-<li>
-<p>Updated unit tests using <code>tinytest</code> which remains a pleasure to use;
-    versioned Suggests: is now \'>= 1.0.0\'.</p>
-</li>
-</ul>
-<h3 id="version-035-2019-07-28">Version 0.3.5 (2019-07-28)</h3>
-<ul>
-<li>
-<p>Fix use of <code>Rcpp::Function</code>-accessed <code>Sys.setenv()</code>, name all
-    arguments in call to C++ (Christoph Sax in
-    <a href="https://github.com/eddelbuettel/anytime/pull/95">#95</a>).</p>
-</li>
-<li>
-<p>Relax constraint on Windows testing in several test files (Christoph
-    Sax in <a href="https://github.com/eddelbuettel/anytime/pull/97">#97</a>).</p>
-</li>
-<li>
-<p>Fix an issue related to <code>TZ</code> environment variable setting (Dirk in
-    <a href="https://github.com/eddelbuettel/anytime/pull/101">#101</a>).</p>
-</li>
-<li>
-<p>Change <code>useR=TRUE</code> behaviour by directly calling R via <code>Rcpp</code> (Dirk
-    in <a href="https://github.com/eddelbuettel/anytime/pull/103">#103</a> fixing
-    <a href="https://github.com/eddelbuettel/anytime/issues/96">#96</a>).</p>
-</li>
-<li>
-<p>Several updates to unit testing files aiming for more robust
-    behaviour across platforms.</p>
-</li>
-<li>
-<p>Updated documentation in manual pages, README and vignette.</p>
-</li>
-</ul>
-<h3 id="version-034-2019-06-18">Version 0.3.4 (2019-06-18)</h3>
-<ul>
-<li>
-<p>Documentation was updated about a \'Europe/London\' conversion issue
-    (<a href="https://github.com/eddelbuettel/anytime/issues/84">#84</a>, inter
-    alia).</p>
-</li>
-<li>
-<p>The package is now compiled under the C++11 standard.</p>
-</li>
-<li>
-<p>The package now uses <code>tinytest</code> for unit tests.</p>
-</li>
-<li>
-<p>The <code>iso8601()</code> function now places a 'T' between date and time; an
-    option switches to prior format using a space.</p>
-</li>
-<li>
-<p>The vignette is now pre-made and included as-is in a Sweave document
-    reducing the number of suggested packages.</p>
-</li>
-</ul>
-<h3 id="version-033-2018-11-13">Version 0.3.3 (2018-11-13)</h3>
-<ul>
-<li>
-<p>Vignette build quirkyness on Windows resolved so vignette
-    reinstated.</p>
-</li>
-<li>
-<p>Documentation updated showing correct use of <code>anydate</code> (and not
-    <code>anytime</code>) on input like '2016010' following the 0.3.0 release
-    heuristic change.</p>
-</li>
-<li>
-<p>Set <code>#define</code> for Boost to make compilation more quiet.</p>
-</li>
-</ul>
-<h3 id="version-032-2018-11-05">Version 0.3.2 (2018-11-05)</h3>
-<ul>
-<li>
-<p>Added a new vignette introducing the <code>anytime</code> package. Seemingly it
-    cannot be compiled on Windows so included prebuilt.</p>
-</li>
-<li>
-<p>Some more tests for <code>anydate</code> were added along with so code coverage
-    tags.</p>
-</li>
-<li>
-<p>The C++ code was robustified in two places to not trigger <code>rchk</code>
-    warnings (<a href="https://github.com/eddelbuettel/anytime/pull/79">#79</a>).</p>
-</li>
-<li>
-<p>Three unit test files which fail on Solaris are now skipping this os
-    as we cannot reproduce or test on this OS
-    (<a href="https://github.com/eddelbuettel/anytime/pull/80">#80</a>).</p>
-</li>
-</ul>
-<h3 id="version-031-2018-07-03">Version 0.3.1 (2018-07-03)</h3>
-<ul>
-<li>
-<p>Numeric input is now preserved rather than silently cast to the
-    return object type
-    (<a href="https://github.com/eddelbuettel/anytime/pull/69">#69</a> fixing
-    <a href="https://github.com/eddelbuettel/anytime/issues/68">#68</a>).</p>
-</li>
-<li>
-<p>New assertion function <code>assertDate()</code> and <code>assertTime()</code>.</p>
-</li>
-<li>
-<p>Unit tests were expanded for the new functions, for conversion from
-    integer as well as for <code>yyyymmdd()</code>.</p>
-</li>
-</ul>
-<h3 id="version-030-2017-06-05">Version 0.3.0 (2017-06-05)</h3>
-<ul>
-<li>
-<p>Numeric input is now always an offset to epoch, with <code>anytime()</code>
-    using seconds, and <code>anydate()</code> using dates.
-    (<a href="https://github.com/eddelbuettel/anytime/pull/65">#65</a> fixing
-    <a href="https://github.com/eddelbuettel/anytime/issues/63">#63</a>).</p>
-</li>
-<li>
-<p>Old behaviour can be re-enabled with an option also supporting a
-    global setting <code>getOption("anytimeOldHeuristic")</code></p>
-</li>
-<li>
-<p>RStudio versions 1.1.129 or later can run all functions without fear
-    of crashing due to a change in their use of Boost.</p>
-</li>
-<li>
-<p>Replaced <code>init.c</code> with registration code inside of <code>RcppExports.cpp</code>
-    thanks to Rcpp 0.12.11.</p>
-</li>
-</ul>
-<h3 id="version-022-2017-03-21">Version 0.2.2 (2017-03-21)</h3>
-<ul>
-<li>
-<p>Address corner case of integer-typed (large) values corresponding to
-    <code>POSIXct</code> time (PR
-    <a href="https://github.com/eddelbuettel/anytime/pull/57">#57</a> closing
-    <a href="https://github.com/eddelbuettel/anytime/issues/#56">##56</a>)</p>
-</li>
-<li>
-<p>Add special case for 'Europe/London' and 31 Oct 1971 BST change to
-    avoid a one-hour offset error
-    (<a href="https://github.com/eddelbuettel/anytime/pull/58">#58</a> fixing
-    <a href="https://github.com/eddelbuettel/anytime/issues/36">#36</a> and
-    <a href="https://github.com/eddelbuettel/anytime/issues/51">#51</a>)</p>
-</li>
-<li>
-<p>Address another corner case of numeric values corresponding to
-    <code>Date</code> types which are now returned as <code>Date</code></p>
-</li>
-<li>
-<p>Added file <code>init.c</code> with calls to <code>R_registerRoutines()</code>
-    <code>and R_useDynamicSymbols()</code>; already used <code>.registration=TRUE</code> in
-    <code>useDynLib</code> in <code>NAMESPACE</code></p>
-</li>
-</ul>
-<h3 id="version-021-2017-02-09">Version 0.2.1 (2017-02-09)</h3>
-<ul>
-<li>
-<p>The new <code>DatetimeVector</code> class from
-    <a href="https://CRAN.R-project.org/package=Rcpp">[Rcpp]{.pkg}</a> is now used,
-    and proper versioned Depends: have been added (PR
-    <a href="https://github.com/eddelbuettel/anytime/pull/43">#43</a>)</p>
-</li>
-<li>
-<p>The <code>anydate</code> and <code>utcdate</code> functions convert again from factor and
-    ordered (PR <a href="https://github.com/eddelbuettel/anytime/pull/46">#46</a>
-    closing <a href="https://github.com/eddelbuettel/anytime/issues/44">#44</a>)</p>
-</li>
-<li>
-<p>A format similar to RFC 28122 but with additonal timezone text can
-    now be parsed (PR
-    <a href="https://github.com/eddelbuettel/anytime/pull/48">#48</a> closing
-    <a href="https://github.com/eddelbuettel/anytime/issues/47">#47</a>)</p>
-</li>
-<li>
-<p>Conversion from <code>POSIXt</code> to <code>Date</code> now also respect the timezone (PR
-    <a href="https://github.com/eddelbuettel/anytime/pull/50">#50</a> closing
-    <a href="https://github.com/eddelbuettel/anytime/issues/49">#49</a>)</p>
-</li>
-<li>
-<p>The internal <code>.onLoad</code> functions was updated</p>
-</li>
-<li>
-<p>The Travis setup uses https to fetch the run script</p>
-</li>
-</ul>
-<h3 id="version-020-2016-12-24">Version 0.2.0 (2016-12-24)</h3>
-<ul>
-<li>
-<p>Added (exported) helper functions iso8601(), rfc2822() and rfc3339()
-    to format date(time) objects according to standards</p>
-</li>
-<li>
-<p>Conversion to dates is now more robust thanks to improved internal
-    processing (PR
-    <a href="https://github.com/eddelbuettel/anytime/pull/39">#39</a> closing
-    <a href="https://github.com/eddelbuettel/anytime/issues/36">#36</a>)</p>
-</li>
-<li>
-<p>The ISO 8601 format is now recognised, however the timezone
-    information is not parsed by Boost Date_Time (which is a known
-    upstream limitation) (PR
-    <a href="https://github.com/eddelbuettel/anytime/pull/38">#38</a> closing
-    <a href="https://github.com/eddelbuettel/anytime/issues/37">#37</a>)</p>
-</li>
-<li>
-<p>The \'allFormats.R\' test script was significantly strengthened
-    (<a href="https://github.com/eddelbuettel/anytime/pull/40">#40</a>)</p>
-</li>
-<li>
-<p>Test scripts like \'simpleTests.R\' have as also been strengthened
-    (<a href="https://github.com/eddelbuettel/anytime/pull/41">#41</a>); on
-    Windows and in one file two tests need to be skipped.</p>
-</li>
-<li>
-<p>A new \'bulkTest.R\' test script was added testing parsing against
-    what R returns</p>
-</li>
-</ul>
-<h3 id="version-012-2016-12-13">Version 0.1.2 (2016-12-13)</h3>
-<ul>
-<li>
-<p>The (internal) string processing and splitting now uses Boost
-    algorithm functions which avoids a (bizarre) bug on Windows.
-    (<a href="https://github.com/eddelbuettel/anytime/issues/33">#33</a>)</p>
-</li>
-<li>
-<p>Test coverage was increased.</p>
-</li>
-</ul>
-<h3 id="version-011-2016-11-27">Version 0.1.1 (2016-11-27)</h3>
-<ul>
-<li>
-<p>Both <code>anydate()</code> and <code>utcdate()</code> no longer attempt to convert an
-    input value that is already of type <code>Date</code>.</p>
-</li>
-<li>
-<p>The string splitter (needed for the \'all-digits\' formats extending
-    Boost Date_time) is now more defensive about the input argument and
-    more robust. Thanks to Bob Jansen for the heads-up (PR
-    <a href="https://github.com/eddelbuettel/anytime/pull/30">#30</a> closing
-    issue <a href="https://github.com/eddelbuettel/anytime/issues/29">#29</a>).</p>
-</li>
-<li>
-<p>Code coverage reporting has been added (PR
-    <a href="https://github.com/eddelbuettel/anytime/pull/31">#31</a>).</p>
-</li>
-</ul>
-<h3 id="version-010-2016-11-06">Version 0.1.0 (2016-11-06)</h3>
-<ul>
-<li>
-<p>New functions <code>utctime()</code> and <code>utcdate()</code> were added to parse input
-    as coordinated universal time; the functionality is also available
-    in <code>anytime()</code> and <code>anydate()</code> via a new argument <code>asUTC</code> (PR
-    <a href="https://github.com/eddelbuettel/anytime/pull/22">#22</a>)</p>
-</li>
-<li>
-<p>New (date)time format for RFC822-alike dates, and expanded existing
-    datetime formats to all support fractional seconds (PR
-    <a href="https://github.com/eddelbuettel/anytime/pull/21">#21</a>)</p>
-</li>
-<li>
-<p>Extended functionality to support not only 'YYYYMMDD' (without a
-    separator, and not covered by Boost) but also with 'HHMM', 'HHMMSS'
-    and 'HHMMSS.ffffff' (PR
-    <a href="https://github.com/eddelbuettel/anytime/pull/30">#30</a> fixing issue
-    <a href="https://github.com/eddelbuettel/anytime/issues/29">#29</a>)</p>
-</li>
-<li>
-<p>Extended functionality to support 'HHMMSS[.ffffff]' following
-    other date formats.</p>
-</li>
-<li>
-<p>Documentation and tests have been expanded; typos corrected</p>
-</li>
-<li>
-<p>New (unexported) helper functions <code>setTZ</code>, <code>testOutput</code>, <code>setDebug</code></p>
-</li>
-<li>
-<p>The <code>testFormat</code> (and <code>testOutput</code>) functions cannot be called under
-    RStudio (PR <a href="https://github.com/eddelbuettel/anytime/pull/27">#27</a>
-    fixing issue
-    <a href="https://github.com/eddelbuettel/anytime/issues/25">#25</a>).</p>
-</li>
-<li>
-<p>More robust support for non-finite values such as <code>NA</code>, <code>NaN</code> or
-    <code>Inf</code> (Fixing issue
-    <a href="https://github.com/eddelbuettel/anytime/issues/16">#16</a>)</p>
-</li>
-</ul>
-<h3 id="version-004-2016-10-20">Version 0.0.4 (2016-10-20)</h3>
-<ul>
-<li>
-<p>Before converting via <code>lexical_cast</code>, assign to atomic type via
-    template logic to avoid an UBSAN issue (PR
-    <a href="https://github.com/eddelbuettel/anytime/pull/15">#15</a> closing
-    issue <a href="https://github.com/eddelbuettel/anytime/issues/14">#14</a>)</p>
-</li>
-<li>
-<p>More robust initialization and timezone information gathering.</p>
-</li>
-<li>
-<p>More robust processing of non-finite input also coping with
-    non-finite values such as <code>NA</code>, <code>NaN</code> and <code>Inf</code> which all return
-    <code>NA</code></p>
-</li>
-<li>
-<p>Allow numeric <code>POSIXt</code> representation on input, also creating proper
-    <code>POSIXct</code> (or, if requested, <code>Date</code>)</p>
-</li>
-</ul>
-<h3 id="version-003-2016-10-13">Version 0.0.3 (2016-10-13)</h3>
-<ul>
-<li>
-<p>Added (non-exported) helper function <code>testFormat()</code></p>
-</li>
-<li>
-<p>Do not access <code>tm_isdst</code> on Windows for dates before the epoch (pull
-    request <a href="https://github.com/eddelbuettel/anytime/pull/13">#13</a>
-    fixing issue
-    <a href="https://github.com/eddelbuettel/anytime/issues/12">#12</a>); added
-    test as well</p>
-</li>
-</ul>
-<h3 id="version-002-2016-09-15">Version 0.0.2 (2016-09-15)</h3>
-<ul>
-<li>
-<p>Refactored to use a simple class wrapped around two vector with
-    (string) formats and locales; this allow for adding formats; also
-    adds accessor for formats
-    (<a href="https://github.com/eddelbuettel/anytime/pull/4">#4</a>, closes
-    <a href="https://github.com/eddelbuettel/anytime/issues/1">#1</a> and
-    <a href="https://github.com/eddelbuettel/anytime/issues/3">#3</a>).</p>
-</li>
-<li>
-<p>New function <code>addFormats()</code> and <code>getFormats()</code>.</p>
-</li>
-<li>
-<p>Relaxed one tests which showed problems on some platforms.</p>
-</li>
-<li>
-<p>Added <code>as.POSIXlt()</code> step to <code>anydate()</code> ensuring all <code>POSIXlt</code>
-    components are set
-    (<a href="https://github.com/eddelbuettel/anytime/pull/6">#6</a> fixing
-    <a href="https://github.com/eddelbuettel/anytime/issues/5">#5</a>).</p>
-</li>
-</ul>
-<h3 id="version-001-2016-09-12">Version 0.0.1 (2016-09-12)</h3>
-<ul>
-<li>Initial release with <code>anytime()</code> and <code>anydate</code></li>
-</ul>
-                
-              
-              
-                
+                  
 
 
-              
-            </article>
-          </div>
+  <h1>News</h1>
+
+<section id="NEWS" class="container">
+<h2>News for Package <code>anytime</code></h2>
+<h3 id="version-0.3.10-2023-xx-xx">Version 0.3.10 (2023-xx-xx)</h3>
+<ul>
+<li><p>A new documentation site was added.</p></li>
+<li><p>Continuous Integration now uses <code>run.sh</code> from
+<code>r-ci</code> with <code>bspm</code></p></li>
+<li><p>Logical input vectors are now recognised as an error (<a
+href="https://github.com/eddelbuettel/anytime/issues/121">#121</a>)</p></li>
+<li><p>Additional dot-separated format '</p></li>
+<li><p>Other small updates were made throughout the package</p></li>
+<li><p>No longer set a C++ compilation standard as the default choices
+by R are sufficient for the package</p></li>
+<li><p>Switch Rcpp include file to Rcpp/Lightest</p></li>
+<li><p>We recommend <code>~/.R/Makevars</code> compiler flag options
+<code>-Wno-ignored-attributes -Wno-nonnull -Wno-parentheses</code></p></li>
+<li><p>The <code>tinytest</code> runner was simplified</p></li>
+<li><p><code>NA</code> values from conversion now trigger a
+warning</p></li>
+</ul>
+<h3 id="version-0.3.9-2020-08-26">Version 0.3.9 (2020-08-26)</h3>
+<ul>
+<li><p>Skip one test file that is impossible to run across different
+CRAN setups, and life is definitely too short for these games.</p></li>
+<li><p>Change remaining http:// to https:// because, well, you
+know.</p></li>
+</ul>
+<h3 id="version-0.3.8-2020-07-23">Version 0.3.8 (2020-07-23)</h3>
+<ul>
+<li><p>A small utility function was added to detect the Linux
+distribution used in order to fine-tune tests once more.</p></li>
+<li><p>Travis now uses Ubuntu 'bionic' and R 4.0.*.</p></li>
+</ul>
+<h3 id="version-0.3.7-2020-01-20">Version 0.3.7 (2020-01-20)</h3>
+<ul>
+<li><p>Test and possibly condition away one more test file.</p></li>
+<li><p>Small enhancement for compilation by setting <code>no-rtti</code>
+define via Rcpp.</p></li>
+<li><p>New option <code>calcUnique</code> for speed-up by parseing only
+unique timestamps (Stephen Froehlich in <a
+href="https://github.com/eddelbuettel/anytime/pull/110">#110</a> fixing
+<a
+href="https://github.com/eddelbuettel/anytime/pull/109">#109</a>).</p></li>
+</ul>
+<h3 id="version-0.3.6-2019-08-29">Version 0.3.6 (2019-08-29)</h3>
+<ul>
+<li><p>Added, and then removed, required file for JOSS; added 'unworthy'
+badge as we earned a desk reject (cf #1605 there).</p></li>
+<li><p>Renamed internal helper function format() to fmt() to avoid
+clashes with base::format() (Dirk in <a
+href="https://github.com/eddelbuettel/anytime/pull/104">#104</a>).</p></li>
+<li><p>Use S3 dispatch and generics for key functions (Dirk in <a
+href="https://github.com/eddelbuettel/anytime/pull/106">#106</a>).</p></li>
+<li><p>Continued to tweak tests as we find some of the rhub platform to
+behave strangely (Dirk via commits, <a
+href="https://github.com/eddelbuettel/anytime/pull/107">#107</a>, and <a
+href="https://github.com/eddelbuettel/anytime/pull/108">#108</a>).</p></li>
+<li><p>Added <code>%e</code> format for single-digit day parsing by
+Boost (Dirk addressing at least <a
+href="https://github.com/eddelbuettel/anytime/issues/24">#24</a>, <a
+href="https://github.com/eddelbuettel/anytime/issues/70">#70</a> and <a
+href="https://github.com/eddelbuettel/anytime/issues/99">#99</a>).</p></li>
+<li><p>Expansed and updated vignette with benchmark
+comparisons.</p></li>
+<li><p>Updated unit tests using <code>tinytest</code> which remains a
+pleasure to use; versioned Suggests: is now '&gt;= 1.0.0'.</p></li>
+</ul>
+<h3 id="version-0.3.5-2019-07-28">Version 0.3.5 (2019-07-28)</h3>
+<ul>
+<li><p>Fix use of <code>Rcpp::Function</code>-accessed
+<code>Sys.setenv()</code>, name all arguments in call to C++ (Christoph
+Sax in <a
+href="https://github.com/eddelbuettel/anytime/pull/95">#95</a>).</p></li>
+<li><p>Relax constraint on Windows testing in several test files
+(Christoph Sax in <a
+href="https://github.com/eddelbuettel/anytime/pull/97">#97</a>).</p></li>
+<li><p>Fix an issue related to <code>TZ</code> environment variable
+setting (Dirk in <a
+href="https://github.com/eddelbuettel/anytime/pull/101">#101</a>).</p></li>
+<li><p>Change <code>useR=TRUE</code> behaviour by directly calling R via
+<code>Rcpp</code> (Dirk in <a
+href="https://github.com/eddelbuettel/anytime/pull/103">#103</a> fixing
+<a
+href="https://github.com/eddelbuettel/anytime/issues/96">#96</a>).</p></li>
+<li><p>Several updates to unit testing files aiming for more robust
+behaviour across platforms.</p></li>
+<li><p>Updated documentation in manual pages, README and
+vignette.</p></li>
+</ul>
+<h3 id="version-0.3.4-2019-06-18">Version 0.3.4 (2019-06-18)</h3>
+<ul>
+<li><p>Documentation was updated about a 'Europe/London' conversion
+issue (<a
+href="https://github.com/eddelbuettel/anytime/issues/84">#84</a>, inter
+alia).</p></li>
+<li><p>The package is now compiled under the C++11 standard.</p></li>
+<li><p>The package now uses <code>tinytest</code> for unit
+tests.</p></li>
+<li><p>The <code>iso8601()</code> function now places a ‘T’ between date
+and time; an option switches to prior format using a space.</p></li>
+<li><p>The vignette is now pre-made and included as-is in a Sweave
+document reducing the number of suggested packages.</p></li>
+</ul>
+<h3 id="version-0.3.3-2018-11-13">Version 0.3.3 (2018-11-13)</h3>
+<ul>
+<li><p>Vignette build quirkyness on Windows resolved so vignette
+reinstated.</p></li>
+<li><p>Documentation updated showing correct use of <code>anydate</code>
+(and not <code>anytime</code>) on input like ‘2016010’ following the
+0.3.0 release heuristic change.</p></li>
+<li><p>Set <code>#define</code> for Boost to make compilation more
+quiet.</p></li>
+</ul>
+<h3 id="version-0.3.2-2018-11-05">Version 0.3.2 (2018-11-05)</h3>
+<ul>
+<li><p>Added a new vignette introducing the <code>anytime</code>
+package. Seemingly it cannot be compiled on Windows so included
+prebuilt.</p></li>
+<li><p>Some more tests for <code>anydate</code> were added along with so
+code coverage tags.</p></li>
+<li><p>The C++ code was robustified in two places to not trigger
+<code>rchk</code> warnings (<a
+href="https://github.com/eddelbuettel/anytime/pull/79">#79</a>).</p></li>
+<li><p>Three unit test files which fail on Solaris are now skipping this
+os as we cannot reproduce or test on this OS (<a
+href="https://github.com/eddelbuettel/anytime/pull/80">#80</a>).</p></li>
+</ul>
+<h3 id="version-0.3.1-2018-07-03">Version 0.3.1 (2018-07-03)</h3>
+<ul>
+<li><p>Numeric input is now preserved rather than silently cast to the
+return object type (<a
+href="https://github.com/eddelbuettel/anytime/pull/69">#69</a> fixing <a
+href="https://github.com/eddelbuettel/anytime/issues/68">#68</a>).</p></li>
+<li><p>New assertion function <code>assertDate()</code> and
+<code>assertTime()</code>.</p></li>
+<li><p>Unit tests were expanded for the new functions, for conversion
+from integer as well as for <code>yyyymmdd()</code>.</p></li>
+</ul>
+<h3 id="version-0.3.0-2017-06-05">Version 0.3.0 (2017-06-05)</h3>
+<ul>
+<li><p>Numeric input is now always an offset to epoch, with
+<code>anytime()</code> using seconds, and <code>anydate()</code> using
+dates. (<a
+href="https://github.com/eddelbuettel/anytime/pull/65">#65</a> fixing <a
+href="https://github.com/eddelbuettel/anytime/issues/63">#63</a>).</p></li>
+<li><p>Old behaviour can be re-enabled with an option also supporting a
+global setting <code>getOption("anytimeOldHeuristic")</code></p></li>
+<li><p>RStudio versions 1.1.129 or later can run all functions without
+fear of crashing due to a change in their use of Boost.</p></li>
+<li><p>Replaced <code>init.c</code> with registration code inside of
+<code>RcppExports.cpp</code> thanks to Rcpp 0.12.11.</p></li>
+</ul>
+<h3 id="version-0.2.2-2017-03-21">Version 0.2.2 (2017-03-21)</h3>
+<ul>
+<li><p>Address corner case of integer-typed (large) values corresponding
+to <code>POSIXct</code> time (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/57">#57</a> closing
+<a
+href="https://github.com/eddelbuettel/anytime/issues/#56">##56</a>)</p></li>
+<li><p>Add special case for ‘Europe/London’ and 31 Oct 1971 BST change
+to avoid a one-hour offset error (<a
+href="https://github.com/eddelbuettel/anytime/pull/58">#58</a> fixing <a
+href="https://github.com/eddelbuettel/anytime/issues/36">#36</a> and <a
+href="https://github.com/eddelbuettel/anytime/issues/51">#51</a>)</p></li>
+<li><p>Address another corner case of numeric values corresponding to
+<code>Date</code> types which are now returned as
+<code>Date</code></p></li>
+<li><p>Added file <code>init.c</code> with calls to
+<code>R_registerRoutines()</code>
+<code>and R_useDynamicSymbols()</code>; already used
+<code>.registration=TRUE</code> in <code>useDynLib</code> in
+<code>NAMESPACE</code></p></li>
+</ul>
+<h3 id="version-0.2.1-2017-02-09">Version 0.2.1 (2017-02-09)</h3>
+<ul>
+<li><p>The new <code>DatetimeVector</code> class from <a
+href="https://CRAN.R-project.org/package=Rcpp"><span
+class="pkg">Rcpp</span></a> is now used, and proper versioned Depends:
+have been added (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/43">#43</a>)</p></li>
+<li><p>The <code>anydate</code> and <code>utcdate</code> functions
+convert again from factor and ordered (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/46">#46</a> closing
+<a
+href="https://github.com/eddelbuettel/anytime/issues/44">#44</a>)</p></li>
+<li><p>A format similar to RFC 28122 but with additonal timezone text
+can now be parsed (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/48">#48</a> closing
+<a
+href="https://github.com/eddelbuettel/anytime/issues/47">#47</a>)</p></li>
+<li><p>Conversion from <code>POSIXt</code> to <code>Date</code> now also
+respect the timezone (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/50">#50</a> closing
+<a
+href="https://github.com/eddelbuettel/anytime/issues/49">#49</a>)</p></li>
+<li><p>The internal <code>.onLoad</code> functions was updated</p></li>
+<li><p>The Travis setup uses https to fetch the run script</p></li>
+</ul>
+<h3 id="version-0.2.0-2016-12-24">Version 0.2.0 (2016-12-24)</h3>
+<ul>
+<li><p>Added (exported) helper functions iso8601(), rfc2822() and
+rfc3339() to format date(time) objects according to standards</p></li>
+<li><p>Conversion to dates is now more robust thanks to improved
+internal processing (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/39">#39</a> closing
+<a
+href="https://github.com/eddelbuettel/anytime/issues/36">#36</a>)</p></li>
+<li><p>The ISO 8601 format is now recognised, however the timezone
+information is not parsed by Boost Date_Time (which is a known upstream
+limitation) (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/38">#38</a> closing
+<a
+href="https://github.com/eddelbuettel/anytime/issues/37">#37</a>)</p></li>
+<li><p>The 'allFormats.R' test script was significantly strengthened (<a
+href="https://github.com/eddelbuettel/anytime/pull/40">#40</a>)</p></li>
+<li><p>Test scripts like 'simpleTests.R' have as also been strengthened
+(<a href="https://github.com/eddelbuettel/anytime/pull/41">#41</a>); on
+Windows and in one file two tests need to be skipped.</p></li>
+<li><p>A new 'bulkTest.R' test script was added testing parsing against
+what R returns</p></li>
+</ul>
+<h3 id="version-0.1.2-2016-12-13">Version 0.1.2 (2016-12-13)</h3>
+<ul>
+<li><p>The (internal) string processing and splitting now uses Boost
+algorithm functions which avoids a (bizarre) bug on Windows. (<a
+href="https://github.com/eddelbuettel/anytime/issues/33">#33</a>)</p></li>
+<li><p>Test coverage was increased.</p></li>
+</ul>
+<h3 id="version-0.1.1-2016-11-27">Version 0.1.1 (2016-11-27)</h3>
+<ul>
+<li><p>Both <code>anydate()</code> and <code>utcdate()</code> no longer
+attempt to convert an input value that is already of type
+<code>Date</code>.</p></li>
+<li><p>The string splitter (needed for the 'all-digits' formats
+extending Boost Date_time) is now more defensive about the input
+argument and more robust. Thanks to Bob Jansen for the heads-up (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/30">#30</a> closing
+issue <a
+href="https://github.com/eddelbuettel/anytime/issues/29">#29</a>).</p></li>
+<li><p>Code coverage reporting has been added (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/31">#31</a>).</p></li>
+</ul>
+<h3 id="version-0.1.0-2016-11-06">Version 0.1.0 (2016-11-06)</h3>
+<ul>
+<li><p>New functions <code>utctime()</code> and <code>utcdate()</code>
+were added to parse input as coordinated universal time; the
+functionality is also available in <code>anytime()</code> and
+<code>anydate()</code> via a new argument <code>asUTC</code> (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/22">#22</a>)</p></li>
+<li><p>New (date)time format for RFC822-alike dates, and expanded
+existing datetime formats to all support fractional seconds (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/21">#21</a>)</p></li>
+<li><p>Extended functionality to support not only ‘YYYYMMDD’ (without a
+separator, and not covered by Boost) but also with ‘HHMM’, ‘HHMMSS’ and
+‘HHMMSS.ffffff’ (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/30">#30</a> fixing
+issue <a
+href="https://github.com/eddelbuettel/anytime/issues/29">#29</a>)</p></li>
+<li><p>Extended functionality to support ‘HHMMSS[.ffffff]’ following
+other date formats.</p></li>
+<li><p>Documentation and tests have been expanded; typos
+corrected</p></li>
+<li><p>New (unexported) helper functions <code>setTZ</code>,
+<code>testOutput</code>, <code>setDebug</code></p></li>
+<li><p>The <code>testFormat</code> (and <code>testOutput</code>)
+functions cannot be called under RStudio (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/27">#27</a> fixing
+issue <a
+href="https://github.com/eddelbuettel/anytime/issues/25">#25</a>).</p></li>
+<li><p>More robust support for non-finite values such as
+<code>NA</code>, <code>NaN</code> or <code>Inf</code> (Fixing issue <a
+href="https://github.com/eddelbuettel/anytime/issues/16">#16</a>)</p></li>
+</ul>
+<h3 id="version-0.0.4-2016-10-20">Version 0.0.4 (2016-10-20)</h3>
+<ul>
+<li><p>Before converting via <code>lexical_cast</code>, assign to atomic
+type via template logic to avoid an UBSAN issue (PR <a
+href="https://github.com/eddelbuettel/anytime/pull/15">#15</a> closing
+issue <a
+href="https://github.com/eddelbuettel/anytime/issues/14">#14</a>)</p></li>
+<li><p>More robust initialization and timezone information
+gathering.</p></li>
+<li><p>More robust processing of non-finite input also coping with
+non-finite values such as <code>NA</code>, <code>NaN</code> and
+<code>Inf</code> which all return <code>NA</code></p></li>
+<li><p>Allow numeric <code>POSIXt</code> representation on input, also
+creating proper <code>POSIXct</code> (or, if requested,
+<code>Date</code>)</p></li>
+</ul>
+<h3 id="version-0.0.3-2016-10-13">Version 0.0.3 (2016-10-13)</h3>
+<ul>
+<li><p>Added (non-exported) helper function
+<code>testFormat()</code></p></li>
+<li><p>Do not access <code>tm_isdst</code> on Windows for dates before
+the epoch (pull request <a
+href="https://github.com/eddelbuettel/anytime/pull/13">#13</a> fixing
+issue <a
+href="https://github.com/eddelbuettel/anytime/issues/12">#12</a>); added
+test as well</p></li>
+</ul>
+<h3 id="version-0.0.2-2016-09-15">Version 0.0.2 (2016-09-15)</h3>
+<ul>
+<li><p>Refactored to use a simple class wrapped around two vector with
+(string) formats and locales; this allow for adding formats; also adds
+accessor for formats (<a
+href="https://github.com/eddelbuettel/anytime/pull/4">#4</a>, closes <a
+href="https://github.com/eddelbuettel/anytime/issues/1">#1</a> and <a
+href="https://github.com/eddelbuettel/anytime/issues/3">#3</a>).</p></li>
+<li><p>New function <code>addFormats()</code> and
+<code>getFormats()</code>.</p></li>
+<li><p>Relaxed one tests which showed problems on some
+platforms.</p></li>
+<li><p>Added <code>as.POSIXlt()</code> step to <code>anydate()</code>
+ensuring all <code>POSIXlt</code> components are set (<a
+href="https://github.com/eddelbuettel/anytime/pull/6">#6</a> fixing <a
+href="https://github.com/eddelbuettel/anytime/issues/5">#5</a>).</p></li>
+</ul>
+<h3 id="version-0.0.1-2016-09-12">Version 0.0.1 (2016-09-12)</h3>
+<ul>
+<li><p>Initial release with <code>anytime()</code> and
+<code>anydate</code></p></li>
+</ul>
+</section>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
+        
       </main>
       
         <!--
@@ -1361,7 +980,7 @@
             rel="prev"
           >
             <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
@@ -1391,7 +1010,7 @@
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
             </div>
           </a>
         
@@ -1413,20 +1032,18 @@
       </div>
 
       <!-- Social links -->
-      
-  <div class="md-footer-social">
+      <div class="md-social">
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://github.com/eddelbuettel/anytime" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://github.com/eddelbuettel/anytime" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
     </div>
   </div>
 </footer>
@@ -1435,11 +1052,11 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/worker/search.3f4c5856.min.js"}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.instant"], "search": "../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/vendor.00ecb175.min.js"></script>
-      <script src="../assets/javascripts/bundle.fbcb1fc3.min.js"></script>
+      <script src="../assets/javascripts/bundle.078830c0.min.js"></script>
       
     
   </body>

@@ -1,13 +1,14 @@
 ## anytime: Anything to 'POSIXct' or 'Date' Converter
 
-[![Build Status](https://travis-ci.org/eddelbuettel/anytime.svg)](https://travis-ci.org/eddelbuettel/anytime)
 [![CI](https://github.com/eddelbuettel/anytime/workflows/ci/badge.svg)](https://github.com/eddelbuettel/anytime/actions?query=workflow%3Aci)
 [![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![CRAN](https://www.r-pkg.org/badges/version/anytime)](https://cran.r-project.org/package=anytime)
+[![r-universe](https://eddelbuettel.r-universe.dev/badges/anytime)](https://eddelbuettel.r-universe.dev/anytime)
 [![Dependencies](https://tinyverse.netlify.com/badge/anytime)](https://cran.r-project.org/package=anytime)
 [![CRAN use](https://jangorecki.gitlab.io/rdeps/anytime/CRAN_usage.svg?sanitize=true)](https://cran.r-project.org/package=anytime)
-[![Downloads](https://cranlogs.r-pkg.org/badges/anytime?color=brightgreen)](https://www.r-pkg.org/pkg/anytime)
-[![Code Coverage](https://codecov.io/gh/eddelbuettel/anytime/graph/badge.svg)](https://codecov.io/gh/eddelbuettel/anytime)
+[![Downloads (monthly)](https://cranlogs.r-pkg.org/badges/anytime?color=brightgreen)](https://www.r-pkg.org/pkg/anytime)
+[![Downloads (total)](https://cranlogs.r-pkg.org/badges/grand-total/anytime?color=brightgreen)](https://www.r-pkg.org/pkg/anytime)
+[![Code Coverage](https://codecov.io/gh/eddelbuettel/anytime/graph/badge.svg)](https://app.codecov.io/gh/eddelbuettel/anytime)
 [![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/anytime)](https://github.com/eddelbuettel/anytime)
 [![Documentation](https://img.shields.io/badge/documentation-is_here-blue)](https://eddelbuettel.github.io/anytime/)
 [![JOSS](https://img.shields.io/badge/JOSS-Not%20Worthy-lightgrey)](https://github.com/openjournals/joss-reviews/issues/1605#issuecomment-517055652)
