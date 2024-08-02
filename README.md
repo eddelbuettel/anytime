@@ -10,6 +10,7 @@
 [![Downloads (total)](https://cranlogs.r-pkg.org/badges/grand-total/anytime?color=brightgreen)](https://www.r-pkg.org/pkg/anytime)
 [![Code Coverage](https://codecov.io/gh/eddelbuettel/anytime/graph/badge.svg)](https://app.codecov.io/gh/eddelbuettel/anytime)
 [![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/anytime)](https://github.com/eddelbuettel/anytime)
+[![DOI](https://img.shields.io/badge/doi-10.32614/CRAN.package.anytime-blue)](https://doi.org/10.32614/CRAN.package.anytime)
 [![Documentation](https://img.shields.io/badge/documentation-is_here-blue)](https://eddelbuettel.github.io/anytime/)
 [![JOSS](https://img.shields.io/badge/JOSS-Not%20Worthy-lightgrey)](https://github.com/openjournals/joss-reviews/issues/1605#issuecomment-517055652)
 
