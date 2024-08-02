@@ -3,8 +3,8 @@ Type: Package
 Title: Anything to 'POSIXct' or 'Date' Converter
 Version: 0.3.9.5
 Date: 2023-02-01
-Author: Dirk Eddelbuettel
-Maintainer: Dirk Eddelbuettel <edd@debian.org>
+Authors@R: person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd@debian.org",
+                  comment = c(ORCID = "0000-0001-6419-907X"))
 Description: Convert input in any one of character, integer, numeric, factor,
  or ordered type into 'POSIXct' (or 'Date') objects, using one of a number of
  predefined formats, and relying on Boost facilities for date and time parsing.

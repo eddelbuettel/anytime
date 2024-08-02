@@ -1,6 +1,14 @@
+2024-08-01  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Authors@R): Added
+
 2024-06-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml (jobs): Update to r-ci-setup actions
+
+2024-06-12  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Add DOI badge
 
 2024-05-16  Dirk Eddelbuettel  <edd@debian.org>
 
