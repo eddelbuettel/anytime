@@ -3,7 +3,7 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
-\section{Changes in anytime version 0.3.10 (2023-xx-xx)}{
+\section{Changes in anytime version 0.3.10 (2024-12-02)}{
   \itemize{
     \item A new documentation site was added.
     \item Continuous Integration now uses \code{run.sh} from \pkg{r-ci} with
