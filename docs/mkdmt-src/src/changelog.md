@@ -1,5 +1,35 @@
+###  2024 
+
+2024-12-02  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Release 0.3.10 
+ 
+2024-08-01  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Authors@R): Added 
+ 
+2024-06-13  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml (jobs): Update to r-ci-setup actions 
+ 
+2024-06-12  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * README.md: Add DOI badge 
+ 
+2024-05-16  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * README.md: Use tinyverse.netlify.app for dependency badge 
+ 
 ###  2023 
 
+2023-09-18  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml (jobs): Update to actions/checkout@v4 
+ 
+2023-09-14  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * docs/*: Updated 
+ 
 2023-09-13  Dirk Eddelbuettel  <edd@debian.org> 
  
         * src/anytime.cpp (convertToTime): Warn if NA values resulting from 
