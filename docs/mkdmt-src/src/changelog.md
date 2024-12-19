@@ -1,5 +1,11 @@
 ###  2024 
 
+2024-12-18  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Release 0.3.11 
+ 
+        * .Rbuildignore: Added inst/tinytest/test_simple.R 
+ 
 2024-12-02  Dirk Eddelbuettel  <edd@debian.org> 
  
         * DESCRIPTION (Version, Date): Release 0.3.10 
