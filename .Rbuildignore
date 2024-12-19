@@ -17,3 +17,4 @@
 ^docs
 ^docs-src
 ^\.github
+inst/tinytest/test_simple.R
