@@ -13,7 +13,7 @@ BugReports: https://github.com/eddelbuettel/anytime/issues
 License: GPL (>= 2)
 Encoding: UTF-8
 Depends: R (>= 3.2.0)
-Imports: Rcpp (>= 0.12.9)
-LinkingTo: Rcpp (>= 0.12.9), BH
+Imports: Rcpp (>= 1.0.8)
+LinkingTo: Rcpp (>= 1.0.8), BH
 Suggests: tinytest (>= 1.0.0), gettz
 RoxygenNote: 6.0.1

@@ -1,3 +1,8 @@
+2025-03-12  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Imports, LinkingTo): Increase versioned depends on
+	Rcpp to the already three-year old 1.0.8 release
+
 2024-12-20  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml: Simplify to r-ci with included bootstrap
