@@ -227,7 +227,10 @@ anytime.default <- function(x,
                            useR = getOption("anytimeUseRConversions", FALSE),
                            oldHeuristic = getOption("anytimeOldHeuristic", FALSE),
                            calcUnique = FALSE) {
+    ## cornercase
+    if (length(x) == 0) return(as.POSIXct(x))
 
+    ## otherwise call anytime_cpp
     if (calcUnique == FALSE) {
         return(anytime_cpp(x, tz=tz, asUTC=asUTC, asDate=FALSE, useR=useR, oldHeuristic=oldHeuristic))
     } else {
@@ -267,8 +270,10 @@ anydate.factor <- function(x, tz=getTZ(), asUTC=FALSE,
 anydate.default <- function(x, tz=getTZ(), asUTC=FALSE,
                             useR = getOption("anytimeUseRConversions", FALSE),
                             calcUnique = FALSE) {
-    ## otherwise call anytime_cpp
+    ## cornercase
+    if (length(x) == 0) return(as.Date(x))
 
+    ## otherwise call anytime_cpp
     if (calcUnique == FALSE) {
         d <- anytime_cpp(x=x, tz=tz, asUTC=asUTC, asDate=TRUE, useR=useR, oldHeuristic=TRUE)
     } else {																# #nocov start

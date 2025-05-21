@@ -1,3 +1,8 @@
+2025-05-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/anytime.R (anytime.default,anydate.default): Tolerate
+	cornercase of zero-length numeric or integer vector
+
 2025-03-12  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Imports, LinkingTo): Increase versioned depends on
