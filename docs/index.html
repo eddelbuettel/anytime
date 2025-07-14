@@ -1023,7 +1023,10 @@ library cannot resolve timezones on the Windows platform (where timezone informa
 <a href="https://dirk.eddelbuettel.com/code/rcpp.html">Rcpp</a>); see the help for
 the <code>useR</code> argument for more details.</p>
 <h3 id="status">Status</h3>
-<p>The package should work as expected.</p>
+<p>The package should work and perform as expected.</p>
+<p>Do not be mislead by (likely intentionally) dubious benchmark comparisons whose setup issues we have
+mentioned; sadly these have still not been corrected. Rest assured that the is as performant or
+better than alternatives, and has been thoroughly tested.</p>
 <h3 id="example-uses">Example Uses</h3>
 <p>Several different <a href="https://cran.r-project.org">CRAN</a>
 packages import this package. Among them are the following research-focused
@@ -1048,10 +1051,13 @@ an overly optimistic heuristic for integer or numeric arguments and now behaves 
 epoch offsets are interpreted as seconds for datetime objects, and days for date objects.  The prior behaviour can
 be restored with an option which also be be set globally, see the help page for details.</p>
 <h3 id="installation">Installation</h3>
-<p>The package is now on <a href="https://cran.r-project.org">CRAN</a> and can be installed
-via a standard</p>
+<p>The package is now on <a href="https://cran.r-project.org">CRAN</a> and can be installed via a standard</p>
 <pre><code class="language-r">install.packages(&quot;anytime&quot;)
 </code></pre>
+<p>As the package compiles with <a href="https://www.boost.org">Boost</a> headers, numerous warning messages may
+be shown in <code>-Wall</code> and/or <code>-pedantic</code> mode. It is recommended to add e.g. <code>-Wno-parentheses
+-Wno-nonull</code> (in the case of <code>g++</code>) to the <code>CXXFLAGS</code> in <code>~/.R/Makevars</code>.  These options cannot be
+added to the file <code>src/Makevars</code> here as they are deemed 'non-portable'.</p>
 <h3 id="continued-testing">Continued Testing</h3>
 <p>As we rely on the <a href="https://cran.r-project.org/package=tinytest">tinytest</a> package, the
 already-installed package can also be verified via</p>

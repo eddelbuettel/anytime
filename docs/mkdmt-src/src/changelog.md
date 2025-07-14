@@ -1,5 +1,37 @@
+###  2025 
+
+2025-07-14  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Release 0.3.12 
+ 
+        * README.md: Add note about bogus benchmark comparison 
+ 
+2025-05-27  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * configure: Echo hint about desirable compiler flags 
+ 
+2025-05-25  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * inst/tinytest/test_gh_issue_135.R: Add tests for #135 
+ 
+2025-05-21  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Roll minor version and date 
+ 
+        * R/anytime.R (anytime.default,anydate.default): Tolerate 
+        cornercase of zero-length numeric or integer vector 
+ 
+2025-03-12  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Imports, LinkingTo): Increase versioned depends on 
+        Rcpp to the already three-year old 1.0.8 release 
+ 
 ###  2024 
 
+2024-12-20  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml: Simplify to r-ci with included bootstrap 
+ 
 2024-12-18  Dirk Eddelbuettel  <edd@debian.org> 
  
         * DESCRIPTION (Version, Date): Release 0.3.11 

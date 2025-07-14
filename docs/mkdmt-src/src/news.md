@@ -1,8 +1,18 @@
 <div class="container">
 <div role="main">
+<h3 id="version-0.3.12-2025-07-14">Version 0.3.12 (2025-07-14)</h3>
+<ul>
+<li><p>Continuous integration now uses r-ci action with embedded
+bootstrap</p></li>
+<li><p>The versioned depends on <code>Rcpp</code> now requires 1.0.8 or
+newer to support use of the updated header file structure</p></li>
+<li><p>The corner-case of an empty character vector argument is now
+addressed, new tests have been added (<a
+href="https://github.com/eddelbuettel/anytime/issues/135">#135</a>)</p></li>
+</ul>
 <h3 id="version-0.3.11-2024-12-18">Version 0.3.11 (2024-12-18)</h3>
 <ul>
-<li><p>Skip a test file</p></li>
+<li><p>Skip one test file under another operating system</p></li>
 </ul>
 <h3 id="version-0.3.10-2024-12-02">Version 0.3.10 (2024-12-02)</h3>
 <ul>
