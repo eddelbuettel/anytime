@@ -141,7 +141,11 @@ the `useR` argument for more details.
 
 ### Status
 
-The package should work as expected.
+The package should work and perform as expected.
+
+Do not be mislead by (likely intentionally) dubious benchmark comparisons whose setup issues we have
+mentioned; sadly these have still not been corrected. Rest assured that the is as performant or
+better than alternatives, and has been thoroughly tested.
 
 ### Example Uses
 
@@ -171,12 +175,17 @@ be restored with an option which also be be set globally, see the help page for 
 
 ### Installation
 
-The package is now on [CRAN](https://cran.r-project.org) and can be installed
-via a standard
+The package is now on [CRAN](https://cran.r-project.org) and can be installed via a standard
 
 ```r
 install.packages("anytime")
 ```
+
+As the package compiles with [Boost](https://www.boost.org) headers, numerous warning messages may
+be shown in `-Wall` and/or `-pedantic` mode. It is recommended to add e.g. `-Wno-parentheses
+-Wno-nonull` (in the case of `g++`) to the `CXXFLAGS` in `~/.R/Makevars`.  These options cannot be
+added to the file `src/Makevars` here as they are deemed 'non-portable'.
+
 
 ### Continued Testing
 

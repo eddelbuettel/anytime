@@ -3,9 +3,19 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in anytime version 0.3.12 (2025-07-14)}{
+  \itemize{
+    \item Continuous integration now uses r-ci action with embedded bootstrap
+    \item The versioned depends on \pkg{Rcpp} now requires 1.0.8 or newer to
+    support use of the updated header file structure
+    \item The corner-case of an empty character vector argument is now
+    addressed, new tests have been added (\ghit{135})
+  }
+}
+
 \section{Changes in anytime version 0.3.11 (2024-12-18)}{
   \itemize{
-    \item Skip a test file
+    \item Skip one test file under another operating system
   }
 }
 
