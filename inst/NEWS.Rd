@@ -8,8 +8,8 @@
     \item Continuous integration now uses r-ci action with embedded bootstrap
     \item The versioned depends on \pkg{Rcpp} now requires 1.0.8 or newer to
     support use of the updated header file structure
-    \item The corner-case of an empty character vector argument is now
-    addressed, new tests have been added (\ghit{135})
+    \item The corner-case of an empty (numeric or integer) vector argument is
+    now addressed, new tests have been added (\ghit{135})
   }
 }
 
