@@ -6,8 +6,9 @@ on:
   push:
   pull_request:
 
-env:
-  _R_CHECK_FORCE_SUGGESTS_: "false"
+# not needed with 'install_all' below
+#env:
+#  _R_CHECK_FORCE_SUGGESTS_: "false"
 
 jobs:
   ci:
