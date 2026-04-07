@@ -1,10 +1,5 @@
-\documentclass{article}
-\usepackage{pdfpages}
 %\VignetteIndexEntry{Introduction to anytime}
 %\VignetteKeywords{anytime, date, datetime, conversion}
 %\VignettePackage{anytime}
 %\VignetteEncoding{UTF-8}
-
-\begin{document}
-\includepdf[pages=-, fitpaper=true]{anytime-intro.pdf}
-\end{document}
+%\VignetteEngine{Rcpp::asis}
