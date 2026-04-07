@@ -1,18 +1,27 @@
+@String{CRAN = "https://CRAN.R-Project.org/" }
+@String{manuals = CRAN # "doc/manuals/" }
+@String{RCoreTeam = "{R Core Team}" }
+@String{RFoundation = "R Foundation for Statistical Computing" }
+@String{R-Forge = "https://R-Forge.R-Project.org/" }
+@String{DOI = "10.32614/CRAN.package." }
+
 @Manual{CRAN:BH,
   title =        {BH: Boost C++ Header Files},
   author =       {Dirk Eddelbuettel and John W. Emerson and Michael
                   J. Kane},
-  year =         {2019},
-  note =         {R package version 1.69.0-1},
-  url =          {https://CRAN.R-project.org/package=BH},
+  year =         {2025},
+  note =         {R package version 1.90.0-1},
+  oldurl =	 CRAN # "package=BH",
+  doi =		 DOI # "BH"
 }
 
 @Manual{CRAN:RApiDatetime,
-  title =        {RApiDatetime: R API Datetime},
+  title =        {RApiDatetime: R API for 'Date' and 'Datetime'},
   author =       {Dirk Eddelbuettel and {R Core}},
-  year =         {2018},
-  note =         {R package version 0.0.4},
-  url =          {https://CRAN.R-project.org/package=RApiDatetime},
+  year =         {2026},
+  note =         {R package version 0.0.11},
+  oldurl =       {https://CRAN.R-project.org/package=RApiDatetime},
+  doi =          {10.32614/CRAN.package.RApiDatetime},
 }
 
 @Manual{CRAN:Rcpp,
@@ -20,48 +29,50 @@
   author =	 {Dirk Eddelbuettel and Romain Fran\c{c}ois and JJ
                   Allaire and Kevin Ushey and Qiang Kou and
                   Nathan Russel and John Chambers and Douglas Bates},
-  year =	 2019,
-  note =	 {R package version 1.0.1},
-  url =		 {https://CRAN.R-project.org/CRAN=package=Rcpp}
+  year =	 2026,
+  note =	 {R package version 1.1.1},
+  oldurl =	 CRAN # "package=Rcpp",
+  doi =		 DOI # "Rcpp"
 }
 
 @Manual{CRAN:RcppCCTZ,
-  title =        {{RcppCCTZ}: {Rcpp} Bindings for the {CCTZ}
-                  LibraryRcpp},
-  author =       {Dirk Eddelbuettel},
-  year =         2019,
-  note =         {R package version 0.2.6},
-  url =          {https://CRAN.R-project.org/CRAN=package=RcppCCTZ}
+  title =	 {RcppCCTZ: Rcpp Bindings for the CCTZ Library},
+  author =	 {Dirk Eddelbuettel},
+  year =	 2024,
+  note =	 {R package version 0.2.13},
+  oldurl =	 CRAN # "package=RcppCCTZ",
+  doi =		 DOI # "RcppCCTZ"
 }
 
-
 @Manual{CRAN:fasttime,
-  title =        {fasttime: Fast Utility Function for Time Parsing and Conversion},
+  title =        {fasttime: Fast Utility Function for Time Parsing and
+                  Conversion},
   author =       {Simon Urbanek},
-  year =         {2016},
-  note =         {R package version 1.0.2},
-  url =          {https://CRAN.R-project.org/package=fasttime},
+  year =         {2022},
+  note =         {R package version 1.1-0},
+  oldurl =       {https://CRAN.R-project.org/package=fasttime},
+  doi =          {10.32614/CRAN.package.fasttime},
 }
 
 @Manual{CRAN:lubridate,
   title =        {{lubridate}: Make Dealing with Dates a Little
                   Easier},
   author =       {Vitalie Spinu and Garrett Grolemund and Hadley
-                  Wickham and Ian Lyttle and Imanuel Constigan and
-                  Jason Law and Doug Mitarotonda and Joseph Larmarange
-                  and Jonathan Boiser and Chel Hee Lee},
-  year =         2018,
-  note =         {R package version 1.7.4},
-  url =          {https://CRAN.R-project.org/CRAN=package=lubridate}
+                  Wickham},
+  year =         2026,
+  note =         {R package version 1.9.5},
+  oldurl =       {https://CRAN.R-project.org/package=lubridate},
+  doi =          {10.32614/CRAN.package.lubridate},
 }
 
 @Manual{CRAN:parsedate,
   title =        {parsedate: Recognize and Parse Dates in Various
                   Formats, Including All ISO 8601 Formats},
   author =       {Gábor Csárdi and Linus Torvalds},
-  year =         {2019},
-  note =         {R package version 1.2.0},
-  url =          {https://CRAN.R-project.org/package=parsedate},
+  year =         {2024},
+  note =         {R package version 1.3.2},
+  oldurl =       {https://CRAN.R-project.org/package=parsedate},
+  doi = 	 {10.32614/CRAN.package.parsedate}
 }
 
 @Book{Eddelbuettel:2013,
@@ -79,9 +90,9 @@
                   absolute and civil times using the rules of a time
                   zone}},
   author =       {Bradley White and Greg Miller},
-  year =         2019,
+  year =         2025,
   note =         {GitHub Repository},
-  url =          { https://github.com/google/cctz}
+  url =          {https://github.com/google/cctz}
 }
 
 @Article{JSS:Rcpp,
