@@ -46,6 +46,12 @@
     .pkgenv[["tz"]] <- tz
     setInitialTZ(tz)
 
+    ## -- Tasks two and three are more specific to sub-tasks and will be
+    ##    tackled 'on demand'
+}
+
+.addRStudioState <- function() {
+    ## -- This was once in .onLoad() but we do not need it each time
     ## -- Task two: see if we are inside RStudio, now refined to
     ##    also check if we are behind a minimally viable version
     ##    as the daily builds with around 1.1.129 are safe due to
@@ -57,7 +63,10 @@
                                            ">=", "\"1.1.129\"")))) TRUE else FALSE
 
     .pkgenv[["isRStudio"]] <- isRStudio
+}
 
+.addOsAndVersion <- function() {
+    ## -- This was once in .onLoad() but we do not need it each time
     ## -- Task three: CRAN tests with the two Fedora machines are
     ##    (objectively speaking) untameable (we tried at least three rounds)
     osrel <- "/etc/os-release"
@@ -71,9 +80,12 @@
     } else {
         .pkgenv[["os"]] <- .pkgenv[["version"]] <- ""
     }
-
 }						#nocov end
 
-.isFedora <- function() .pkgenv[["os"]] == "fedora"
-.isDebian <- function() .pkgenv[["os"]] == "debian"
-.isUbuntu <- function() .pkgenv[["os"]] == "ubuntu"
+.isOS <- function(osname) {
+    if (is.na(match("os", names(.pkgenv)))) .addOsAndVersion()
+    .pkgenv[["os"]] == osname
+}
+.isFedora <- function() .isOS("fedora")
+.isDebian <- function() .isOS("debian")
+.isUbuntu <- function() .isOS("ubuntu")

@@ -1,7 +1,7 @@
 
 ## anytime: Use Boost Date_Time to convert date(time) data to POSIXt
 ##
-## Copyright (C) 2015 - 2017  Dirk Eddelbuettel
+## Copyright (C) 2015 - 2026  Dirk Eddelbuettel
 ##
 ## This file is part of anytime.
 ##
@@ -27,5 +27,6 @@ setTZ <- function(tz) {
 }
 
 isRStudio <- function() {
+    if (is.na(match("isRStudio", names(.pkgenv)))) .addRStudioState()
     .pkgenv$isRStudio
 }

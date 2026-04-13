@@ -2,6 +2,9 @@
 
 	* R/init.R (.onLoad): When reading /etc/os-release, use `sort` and
 	`uniq` to protect against double entries (cf Elementary OS version 8)
+	(.addRStudioState, .addOsAndVersion): Add stateful caching layer
+	(.isOS): Use caching layer
+	* R/utils.R (isRStudio): Use statefulness caching layer
 
 2026-04-07  Dirk Eddelbuettel  <edd@debian.org>
 
