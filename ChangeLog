@@ -1,3 +1,8 @@
+2026-04-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/init.R (.onLoad): When reading /etc/os-release, use `sort` and
+	`uniq` to protect against double entries (cf Elementary OS version 8)
+
 2026-04-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/rmd/anytime.bib: Updated references
