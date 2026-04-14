@@ -3,6 +3,16 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/anytime/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/anytime/issues/#1}{##1}}
 
+\section{Changes in anytime version 0.3.13 (2026-04-14)}{
+  \itemize{
+    \item Continuous integration has received minor updates
+    \item The vignette now use the \code{Rcpp::asis()} driver, and references
+    have been refreshed
+    \item Stateful 'where are we running' detection is now more robust, and
+    has been moved from running on each startup to a cached 'as needed' case
+  }
+}
+
 \section{Changes in anytime version 0.3.12 (2025-07-14)}{
   \itemize{
     \item Continuous integration now uses r-ci action with embedded bootstrap

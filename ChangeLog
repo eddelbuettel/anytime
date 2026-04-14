@@ -1,5 +1,7 @@
 2026-04-14  Dirk Eddelbuettel  <edd@debian.org>
 
+        * DESCRIPTION (Version, Date): Release 0.3.13
+
 	* vignettes/rmd/anytime-introduction.Rmd: Update two more Boost URLs
 	* vignettes/anytime-introduction.pdf: Rerendered
 
