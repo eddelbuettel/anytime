@@ -95,7 +95,7 @@ really need a format string? Or could a smart converter function do this for us?
 
 The `anytime()` function aims to provide such a _general purpose_ converter returning a
 proper `POSIXct` (or `Date`) object no matter the input (provided it was parseable),
-relying on [Boost Date_Time](http://www.boost.org/libs/date_time) for the (efficient,
+relying on [Boost Date_Time](https://www.boost.org/libs/date_time) for the (efficient,
 performant) conversion. `anydate()` is an additional wrapper returning a `Date` object
 instead. `utctime()` and `utcdate()` are two variants which interpret input as
 _coordinated universal time_ (UTC), _i.e._ free of any timezone.
@@ -206,7 +206,7 @@ anytime(c("2016-Sep-01 10:11:12",
           "Sep-01-2016 10:11:12"))
 
 ## Datetime: Mixed format
-## (cf http://stackoverflow.com/questions/39259184)
+## (cf https://stackoverflow.com/questions/39259184)
 anytime(c("Thu Sep 01 10:11:12 2016",
           "Thu Sep 01 10:11:12.345678 2016"))
 ```
@@ -229,7 +229,7 @@ anytime(c("2016-01-31 12:13:14",
 
 # Technical Details
 
-The actual parsing and conversion is done by two different [Boost](http://www.boost.org)
+The actual parsing and conversion is done by two different [Boost](https://www.boost.org/)
 libraries.  First, the top-level R function checks the input argument type and branches on
 date or datetime types. All other types get handed to a function using [Boost
 lexical_cast](https://www.boost.org/libs/lexical_cast) to convert from _anything numeric_ to a
@@ -237,9 +237,9 @@ string representation.  This textual representation is then parsed by [Boost
 Date_Time](https://www.boost.org/libs/date_time) to create the corresponding date, or
 datetime, type.  (There are also a number of special cases where numeric values are
 directly converted; see below for a discussion.) We use the
-[\pkg{BH}](http://dirk.eddelbuettel.com/code/bh.html) package \citep{CRAN:BH} to access
+[\pkg{BH}](https://dirk.eddelbuettel.com/code/bh.html) package \citep{CRAN:BH} to access
 these [Boost](https://www.boost.org) libraries, and rely on
-[\pkg{Rcpp}](http://dirk.eddelbuettel.com/code/rcpp.html)
+[\pkg{Rcpp}](https://www.rcpp.org)
 \citep{JSS:Rcpp,Eddelbuettel:2013,CRAN:Rcpp} for a seamless C++ interface to and from
 [R](https://www.r-project.org).
 
@@ -275,7 +275,7 @@ datetime objects in output, _i.e.,_ formatting and printing such objects.
 In the spirit of _no configuration_ used on the parsing side,
 formating support is provided via several functions. These all follow
 different known standards and are accessible by the name of the
-standard, or, in one case, the non-standard convention. All return a 
+standard, or, in one case, the non-standard convention. All return a
 a character representation.
 
 ```{r output_ex}
@@ -348,7 +348,7 @@ knitr::kable(df, "latex", booktabs=TRUE, row.names=FALSE,
              caption="\\label{tab:speed}Comparison of anytime and base R to fasttime")
 ```
 
-## Generality 
+## Generality
 
 The \pkg{parsedate} package \citep{CRAN:parsedate} brings the very general date parsing
 utility from the \textsf{git} version control software to \proglang{R}. In a similar
