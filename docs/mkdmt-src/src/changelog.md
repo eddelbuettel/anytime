@@ -1,5 +1,39 @@
+###  2026 
+
+2026-04-14  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Release 0.3.13 
+ 
+        * vignettes/rmd/anytime-introduction.Rmd: Update two more Boost URLs 
+        * vignettes/anytime-introduction.pdf: Rerendered 
+ 
+2026-04-13  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * R/init.R (.onLoad): When reading /etc/os-release, use `sort` and 
+        `uniq` to protect against double entries (cf Elementary OS version 8) 
+        (.addRStudioState, .addOsAndVersion): Add stateful caching layer 
+        (.isOS): Use caching layer 
+        * R/utils.R (isRStudio): Use statefulness caching layer 
+ 
+2026-04-07  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * vignettes/rmd/anytime.bib: Updated references 
+        * vignettes/anytime-introduction.pdf: Renamed, and rerendered 
+        * vignettes/anytime-introduction.pdf.asis: Switch to 'asis' vignette 
+        builder 
+        * DESCRIPTION (VignetteBuilder): Add 'VignetteBuilder: Rcpp' along 
+        with versioned Imports: on version 1.1.1 or newer 
+ 
+2026-03-27  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml: Add a comment 
+ 
 ###  2025 
 
+2025-11-25  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml: Switch to actions/checkout@v6 
+ 
 2025-07-14  Dirk Eddelbuettel  <edd@debian.org> 
  
         * DESCRIPTION (Version, Date): Release 0.3.12 

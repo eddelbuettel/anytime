@@ -1,5 +1,14 @@
 <div class="container">
 <div role="main">
+<h3 id="version-0.3.13-2026-04-14">Version 0.3.13 (2026-04-14)</h3>
+<ul>
+<li><p>Continuous integration has received minor updates</p></li>
+<li><p>The vignette now use the <code>Rcpp::asis()</code> driver, and
+references have been refreshed</p></li>
+<li><p>Stateful 'where are we running' detection is now more robust, and
+has been moved from running on each startup to a cached 'as needed'
+case</p></li>
+</ul>
 <h3 id="version-0.3.12-2025-07-14">Version 0.3.12 (2025-07-14)</h3>
 <ul>
 <li><p>Continuous integration now uses r-ci action with embedded
