@@ -29,7 +29,7 @@
 ##' A number of fixed formats are tried in succession. These include
 ##' the standard ISO format \sQuote{YYYY-MM-DD HH:MM:SS} as well as
 ##' different local variants including several forms popular in the
-##' United States.  Two-digits years and clearly ambigous formats such
+##' United States.  Two-digit years and clearly ambiguous formats such
 ##' as \sQuote{03/04/05} are ignored.  In the case of parsing failure
 ##' a \code{NA} value is returned.
 ##'
@@ -39,14 +39,14 @@
 ##'
 ##' @section Notes:
 ##' By default, the (internal) conversion to (fractional) seconds since the epoch is
-##' relative to the locatime of this system, and therefore not completely
+##' relative to the local time of this system, and therefore not completely
 ##' independent of the settings of the local system. This is to strike a
 ##' balance between ease of use and functionality.  A more-full featured
 ##' conversion could be possibly be added with support for arbitrary
 ##' reference times, but this is (at least) currently outside the scope of
 ##' this package. See the \pkg{RcppCCTZ} package which offers some
 ##' timezone-shifting and differencing functionality. As of version 0.0.5 one
-##' can also parse relative to UTC avoiding the localtime issue,
+##' can also parse relative to UTC avoiding the local time issue.
 ##'
 ##' Times and timezones can be tricky. This package offers a heuristic approach,
 ##' it is likely that some input formats may not be parsed, or worse, be parsed
@@ -186,7 +186,7 @@
 ##' anytime("2001-02-03 04:05:06")
 ##' ## adjust parsed time to given TZ argument
 ##' anytime("2001-02-03 04:05:06", tz="America/Los_Angeles")
-##' ## somewhat equvalent base R functionality
+##' ## somewhat equivalent base R functionality
 ##' format(anytime("2001-02-03 04:05:06"), tz="America/Los_Angeles")
 anytime <- function(x, tz = getTZ(), asUTC = FALSE,
                     useR = getOption("anytimeUseRConversions", FALSE),
