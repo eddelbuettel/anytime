@@ -10,6 +10,7 @@ GRTAGS
 GTAGS
 local/gh_issue_78.R
 local/vignettes/
+local/docs_original
 vignettes/rmd/anytime-introduction.log
 vignettes/rmd/anytime-introduction.pdf
 vignettes/rmd/anytime-introduction_cache
