@@ -1,0 +1,5 @@
+%\VignetteIndexEntry{Introduction to anytime}
+%\VignetteKeywords{anytime, date, datetime, conversion}
+%\VignettePackage{anytime}
+%\VignetteEncoding{UTF-8}
+%\VignetteEngine{Rcpp::asis}

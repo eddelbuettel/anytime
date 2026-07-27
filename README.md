@@ -1,4 +1,4 @@
-## anytime: Anything to 'POSIXct' or 'Date' Converter
+# anytime: Anything to 'POSIXct' or 'Date' Converter
 
 [![CI](https://github.com/eddelbuettel/anytime/workflows/ci/badge.svg)](https://github.com/eddelbuettel/anytime/actions?query=workflow%3Aci)
 [![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
